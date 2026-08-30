@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Impressum — Carnavarium</title>
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -20,7 +22,7 @@
 .legal-toc ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;counter-reset:toc}
 .legal-toc li{counter-increment:toc;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft)}
 .legal-toc li::before{content:counter(toc,decimal-leading-zero) " ";color:var(--ink-faint)}
-.legal-toc a:hover{color:var(--coral)}
+.legal-toc a:hover{color:var(--pink-text)}
 .legal-content{grid-column:5/-1;max-width:70ch}
 .legal-block{padding-block:0 40px}
 .legal-block h2{font-size:clamp(21px,2vw,27px);font-weight:500;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
@@ -29,10 +31,10 @@
 .legal-block p strong{color:var(--ink);font-weight:600}
 .legal-block address{font-style:normal;font-family:var(--serif);font-size:1.15rem;line-height:1.6;color:var(--ink)}
 .legal-block a{border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent)}
-.legal-block a:hover{color:var(--coral);border-color:var(--coral)}
+.legal-block a:hover{color:var(--pink-text);border-color:var(--pink-text)}
 .fill{background:color-mix(in srgb,var(--mustard) 55%,var(--canvas));padding:1px 6px;border-radius:3px;font-family:var(--mono);font-size:.85em;color:var(--ink);letter-spacing:.02em}
 .notice{border:1px solid var(--rule);background:var(--canvas-soft);padding:20px 22px;border-radius:4px;margin-bottom:32px}
-.notice .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+.notice .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text);margin-bottom:8px}
 .notice p{font-size:.92rem;margin-bottom:0}
 @media(max-width:980px){.legal-toc{display:none}.legal-content{grid-column:1/-1}}
 </style>
@@ -41,8 +43,7 @@
 <nav class="legal-nav">
 <div class="shell row">
 <a class="wordmark" href="index.html">
-<svg viewBox="0 0 60 60" width="36" height="36" aria-label="Carnavarium"><rect x="2" y="6" width="56" height="40" rx="6" fill="#f7f1e1" stroke="#1c1a16" stroke-width="2"></rect><polygon points="14,46 18,56 24,46" fill="#f7f1e1" stroke="#1c1a16" stroke-width="2"></polygon><polygon points="10,24 18,16 18,32" fill="#e8826f" stroke="#1c1a16" stroke-width="1.2"></polygon><polygon points="22,28 30,14 30,32" fill="#e6b558" stroke="#1c1a16" stroke-width="1.2"></polygon><polygon points="34,24 42,16 42,32" fill="#92c5a8" stroke="#1c1a16" stroke-width="1.2"></polygon><circle cx="14" cy="22" r="1.2" fill="#1c1a16"></circle><circle cx="26" cy="20" r="1.2" fill="#1c1a16"></circle><circle cx="38" cy="22" r="1.2" fill="#1c1a16"></circle></svg>
-<span>Carnavarium</span>
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span>
 </a>
 <a class="back" href="index.html">← Zurück zur Startseite</a>
 </div>

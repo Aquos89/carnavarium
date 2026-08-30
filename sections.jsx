@@ -31,8 +31,8 @@ function Nav() {
     <nav className="nav">
       <div className="shell row">
         <a className="wordmark" href="#">
-          <window.LogoGlyph size={36} />
-          <span>Carnavarium</span>
+          <window.LogoMark size={36} />
+          <span>carnavarium</span>
         </a>
         <div className="nav-links">
           <a href="#project">Project</a>
@@ -52,11 +52,6 @@ function Nav() {
 }
 
 function Hero() {
-  const palettes = [
-    ["#e8826f", "#c66758", "#e6b558", "#1c1a16"],
-    ["#7faec5", "#5d8aa3", "#92c5a8", "#1c1a16"],
-    ["#b59cc6", "#8e5a7a", "#e8826f", "#1c1a16"],
-  ];
   return (
     <section className="hero">
       <div className="shell">
@@ -65,11 +60,7 @@ function Hero() {
           Lectura del Bando — The archive opens
         </div>
 
-        <div className="coyongo-stage">
-          <window.Coyongo palette={palettes[0]} scale={1.0} style={{ marginInline: 12 }}/>
-          <window.Coyongo palette={palettes[1]} scale={1.15} style={{ marginInline: 12 }}/>
-          <window.Coyongo palette={palettes[2]} scale={1.0} mirror style={{ marginInline: 12 }}/>
-        </div>
+        <window.LogoAnimation />
 
         <h1 className="hero-headline">
           Where carnival<br/>
@@ -121,7 +112,9 @@ function ProjectSection() {
             </p>
           </div>
           <div className="card">
-            <div className="portrait"></div>
+            <div className="portrait">
+              <img src="images/oscar-aquite.png" alt="Oscar Aquite Peña" />
+            </div>
             <div className="name">Oscar Aquite Peña</div>
             <div className="role">Founder · Digital Humanist</div>
             <p className="blurb">
@@ -392,6 +385,7 @@ function Footer() {
     <footer className="footer">
       <div className="shell footer-grid">
         <div className="brand">
+          <window.LogoMark size={64} className="footer-mark" />
           <div className="big">Carnavarium</div>
           <div className="slogan">"Where carnival world goes digital unfurled."</div>
         </div>

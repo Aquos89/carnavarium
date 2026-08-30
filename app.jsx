@@ -2,17 +2,17 @@
 const { useState, useEffect } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "palette": ["#f1e9d6", "#1c1a16", "#e8826f", "#e6b558", "#92c5a8"],
+  "palette": ["#f1e9d6", "#201f18", "#e85898", "#ffc840", "#70c0a0"],
   "serif": "Roboto Slab",
   "intensity": "balanced",
   "showGrain": true
 }/*EDITMODE-END*/;
 
 const PALETTES = {
-  "Parchment & Coral": ["#f1e9d6", "#1c1a16", "#e8826f", "#e6b558", "#92c5a8"],
-  "Cathedral Glass":   ["#eef0e7", "#1a2333", "#7faec5", "#b59cc6", "#e8826f"],
-  "Plaza de la Paz":   ["#f6efe1", "#2a2218", "#8e5a7a", "#e6b558", "#7faec5"],
-  "Cool Archive":      ["#ecebe6", "#13161c", "#5d8aa3", "#92c5a8", "#e6b558"]
+  "Parchment":  ["#f1e9d6", "#201f18", "#e85898", "#ffc840", "#70c0a0"],
+  "Logo White": ["#f8f8f8", "#201f18", "#e85898", "#f0e830", "#70c0a0"],
+  "Bando":      ["#f6efe1", "#201f18", "#886890", "#ffc840", "#68b030"],
+  "Cool Archive": ["#ececea", "#13161c", "#70c0a0", "#e85898", "#f0e830"]
 };
 
 const SERIFS = ["Roboto Slab", "Zilla Slab", "DM Serif Display", "Bevan"];
@@ -30,9 +30,10 @@ function App() {
     root.setProperty('--canvas-deep', mix(canvas, ink, 0.10));
     root.setProperty('--ink', ink);
     root.setProperty('--ink-soft', mix(ink, canvas, 0.35));
-    root.setProperty('--ink-faint', mix(ink, canvas, 0.55));
+    root.setProperty('--ink-faint', mix(ink, canvas, 0.30));
     root.setProperty('--rule', mix(ink, canvas, 0.15));
     root.setProperty('--coral', coral);
+    root.setProperty('--pink-text', mix(coral, ink, 0.35));
     root.setProperty('--mustard', mustard);
     root.setProperty('--mint', mint);
     root.setProperty('--serif', `"${t.serif}", "Rockwell", Georgia, serif`);
@@ -70,7 +71,7 @@ function App() {
         <window.TweakSelect
           label="Theme"
           value={paletteName}
-          options={["Parchment & Coral", "Cathedral Glass", "Plaza de la Paz", "Cool Archive"]}
+          options={["Parchment", "Logo White", "Bando", "Cool Archive"]}
           onChange={(name) => setTweak('palette', PALETTES[name])}
         />
         <window.TweakSection label="Typography" />
