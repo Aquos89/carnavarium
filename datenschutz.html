@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Datenschutzerklärung — Carnavarium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.legal-nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--canvas) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid transparent;transition:border-color .15s}
+.legal-nav a.back:hover{border-color:var(--ink)}
+.legal-hero{padding-block:clamp(48px,7vw,96px) clamp(28px,4vw,48px)}
+.legal-hero h1{font-size:clamp(34px,6vw,76px);font-weight:600;letter-spacing:-.025em;line-height:.95}
+.legal-hero .sub{font-family:var(--serif);font-size:clamp(17px,1.4vw,21px);line-height:1.5;color:var(--ink-soft);max-width:52ch;margin-top:20px}
+.legal-body{display:grid;grid-template-columns:repeat(12,1fr);gap:36px;padding-bottom:var(--section-gap);border-top:1px solid var(--rule);padding-top:40px}
+.legal-toc{grid-column:1/span 3;position:sticky;top:100px;align-self:start}
+.legal-toc h5{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);font-weight:400;margin:0 0 14px}
+.legal-toc ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px;counter-reset:toc}
+.legal-toc li{counter-increment:toc;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-soft)}
+.legal-toc li::before{content:counter(toc,decimal-leading-zero) " ";color:var(--ink-faint)}
+.legal-toc a:hover{color:var(--coral)}
+.legal-content{grid-column:5/-1;max-width:70ch}
+.legal-block{padding-block:0 40px}
+.legal-block h2{font-size:clamp(21px,2vw,27px);font-weight:500;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.legal-block h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;margin:24px 0 8px}
+.legal-block p{margin-bottom:14px;font-size:1rem;line-height:1.65;color:var(--ink-soft)}
+.legal-block p strong{color:var(--ink);font-weight:600}
+.legal-block ul{margin:0 0 16px;padding-left:20px;display:flex;flex-direction:column;gap:7px;font-size:1rem;line-height:1.6;color:var(--ink-soft)}
+.legal-block ul li::marker{color:var(--ink-faint)}
+.legal-block address{font-style:normal;font-family:var(--serif);font-size:1.15rem;line-height:1.6;color:var(--ink)}
+.legal-block a{border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent)}
+.legal-block a:hover{color:var(--coral);border-color:var(--coral)}
+.notice{border:1px solid var(--rule);background:var(--canvas-soft);padding:20px 22px;border-radius:4px;margin-bottom:32px}
+.notice .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);margin-bottom:8px}
+.notice p{font-size:.92rem;margin-bottom:0}
+.datatable{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.9rem}
+.datatable th{text-align:left;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--rule);vertical-align:bottom}
+.datatable td{padding:12px 14px 12px 0;border-bottom:1px solid color-mix(in srgb,var(--rule) 45%,transparent);color:var(--ink-soft);vertical-align:top;line-height:1.5}
+@media(max-width:980px){.legal-toc{display:none}.legal-content{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html">
+<svg viewBox="0 0 60 60" width="36" height="36" aria-label="Carnavarium"><rect x="2" y="6" width="56" height="40" rx="6" fill="#f7f1e1" stroke="#1c1a16" stroke-width="2"></rect><polygon points="14,46 18,56 24,46" fill="#f7f1e1" stroke="#1c1a16" stroke-width="2"></polygon><polygon points="10,24 18,16 18,32" fill="#e8826f" stroke="#1c1a16" stroke-width="1.2"></polygon><polygon points="22,28 30,14 30,32" fill="#e6b558" stroke="#1c1a16" stroke-width="1.2"></polygon><polygon points="34,24 42,16 42,32" fill="#92c5a8" stroke="#1c1a16" stroke-width="1.2"></polygon><circle cx="14" cy="22" r="1.2" fill="#1c1a16"></circle><circle cx="26" cy="20" r="1.2" fill="#1c1a16"></circle><circle cx="38" cy="22" r="1.2" fill="#1c1a16"></circle></svg>
+<span>Carnavarium</span>
+</a>
+<a class="back" href="index.html">← Zurück zur Startseite</a>
+</div>
+</nav>
+
+<header class="legal-hero">
+<div class="shell">
+<div class="eyebrow" style="margin-bottom:20px">Rechtliche Angaben · DSGVO</div>
+<h1>Datenschutz&shy;erklärung</h1>
+<p class="sub">Informationen über die Verarbeitung personenbezogener Daten beim Besuch der Website carnavarium.com gemäß Art. 13 und 14 Datenschutz-Grundverordnung (DSGVO).</p>
+</div>
+</header>
+
+<main class="shell legal-body">
+<aside class="legal-toc">
+<h5>Inhalt</h5>
+<ol>
+<li><a href="#ueberblick">Überblick</a></li>
+<li><a href="#verantwortlicher">Verantwortlicher</a></li>
+<li><a href="#hosting">Hosting und Serverprotokolle</a></li>
+<li><a href="#fonts">Schriftarten</a></li>
+<li><a href="#speicher">Lokale Speicherung</a></li>
+<li><a href="#kontakt">Kontaktaufnahme</a></li>
+<li><a href="#keine">Was wir nicht tun</a></li>
+<li><a href="#rechte">Ihre Rechte</a></li>
+<li><a href="#beschwerde">Beschwerderecht</a></li>
+<li><a href="#aenderungen">Änderungen</a></li>
+</ol>
+</aside>
+
+<div class="legal-content">
+
+<div class="notice">
+<div class="tag">Kurz gesagt</div>
+<p>Carnavarium setzt <strong>keine Cookies</strong>, verwendet <strong>kein Tracking</strong> und betreibt <strong>keine Analyse-Software</strong>. Es werden keine Nutzerkonten geführt. Personenbezogene Daten fallen nur in Form technisch notwendiger Serverprotokolle beim Hosting-Anbieter sowie beim Abruf der Schriftarten an.</p>
+</div>
+
+<section class="legal-block" id="ueberblick">
+<h2>1. Überblick</h2>
+<p>Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Diese Website ist als statische Website konzipiert: Sie besteht aus vorab erzeugten Dateien und verfügt über keine Datenbank, kein Anmeldesystem und keine serverseitige Verarbeitung von Nutzereingaben.</p>
+<p>Personenbezogene Daten werden daher nur in dem Umfang verarbeitet, der für die technische Bereitstellung der Website erforderlich ist. Im Folgenden erläutern wir, welche Daten dies betreffen kann, auf welcher Rechtsgrundlage die Verarbeitung erfolgt und welche Rechte Ihnen zustehen.</p>
+</section>
+
+<section class="legal-block" id="verantwortlicher">
+<h2>2. Verantwortlicher</h2>
+<p>Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO ist:</p>
+<address>
+Oscar Aquite Peña<br />
+Luitpoldstraße 10<br />
+93047 Regensburg<br />
+Deutschland
+</address>
+<p style="margin-top:16px">E-Mail: <a href="mailto:oscar.aquite-pena@stud.uni-regensburg.de">oscar.aquite-pena@stud.uni-regensburg.de</a></p>
+<p>Ein Datenschutzbeauftragter ist nicht bestellt, da die gesetzlichen Voraussetzungen hierfür nicht vorliegen.</p>
+</section>
+
+<section class="legal-block" id="hosting">
+<h2>3. Hosting und Serverprotokolle</h2>
+<p>Diese Website wird bereitgestellt über <strong>GitHub Pages</strong>, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</p>
+<p>Bei jedem Aufruf der Website werden durch den Hosting-Anbieter automatisch Daten verarbeitet, die Ihr Browser technisch übermittelt:</p>
+<table class="datatable">
+<thead><tr><th>Datenkategorie</th><th>Zweck</th></tr></thead>
+<tbody>
+<tr><td>IP-Adresse</td><td>Auslieferung der Website an Ihr Gerät</td></tr>
+<tr><td>Datum und Uhrzeit des Zugriffs</td><td>Technischer Betrieb, Fehleranalyse</td></tr>
+<tr><td>Abgerufene Datei und übertragene Datenmenge</td><td>Technischer Betrieb</td></tr>
+<tr><td>Browsertyp und Betriebssystem</td><td>Kompatibilität, Fehleranalyse</td></tr>
+<tr><td>Referrer-URL</td><td>Technischer Betrieb</td></tr>
+</tbody>
+</table>
+<h3>Rechtsgrundlage</h3>
+<p>Die Verarbeitung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse). Unser berechtigtes Interesse liegt in der technisch fehlerfreien und sicheren Bereitstellung der Website.</p>
+<h3>Übermittlung in ein Drittland</h3>
+<p>GitHub, Inc. hat seinen Sitz in den Vereinigten Staaten. Es findet daher eine Übermittlung personenbezogener Daten in ein Drittland statt. GitHub ist unter dem <strong>EU-US Data Privacy Framework</strong> zertifiziert, für das die Europäische Kommission mit Beschluss vom 10. Juli 2023 ein angemessenes Datenschutzniveau festgestellt hat. Ergänzend hat GitHub Standarddatenschutzklauseln nach Art. 46 Abs. 2 lit. c DSGVO abgeschlossen.</p>
+<p>Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">docs.github.com — GitHub General Privacy Statement</a>.</p>
+<h3>Domainverwaltung</h3>
+<p>Die Domain carnavarium.com wird verwaltet über die IONOS SE, Elgendorfer Straße 57, 56410 Montabaur, Deutschland. Eine inhaltliche Datenverarbeitung durch IONOS im Rahmen des Website-Abrufs findet nicht statt.</p>
+</section>
+
+<section class="legal-block" id="fonts">
+<h2>4. Schriftarten (Google Fonts)</h2>
+<p>Diese Website verwendet die Schriftarten <em>Roboto Slab</em>, <em>IBM Plex Sans</em> und <em>IBM Plex Mono</em>. Diese werden derzeit beim Seitenaufruf von den Servern <strong>fonts.googleapis.com</strong> und <strong>fonts.gstatic.com</strong> der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, geladen.</p>
+<p>Dabei wird Ihre <strong>IP-Adresse</strong> an Google übermittelt, da Ihr Browser eine direkte Verbindung zu den Google-Servern aufbaut. Eine Übermittlung in die USA an die Google LLC kann dabei nicht ausgeschlossen werden.</p>
+<h3>Rechtsgrundlage</h3>
+<p>Die Einbindung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> zur einheitlichen und barrierearmen typografischen Darstellung der Inhalte.</p>
+<h3>Hinweis</h3>
+<p>Wir weisen ausdrücklich darauf hin, dass die dynamische Einbindung von Google Fonts in der deutschen Rechtsprechung als datenschutzrechtlich problematisch bewertet wurde (vgl. LG München I, Urteil vom 20.01.2022, Az. 3 O 17493/20). Eine <strong>Umstellung auf eine lokale Einbindung der Schriftarten</strong> auf dem eigenen Server ist vorgesehen; nach deren Umsetzung entfällt jede Datenübermittlung an Google.</p>
+<p>Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+</section>
+
+<section class="legal-block" id="speicher">
+<h2>5. Lokale Speicherung im Browser</h2>
+<p>Diese Website setzt <strong>keine Cookies</strong>.</p>
+<p>Für einzelne Anzeigeeinstellungen (etwa gewählte Darstellungsoptionen) kann der <em>Local Storage</em> Ihres Browsers genutzt werden. Diese Daten verbleiben ausschließlich auf Ihrem Gerät, werden nicht an uns oder Dritte übermittelt und enthalten keine personenbezogenen Informationen. Sie können sie jederzeit über die Einstellungen Ihres Browsers löschen.</p>
+</section>
+
+<section class="legal-block" id="kontakt">
+<h2>6. Kontaktaufnahme per E-Mail</h2>
+<p>Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen übermittelten Daten (E-Mail-Adresse, Name, Inhalt der Nachricht) zum Zweck der Bearbeitung Ihres Anliegens verarbeitet.</p>
+<h3>Rechtsgrundlage</h3>
+<p><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der Beantwortung von Anfragen) beziehungsweise <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>, sofern die Anfrage auf einen Vertragsschluss abzielt.</p>
+<h3>Speicherdauer</h3>
+<p>Ihre Anfrage wird gelöscht, sobald sie abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Ein Widerspruch gegen die Speicherung ist jederzeit möglich.</p>
+<p>Bitte beachten Sie, dass die unverschlüsselte Übertragung von E-Mails Sicherheitslücken aufweisen kann. Ein vollständiger Schutz der Daten vor Zugriff durch Dritte ist bei unverschlüsselter Kommunikation nicht möglich.</p>
+</section>
+
+<section class="legal-block" id="keine">
+<h2>7. Was auf dieser Website nicht stattfindet</h2>
+<p>Zur Klarstellung: Auf dieser Website findet <strong>keine</strong> der folgenden Verarbeitungen statt.</p>
+<ul>
+<li>Kein Einsatz von Cookies zu Analyse- oder Marketingzwecken</li>
+<li>Keine Webanalyse (kein Google Analytics, Matomo oder vergleichbare Dienste)</li>
+<li>Kein Tracking und keine Profilbildung</li>
+<li>Keine Social-Media-Plugins oder eingebettete Inhalte Dritter</li>
+<li>Keine Werbenetzwerke</li>
+<li>Keine Nutzerkonten und keine Registrierung</li>
+<li>Keine automatisierte Entscheidungsfindung im Sinne des Art. 22 DSGVO</li>
+<li>Keine Weitergabe oder Verkauf von Daten an Dritte</li>
+</ul>
+</section>
+
+<section class="legal-block" id="rechte">
+<h2>8. Ihre Rechte als betroffene Person</h2>
+<p>Sie haben im Hinblick auf Ihre personenbezogenen Daten folgende Rechte:</p>
+<table class="datatable">
+<thead><tr><th>Recht</th><th>Grundlage</th></tr></thead>
+<tbody>
+<tr><td>Auskunft über die verarbeiteten Daten</td><td>Art. 15 DSGVO</td></tr>
+<tr><td>Berichtigung unrichtiger Daten</td><td>Art. 16 DSGVO</td></tr>
+<tr><td>Löschung Ihrer Daten</td><td>Art. 17 DSGVO</td></tr>
+<tr><td>Einschränkung der Verarbeitung</td><td>Art. 18 DSGVO</td></tr>
+<tr><td>Datenübertragbarkeit</td><td>Art. 20 DSGVO</td></tr>
+<tr><td>Widerspruch gegen die Verarbeitung</td><td>Art. 21 DSGVO</td></tr>
+<tr><td>Widerruf einer Einwilligung</td><td>Art. 7 Abs. 3 DSGVO</td></tr>
+</tbody>
+</table>
+<p>Zur Ausübung dieser Rechte genügt eine Nachricht an <a href="mailto:oscar.aquite-pena@stud.uni-regensburg.de">oscar.aquite-pena@stud.uni-regensburg.de</a>. Die Ausübung ist für Sie kostenfrei.</p>
+</section>
+
+<section class="legal-block" id="beschwerde">
+<h2>9. Beschwerderecht bei der Aufsichtsbehörde</h2>
+<p>Sie haben gemäß Art. 77 DSGVO das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren. Zuständig ist die Aufsichtsbehörde Ihres Wohnsitzes oder die für den Verantwortlichen zuständige Stelle:</p>
+<address>
+Bayerisches Landesamt für Datenschutzaufsicht<br />
+Promenade 18<br />
+91522 Ansbach<br />
+Deutschland
+</address>
+<p style="margin-top:16px"><a href="https://www.lda.bayern.de" target="_blank" rel="noopener">www.lda.bayern.de</a></p>
+</section>
+
+<section class="legal-block" id="aenderungen">
+<h2>10. Änderungen dieser Erklärung</h2>
+<p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen umzusetzen — etwa die geplante lokale Einbindung der Schriftarten oder die künftige Bereitstellung von Archivfunktionen.</p>
+<p>Für Ihren erneuten Besuch gilt dann die jeweils aktuelle Fassung.</p>
+</section>
+
+<section class="legal-block">
+<h2>Stand</h2>
+<p>Diese Datenschutzerklärung wurde zuletzt aktualisiert im <strong>August 2026</strong>. Ergänzend gilt unser <a href="impressum.html">Impressum</a>.</p>
+</section>
+
+</div>
+</main>
+
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5>Sections</h5>
+<ul>
+<li><a href="index.html#project">Project &amp; Me</a></li>
+<li><a href="index.html#carnival">The Carnival</a></li>
+<li><a href="index.html#world">In the World</a></li>
+<li><a href="index.html#archive">Archive</a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Contact</h5>
+<ul>
+<li>oscar.aquite-pena<br />@stud.uni-regensburg.de</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · A Digital Humanities Project</span>
+<span>Universität Regensburg</span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+</body>
+</html>

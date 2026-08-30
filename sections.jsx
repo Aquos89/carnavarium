@@ -45,6 +45,7 @@ function Nav() {
           <a href="#archive">Archive</a>
           <a href="#research">Research</a>
           <a href="#news">News</a>
+          <a href="impressum.html">Impressum</a>
         </div>
         <a className="nav-cta" href="#archive">
           Enter Archive <span>→</span>
@@ -424,7 +425,7 @@ function Footer() {
         <div className="legal">
           <span>© 2026 Carnavarium · A Digital Humanities Project</span>
           <span>Universität Regensburg · Prof. Florian Hauer</span>
-          <span><a href="#">Impressum</a> · <a href="#">Privacy</a></span>
+          <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
         </div>
       </div>
     </footer>
