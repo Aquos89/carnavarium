@@ -1,25 +1,25 @@
-# carnavarium
-Carnavarium is a digital platform dedicated to archiving, researching, and experiencing carnival worldwide. It functions as an archive, journal, and digital laboratory — combining carnival history and theory, documentation of carnival traditions, and Digital Humanities methods such as data analysis and visualization. 
+# Carnavarium
 
+Sitio web del proyecto **Carnavarium** — *"Where carnival world goes digital unfurled."*
+Una plataforma digital para archivar, investigar y experimentar el carnaval.
+
+Universität Regensburg · Master of Arts in Digital Humanities
 Oscar Aquite Peña
 
-## Files
+## Archivos
+- `index.html` — página principal
+- `styles.css` — estilos y tokens de diseño
+- `coyongos.jsx` — logo y aves geométricas (PLACEHOLDER — sustituir por el logo real)
+- `sections.jsx` — secciones de la página
+- `app.jsx` — montaje y panel de ajustes
+- `tweaks-panel.jsx` — controles de ajuste
+- `CNAME` — dominio personalizado para GitHub Pages
 
-* `index.html` — main page
-* `styles.css` — styles and design tokens
-* `coyongos.jsx` — logo and geometric birds (PLACEHOLDER — replace with the real logo)
-* `sections.jsx` — page sections
-* `app.jsx` — application setup and settings panel
-* `tweaks-panel.jsx` — adjustment controls
-* `CNAME` — custom domain for GitHub Pages
+## Publicación
+Alojado con GitHub Pages en https://carnavarium.com
 
-## Deployment
-
-Hosted with GitHub Pages at https://carnavarium.com
-
-## To Do Before Launch
-
-* [ ] Replace the placeholder logo with the real Coyongos SVG
-* [ ] Add Oscar’s portrait and real archive images
-* [ ] Complete the Impressum with actual legal information (required in Germany)
-* [ ] Replace the archive sample content with real material
+## Pendientes antes de lanzar
+- [ ] Sustituir el logo placeholder por el SVG real de los coyongos
+- [ ] Añadir retrato de Oscar e imágenes reales del archivo
+- [ ] Completar el Impressum con datos legales reales (obligatorio en Alemania)
+- [ ] Reemplazar el contenido de ejemplo del archivo por material real
