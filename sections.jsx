@@ -7,11 +7,7 @@ const { useState } = React;
 
 function UtilityBar() {
   const items = [
-    "Open Metadata Available",
-    "Caribbean Digital Scholarship Collective",
-    "Universität Regensburg · Digital Humanities",
-    "Issue 01 — Winter 2025/26",
-    "Submissions Open",
+    "Welcome to Carnavarium! Where carnival world goes digital unfurled.",
   ];
   const loop = [...items, ...items];
   return (
