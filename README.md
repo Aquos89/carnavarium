@@ -8,6 +8,8 @@ Oscar Aquite Peña
 
 ## Archivos
 - `index.html` — página principal
+- `impressum.html` — página del Impressum
+- `datenschutz.html` — página del Datenschutz
 - `styles.css` — estilos y tokens de diseño
 - `coyongos.jsx` — logo y aves geométricas (PLACEHOLDER — sustituir por el logo real)
 - `sections.jsx` — secciones de la página
