@@ -127,7 +127,9 @@ function ProjectSection() {
             <p className="blurb">
               Researcher of carnival cultures and their musical and social
               expressions. Master of Arts, Digital Humanities — Universität
-              Regensburg.
+              Regensburg (Germany). Master of Arts, Ethnomusicology — Universität
+              Würzburg (Germany). Master of Arts, Interdisciplinary Development Studies 
+               — Universidad de los Andes (Bogotá, Colombia).
             </p>
           </div>
         </div>
@@ -414,13 +416,12 @@ function Footer() {
         <div className="col">
           <h5>Contact</h5>
           <ul>
-            <li>oscar.aquite-pena<br/>@stud.uni-regensburg.de</li>
+            <li>oscaraquite.x<br/>@gmail.com</li>
             <li>Luitpoldstrasse 10<br/>93047 Regensburg, DE</li>
           </ul>
         </div>
         <div className="legal">
           <span>© 2026 Carnavarium · A Digital Humanities Project</span>
-          <span>Universität Regensburg · Prof. Florian Hauer</span>
           <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
         </div>
       </div>
