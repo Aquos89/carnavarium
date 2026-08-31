@@ -37,7 +37,7 @@
   --mono: "IBM Plex Mono", "Menlo", monospace;
 
   /* Spacing */
-  --gutter: clamp(20px, 4vw, 48px);
+  --gutter: clamp(24px, 4vw, 48px);
   --section-gap: clamp(64px, 9vw, 140px);
 }
 
@@ -556,7 +556,7 @@ p { margin: 0; text-wrap: pretty; }
   .project .card .portrait { max-width: none; width: 100%; margin-inline: 0; }
   .project .card .portrait { max-width: 100%; }
   .project .card .blurb { font-size: 1rem; line-height: 1.6; }
-  .project .text p { font-size: 1.15rem; max-width: none; }
+  .project .text p { font-size: 1.1rem; max-width: 100%; overflow-wrap: break-word; }
 }
 
 @media (max-width: 620px) {
