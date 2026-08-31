@@ -44,7 +44,11 @@
 /* Reset-ish */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
+/* A wider-than-viewport child makes the page scroll sideways, and a sticky
+   element then centres on the scroll width instead of the screen — which
+   reads as the nav being shifted left. */
 
 body {
   background: var(--canvas);
@@ -115,9 +119,14 @@ p { margin: 0; text-wrap: pretty; }
 /* ----- Main nav ------------------------------------------------------------ */
 .nav {
   position: sticky; top: 32px; z-index: 50;
-  background: color-mix(in srgb, var(--canvas) 92%, transparent);
-  backdrop-filter: blur(10px);
+  background: var(--canvas);
   border-bottom: 1px solid var(--rule);
+}
+@supports (backdrop-filter: blur(10px)) {
+  .nav {
+    background: color-mix(in srgb, var(--canvas) 92%, transparent);
+    backdrop-filter: blur(10px);
+  }
 }
 .nav .row {
   display: grid;
@@ -290,7 +299,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 .project .card .portrait {
   aspect-ratio: 4 / 5;
-  max-width: 300px;
+  width: 100%;
   border: 1px solid var(--rule);
   margin-bottom: 16px;
   position: relative;
@@ -534,6 +543,18 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* ----- Responsive --------------------------------------------------------- */
+@media (max-width: 720px) {
+  /* Marquee bar is decorative — drop it and let the nav own the top edge,
+     opaque so body text can't bleed through behind it. */
+  .utility { display: none; }
+  .nav { top: 0; background: var(--canvas); backdrop-filter: none; }
+  .nav .row { height: 62px; }
+  .project .card { padding: 18px; max-width: none; width: 100%; margin-inline: 0; }
+  .project .card .portrait { max-width: 100%; }
+  .project .card .blurb { font-size: 1rem; line-height: 1.6; }
+  .project .text p { font-size: 1.15rem; max-width: none; }
+}
+
 @media (max-width: 620px) {
   .proclamation { white-space: normal; text-align: left; border-radius: 20px; }
   .proclamation::after { left: 28px; }
@@ -542,9 +563,11 @@ p { margin: 0; text-wrap: pretty; }
 @media (max-width: 980px) {
   .nav-links { display: none; }
   .nav .row { grid-template-columns: auto auto; justify-content: space-between; }
+  .hero-meta { grid-template-columns: 1fr; gap: 18px; }
   .hero-meta .lede, .hero-meta .stats { grid-column: 1 / -1; }
   .project .text, .project .card { grid-column: 1 / -1; }
-  .project .card { max-width: 460px; }
+  .project .card { max-width: 460px; margin-inline: auto; }
+  .project .card .portrait { max-width: 320px; margin-inline: auto; }
   .pillars { grid-template-columns: 1fr; }
   .pillar { border-right: none; border-bottom: 1px solid var(--rule); }
   .world-intro, .world-grid { grid-column: 1 / -1; }
@@ -552,6 +575,6 @@ p { margin: 0; text-wrap: pretty; }
   .feature-article, .article-list { grid-column: 1 / -1; }
   .news { grid-template-columns: 1fr; }
   .footer .brand, .footer .col { grid-column: 1 / -1; }
-  .archive-row { grid-template-columns: 60px 1fr 1fr 30px; }
-  .archive-row .meta:nth-child(4), .archive-row .type-pill { display: none; }
+  .archive-row { grid-template-columns: 58px 1fr 26px; gap: 12px; }
+  .archive-row .meta, .archive-row .type-pill { display: none; }
 }

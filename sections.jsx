@@ -115,7 +115,7 @@ function ProjectSection() {
             <div className="portrait">
               <img src="images/oscar-aquite.png" alt="Oscar Aquite Peña" />
             </div>
-            <div className="name">Oscar Aquite Peña</div>
+            <div className="name">Oscar Aquite</div>
             <div className="role">Founder · Digital Humanist</div>
             <p className="blurb">
               Researcher of carnival cultures and their musical and social
