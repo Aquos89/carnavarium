@@ -123,9 +123,11 @@ p { margin: 0; text-wrap: pretty; }
   border-bottom: 1px solid var(--rule);
 }
 @supports (backdrop-filter: blur(10px)) {
-  .nav {
-    background: color-mix(in srgb, var(--canvas) 92%, transparent);
-    backdrop-filter: blur(10px);
+  @media (min-width: 721px) {
+    .nav {
+      background: color-mix(in srgb, var(--canvas) 92%, transparent);
+      backdrop-filter: blur(10px);
+    }
   }
 }
 .nav .row {
@@ -549,7 +551,9 @@ p { margin: 0; text-wrap: pretty; }
   .utility { display: none; }
   .nav { top: 0; background: var(--canvas); backdrop-filter: none; }
   .nav .row { height: 62px; }
-  .project .card { padding: 18px; max-width: none; width: 100%; margin-inline: 0; }
+  .project .card { padding: 16px; max-width: none; width: 100%; margin-inline: 0; }
+  /* portrait fills the card so both insets equal the card padding */
+  .project .card .portrait { max-width: none; width: 100%; margin-inline: 0; }
   .project .card .portrait { max-width: 100%; }
   .project .card .blurb { font-size: 1rem; line-height: 1.6; }
   .project .text p { font-size: 1.15rem; max-width: none; }
