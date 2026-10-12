@@ -217,6 +217,12 @@ function World() {
             ))}
           </div>
         </div>
+        <a className="special-banner" href="especial-calypso.html">
+          <div className="sb-tag"><b>Especial</b><span>Trinidad y Tobago · 5 capítulos</span></div>
+          <h3>Ruta del calypso</h3>
+          <p>Historia, monarcas, géneros emparentados y rutas de migración del ritmo que narra el carnaval de Puerto España.</p>
+          <span className="sb-cta">Entrar al especial →</span>
+        </a>
       </div>
     </section>
   );

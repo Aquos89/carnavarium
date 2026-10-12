@@ -586,3 +586,12 @@ a.feature-article:hover h3 { color: var(--pink-text); }
   .archive-row { grid-template-columns: 58px 1fr 26px; gap: 12px; }
   .archive-row .meta, .archive-row .type-pill { display: none; }
 }
+
+.special-banner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto;gap:16px 40px;align-items:end;margin-top:clamp(40px,5vw,64px);padding:clamp(28px,3.5vw,48px);background:var(--ink);color:var(--canvas);text-decoration:none;transition:background .2s}
+.special-banner:hover{background:#2a2622;color:var(--canvas)}
+.special-banner .sb-tag{grid-column:1/-1;display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.special-banner .sb-tag b{background:var(--amber);color:var(--ink);padding:5px 10px;font-weight:500}
+.special-banner h3{font-size:clamp(36px,5vw,72px);font-weight:600;letter-spacing:-.03em;line-height:.95}
+.special-banner p{font-family:var(--serif);font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:#d9cfb8;max-width:46ch}
+.special-banner .sb-cta{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--amber);padding-bottom:4px;white-space:nowrap}
+@media(max-width:820px){.special-banner{grid-template-columns:1fr}}
