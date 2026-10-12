@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La música del Carnaval de Barranquilla: patrimonio vivo — Carnavarium</title>
+<meta name="description" content="Un recorrido por la música del Carnaval de Barranquilla: los desfiles, el Festival de Orquestas, la radio y el streaming, las verbenas y los salones burreros." />
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<meta property="og:title" content="La música del Carnaval de Barranquilla: patrimonio vivo" />
+<meta property="og:description" content="Artículo de Óscar Aquite sobre la música carnavalera como patrimonio vivo." />
+<meta property="og:image" content="https://carnavarium.com/images/musica-carnaval.jpg" />
+<meta property="og:type" content="article" />
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid transparent;transition:border-color .15s}
+.legal-nav a.back:hover{border-color:var(--ink)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+
+.art-head{padding-block:clamp(40px,6vw,84px) clamp(24px,3vw,40px)}
+.art-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:20px}
+.art-head h1{font-size:clamp(32px,5.4vw,70px);font-weight:600;letter-spacing:-.022em;line-height:1.02;max-width:19ch}
+.art-deck{font-family:var(--serif);font-size:clamp(18px,1.55vw,23px);line-height:1.5;color:var(--ink-soft);max-width:54ch;margin-top:22px}
+.art-meta{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:30px;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.art-meta .who{color:var(--ink)}
+
+.art-figure{margin:0 0 clamp(36px,5vw,64px)}
+.art-figure img{width:100%;height:clamp(240px,42vw,540px);object-fit:cover;border:1px solid var(--rule)}
+.art-figure figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+
+.art-body{max-width:68ch;margin-inline:auto;padding-bottom:var(--section-gap)}
+.art-body p{font-family:var(--serif);font-size:clamp(17px,1.3vw,19.5px);line-height:1.72;color:var(--ink);margin-bottom:1.15em}
+.art-body>p:first-of-type::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:4.1em;line-height:.82;padding:.05em .09em 0 0;color:var(--pink-text)}
+.art-body h2{font-size:clamp(23px,2.4vw,32px);font-weight:600;line-height:1.16;margin:2.1em 0 .7em;padding-top:1.1em;border-top:1px solid var(--rule);max-width:none}
+.art-body h2 span{display:block;max-width:26ch}
+.art-body em{font-style:italic}
+
+.art-list{list-style:none;padding:0;margin:0 0 1.6em;display:flex;flex-direction:column;gap:0}
+.art-list li{font-family:var(--serif);font-size:clamp(16px,1.2vw,18px);line-height:1.62;color:var(--ink-soft);padding:16px 0 16px 46px;border-top:1px solid color-mix(in srgb,var(--rule) 45%,transparent);position:relative;counter-increment:al}
+.art-list li:last-child{border-bottom:1px solid color-mix(in srgb,var(--rule) 45%,transparent)}
+.art-list li::before{content:counter(al,decimal-leading-zero);position:absolute;left:0;top:18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--ink-faint)}
+.art-list li b{color:var(--ink);font-weight:600}
+.art-list{counter-reset:al}
+
+.year-table{width:100%;border-collapse:collapse;margin:0 0 1.8em;font-size:.94rem}
+.year-table th{text-align:left;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--rule)}
+.year-table td{padding:11px 14px 11px 0;border-bottom:1px solid color-mix(in srgb,var(--rule) 40%,transparent);vertical-align:top;line-height:1.45}
+.year-table .yr{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);white-space:nowrap;width:1%}
+.year-table .song{font-family:var(--serif);font-size:1.02rem;color:var(--ink)}
+.year-table .song span{display:block;font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);margin-top:2px}
+.year-table tr:last-child td{border-bottom:none}
+
+.pull{margin:2.2em 0;padding:26px 0;border-block:1px solid var(--rule)}
+.pull p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,27px);line-height:1.34;color:var(--ink);margin:0;text-wrap:balance}
+
+.art-end{margin-top:2.6em;padding-top:26px;border-top:1px solid var(--rule)}
+.art-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.art-end p{font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink-soft);margin:0}
+.art-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;transition:background .15s}
+.art-back:hover{background:var(--canvas-soft)}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<a class="back" href="index.html#research">← Research &amp; Creation</a>
+</div>
+</nav>
+
+<header class="shell art-head">
+<div class="art-kicker">Research &amp; Creation · Artículo</div>
+<h1>La música del Carnaval de Barranquilla: patrimonio vivo</h1>
+<p class="art-deck">Cumbias, papayeras, Congos de Oro, verbenas y picós. Un recorrido por los circuitos donde suena el Carnaval de Barranquilla, y por las formas en que esa música se sostiene, se disputa y se renueva.</p>
+<div class="art-meta">
+<span class="who">Óscar Aquite</span>
+<span>Artículo · 2020</span>
+<span>13 min de lectura</span>
+<span>Español</span>
+</div>
+</header>
+
+<div class="shell">
+<figure class="art-figure">
+<img src="images/musica-carnaval.jpg" alt="Músicos y comparsas durante el Carnaval de Barranquilla" />
+<figcaption>Carnaval de Barranquilla — música en la calle durante los desfiles</figcaption>
+</figure>
+</div>
+
+<main class="shell art-body">
+
+<p>Todo barranquillero sabe que el carnaval se acerca cuando se aproxima el fin de cada año. Esto no se debe únicamente a las comparsas que desde tan apresuradas fechas alistan y practican incansablemente sus coreografías en las calles, plazas, parques y salones comunales de la ciudad, sino también por el sinnúmero de canciones navideñas que en esta ciudad se confunden fácilmente con aquellas que resuenan durante las carnestolendas.</p>
+
+<p>Sin embargo, existe una canción en particular que anualmente nos lo recuerda muy bien: <em>Las cuatro fiestas</em> del maestro Adolfo Echeverría, popularizada por la voz de Nury Borrás. Esta canción habla precisamente de aquellas fechas que, sin excepción, todos los que habitamos en Barranquilla debemos celebrar y que son el día de las velitas, la navidad, el año nuevo y, finalmente, las fiestas de carnaval. A su manera, esta canción nos da a entender que la música es un vehículo que nos traza una ruta de vida cíclica de lo que es verdaderamente importante para los barranquilleros con relación a su ciudad y que su punto de llegada siempre será el mismo: el Carnaval de Barranquilla.</p>
+
+<p>El carnaval, orgullo de todos los barranquilleros, es una fiesta de inagotable creatividad. Su música es parte esencial de la identidad de quienes nacimos y crecimos en la ciudad y por esta razón los locales defienden a capa y espada cada una de las expresiones musicales que cobran vida durante el jolgorio. En particular, la música carnavalera es consecuencia de múltiples intercambios entre la ciudad, la región, el país y la cuenca del Caribe. El resultado de este intercambio es un amplísimo número de géneros musicales. Ritmos diversos como la cumbia, el merecumbé, la salsa, la champeta y el reggaeton son considerados infaltables durante el carnaval. La música carnavalera tiene, a su vez, muchos espacios de desarrollo y divulgación durante estas fiestas.</p>
+
+<h2><span>Los desfiles: explosión de música, danza y disfraces</span></h2>
+
+<p>A lo largo de los cuatro días de carnaval, así como durante el periodo de precarnavales, la música, la danza y los disfraces son elementos protagonistas e interrelacionados, consecuencia de una mezcla de manifestaciones culturales de diferentes procedencias geográficas y étnicas. Cada desfile es un universo en el que se perciben comparsas de todo tipo; algunas sorprenden con disfraces, danzas y músicas innovadoras, otras se aferran a la tradición y bailan ritmos musicales locales con sus respectivos atuendos y movimientos. Este último es el caso de la danza del Garabato, cuyos bailarines —con disfraces multicolores— se enfrentan a la escuálida y soberbia Muerte al son de chandés, o el de las Marimondas que —con movimientos jocosos y burlones— se estremecen a ritmo de fandangos.</p>
+
+<p>El Garabato y las Marimondas son dos de las danzas más representativas del carnaval, sin embargo muchos son los esfuerzos por posicionar en el imaginario colectivo bailes igualmente patrimoniales pero no tan populares como son las danzas de los Coyongos o del Paloteo, cuyas músicas incluyen tambores, cajas vallenatas, redoblantes y, además, acordeones.</p>
+
+<p>En los desfiles, los formatos musicales son variopintos y los músicos se las deben ingeniar para acompañar a las comparsas en su recorrido a lo largo de interminables tramos a temperaturas que pueden llegar a los 40 grados centígrados. Algunos de los formatos más representativos son:</p>
+
+<ol class="art-list">
+<li><b>Los grupos de millos o de gaitas</b>, que interpretan ritmos como las cumbias, bullerengues o mapalés, con instrumentos de percusión como tamboras, tambores alegres y llamadores, maracas, guaches y flautas (cañas de millo, clarinetes o gaitas).</li>
+<li><b>Las papayeras o bandas</b> de instrumentos de viento (clarinetes, trompetas, trombones, bombardinos) y percusión (redoblantes, bombos, platillos), que tocan géneros como porros y fandangos.</li>
+<li><b>Las parrandas vallenatas</b>, con sus cajas, guacharacas y acordeones, que hacen sonar cada uno de los diferentes aires vallenatos.</li>
+</ol>
+
+<h2><span>El Festival de Orquestas y el prestigio de ganar un Congo de Oro</span></h2>
+
+<p>Al tercer día de carnaval y desde el año 1969, la concentración del público asistente a este gran evento se centra en el Festival de Orquestas. Artistas individuales y agrupaciones de diferentes géneros musicales y nacionalidades compiten desde la tarde de ese día hasta la madrugada del día siguiente por ganar el Congo de Oro, máximo galardón entregado a los mejores exponentes de la música regional durante las carnestolendas. Para dar su veredicto, los jurados tienen en cuenta criterios como la afinación y el acoplamiento musical, la orquestación y la creatividad, la originalidad, la técnica y ejecución instrumental, la actuación e interpretación vocal, la puesta en escena, el manejo del escenario y la aceptación del público. Actualmente existen ocho categorías:</p>
+
+<ol class="art-list">
+<li><b>Tropical:</b> entregado a agrupaciones que interpretan géneros típicos del Caribe y del Carnaval como la cumbia, la chalupa o el merecumbé en formatos orquestales populares.</li>
+<li><b>Vallenato:</b> procedente del eje musical del Caribe oriental, posee cuatro aires tradicionales: el son, el paseo, el merengue y la puya.</li>
+<li><b>Salsa:</b> hace referencia a todos los géneros y subgéneros musicales de origen afroantillano como el son cubano, el son montuno, la pachanga, la bomba y la plena boricuas, el mambo, el jazz latino y todas sus fusiones.</li>
+<li><b>Merengue:</b> de origen dominicano y popularizado en Barranquilla desde mediados del siglo XX.</li>
+<li><b>Música urbana:</b> aquí entran expresiones musicales como la champeta, el reggaeton, el hip hop y el dancehall, entre otros.</li>
+<li><b>«Rescate a lo nuestro»:</b> lo reciben las agrupaciones que interpretan ritmos musicales del Caribe colombiano en su estado más tradicional.</li>
+<li><b>Mejor intérprete.</b></li>
+<li><b>Mejor instrumentista.</b></li>
+</ol>
+
+<p>El Festival de Orquestas es un reflejo de la internacionalización del carnaval. No es de sorprender que la primera orquesta ganadora de un Congo de Oro durante el Festival de Orquestas fue la famosa Billo's Caracas Boys, procedente de Venezuela, siendo su director el dominicano Luis María «Billo» Frómeta. Desde su creación han participado músicos y orquestas de Colombia, Cuba, Estados Unidos, Puerto Rico, República Dominicana y Venezuela, por nombrar algunos países. El mayor ganador hasta el momento es el cartagenero Joe Arroyo, con diez Congos de Oro.</p>
+
+<h2><span>De la radio al YouTube</span></h2>
+
+<div class="pull"><p>«Yo te amé con gran delirio, con pasión desenfrenada…»</p></div>
+
+<p>Con estas palabras empieza <em>Te olvidé</em>, chandé compuesto por el maestro Antonio María Peñaloza Cervantes, considerado por muchos como el «Himno del Carnaval de Barranquilla» desde su primera reproducción en 1954. La canción fue grabada por la Sonora Curro y su popularidad en Barranquilla, después de 66 años, se debe en gran medida a la radio y su gran labor de difusión. Difícilmente podemos ignorar la contribución y el impacto que este medio de comunicación ha tenido en lo que respecta a la música carnavalera. Canciones como <em>La Guacherna</em>, escrita por la barranquillera Esthercita Forero y vuelta famosa por la dominicana Milly Quezada en su versión merenguera, han sido intensamente reproducidas vía radio, lo que ha sido determinante para que el desfile de Guacherna —celebrado el viernes anterior a la semana en la que empieza el carnaval y aludido en la canción— se haya mantenido en el tiempo desde principios del siglo XX y se muestre como una de las principales actividades de precarnaval como parte de la agenda oficial desde 1972.</p>
+
+<p>Hoy en día, gracias a los avances tecnológicos y los nuevos canales de difusión, vemos que artistas y agrupaciones intentan promocionar sus proyectos musicales no solo en la radio, sino en espacios como YouTube o Spotify. Su objetivo es siempre el mismo: lograr posicionar su canción como «La canción del Carnaval», apropiada y solicitada enérgicamente por el público carnavalero. Lo anterior representa grandes sumas de dinero, no solo por las regalías por reproducción que los músicos acumulan a través de estos nuevos portales y aplicaciones gracias al número de clics que realizan los aficionados a sus canciones, sino por su muy posible participación en fiestas de carácter privado o público durante el carnaval, como lo es el Festival de Orquestas, lo que significa a su vez un factor de prestigio. El siguiente es un listado de aquellas canciones apodadas desde el 2007 como «la Canción del Carnaval»:</p>
+
+<table class="year-table">
+<thead><tr><th>Año</th><th>Canción</th></tr></thead>
+<tbody>
+<tr><td class="yr">2007</td><td class="song">«Borracha», de Pipe Peláez<span>Vallenato</span></td></tr>
+<tr><td class="yr">2008</td><td class="song">«Ta' buena», de Tulile<span>Merengue</span></td></tr>
+<tr><td class="yr">2009</td><td class="song">«El Ñato mama ron», de Noel Petro<span>Terapia</span></td></tr>
+<tr><td class="yr">2010</td><td class="song">«El Celular», de Temible Zaa &amp; El Yao<span>Champeta</span></td></tr>
+<tr><td class="yr">2011</td><td class="song">«El burro intelectual», de Juan Samuel<span>Merengue</span></td></tr>
+<tr><td class="yr">2012</td><td class="song">«Ai se eu te pego», de Michel Teló<span>MPB</span></td></tr>
+<tr><td class="yr">2013</td><td class="song">«La Llave», de Cortijo y su combo<span>Salsa</span></td></tr>
+<tr><td class="yr">2014</td><td class="song">«El Serrucho», de Mr. Black<span>Champeta</span></td></tr>
+<tr><td class="yr">2015</td><td class="song">«La Espelucá», de Twister El Rey y Mr. Steve<span>Champeta</span></td></tr>
+<tr><td class="yr">2016</td><td class="song">«Materialista», de Silvestre Dangond y Nicky Jam<span>Vallenato</span></td></tr>
+<tr><td class="yr">2017</td><td class="song">«Mpemba» (o «Pemba Laka»), de Hugo Soares<span>Kuduro</span></td></tr>
+<tr><td class="yr">2018</td><td class="song">«Ay, mami ya pa qué», de Rey Three Latino<span>Champeta</span></td></tr>
+<tr><td class="yr">2019</td><td class="song">«Volvió Juanita», cantada por Milly Quezada<span>Merengue</span></td></tr>
+<tr><td class="yr">2020</td><td class="song">En disputa<span>«Tusa» de Karol G con Nicki Minaj · «Las Sailor Moon» de Yuranis León · «Icha» de Syran Mbenza con Diblo y Lokassa Ya Mbongo, también llamado El Sebastián por la comunidad champetera y popularizado por Shakira en el Super Bowl</span></td></tr>
+</tbody>
+</table>
+
+<p>Del mismo modo, ya es normal que la Reina del Carnaval escogida para el año inmediatamente posterior lance su propia canción y video musical a través de las distintas redes sociales con la esperanza de convertirse en la «soberana» más recordada y querida por todos los barranquilleros. Para este año la canción de Isabella Chams Vega, Reina del Carnaval 2020, se llama <em>Pa' que lo viva la gente</em> y en ella participan músicos como Fausto Chatella, Adriana Lucía, Bazurto All Stars, Karen Lizarazo y Caliope.</p>
+
+<h2><span>Fiestas de salón, salones burreros, verbenas y tiendas esquineras</span></h2>
+
+<p>Es cierto cuando se dice que el Carnaval de Barranquilla involucra a toda la ciudad. Además de los desfiles y el ya nombrado Festival de Orquestas, los barranquilleros no desperdician ningún espacio para manifestar su amor por esta celebración. Las casas son decoradas con motivos carnavaleros y en ellas las familias y los amigos se reúnen antes de cada desfile para disfrazarse en conjunto y planear la manera cómo se transportarán al lugar a donde se dirigirán para disfrutar las diferentes paradas que se organizan durante estos cuatro días. Todo esto con el claro acompañamiento de música carnavalera. Las tiendas de barrio —usualmente las esquineras— aprovechan el entusiasmo de la gente para ofrecer sus productos y por eso contratan ensambles musicales que amenizan el encuentro de amigos y familiares, quienes han decidido hacer paradas en estos establecimientos debido a que generalmente la única manera de movilizarse durante estas épocas es a pie.</p>
+
+<p>Para los que cuentan con más recursos, los clubes privados realizan fiestas de salón, en donde regularmente se pueden escuchar géneros musicales de antaño como las cumbias y merecumbés en formato big band de maestros de la talla de Lucho Bermúdez y Pacho Galán. Por otro lado y como contraparte a las fiestas de salón, se busca rescatar la tradición de los salones burreros, espacios semicerrados de entrada gratuita en donde la gente dejaba amarradas a sus mulas o burros fuera del recinto mientras adentro la música estallaba. Es de destacar la intención de Daniela Cepeda Tarud, Reina del Carnaval 2013, por recuperar los salones burreros y por ello hizo de su «sede de gobierno» un salón burrero abierto para todos los apasionados al carnaval.</p>
+
+<p>Por último están las verbenas y las casetas, que son espacios al aire libre en donde la gente se reúne con la intención de bailar, comer y recrearse con las diferentes actividades que se organizan allí. Es de aclarar que cada verbena o caseta busca ofrecer algo original o diferente con respecto a las otras. Este factor diferencial puede ser por supuesto el tipo de música que se presenta. Hoy en día encontramos verbenas como La Carnavalada, frente a la Casa Moréu en el barrio Santa Ana, que hace muestras de teatro con música de fondo, o La Puntica (no más), que va dirigida a públicos jóvenes con gustos mucho más contemporáneos, en donde se fusionan géneros tradicionales con la electrónica y se abrazan formatos como el picó (o pick up) con los que se tocan champetas o dancehalls a través de monumentales aparatos de sonido.</p>
+
+<h2><span>Música de carnaval para todos y para siempre</span></h2>
+
+<p>Desde su declaratoria por la Unesco como Obra Maestra del Patrimonio Oral e Intangible de la Humanidad en 2003, hacedores del carnaval y diferentes administraciones distritales han intentado buscar las estrategias para sostener en el tiempo cada uno de los elementos que subyacen al Carnaval de Barranquilla, incluyendo su música. Por esta razón, encontramos proyectos como El Carnaval Internacional de las Artes, realizado semanas antes de que empiece la fiesta. En cada una de sus versiones se convoca a músicos carnavaleros quienes exponen su trayectoria y futuro artístico a través de conversatorios y conciertos. De esta manera una parte importante de los barranquilleros se prepara para los nuevos horizontes estéticos que proponen los diferentes músicos carnavaleros.</p>
+
+<p>Por otro lado se han levantado museos como El Museo del Caribe y el recién inaugurado Museo del Carnaval, en los que se invita a la gente a entender con propuestas interactivas y herramientas tecnológicas cada uno de los aspectos principales de estas fiestas, incluyendo la música carnavalera. En la actualidad se proyecta construir la Caseta del Carnaval, un novedoso espacio enmarcado en el Área de Desarrollo Naranja (ADN) que emulará un verdadero carnaval y en el que los visitantes podrán disfrutar y reconocer cada uno de los disfraces, danzas y géneros musicales los 365 días del año.</p>
+
+<p>Como se puede observar, la música del Carnaval de Barranquilla es grande no solo por lo que ya reúne sino por lo que puede surgir, fruto de su dinamismo y la flexibilidad que la caracteriza y que se alimenta por los diferentes intercambios culturales, canales de divulgación y estrategias políticas que intermedian y definen su futuro. No obstante, de todo lo expuesto podemos decir que algo es claro y que nunca cambiará. La música del Carnaval determina el gusto sonoro de los barranquilleros a lo largo del año, sin importar la época o la coyuntura sociopolítica de la ciudad. Es un periodo que musicalmente empieza en diciembre y que termina con la muerte de Joselito, personaje ficticio que fallece el martes, último día de carnaval. Esa música que impactará todos y cada uno de los eventos locales del año, como los partidos de la Selección Colombia que ya por tradición se celebran en Barranquilla, o incluso BarranquiJazz, festival de jazz de la ciudad que se realiza anualmente en septiembre. Un gusto que se renueva cuando las comparsas desempolvan sus vestidos para ensayar sus movimientos, y, al mismo tiempo, preparan los faroles que junto a la luna de Barranquilla acompañarán el día de las velitas.</p>
+
+<div class="art-end">
+<div class="lbl">Sobre el autor</div>
+<p><strong>Óscar Aquite</strong> es magíster en Estudios sobre Desarrollo y músico con énfasis en Producción de Audio de la Universidad de los Andes. Actualmente cursa el Master of Arts in Digital Humanities en la Universität Regensburg y es el fundador de Carnavarium.</p>
+<a class="art-back" href="index.html#research">← Volver a Research &amp; Creation</a>
+</div>
+
+</main>
+
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5>Sections</h5>
+<ul>
+<li><a href="index.html#project">Project &amp; Me</a></li>
+<li><a href="index.html#carnival">The Carnival</a></li>
+<li><a href="index.html#world">In the World</a></li>
+<li><a href="index.html#archive">Archive</a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Contact</h5>
+<ul>
+<li>oscaraquite.x@gmail.com</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · A Digital Humanities Project</span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+</body>
+</html>
