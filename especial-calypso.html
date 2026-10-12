@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-lang="es">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,6 +10,7 @@
 <meta property="og:title" content="Ruta del calypso — Especial Carnavarium" />
 <meta property="og:description" content="Historia, características musicales y referencias artísticas del calypso." />
 <meta property="og:type" content="article" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var n=(navigator.language||"en").slice(0,2),l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:L.indexOf(n)>-1?n:"en";document.documentElement.lang=l;document.documentElement.dataset.lang=l})();</script>
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -46,7 +47,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 @media(max-width:720px){.prose{margin-left:0}}
 .prose p{font-family:var(--serif);font-size:clamp(17px,1.3vw,19.5px);line-height:1.72;margin-bottom:1.15em;text-wrap:pretty}
 .prose strong{font-weight:600}
-.drop>p:first-child::first-letter{float:left;font-weight:600;font-size:4.1em;line-height:.82;padding:.05em .09em 0 0;color:var(--pink-text)}
+html[data-lang="es"] .drop>p[data-l="es"]:first-of-type::first-letter,html[data-lang="en"] .drop>p[data-l="en"]:first-of-type::first-letter,html[data-lang="de"] .drop>p[data-l="de"]:first-of-type::first-letter{float:left;font-weight:600;font-size:4.1em;line-height:.82;padding:.05em .09em 0 0;color:var(--pink-text)}
 .media{margin:clamp(28px,3vw,44px) 0 0 144px}
 @media(max-width:720px){.media{margin-left:0}}
 .media .cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
@@ -69,6 +70,14 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .sp-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
 .sp-end p{font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink-soft);max-width:68ch}
 .sp-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;transition:background .15s}
+[data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--rule);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer;min-width:40px}
+.lang-sw button:hover{color:var(--ink)}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+.nav-right{display:flex;align-items:center;gap:20px}
+@media(max-width:560px){.legal-nav a.back{display:none}}
+html[data-lang="en"] .voice .es{display:none}
 .sp-back:hover{background:var(--canvas-soft);color:var(--ink)}
 </style>
 </head>
@@ -76,44 +85,55 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <nav class="legal-nav">
 <div class="shell row">
 <a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-right">
 <a class="back" href="index.html#world">← Carnival in the World</a>
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
 </div>
 </nav>
 
 <header class="shell sp-head">
 <div>
-<div class="sp-badge"><b>Especial</b><span>Carnival in the World · Trinidad y Tobago</span></div>
-<h1>Ruta del calypso</h1>
+<div class="sp-badge"><b><span data-l="es">Especial</span><span data-l="en">Special</span><span data-l="de">Spezial</span></b><span>Carnival in the World · <span data-l="es">Trinidad y Tobago</span><span data-l="en">Trinidad &amp; Tobago</span><span data-l="de">Trinidad und Tobago</span></span></div>
+<h1><span data-l="es">Ruta del calypso</span><span data-l="en">The Calypso Route</span><span data-l="de">Die Route des Calypso</span></h1>
 </div>
-<p class="sp-deck">Un repaso por la historia, las características musicales y las referencias artísticas del calypso, y por sus aportes a la construcción del imaginario caribeño, desde su época dorada (1920–1930) hasta hoy.</p>
+<p data-l="es" class="sp-deck">Un repaso por la historia, las características musicales y las referencias artísticas del calypso, y por sus aportes a la construcción del imaginario caribeño, desde su época dorada (1920–1930) hasta hoy.</p>
+<p data-l="en" class="sp-deck">A journey through the history, musical features and artistic references of calypso, and its contribution to the Caribbean imagination, from its golden age (1920–1930) to the present day.</p>
+<p data-l="de" class="sp-deck">Ein Streifzug durch Geschichte, musikalische Merkmale und künstlerische Bezüge des Calypso und seinen Beitrag zum karibischen Selbstverständnis – vom goldenen Zeitalter (1920–1930) bis heute.</p>
 <div class="sp-meta">
 <span class="who">Óscar Aquite</span>
-<span>14 de marzo de 2021</span>
-<span>5 capítulos</span>
-<span>Español</span>
+<span><span data-l="es">14 de marzo de 2021</span><span data-l="en">14 March 2021</span><span data-l="de">14. März 2021</span></span>
+<span><span data-l="es">5 capítulos</span><span data-l="en">5 chapters</span><span data-l="de">5 Kapitel</span></span>
+<span><span data-l="es">Español</span><span data-l="en">English</span><span data-l="de">Deutsch</span></span>
 </div>
 </header>
 
 <div class="shell">
 <figure class="sp-hero">
 <div class="sp-hero-slot"><image-slot id="calypso-hero" shape="rect" placeholder="Arrastra aquí la foto principal del calypso"></image-slot></div>
-<figcaption>Ruta del calypso — publicado originalmente en Ruta Caribe</figcaption>
+<figcaption><span data-l="es">Ruta del calypso — publicado originalmente en Ruta Caribe</span><span data-l="en">The Calypso Route — originally published on Ruta Caribe</span><span data-l="de">Die Route des Calypso — ursprünglich erschienen auf Ruta Caribe</span></figcaption>
 </figure>
 
-<nav class="sp-index" aria-label="Capítulos">
-<a href="#ritmo"><span class="n">01</span><span class="t">Un ritmo, un universo</span></a>
-<a href="#monarca"><span class="n">02</span><span class="t">El monarca del calypso</span></a>
-<a href="#generos"><span class="n">03</span><span class="t">Géneros emparentados e influencias</span></a>
-<a href="#rutas"><span class="n">04</span><span class="t">Rutas de migración</span></a>
-<a href="#escuche"><span class="n">05</span><span class="t">Escuche a los calypsonianos</span></a>
+<nav class="sp-index" aria-label="Index">
+<a href="#ritmo"><span class="n">01</span><span class="t"><span data-l="es">Un ritmo, un universo</span><span data-l="en">One rhythm, one universe</span><span data-l="de">Ein Rhythmus, ein Universum</span></span></a>
+<a href="#monarca"><span class="n">02</span><span class="t"><span data-l="es">El monarca del calypso</span><span data-l="en">The Calypso Monarch</span><span data-l="de">Der Calypso-Monarch</span></span></a>
+<a href="#generos"><span class="n">03</span><span class="t"><span data-l="es">Géneros emparentados e influencias</span><span data-l="en">Related genres and influences</span><span data-l="de">Verwandte Genres und Einflüsse</span></span></a>
+<a href="#rutas"><span class="n">04</span><span class="t"><span data-l="es">Rutas de migración</span><span data-l="en">Migration routes</span><span data-l="de">Migrationsrouten</span></span></a>
+<a href="#escuche"><span class="n">05</span><span class="t"><span data-l="es">Escuche a los calypsonianos</span><span data-l="en">Listen to the calypsonians</span><span data-l="de">Hören Sie die Calypsonians</span></span></a>
 </nav>
 
 <section class="ch" id="ritmo">
-<div class="ch-head"><span class="n">Cap. 01</span><h2>Un ritmo, un universo</h2></div>
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 01</span><span data-l="en">Ch. 01</span><span data-l="de">Kap. 01</span></span><h2><span data-l="es">Un ritmo, un universo</span><span data-l="en">One rhythm, one universe</span><span data-l="de">Ein Rhythmus, ein Universum</span></h2></div>
 <div class="prose drop">
-<p>El <strong>calypso</strong> es un estilo de <strong>música afrocaribeña</strong> que se originó en Trinidad y Tobago entre principios del siglo XVIII y mediados del siglo XIX y se extendió al resto de las Antillas y territorios de la <strong>Cuenca del Caribe</strong>.</p>
-<p>Este género musical ha acompañado y narrado gran parte de la historia social y política de Trinidad y Tobago. Es por esto que al calypso se le considera <strong>música nacional</strong> en este país insular junto a la música de los tambores metálicos.</p>
-<p>Su ritmo jocoso y bailable ha hecho que el calypso se consolide como el género musical por excelencia de los carnavales de Puerto España, capital de Trinidad y Tobago, donde cada año desde 1939 se escoge al <strong><em>Calypso Monarch</em></strong> (Monarca del Calypso), es decir el <strong>calypsoniano</strong> (músico de calypso) que mejor interprete sus canciones inéditas.</p>
+<p data-l="es">El <strong>calypso</strong> es un estilo de <strong>música afrocaribeña</strong> que se originó en Trinidad y Tobago entre principios del siglo XVIII y mediados del siglo XIX y se extendió al resto de las Antillas y territorios de la <strong>Cuenca del Caribe</strong>.</p>
+<p data-l="en"><strong>Calypso</strong> is a style of <strong>Afro-Caribbean music</strong> that originated in Trinidad and Tobago between the early 18th and mid-19th centuries and spread to the rest of the Antilles and the territories of the <strong>Caribbean Basin</strong>.</p>
+<p data-l="de"><strong>Calypso</strong> ist ein Stil <strong>afrokaribischer Musik</strong>, der zwischen dem frühen 18. und der Mitte des 19. Jahrhunderts in Trinidad und Tobago entstand und sich über die übrigen Antillen und die Gebiete des <strong>Karibischen Beckens</strong> verbreitete.</p>
+<p data-l="es">Este género musical ha acompañado y narrado gran parte de la historia social y política de Trinidad y Tobago. Es por esto que al calypso se le considera <strong>música nacional</strong> en este país insular junto a la música de los tambores metálicos.</p>
+<p data-l="en">This genre has accompanied and narrated much of the social and political history of Trinidad and Tobago. That is why calypso is regarded as the island nation’s <strong>national music</strong>, alongside steelpan music.</p>
+<p data-l="de">Dieses Genre hat einen großen Teil der sozialen und politischen Geschichte Trinidads und Tobagos begleitet und erzählt. Deshalb gilt Calypso – neben der Musik der Steelpans – als <strong>Nationalmusik</strong> des Inselstaates.</p>
+<p data-l="es">Su ritmo jocoso y bailable ha hecho que el calypso se consolide como el género musical por excelencia de los carnavales de Puerto España, capital de Trinidad y Tobago, donde cada año desde 1939 se escoge al <strong><em>Calypso Monarch</em></strong> (Monarca del Calypso), es decir el <strong>calypsoniano</strong> (músico de calypso) que mejor interprete sus canciones inéditas.</p>
+<p data-l="en">Its playful, danceable rhythm has made calypso the defining genre of carnival in Port of Spain, the capital of Trinidad and Tobago, where every year since 1939 the <strong><em>Calypso Monarch</em></strong> is chosen: the <strong>calypsonian</strong> (calypso musician) who best performs their own new songs.</p>
+<p data-l="de">Sein humorvoller, tanzbarer Rhythmus hat Calypso zum Genre schlechthin des Karnevals von Port of Spain, der Hauptstadt Trinidads und Tobagos, gemacht. Dort wird seit 1939 jedes Jahr der <strong><em>Calypso Monarch</em></strong> gekürt – der <strong>Calypsonian</strong> (Calypso-Musiker), der seine unveröffentlichten Lieder am besten vorträgt.</p>
 </div>
 <div class="media">
 <div class="frame video"><iframe src="https://www.youtube-nocookie.com/embed/d1UsZ4LJ3kw" title="Calypso — video" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
@@ -121,63 +141,73 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </section>
 
 <section class="ch" id="monarca">
-<div class="ch-head"><span class="n">Cap. 02</span><h2>El monarca del calypso</h2></div>
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 02</span><span data-l="en">Ch. 02</span><span data-l="de">Kap. 02</span></span><h2><span data-l="es">El monarca del calypso</span><span data-l="en">The Calypso Monarch</span><span data-l="de">Der Calypso-Monarch</span></h2></div>
 <div class="prose">
-<p>El concurso <em>Calypso Monarch</em> (originalmente <em>Calypso King</em>) es el principal concurso de calypso que se lleva a cabo en Trinidad como parte de las celebraciones anuales del carnaval. Se celebró por primera vez en 1939, con <em>Growling Tiger</em> como ganador con la canción «Trade Union».</p>
-<p>Es un espacio que tradicionalmente los calypsonianos han usado para exponer su descontento frente a temas diversos, y curiosamente fue boicoteado en 1957 por Mighty Sparrow (Monarca del Calypso en 1956, 1960, 1962, 1963, 1972, 1973 y 1974) y otros calypsonianos, quienes consideraron que los premios que recibían los ganadores eran injustos. Por esta razón, Sparrow compuso el calypso «<a href="https://youtu.be/r36gJAcgUDs" target="_blank" rel="noopener">Carnival Boycott</a>».</p>
-<p>Como dato interesante, no fue hasta 1978 que se «coronó» a la primera mujer: Calypso Rose, quien participó con dos calypsos, «I Thank Thee» y «Her Majesty». El concurso no se ha realizado en tres momentos: durante la Segunda Guerra Mundial (1942–1945), en 1950 y en 2021, este último por la pandemia del coronavirus.</p>
+<p data-l="es">El concurso <em>Calypso Monarch</em> (originalmente <em>Calypso King</em>) es el principal concurso de calypso que se lleva a cabo en Trinidad como parte de las celebraciones anuales del carnaval. Se celebró por primera vez en 1939, con <em>Growling Tiger</em> como ganador con la canción «Trade Union».</p>
+<p data-l="en">The <em>Calypso Monarch</em> competition (originally <em>Calypso King</em>) is the main calypso contest held in Trinidad as part of the annual carnival celebrations. It was first held in 1939, won by <em>Growling Tiger</em> with the song “Trade Union”.</p>
+<p data-l="de">Der Wettbewerb <em>Calypso Monarch</em> (ursprünglich <em>Calypso King</em>) ist der wichtigste Calypso-Wettbewerb in Trinidad und Teil der jährlichen Karnevalsfeiern. Er fand erstmals 1939 statt; Sieger war <em>Growling Tiger</em> mit dem Lied „Trade Union“.</p>
+<p data-l="es">Es un espacio que tradicionalmente los calypsonianos han usado para exponer su descontento frente a temas diversos, y curiosamente fue boicoteado en 1957 por Mighty Sparrow (Monarca del Calypso en 1956, 1960, 1962, 1963, 1972, 1973 y 1974) y otros calypsonianos, quienes consideraron que los premios que recibían los ganadores eran injustos. Por esta razón, Sparrow compuso el calypso «<a href="https://youtu.be/r36gJAcgUDs" target="_blank" rel="noopener">Carnival Boycott</a>».</p>
+<p data-l="en">Calypsonians have traditionally used it as a stage to voice their discontent on all kinds of issues. Curiously, it was boycotted in 1957 by Mighty Sparrow (Calypso Monarch in 1956, 1960, 1962, 1963, 1972, 1973 and 1974) and other calypsonians, who considered the winners’ prizes unfair. Sparrow wrote the calypso “<a href="https://youtu.be/r36gJAcgUDs" target="_blank" rel="noopener">Carnival Boycott</a>” in response.</p>
+<p data-l="de">Calypsonians nutzen ihn traditionell als Bühne, um ihren Unmut über verschiedenste Themen zu äußern. Kurioserweise wurde er 1957 von Mighty Sparrow (Calypso Monarch 1956, 1960, 1962, 1963, 1972, 1973 und 1974) und anderen Calypsonians boykottiert, weil sie die Preise für die Gewinner als ungerecht empfanden. Daraufhin komponierte Sparrow den Calypso „<a href="https://youtu.be/r36gJAcgUDs" target="_blank" rel="noopener">Carnival Boycott</a>“.</p>
+<p data-l="es">Como dato interesante, no fue hasta 1978 que se «coronó» a la primera mujer: Calypso Rose, quien participó con dos calypsos, «I Thank Thee» y «Her Majesty». El concurso no se ha realizado en tres momentos: durante la Segunda Guerra Mundial (1942–1945), en 1950 y en 2021, este último por la pandemia del coronavirus.</p>
+<p data-l="en">Interestingly, the first woman was not “crowned” until 1978: Calypso Rose, who competed with two calypsos, “I Thank Thee” and “Her Majesty”. The competition has been cancelled three times: during the Second World War (1942–1945), in 1950, and in 2021 because of the coronavirus pandemic.</p>
+<p data-l="de">Interessanterweise wurde erst 1978 die erste Frau „gekrönt“: Calypso Rose, die mit zwei Calypsos antrat, „I Thank Thee“ und „Her Majesty“. Dreimal fiel der Wettbewerb aus: während des Zweiten Weltkriegs (1942–1945), 1950 und 2021 wegen der Coronapandemie.</p>
 </div>
 <div class="media">
 <div class="listen">
-<span class="lbl">Escuche</span>
-<span class="t">Mighty Sparrow explica por qué boicoteó el Calypso Monarch (1957)</span>
+<span class="lbl"><span data-l="es">Escuche</span><span data-l="en">Listen</span><span data-l="de">Hören</span></span>
+<span class="t"><span data-l="es">Mighty Sparrow explica por qué boicoteó el Calypso Monarch (1957)</span><span data-l="en">Mighty Sparrow explains why he boycotted the Calypso Monarch (1957)</span><span data-l="de">Mighty Sparrow erklärt, warum er den Calypso Monarch boykottierte (1957)</span></span>
 <audio controls preload="none" src="https://facartes.uniandes.edu.co/medios/musica/proyectos/sparrow.mp3"></audio>
 </div>
 </div>
 </section>
 </div>
 
-<section class="voices" aria-label="Voces del monarca">
+<section class="voices" aria-label="Voices">
 <div class="shell">
-<div class="lbl">Voces del monarca · lo que cantan los calypsos</div>
+<div class="lbl"><span data-l="es">Voces del monarca · lo que cantan los calypsos</span><span data-l="en">Voices of the monarchs · what calypsos sing about</span><span data-l="de">Stimmen der Monarchen · wovon Calypsos singen</span></div>
 <div class="voices-grid">
-<figure class="voice"><blockquote>«If a man has money today, people don't care if he has 'kokobe'…»</blockquote><p class="es">«Si un hombre tiene dinero hoy, a la gente no le importa si tiene delitos…»</p><cite>“Money Is King” — Growling Tiger · primer Monarca, 1939</cite></figure>
-<figure class="voice"><blockquote>«If you tell them that the economy is no longer in full bloom, then you become a prophet of doom and gloom.»</blockquote><p class="es">«Si les dices que la economía ya no está en plena floración, te conviertes en un profeta de la fatalidad.»</p><cite>“Prophet of Doom” — Mighty Sparrow</cite></figure>
-<figure class="voice"><blockquote>«When there is anguish in Port au Prince, it's still Africa crying.»</blockquote><p class="es">«Cuando hay angustia en Puerto Príncipe, África sigue llorando.»</p><cite>“Haiti” — David Rudder</cite></figure>
-<figure class="voice"><blockquote>«I write the songs that champion the poor man's cause…»</blockquote><p class="es">«Escribo las canciones que defienden la causa del pobre…»</p><cite>“Respect the Calypsonian” — Gypsy</cite></figure>
-<figure class="voice"><blockquote>«One accused in sexual harassment. Up to now the police can't get statement.»</blockquote><p class="es">«Un señalado de acoso sexual. Hasta ahora, la policía no tiene ninguna declaración.»</p><cite>“Obeah” — Terry Lyons · Monarca 2020</cite></figure>
+<figure class="voice"><blockquote>«If a man has money today, people don't care if he has 'kokobe'…»</blockquote><p class="es"><span data-l="es">«Si un hombre tiene dinero hoy, a la gente no le importa si tiene delitos…»</span><span data-l="de">„Hat ein Mann heute Geld, kümmert es niemanden, ob er Verbrechen begangen hat …“</span></p><cite><span data-l="es">“Money Is King” — Growling Tiger · primer Monarca, 1939</span><span data-l="en">“Money Is King” — Growling Tiger · first Monarch, 1939</span><span data-l="de">“Money Is King” — Growling Tiger · erster Monarch, 1939</span></cite></figure>
+<figure class="voice"><blockquote>«If you tell them that the economy is no longer in full bloom, then you become a prophet of doom and gloom.»</blockquote><p class="es"><span data-l="es">«Si les dices que la economía ya no está en plena floración, te conviertes en un profeta de la fatalidad.»</span><span data-l="de">„Sagst du ihnen, dass die Wirtschaft nicht mehr blüht, wirst du zum Unheilspropheten.“</span></p><cite>“Prophet of Doom” — Mighty Sparrow</cite></figure>
+<figure class="voice"><blockquote>«When there is anguish in Port au Prince, it's still Africa crying.»</blockquote><p class="es"><span data-l="es">«Cuando hay angustia en Puerto Príncipe, África sigue llorando.»</span><span data-l="de">„Herrscht Angst in Port-au-Prince, dann weint immer noch Afrika.“</span></p><cite>“Haiti” — David Rudder</cite></figure>
+<figure class="voice"><blockquote>«I write the songs that champion the poor man's cause…»</blockquote><p class="es"><span data-l="es">«Escribo las canciones que defienden la causa del pobre…»</span><span data-l="de">„Ich schreibe die Lieder, die für die Sache der Armen eintreten …“</span></p><cite>“Respect the Calypsonian” — Gypsy</cite></figure>
+<figure class="voice"><blockquote>«One accused in sexual harassment. Up to now the police can't get statement.»</blockquote><p class="es"><span data-l="es">«Un señalado de acoso sexual. Hasta ahora, la policía no tiene ninguna declaración.»</span><span data-l="de">„Einer wird der sexuellen Belästigung beschuldigt. Bis heute hat die Polizei keine Aussage.“</span></p><cite><span data-l="es">“Obeah” — Terry Lyons · Monarca 2020</span><span data-l="en">“Obeah” — Terry Lyons · Monarch 2020</span><span data-l="de">“Obeah” — Terry Lyons · Monarch 2020</span></cite></figure>
 </div>
 </div>
 </section>
 
 <div class="shell">
 <section class="ch" id="generos">
-<div class="ch-head"><span class="n">Cap. 03</span><h2>Géneros emparentados e influencias</h2></div>
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 03</span><span data-l="en">Ch. 03</span><span data-l="de">Kap. 03</span></span><h2><span data-l="es">Géneros emparentados e influencias</span><span data-l="en">Related genres and influences</span><span data-l="de">Verwandte Genres und Einflüsse</span></h2></div>
 <div class="prose">
-<p>El calypso está relacionado con una gran variedad de géneros musicales. Algunos fueron influencias, como el <em>big band swing</em> o el carisso/kaiso; otros fueron consecuencia de los aportes del calypso, como el <strong>chutney</strong> y el <strong>rapso</strong>.</p>
+<p data-l="es">El calypso está relacionado con una gran variedad de géneros musicales. Algunos fueron influencias, como el <em>big band swing</em> o el carisso/kaiso; otros fueron consecuencia de los aportes del calypso, como el <strong>chutney</strong> y el <strong>rapso</strong>.</p>
+<p data-l="en">Calypso is related to a wide variety of musical genres. Some were influences, such as <em>big band swing</em> or carisso/kaiso; others grew out of calypso’s own contributions, such as <strong>chutney</strong> and <strong>rapso</strong>.</p>
+<p data-l="de">Calypso ist mit einer Vielzahl musikalischer Genres verwandt. Einige waren Einflüsse, etwa <em>Big-Band-Swing</em> oder Carisso/Kaiso; andere gingen aus dem Calypso selbst hervor, wie <strong>Chutney</strong> und <strong>Rapso</strong>.</p>
 </div>
 <div class="media">
 <div class="frame"><div class="flourish-embed flourish-hierarchy" data-src="visualisation/5599513"></div></div>
-<div class="cap">Visualización interactiva — familia de géneros del calypso · <a href="https://public.flourish.studio/visualisation/5599513/" target="_blank" rel="noopener">Abrir en pestaña nueva ↗</a></div>
+<div class="cap"><span data-l="es">Visualización interactiva — familia de géneros del calypso</span><span data-l="en">Interactive visualisation — the calypso family of genres</span><span data-l="de">Interaktive Visualisierung — die Genrefamilie des Calypso</span> · <a href="https://public.flourish.studio/visualisation/5599513/" target="_blank" rel="noopener"><span data-l="es">Abrir en pestaña nueva ↗</span><span data-l="en">Open in new tab ↗</span><span data-l="de">In neuem Tab öffnen ↗</span></a></div>
 </div>
 </section>
 
 <section class="ch" id="rutas">
-<div class="ch-head"><span class="n">Cap. 04</span><h2>Rutas de migración del calypso</h2></div>
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 04</span><span data-l="en">Ch. 04</span><span data-l="de">Kap. 04</span></span><h2><span data-l="es">Rutas de migración del calypso</span><span data-l="en">Calypso migration routes</span><span data-l="de">Migrationsrouten des Calypso</span></h2></div>
 <div class="prose">
-<p>La <strong>era dorada</strong> del calypso, entre 1920 y 1930, popularizó el género a lo largo y ancho de la Cuenca del Caribe, llegando a lugares alejados de Trinidad como Nicaragua y Costa Rica. El género adoptó matices y dinámicas particulares en cada lugar al que llegó.</p>
+<p data-l="es">La <strong>era dorada</strong> del calypso, entre 1920 y 1930, popularizó el género a lo largo y ancho de la Cuenca del Caribe, llegando a lugares alejados de Trinidad como Nicaragua y Costa Rica. El género adoptó matices y dinámicas particulares en cada lugar al que llegó.</p>
+<p data-l="en">Calypso’s <strong>golden age</strong>, between 1920 and 1930, spread the genre across the Caribbean Basin, reaching places far from Trinidad such as Nicaragua and Costa Rica. Wherever it arrived, it took on its own nuances and dynamics.</p>
+<p data-l="de">Das <strong>goldene Zeitalter</strong> des Calypso zwischen 1920 und 1930 machte das Genre im gesamten Karibischen Becken populär – bis in von Trinidad weit entfernte Orte wie Nicaragua und Costa Rica. Überall, wo es ankam, nahm es eigene Nuancen und Dynamiken an.</p>
 </div>
 <div class="media">
-<div class="frame"><iframe src="https://uploads.knightlab.com/storymapjs/f65cd9e34352cf6b746494a06a0769d0/calypso/index.html" title="Mapa narrativo: rutas del calypso" height="720" loading="lazy"></iframe></div>
-<div class="cap">Mapa narrativo — recorra las paradas del calypso por el Caribe · <a href="https://uploads.knightlab.com/storymapjs/f65cd9e34352cf6b746494a06a0769d0/calypso/index.html" target="_blank" rel="noopener">Abrir en pestaña nueva ↗</a></div>
+<div class="frame"><iframe src="https://uploads.knightlab.com/storymapjs/f65cd9e34352cf6b746494a06a0769d0/calypso/index.html" title="StoryMap: calypso routes" height="720" loading="lazy"></iframe></div>
+<div class="cap"><span data-l="es">Mapa narrativo — recorra las paradas del calypso por el Caribe</span><span data-l="en">Story map — follow calypso’s stops across the Caribbean</span><span data-l="de">Story-Map — folgen Sie den Stationen des Calypso durch die Karibik</span> · <a href="https://uploads.knightlab.com/storymapjs/f65cd9e34352cf6b746494a06a0769d0/calypso/index.html" target="_blank" rel="noopener"><span data-l="es">Abrir en pestaña nueva ↗</span><span data-l="en">Open in new tab ↗</span><span data-l="de">In neuem Tab öffnen ↗</span></a></div>
 </div>
 </section>
 
 <section class="ch" id="escuche">
-<div class="ch-head"><span class="n">Cap. 05</span><h2>Escuche a los calypsonianos</h2></div>
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 05</span><span data-l="en">Ch. 05</span><span data-l="de">Kap. 05</span></span><h2><span data-l="es">Escuche a los calypsonianos</span><span data-l="en">Listen to the calypsonians</span><span data-l="de">Hören Sie die Calypsonians</span></h2></div>
 <div class="media" style="margin-top:0">
 <div class="frame"><div class="flourish-embed flourish-cards" data-src="visualisation/5599368"></div></div>
-<div class="cap">Fichas de artistas — discografías en Spotify / YouTube · <a href="https://public.flourish.studio/visualisation/5599368/" target="_blank" rel="noopener">Abrir en pestaña nueva ↗</a></div>
+<div class="cap"><span data-l="es">Fichas de artistas — discografías en Spotify / YouTube</span><span data-l="en">Artist cards — discographies on Spotify / YouTube</span><span data-l="de">Künstlerkarten — Diskografien auf Spotify / YouTube</span> · <a href="https://public.flourish.studio/visualisation/5599368/" target="_blank" rel="noopener"><span data-l="es">Abrir en pestaña nueva ↗</span><span data-l="en">Open in new tab ↗</span><span data-l="de">In neuem Tab öffnen ↗</span></a></div>
 </div>
 <div class="media">
 <div class="vgrid">
@@ -193,9 +223,11 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </section>
 
 <div class="sp-end">
-<div class="lbl">Sobre el especial</div>
-<p>Publicado originalmente en el blog <em>Ruta Caribe</em> (2021) y adaptado para Carnavarium. <strong>Óscar Aquite</strong> es músico, productor de audio y magíster en Estudios sobre Desarrollo; cursa el Master of Arts in Digital Humanities en la Universität Regensburg y es el fundador de Carnavarium.</p>
-<a class="sp-back" href="index.html#world">← Volver a Carnival in the World</a>
+<div class="lbl"><span data-l="es">Sobre el especial</span><span data-l="en">About this special</span><span data-l="de">Über dieses Spezial</span></div>
+<p data-l="es">Publicado originalmente en el blog <em>Ruta Caribe</em> (2021) y adaptado para Carnavarium. <strong>Óscar Aquite</strong> es músico, productor de audio y magíster en Estudios sobre Desarrollo; cursa el Master of Arts in Digital Humanities en la Universität Regensburg y es el fundador de Carnavarium.</p>
+<p data-l="en">Originally published on the blog <em>Ruta Caribe</em> (2021) and adapted for Carnavarium. <strong>Óscar Aquite</strong> is a musician and audio producer with a master’s degree in Development Studies; he is studying for the Master of Arts in Digital Humanities at the Universität Regensburg and is the founder of Carnavarium.</p>
+<p data-l="de">Ursprünglich im Blog <em>Ruta Caribe</em> (2021) erschienen und für Carnavarium bearbeitet. <strong>Óscar Aquite</strong> ist Musiker, Audioproduzent und Master in Entwicklungsstudien; er studiert im Master of Arts Digital Humanities an der Universität Regensburg und ist Gründer von Carnavarium.</p>
+<a class="sp-back" href="index.html#world"><span data-l="es">← Volver a Carnival in the World</span><span data-l="en">← Back to Carnival in the World</span><span data-l="de">← Zurück zu Carnival in the World</span></a>
 </div>
 </div>
 
@@ -235,6 +267,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </div>
 </div>
 </footer>
+<script>(function(){var T={es:"Ruta del calypso — Especial · Carnavarium",en:"The Calypso Route — Special · Carnavarium",de:"Die Route des Calypso — Spezial · Carnavarium"};function set(l,save){var d=document.documentElement;d.lang=l;d.dataset.lang=l;document.title=T[l];document.querySelectorAll(".lang-sw button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.set===l)});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}document.querySelectorAll(".lang-sw button").forEach(function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});set(document.documentElement.dataset.lang,false)})();</script>
 <script src="image-slot.js"></script>
 <script src="https://public.flourish.studio/resources/embed.js"></script>
 </body>
