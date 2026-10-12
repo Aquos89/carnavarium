@@ -38,12 +38,12 @@ function Nav() {
           <a href="#project">Project</a>
           <a href="#carnival">The Carnival</a>
           <a href="#world">In the World</a>
-          <a href="#archive">Archive</a>
+          <a href="archive.html">Archive</a>
           <a href="#research">Research</a>
           <a href="#news">News</a>
           <a href="impressum.html">Impressum</a>
         </div>
-        <a className="nav-cta" href="#archive">
+        <a className="nav-cta" href="archive.html">
           Enter Archive <span>→</span>
         </a>
       </div>
@@ -242,7 +242,7 @@ function Archive() {
         <div className="sec-head">
           <div className="num">§ 04</div>
           <h2 className="title">Archive</h2>
-          <a href="#" className="more">Browse all 1,248 items →</a>
+          <a href="archive.html" className="more">Ver todo el archivo →</a>
         </div>
         <div className="archive">
           <div className="archive-filters">
@@ -317,21 +317,23 @@ function Research() {
           <a href="#" className="more">All issues →</a>
         </div>
         <div className="editorial">
-          <article className="feature-article">
-            <div className="img"></div>
-            <div className="kicker">Feature · Long Read</div>
-            <h3>Geometries of Excess: Reading the Coyongos as Stained Glass</h3>
+          <a className="feature-article" href="ensayo-musica-carnaval.html">
+            <div className="img">
+              <img src="images/musica-carnaval.jpg" alt="Música durante el Carnaval de Barranquilla" />
+            </div>
+            <div className="kicker">Feature · Long Read · ES</div>
+            <h3>La música del Carnaval de Barranquilla: patrimonio vivo</h3>
             <p className="deck">
-              The danza de los Coyongos in Barranquilla shares a visual grammar
-              with the cathedral that watches over its proclamation — colour
-              blocks, partitioned light, geometric bodies in slow rotation.
+              Cumbias, papayeras, Congos de Oro, verbenas y picós. Un recorrido
+              por los circuitos donde suena el Carnaval de Barranquilla, y por
+              las formas en que esa música se sostiene, se disputa y se renueva.
             </p>
-            <div className="byline">By Oscar Aquite Peña · 14 min read · Issue 01</div>
-          </article>
+            <div className="byline">Por Óscar Aquite · 13 min de lectura · Issue 01</div>
+          </a>
 
           <div className="article-list">
             {[
-              { kicker: "Essay", title: "The Mask Before the Face: a phenomenology of carnival's first hours", byline: "M. Hauer · Issue 01" },
+              { kicker: "Artículo · ES", title: "La música del Carnaval de Barranquilla: patrimonio vivo", byline: "Óscar Aquite · Issue 01", href: "ensayo-musica-carnaval.html" },
               { kicker: "Data Story", title: "Mapping 200 years of Mardi Gras parades from city archives", byline: "K. Devereaux · Issue 01" },
               { kicker: "Field Notes", title: "On listening to a steelband from inside the engine room", byline: "T. Ramcharan · Issue 01" },
               { kicker: "Visualization", title: "A network of carnival's borrowed costumes (1900 — 2020)", byline: "Carnavarium Lab · Issue 01" },
@@ -339,7 +341,7 @@ function Research() {
             ].map((a, i) => (
               <article className="article-item" key={i}>
                 <div className="kicker">{a.kicker}</div>
-                <h4>{a.title}</h4>
+                <h4>{a.href ? <a href={a.href}>{a.title}</a> : a.title}</h4>
                 <div className="byline">{a.byline}</div>
               </article>
             ))}
@@ -395,7 +397,7 @@ function Footer() {
             <li><a href="#project">Project &amp; Me</a></li>
             <li><a href="#carnival">The Carnival</a></li>
             <li><a href="#world">In the World</a></li>
-            <li><a href="#archive">Archive</a></li>
+            <li><a href="archive.html">Archive</a></li>
           </ul>
         </div>
         <div className="col">
