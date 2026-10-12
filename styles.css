@@ -459,21 +459,23 @@ p { margin: 0; text-wrap: pretty; }
   grid-template-columns: repeat(12, 1fr);
   gap: 32px;
 }
-.feature-article { grid-column: 1 / span 7; }
+.feature-article { grid-column: 1 / span 7; display: block; }
 .feature-article .img {
   aspect-ratio: 16 / 10;
-  background:
-    repeating-linear-gradient(45deg, color-mix(in srgb, var(--coral) 25%, var(--canvas-soft)) 0 8px, var(--canvas-soft) 8px 16px);
   border: 1px solid var(--rule);
   margin-bottom: 24px;
   position: relative;
+  overflow: hidden;
+  background: var(--canvas-soft);
 }
-.feature-article .img::after {
-  content: "FEATURED IMAGE — DOC PHOTOGRAPHY";
-  position: absolute; inset: auto 16px 16px auto;
-  font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; color: var(--ink-soft);
-  background: var(--canvas); padding: 4px 8px;
+.feature-article .img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 0.84, 0.3, 1);
 }
+a.feature-article:hover .img img { transform: scale(1.025); }
+a.feature-article h3 { transition: color 0.15s; }
+a.feature-article:hover h3 { color: var(--pink-text); }
 .feature-article .kicker { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink-text); margin-bottom: 12px; }
 .feature-article h3 { font-size: clamp(28px, 3vw, 42px); margin-bottom: 14px; }
 .feature-article .deck { font-family: var(--serif); font-size: 1.15rem; line-height: 1.5; color: var(--ink-soft); margin-bottom: 18px; }
@@ -487,6 +489,8 @@ p { margin: 0; text-wrap: pretty; }
 .article-item:last-child { border-bottom: 1px solid var(--rule); }
 .article-item .kicker { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
 .article-item h4 { font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; font-weight: 500; margin-bottom: 8px; }
+.article-item h4 a { transition: color 0.15s; }
+.article-item h4 a:hover { color: var(--pink-text); }
 .article-item .byline { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
 
 /* ----- News strip --------------------------------------------------------- */
