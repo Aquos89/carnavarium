@@ -53,26 +53,62 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .ch-head h2{font-size:clamp(30px,4vw,54px);font-weight:600;letter-spacing:-.02em;line-height:1.04}
 @media(max-width:720px){.ch-head{grid-template-columns:1fr;gap:10px}}
 .prose{max-width:66ch;margin-left:144px}
-@media(max-width:720px){.prose{margin-left:0}}
-.prose p{font-family:var(--serif);font-size:clamp(17px,1.3vw,19.5px);line-height:1.72;margin-bottom:1.15em;text-wrap:pretty}
+@media(max-width:720px){.prose{margin-left:0}.prose p{font-size:16px;line-height:1.75}}
+.prose p{font-family:var(--serif);font-size:17px;line-height:1.85;margin-bottom:1.15em;text-wrap:pretty}
 .prose strong{font-weight:600}
 html[data-lang="es"] .drop>p[data-l="es"]:first-of-type::first-letter,html[data-lang="en"] .drop>p[data-l="en"]:first-of-type::first-letter,html[data-lang="de"] .drop>p[data-l="de"]:first-of-type::first-letter{float:left;font-weight:600;font-size:4.1em;line-height:.82;padding:.05em .09em 0 0;color:var(--pink-text)}
 .ch-split{display:grid;grid-template-columns:minmax(0,66ch) minmax(300px,1fr);gap:clamp(32px,4vw,64px);align-items:start;margin-left:144px}
 .ch-split .prose{margin-left:0}
+.hoy-row{margin-top:clamp(40px,5vw,72px);grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center}.hoy-row .prose{max-width:none}.media.hoy-media{margin:0}.hoy-intro{grid-template-columns:minmax(260px,.75fr) minmax(0,66ch);align-items:start}.hoy-intro .prose{max-width:none}.hoy-fig{margin:0;position:sticky;top:100px}.hoy-fig img{display:block;width:100%;height:auto}.hoy-fig figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}@media(max-width:1180px){.hoy-intro{grid-template-columns:1fr}.hoy-fig{position:static;max-width:420px}}@media(max-width:900px){.hoy-intro{margin-left:0}}#hoy>.prose:last-child{margin-top:clamp(40px,5vw,72px)}
+@media(max-width:900px){.hoy-row{grid-template-columns:1fr;margin-left:0}}
+
+.vv-grid{display:flex;flex-direction:column;gap:clamp(48px,6vw,88px);margin:clamp(40px,5vw,72px) 0 clamp(48px,6vw,88px) 144px}
+.vv-defs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,80px);margin:0;max-width:1000px}
+.vv-grid .vv-media{margin:0;max-width:1000px}
+.vv-bridge p{}
+.vv-bridge{}
+@media(max-width:820px){.vv-defs{grid-template-columns:1fr}}
+@media(max-width:720px){.vv-grid{margin-left:0}}
+.vv-def{border-top:3px solid var(--pink-text);padding-top:22px;display:flex;flex-direction:column;gap:12px}
+.vv-def dt{font-family:var(--serif);font-weight:700;font-size:clamp(44px,5.4vw,80px);line-height:.95;letter-spacing:-.03em;color:var(--pink-text)}
+.vv-def dd{margin:0;font-family:var(--serif);font-size:clamp(17px,1.35vw,20px);line-height:1.5;text-wrap:pretty}
+.vv-def .vv-or{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.ch-split-fact{margin-bottom:clamp(8px,1vw,16px)}
+.ch-side{display:flex;flex-direction:column;gap:clamp(28px,3vw,44px)}.ch-side .ch-fact{max-width:none}.ch-side .ch-globe{margin:0;max-width:none}
+#rutas .ch-globe .frame{aspect-ratio:auto;height:auto;overflow:visible}#rutas .ch-globe .flourish-embed{height:auto!important;min-height:0!important}#rutas .ch-globe iframe{height:clamp(340px,32vw,460px)!important;min-height:0!important}
+#rutas .cf-num{font-size:clamp(34px,3.4vw,52px)}#rutas .cf-txt{font-size:clamp(15px,1.1vw,17px);margin-top:10px}#rutas .ch-fact{padding-top:14px}
+#rutas .ch-split-fact{grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:clamp(32px,4vw,64px)}#rutas .ch-split-fact .prose{max-width:none}
+@media(max-width:1180px){#rutas .ch-split-fact{grid-template-columns:1fr}#rutas .ch-side{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);align-items:start}#rutas .ch-side .ch-globe{grid-column:1/-1;order:-1}}
+.ch-fact{border-left:0;border-top:3px solid var(--pink-text);padding-top:18px;max-width:340px}
+.cf-num{font-family:var(--serif);font-weight:700;font-size:clamp(44px,5.4vw,84px);text-wrap:balance;line-height:.9;letter-spacing:-.04em;color:var(--pink-text)}
+.cf-txt{font-family:var(--serif);font-size:clamp(17px,1.4vw,21px);line-height:1.4;margin-top:14px;text-wrap:pretty}
+
 .ch-portrait{margin:0}.ch-portrait img{display:block;width:100%;max-width:420px;height:auto;border:1px solid var(--rule)}.ch-portrait figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
 .ch-aside{position:sticky;top:100px}
 .ch-aside .frame{background:#fff}
 .ch-aside .cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px;line-height:1.6}
 @media(max-width:1180px){.ch-split{grid-template-columns:1fr;margin-left:144px}.ch-aside{position:static;max-width:640px}}
 @media(max-width:720px){.ch-split{margin-left:0}}
-.fm-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,3.5vw,56px);align-items:start;margin-left:144px}
+.ch-cloud .ch-split{grid-template-columns:minmax(0,600px) minmax(0,505px);justify-content:space-between}.ch-cloud .ch-aside{position:static;max-width:none}
+@media(max-width:1180px){.ch-cloud .ch-split{grid-template-columns:minmax(0,1fr) minmax(180px,30%);gap:clamp(24px,3.5vw,48px)}.ch-cloud .ch-aside{position:static}}
+@media(max-width:720px){.ch-cloud .ch-split{grid-template-columns:1fr}.ch-cloud .ch-aside{position:static;max-width:340px}}
+.fm-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);margin-top:clamp(28px,4vw,48px);gap:clamp(24px,3.5vw,56px);align-items:start;margin-left:144px}
 .fm-score{margin:0;position:sticky;top:100px}
 .fm-img{background:#fff;border:1px solid var(--rule);padding:clamp(20px,3vw,40px) clamp(14px,2vw,28px)}
 .fm-img img{display:block;width:100%;height:auto}
 .fm-score figcaption,.fm-viz .cap{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px;line-height:1.6}
-.fm-viz .frame{background:#fff}
+.fm-viz .frame{background:#fff}.fm-src{display:block;margin-top:6px;text-transform:none;letter-spacing:.02em;font-size:.72rem}.fm-src a{color:inherit;text-decoration:underline;word-break:break-all}
 @media(max-width:1180px){.fm-grid{grid-template-columns:1fr}.fm-score{position:static}}
 @media(max-width:720px){.fm-grid{margin-left:0}}
+@media(max-width:1180px){.ch-split-fact{grid-template-columns:minmax(0,1fr) minmax(190px,32%);gap:clamp(24px,3.5vw,48px)}}
+@media(max-width:720px){.ch-split-fact{grid-template-columns:1fr}}
+.rv .ch-fact .cf-num{opacity:0;transform:translateY(60px) scale(.9);filter:blur(8px);transform-origin:left bottom;transition:opacity 2s ease .5s,transform 2.2s cubic-bezier(.16,.84,.3,1) .5s,filter 2s ease .5s}
+.rv .ch-fact .cf-txt{opacity:0;transform:translateY(36px);transition:opacity 1.8s ease 1.3s,transform 1.8s cubic-bezier(.16,.84,.3,1) 1.3s}
+.rv .ch-fact{border-top-color:transparent;background:linear-gradient(var(--pink-text),var(--pink-text)) no-repeat 0 -3px/0 3px;transition:background-size 1.2s cubic-bezier(.6,0,.2,1)}
+.rv .ch-fact.in{background-size:100% 3px}
+.rv .ch-fact.in .cf-num,.rv .ch-fact.in .cf-txt{opacity:1;transform:none;filter:none}
+@media(prefers-reduced-motion:reduce){.rv .ch-fact .cf-num,.rv .ch-fact .cf-txt{opacity:1;transform:none;filter:none;transition:none}.rv .ch-fact{border-top-color:var(--pink-text);background:none}}
+
 .media.media-wide{max-width:none}
 .media.media-sq{max-width:560px;margin-inline:auto}
 .media{margin:clamp(28px,3vw,44px) 0 0 144px}
@@ -89,6 +125,7 @@ html[data-lang="es"] .drop>p[data-l="es"]:first-of-type::first-letter,html[data-
 .vb-stick{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
 .vb-img{position:absolute;inset:-12% -6% -12% 30%;background-size:cover;background-position:60% 30%;opacity:.32;mix-blend-mode:luminosity;transform:translate3d(calc((.5 - var(--p)) * 6vw),calc((.5 - var(--p)) * 18vh),0) scale(calc(1.06 + var(--p) * .1));-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%,#000 85%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 38%,#000 85%,transparent 100%);pointer-events:none}
 .vb-img-rise{background-size:cover;background-position:50% calc(100% - var(--p) * 100%);transform:translate3d(0,calc((1 - var(--p)) * 20vh),0) scale(calc(1.05 + var(--p) * .55));transform-origin:55% 28%}
+.vb-img-face{background-size:cover;background-position:calc(50% + (var(--fx) - 50%) * var(--p)) calc(60% + (var(--fy) - 60%) * var(--p));transform:translate3d(0,calc((1 - var(--p)) * 10vh),0) scale(calc(1.02 + var(--p) * .8));transform-origin:var(--fx) var(--fy)}
 .vbreak.done .vb-img{opacity:.42;mix-blend-mode:normal;transition:opacity .8s ease}
 @media(max-width:760px){.vb-img{inset:-10% -30% -10% 0;opacity:.22}}
 .vb-ghost{position:absolute;top:50%;left:0;white-space:nowrap;font-family:var(--serif);font-weight:700;font-size:clamp(120px,22vw,360px);line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #8a7f6d;opacity:.55;transform:translate3d(calc(20vw - var(--p) * 90%),-50%,0);pointer-events:none}
@@ -118,6 +155,14 @@ html,body{overflow-x:clip!important;overflow-y:visible!important}
 .voice .es{font-family:var(--sans);font-size:.95rem;line-height:1.55;color:#d9cfb8;margin-top:14px}
 .voice cite{display:block;font-style:normal;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-top:18px}
 .vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.annex{background:var(--ink);color:var(--canvas-soft);border-radius:4px;padding:clamp(28px,4vw,64px);margin-bottom:var(--section-gap)}
+.annex-head{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-bottom:clamp(28px,3vw,44px)}
+.annex-head .n-unused{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--amber);padding:6px 10px;border-radius:2px}
+.annex-head h2{font-size:clamp(28px,3.4vw,46px);font-weight:600;letter-spacing:-.02em;line-height:1.05;color:var(--ink);background:var(--amber);padding:.28em .55em .32em;border-radius:3px}
+.annex-sub{font-family:var(--serif);font-size:17px;line-height:1.6;max-width:60ch;color:var(--canvas-soft);opacity:.85}
+.annex .cap,.annex .cap a{color:var(--canvas-soft)}
+.sp-index a.idx-annex{background:var(--ink);color:var(--canvas-soft);justify-content:center;align-items:center;text-align:center}.sp-index a.idx-annex:hover{background:var(--ink);color:var(--canvas-soft)}.sp-index a.idx-annex .t{background:var(--amber);color:var(--ink);padding:.2em .45em;border-radius:3px}.sp-index a.idx-annex .n{display:none}
+.finale{text-align:center}.finale-head{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:clamp(24px,3vw,40px)}.finale-head .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text)}.finale-head h2{font-size:clamp(28px,3.4vw,46px);font-weight:600;letter-spacing:-.02em;line-height:1.05}.finale .annex-sub{color:var(--ink-soft);opacity:1;margin:0 auto}.media.finale-media{margin:0 auto;max-width:900px}
 .sp-end{border-top:1px solid var(--rule);padding-top:26px;margin-bottom:var(--section-gap)}
 .sp-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
 .sp-end p{font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink-soft);max-width:68ch}
@@ -170,11 +215,13 @@ html[data-lang="en"] .voice .es{display:none}
 <a href="#monarca"><span class="n">03</span><span class="t"><span data-l="es">El monarca del calipso</span><span data-l="en">The Calypso Monarch</span><span data-l="de">Der Calypso-Monarch</span></span></a>
 <a href="#generos"><span class="n">04</span><span class="t"><span data-l="es">Géneros emparentados e influencias</span><span data-l="en">Related genres and influences</span><span data-l="de">Verwandte Genres und Einflüsse</span></span></a>
 <a href="#formato"><span class="n">05</span><span class="t"><span data-l="es">Características musicales</span><span data-l="en">Musical features</span><span data-l="de">Musikalische Merkmale</span></span></a>
-<a href="#rutas"><span class="n">06</span><span class="t"><span data-l="es">Rutas de migración</span><span data-l="en">Migration routes</span><span data-l="de">Migrationsrouten</span></span></a>
-<a href="#escuche"><span class="n">07</span><span class="t"><span data-l="es">Escuche a los calipsonianos</span><span data-l="en">Listen to the calypsonians</span><span data-l="de">Hören Sie die Calypsonians</span></span></a>
+<a href="#verso"><span class="n">06</span><span class="t"><span data-l="es">Verso a verso</span><span data-l="en">Verse by verse</span><span data-l="de">Vers um Vers</span></span></a>
+<a href="#rutas"><span class="n">07</span><span class="t"><span data-l="es">Rutas de migración</span><span data-l="en">Migration routes</span><span data-l="de">Migrationsrouten</span></span></a>
+<a href="#hoy"><span class="n">08</span><span class="t"><span data-l="es">El calipso que moldea</span><span data-l="en">Calypso that shapes</span><span data-l="de">Calypso, der prägt</span></span></a>
+<a href="#escuche" class="idx-annex"><span class="n">—</span><span class="t"><span data-l="es">Escuche a los calipsonianos</span><span data-l="en">Listen to the calypsonians</span><span data-l="de">Hören Sie die Calypsonians</span></span></a>
 </nav>
 
-<section class="ch" id="ritmo">
+<section class="ch ch-cloud" id="ritmo" style="--cloud-split:1">
 <div class="ch-head"><span class="n"><span data-l="es">Cap. 01</span><span data-l="en">Ch. 01</span><span data-l="de">Kap. 01</span></span><h2><span data-l="es">Un ritmo, un universo</span><span data-l="en">One rhythm, one universe</span><span data-l="de">Ein Rhythmus, ein Universum</span></h2></div>
 <div class="ch-split">
 <div class="prose drop">
@@ -214,10 +261,19 @@ html[data-lang="en"] .voice .es{display:none}
 <div class="shell">
 <section class="ch" id="historia">
 <div class="ch-head"><span class="n"><span data-l="es">Cap. 02</span><span data-l="en">Ch. 02</span><span data-l="de">Kap. 02</span></span><h2><span data-l="es">Historia del calipso</span><span data-l="en">A history of calypso</span><span data-l="de">Geschichte des Calypso</span></h2></div>
+<div class="ch-split ch-split-fact">
 <div class="prose">
-<p data-l="es">Del canto de los <em>chantwells</em> en las plantaciones y el kaiso de las calles de Puerto España a los escenarios del <em>Calypso Monarch</em>: recorra en esta línea del tiempo los momentos que marcaron la historia del calipso, con sus grabaciones y videos.</p>
-<p data-l="en">From the songs of the <em>chantwells</em> on the plantations and the kaiso of Port of Spain’s streets to the <em>Calypso Monarch</em> stage: follow the moments that shaped calypso’s history in this timeline, with recordings and videos.</p>
-<p data-l="de">Von den Gesängen der <em>Chantwells</em> auf den Plantagen und dem Kaiso der Straßen von Port of Spain bis zur Bühne des <em>Calypso Monarch</em>: Verfolgen Sie in dieser Zeitleiste die Momente, die die Geschichte des Calypso geprägt haben – mit Aufnahmen und Videos.</p>
+<p data-l="es">Las raíces del calipso están en los cantos de los africanos esclavizados en las plantaciones de Trinidad. Allí, los <em>chantwells</em> dirigían canciones de llamada y respuesta que acompañaban el trabajo, las peleas de palos del <em>kalinda</em> y las celebraciones, y que servían para burlarse de los amos y comunicarse sin ser entendidos.</p>
+<p data-l="es">Tras la abolición de la esclavitud, esos cantos encontraron su lugar en el carnaval. Con el paso del tiempo, el <em>patois</em> francés dio paso al inglés, surgieron las <em>tents</em> donde los calipsonianos estrenaban sus canciones cada temporada y llegaron las primeras grabaciones, que llevaron el género más allá de la isla.</p>
+<p data-l="es">Del kaiso de las calles de Puerto España a los escenarios del <em>Calypso Monarch</em>: recorra en esta línea del tiempo los momentos que marcaron la historia del calipso, con sus grabaciones y videos.</p>
+<p data-l="en">Calypso’s roots lie in the songs of enslaved Africans on Trinidad’s plantations. There, the <em>chantwells</em> led call-and-response songs that accompanied work, <em>kalinda</em> stick fights and celebrations, and served to mock the masters and communicate without being understood.</p>
+<p data-l="en">After the abolition of slavery, these songs found their place in carnival. Over time, French <em>patois</em> gave way to English, the <em>tents</em> emerged where calypsonians premiered their songs each season, and the first recordings carried the genre beyond the island.</p>
+<p data-l="en">From the kaiso of Port of Spain’s streets to the <em>Calypso Monarch</em> stage: follow the moments that shaped calypso’s history in this timeline, with its recordings and videos.</p>
+<p data-l="de">Die Wurzeln des Calypso liegen in den Gesängen versklavter Afrikaner auf den Plantagen Trinidads. Dort führten die <em>Chantwells</em> Wechselgesänge an, die Arbeit, <em>Kalinda</em>-Stockkämpfe und Feste begleiteten und dazu dienten, die Herren zu verspotten und sich unverstanden zu verständigen.</p>
+<p data-l="de">Nach der Abschaffung der Sklaverei fanden diese Gesänge ihren Platz im Karneval. Mit der Zeit wich das französische <em>Patois</em> dem Englischen, es entstanden die <em>Tents</em>, in denen Calypsonians jede Saison ihre Lieder vorstellten, und die ersten Aufnahmen trugen das Genre über die Insel hinaus.</p>
+<p data-l="de">Vom Kaiso der Straßen von Port of Spain bis zur Bühne des <em>Calypso Monarch</em>: Folgen Sie in dieser Zeitleiste den Momenten, die die Geschichte des Calypso prägten – mit Aufnahmen und Videos.</p>
+</div>
+<aside class="ch-fact"><div class="cf-num">Kaiso</div><p class="cf-txt"><span data-l="es">Es el nombre más antiguo y popular del calipso en Trinidad. Muchos calipsonianos todavía lo usan para referirse al género en su forma más tradicional.</span><span data-l="en">The oldest, most popular name for calypso in Trinidad. Many calypsonians still use it to refer to the genre in its most traditional form.</span><span data-l="de">Der älteste und volkstümlichste Name des Calypso in Trinidad. Viele Calypsonians verwenden ihn bis heute für die traditionellste Form des Genres.</span></p></aside>
 </div>
 <div class="media media-wide">
 <div class="frame"><iframe class="kl-timeline" data-base="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1p99xOXyHsMyiSuQsDSKDXaEsnIzp_dLn45mOT0tbu9w&amp;font=Default&amp;initial_zoom=2&amp;height=650" src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1p99xOXyHsMyiSuQsDSKDXaEsnIzp_dLn45mOT0tbu9w&amp;font=Default&amp;initial_zoom=2&amp;height=650&amp;lang=es" title="Timeline" loading="lazy" style="width:100%;height:650px;border:0;display:block" allowfullscreen></iframe></div>
@@ -270,7 +326,7 @@ html[data-lang="en"] .voice .es{display:none}
 </div>
 <section class="vbreak" aria-label="VocesVoicesStimmen">
 <div class="vb-stick">
-<div class="vb-img" aria-hidden="true" style="background-image:url(images/mighty-sparrow-2.png)"></div>
+<div class="vb-img vb-img-face" aria-hidden="true" style="background-image:url(images/mighty-sparrow-2.png);--fx:34%;--fy:28%"></div>
 <div class="vb-ghost" aria-hidden="true">Prophet of Doom</div>
 <div class="shell vb-inner">
 <div class="vb-lbl"><span data-l="es">Voces del monarca</span><span data-l="en">Voices of the monarchs</span><span data-l="de">Stimmen der Monarchen</span> · 03 / 07</div>
@@ -282,10 +338,16 @@ html[data-lang="en"] .voice .es{display:none}
 <div class="shell">
 <section class="ch" id="generos">
 <div class="ch-head"><span class="n"><span data-l="es">Cap. 04</span><span data-l="en">Ch. 04</span><span data-l="de">Kap. 04</span></span><h2><span data-l="es">Géneros emparentados e influencias</span><span data-l="en">Related genres and influences</span><span data-l="de">Verwandte Genres und Einflüsse</span></h2></div>
+<div class="ch-split ch-split-fact">
 <div class="prose">
-<p data-l="es">El calipso está relacionado con una gran variedad de géneros musicales. Algunos fueron influencias, como el <em>big band swing</em> o el carisso/kaiso; otros fueron consecuencia de los aportes del calipso, como el <strong>chutney</strong> y el <strong>rapso</strong>.</p>
-<p data-l="en">Calypso is related to a wide variety of musical genres. Some were influences, such as <em>big band swing</em> or carisso/kaiso; others grew out of calypso’s own contributions, such as <strong>chutney</strong> and <strong>rapso</strong>.</p>
-<p data-l="de">Calypso ist mit einer Vielzahl musikalischer Genres verwandt. Einige waren Einflüsse, etwa <em>Big-Band-Swing</em> oder Carisso/Kaiso; andere gingen aus dem Calypso selbst hervor, wie <strong>Chutney</strong> und <strong>Rapso</strong>.</p>
+<p data-l="es">El calipso es un punto de encuentro. En él confluyen los ritmos africanos traídos a Trinidad, el canto del <em>kalinda</em>, las melodías del <em>patois</em> francés, la música venezolana que cruzaba el golfo de Paria y, más tarde, el <em>big band swing</em> y el jazz que llegaban de Estados Unidos.</p>
+<p data-l="es">Pero el calipso no solo recibió: también dio. De su tronco nacieron o se nutrieron géneros como el <strong>mento</strong> en Jamaica, el <strong>spouge</strong> en Barbados, la <strong>soca</strong>, el <strong>chutney</strong> y el <strong>rapso</strong>. Explore en esta red cómo se conectan.</p>
+<p data-l="en">Calypso is a meeting point. African rhythms brought to Trinidad, <em>kalinda</em> chant, French <em>patois</em> melodies, Venezuelan music crossing the Gulf of Paria and, later, the <em>big band swing</em> and jazz arriving from the United States all flow into it.</p>
+<p data-l="en">But calypso did not only receive: it also gave. Genres such as <strong>mento</strong> in Jamaica, <strong>spouge</strong> in Barbados, <strong>soca</strong>, <strong>chutney</strong> and <strong>rapso</strong> grew from or drew on its trunk. Explore how they connect in this network.</p>
+<p data-l="de">Der Calypso ist ein Treffpunkt. In ihm fließen die nach Trinidad gebrachten afrikanischen Rhythmen, der Gesang des <em>Kalinda</em>, Melodien des französischen <em>Patois</em>, venezolanische Musik, die den Golf von Paria überquerte, und später <em>Big-Band-Swing</em> und Jazz aus den Vereinigten Staaten zusammen.</p>
+<p data-l="de">Doch der Calypso nahm nicht nur, er gab auch. Aus seinem Stamm entstanden oder schöpften Genres wie der <strong>Mento</strong> in Jamaika, der <strong>Spouge</strong> auf Barbados, die <strong>Soca</strong>, der <strong>Chutney</strong> und der <strong>Rapso</strong>. Entdecken Sie in diesem Netzwerk, wie sie verbunden sind.</p>
+</div>
+<aside class="ch-fact"><div class="cf-num"><span data-l="es">De heredero a pionero</span><span data-l="en">From heir to pioneer</span><span data-l="de">Vom Erben zum Wegbereiter</span></div><p class="cf-txt"><span data-l="es">Nutrido por ritmos africanos, el calipso terminó siendo semilla del mento y el spouge.</span><span data-l="en">Nourished by African rhythms, calypso went on to seed mento and spouge.</span><span data-l="de">Genährt von afrikanischen Rhythmen, wurde der Calypso selbst zur Saat von Mento und Spouge.</span></p></aside>
 </div>
 <div class="media">
 <div class="frame"><div class="flourish-embed flourish-network" data-src="visualisation/5569808"><noscript><img src="https://public.flourish.studio/visualisation/5569808/thumbnail" width="100%" alt="" /></noscript></div></div>
@@ -308,14 +370,64 @@ html[data-lang="en"] .voice .es{display:none}
 <div class="shell">
 <section class="ch" id="formato">
 <div class="ch-head"><span class="n"><span data-l="es">Cap. 05</span><span data-l="en">Ch. 05</span><span data-l="de">Kap. 05</span></span><h2><span data-l="es">Características musicales del calipso trinitense</span><span data-l="en">Musical features of Trinidadian calypso</span><span data-l="de">Musikalische Merkmale des trinidadischen Calypso</span></h2></div>
+<div class="ch-split ch-split-fact">
+<div class="prose">
+<p data-l="es">El calipso trinitense se sostiene sobre un <strong>compás binario</strong> y una base rítmica <strong>sincopada</strong>, en la que cada instrumento ocupa su propio lugar: la percusión marca el pulso, la guitarra rasguea a contratiempo y el bajo dibuja la armonía. Sobre esa base, el calipsoniano canta versos narrativos, a menudo improvisados, cargados de ironía y comentario social.</p>
+<p data-l="en">Trinidadian calypso rests on a <strong>duple meter</strong> and a <strong>syncopated</strong> rhythmic foundation in which each instrument has its own place: percussion keeps the pulse, the guitar strums on the offbeats, and the bass outlines the harmony. Over this base, the calypsonian sings narrative verses, often improvised, full of irony and social commentary.</p>
+<p data-l="de">Der trinidadische Calypso beruht auf einem <strong>geraden Takt</strong> und einem <strong>synkopierten</strong> rhythmischen Fundament, in dem jedes Instrument seinen eigenen Platz hat: Die Perkussion hält den Puls, die Gitarre schlägt auf den Offbeats, und der Bass zeichnet die Harmonie nach. Darüber singt der Calypsonian erzählende, oft improvisierte Verse voller Ironie und Gesellschaftskritik.</p>
+</div>
+<aside class="ch-fact"><div class="cf-num">2/4</div><p class="cf-txt"><span data-l="es">Compás binario y síncopa: la base sobre la que cada instrumento ocupa su lugar.</span><span data-l="en">Duple meter and syncopation: the base on which each instrument takes its place.</span><span data-l="de">Gerader Takt und Synkope: die Basis, auf der jedes Instrument seinen Platz findet.</span></p></aside>
+</div>
 <div class="fm-grid">
-<figure class="fm-score">
-<div class="fm-img"><img src="images/calypso-ritmo.png" alt="Patrón rítmico base del calypso de Trinidad, en compás de 2/4" /></div>
-<figcaption><span data-l="es">Patrón rítmico base del calipso de Trinidad · compás de 2/4</span><span data-l="en">Basic rhythmic pattern of Trinidadian calypso · 2/4 time</span><span data-l="de">Rhythmisches Grundmuster des trinidadischen Calypso · 2/4-Takt</span></figcaption>
-</figure>
 <div class="fm-viz">
 <div class="frame"><div class="flourish-embed flourish-hierarchy" data-src="visualisation/5599513"><noscript><img src="https://public.flourish.studio/visualisation/5599513/thumbnail" width="100%" alt="" /></noscript></div></div>
 <div class="cap"><span data-l="es">Instrumentos del formato tradicional del calipso en Trinidad y Tobago</span><span data-l="en">Instruments of the traditional calypso ensemble in Trinidad and Tobago</span><span data-l="de">Instrumente der traditionellen Calypso-Besetzung in Trinidad und Tobago</span> · <a href="https://public.flourish.studio/visualisation/5599513/" target="_blank" rel="noopener"><span data-l="es">Abrir en pestaña nueva ↗</span><span data-l="en">Open in new tab ↗</span><span data-l="de">In neuem Tab öffnen ↗</span></a></div>
+</div>
+<figure class="fm-score">
+<div class="fm-img"><img src="images/calypso-ritmo-dudley.png" alt="Patrón rítmico del calipso de Trinidad por instrumento: hi-hat, campanas, rasgueo, congas, redoblante, bombo y bajo" width="1536" height="1024" /></div>
+<figcaption><span data-l="es">Patrón rítmico base del calipso de Trinidad, por instrumento</span><span data-l="en">Basic rhythmic pattern of Trinidadian calypso, by instrument</span><span data-l="de">Rhythmisches Grundmuster des trinidadischen Calypso, nach Instrument</span><span class="fm-src"><span data-l="es">Fuente:</span><span data-l="en">Source:</span><span data-l="de">Quelle:</span> Dudley, S. (1996). Judging “By the Beat”: Calypso versus Soca. <i>Ethnomusicology, 40</i>(2), 269–298. <a href="https://doi.org/10.2307/852062" target="_blank" rel="noopener">https://doi.org/10.2307/852062</a></span></figcaption>
+</figure>
+
+</div>
+</section>
+</div>
+<section class="vbreak" aria-label="VocesVoicesStimmen">
+<div class="vb-stick">
+<div class="vb-img vb-img-face" aria-hidden="true" style="background-image:url(images/gypsy.png);--fx:35%;--fy:20%"></div>
+<div class="vb-ghost" aria-hidden="true">Respect the Calypsonian</div>
+<div class="shell vb-inner">
+<div class="vb-lbl"><span data-l="es">Voces del monarca</span><span data-l="en">Voices of the monarchs</span><span data-l="de">Stimmen der Monarchen</span> · 05 / 07</div>
+<figure class="voice"><blockquote>«I write the songs that champion the poor man's cause…»</blockquote><p class="es"><span data-l="es">«Escribo las canciones que defienden la causa del pobre…»</span><span data-l="de">„Ich schreibe die Lieder, die für die Sache der Armen eintreten …“</span></p><cite class="vb-credit"><span class="vc-name">Gypsy</span><span class="vc-song">“Respect the Calypsonian”</span><span class="vc-years"><b><span data-l="es">Calypso Monarch</span><span data-l="en">Calypso Monarch</span><span data-l="de">Calypso Monarch</span></b> 1997</span></cite></figure>
+</div>
+<div class="vb-bar" aria-hidden="true"></div>
+</div>
+</section>
+<div class="shell">
+<section class="ch" id="verso">
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 06</span><span data-l="en">Ch. 06</span><span data-l="de">Kap. 06</span></span><h2><span data-l="es">Verso a verso</span><span data-l="en">Verse by verse</span><span data-l="de">Vers um Vers</span></h2></div>
+<div class="prose">
+<p data-l="es">Si el ritmo es el cuerpo del calipso, la palabra es su filo. El calipsoniano es cronista, comediante y crítico a la vez: canta las noticias del barrio, se ríe del poder y desafía a sus rivales frente al público. Su lenguaje está lleno de doble sentido: insinúa más de lo que dice, disfraza la crítica de broma y deja que el público complete el chiste. Esa ambigüedad encaja bien con el espíritu del carnaval, el tiempo en que se invierten las jerarquías, se juega con las máscaras y se puede decir en voz alta lo que el resto del año se calla. Dos prácticas lo resumen.</p>
+<p data-l="en">If rhythm is calypso’s body, the word is its edge. The calypsonian is chronicler, comedian and critic at once: singing the neighbourhood’s news, laughing at power and challenging rivals in front of the crowd. Its language is full of double meaning: it hints at more than it says, disguises criticism as a joke and lets the audience finish the punchline. That ambiguity fits the spirit of carnival well, the time when hierarchies are turned upside down, masks are played with and what is kept quiet the rest of the year can be said out loud. Two practices sum it up.</p>
+<p data-l="de">Ist der Rhythmus der Körper des Calypso, so ist das Wort seine Klinge. Der Calypsonian ist Chronist, Komiker und Kritiker zugleich: Er besingt die Neuigkeiten des Viertels, lacht über die Mächtigen und fordert Rivalen vor Publikum heraus. Seine Sprache ist voller Doppeldeutigkeiten: Sie deutet mehr an, als sie sagt, verkleidet Kritik als Scherz und lässt das Publikum die Pointe vollenden. Diese Mehrdeutigkeit passt gut zum Geist des Karnevals, der Zeit, in der Hierarchien auf den Kopf gestellt werden, mit Masken gespielt wird und laut gesagt werden darf, was den Rest des Jahres verschwiegen wird. Zwei Praktiken fassen das zusammen.</p>
+</div>
+<div class="vv-grid">
+<dl class="vv-defs">
+<div class="vv-def"><dt>Picong</dt><dd class="vv-or"><span data-l="es">del francés <em>piquant</em>, «que pica»</span><span data-l="en">from the French <em>piquant</em>, “stinging”</span><span data-l="de">vom französischen <em>piquant</em>, „stechend“</span></dd><dd><span data-l="es">La burla hecha arte. Un verso afilado, con humor y doble sentido, que deja en ridículo al rival, al político o a la sociedad entera, y hace reír al público mientras pica.</span><span data-l="en">Mockery turned into art. A sharp verse, full of humour and double meaning, that leaves a rival, a politician or society itself looking foolish, making the crowd laugh as it stings.</span><span data-l="de">Spott als Kunst. Ein scharfer Vers voller Humor und Doppeldeutigkeit, der den Rivalen, den Politiker oder die ganze Gesellschaft bloßstellt und das Publikum lachen lässt, während er sticht.</span></dd></div>
+<div class="vv-def"><dt>Extempo</dt><dd class="vv-or"><span data-l="es">de <em>extemporáneo</em>, «improvisado»</span><span data-l="en">from <em>extempore</em>, “improvised”</span><span data-l="de">von <em>extempore</em>, „aus dem Stegreif“</span></dd><dd><span data-l="es">El duelo en tiempo real. Dos calipsonianos reciben un tema y se responden verso a verso sobre la misma melodía, sin nada escrito: gana el ingenio más rápido, y casi siempre, el mejor picong.</span><span data-l="en">The duel in real time. Two calypsonians are given a topic and answer each other verse by verse over the same melody, with nothing written down: the quickest wit wins, and almost always the best picong.</span><span data-l="de">Das Duell in Echtzeit. Zwei Calypsonians erhalten ein Thema und antworten einander Vers um Vers auf dieselbe Melodie, ohne Vorlage: Es gewinnt der schnellste Witz, und fast immer das beste Picong.</span></dd></div>
+</dl>
+</div>
+<div class="ch-split hoy-row vv-row">
+<div class="prose vv-bridge">
+<p data-l="es">El lugar natural de estas prácticas son las <em>calypso tents</em>, las «carpas de calipso». A comienzos del siglo XX eran carpas o barracas montadas en patios; hoy son salones y teatros, pero conservan el nombre. Durante la temporada de carnaval, cada carpa reúne a un grupo de cantantes y una banda, y casi cada noche los calipsonianos estrenan sus temas del año ante el público. Allí los jóvenes aprenden junto a los veteranos, el público decide qué canciones funcionan y de allí salen los cantantes que compiten por la corona del Calypso Monarch.</p>
+<p data-l="en">The natural home of these practices is the <em>calypso tents</em>. In the early twentieth century they were tents or sheds set up in yards; today they are halls and theatres, but they keep the name. During the carnival season, each tent brings together a group of singers and a band, and almost every night calypsonians debut that year’s songs before the audience. There young singers learn alongside veterans, the audience decides which songs work, and from there come the singers who compete for the Calypso Monarch crown.</p>
+<p data-l="de">Der natürliche Ort dieser Praktiken sind die <em>Calypso Tents</em>, die „Calypso-Zelte“. Anfang des 20. Jahrhunderts waren es Zelte oder Baracken in Hinterhöfen; heute sind es Säle und Theater, doch der Name ist geblieben. Während der Karnevalssaison versammelt jedes Zelt eine Gruppe von Sängern und eine Band, und fast jeden Abend stellen die Calypsonians ihre Stücke des Jahres vor Publikum vor. Dort lernen junge Sänger neben den Veteranen, das Publikum entscheidet, welche Lieder funktionieren, und von dort kommen die Sänger, die um die Krone des Calypso Monarch kämpfen.</p>
+<p data-l="es">Esa forma de contar —con humor, actualidad e improvisación— era fácil de adaptar a otras lenguas, otros puertos y otras realidades. Por eso, allí donde llegó, el calipso no se limitó a ser escuchado: cada pueblo empezó a cantar el suyo.</p>
+<p data-l="en">That way of telling —with humour, topicality and improvisation— was easy to adapt to other languages, ports and realities. So wherever calypso arrived, it was not merely listened to: every community began to sing its own.</p>
+<p data-l="de">Diese Art zu erzählen – mit Humor, Aktualität und Improvisation – ließ sich leicht auf andere Sprachen, Häfen und Wirklichkeiten übertragen. Wo immer der Calypso ankam, wurde er daher nicht nur gehört: Jede Gemeinschaft begann, ihren eigenen zu singen.</p>
+</div>
+<div class="media vv-media hoy-media">
+<div class="frame video"><iframe referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/rzM3eNHLGIA" title="Extempo — video" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<div class="cap"><span data-l="es">Video — un duelo de extempo</span><span data-l="en">Video — an extempo duel</span><span data-l="de">Video — ein Extempo-Duell</span> · <a href="https://youtu.be/rzM3eNHLGIA" target="_blank" rel="noopener"><span data-l="es">Abrir en YouTube ↗</span><span data-l="en">Open on YouTube ↗</span><span data-l="de">Auf YouTube öffnen ↗</span></a></div>
 </div>
 </div>
 </section>
@@ -325,7 +437,7 @@ html[data-lang="en"] .voice .es{display:none}
 <div class="vb-img" aria-hidden="true" style="background-image:url(images/david-rudder.png)"></div>
 <div class="vb-ghost" aria-hidden="true">Haiti</div>
 <div class="shell vb-inner">
-<div class="vb-lbl"><span data-l="es">Voces del monarca</span><span data-l="en">Voices of the monarchs</span><span data-l="de">Stimmen der Monarchen</span> · 05 / 07</div>
+<div class="vb-lbl"><span data-l="es">Voces del monarca</span><span data-l="en">Voices of the monarchs</span><span data-l="de">Stimmen der Monarchen</span> · 06 / 07</div>
 <figure class="voice"><blockquote>«When there is anguish in Port au Prince, it's still Africa crying.»</blockquote><p class="es"><span data-l="es">«Cuando hay angustia en Puerto Príncipe, África sigue llorando.»</span><span data-l="de">„Herrscht Angst in Port-au-Prince, dann weint immer noch Afrika.“</span></p><cite class="vb-credit"><span class="vc-name">David Rudder</span><span class="vc-song">“Haiti”</span><span class="vc-years"><b><span data-l="es">Calypso Monarch</span><span data-l="en">Calypso Monarch</span><span data-l="de">Calypso Monarch</span></b> 1986</span></cite></figure>
 </div>
 <div class="vb-bar" aria-hidden="true"></div>
@@ -333,15 +445,22 @@ html[data-lang="en"] .voice .es{display:none}
 </section>
 <div class="shell">
 <section class="ch" id="rutas">
-<div class="ch-head"><span class="n"><span data-l="es">Cap. 06</span><span data-l="en">Ch. 06</span><span data-l="de">Kap. 06</span></span><h2><span data-l="es">Rutas de migración del calipso</span><span data-l="en">Calypso migration routes</span><span data-l="de">Migrationsrouten des Calypso</span></h2></div>
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 07</span><span data-l="en">Ch. 07</span><span data-l="de">Kap. 07</span></span><h2><span data-l="es">Rutas de migración del calipso</span><span data-l="en">Calypso migration routes</span><span data-l="de">Migrationsrouten des Calypso</span></h2></div>
+<div class="ch-split ch-split-fact">
 <div class="prose">
-<p data-l="es">La <strong>era dorada</strong> del calipso, entre 1920 y 1930, popularizó el género a lo largo y ancho de la Cuenca del Caribe, llegando a lugares alejados de Trinidad como Nicaragua y Costa Rica. El género adoptó matices y dinámicas particulares en cada lugar al que llegó.</p>
-<p data-l="en">Calypso’s <strong>golden age</strong>, between 1920 and 1930, spread the genre across the Caribbean Basin, reaching places far from Trinidad such as Nicaragua and Costa Rica. Wherever it arrived, it took on its own nuances and dynamics.</p>
-<p data-l="de">Das <strong>goldene Zeitalter</strong> des Calypso zwischen 1920 und 1930 machte das Genre im gesamten Karibischen Becken populär – bis in von Trinidad weit entfernte Orte wie Nicaragua und Costa Rica. Überall, wo es ankam, nahm es eigene Nuancen und Dynamiken an.</p>
+<p data-l="es">El calipso ha llegado a muchos países, donde ha sido <strong>adoptado y adaptado</strong> a las músicas y costumbres de cada lugar. Lo llevaron consigo los trabajadores, marineros y comerciantes antillanos que se movían por la Cuenca del Caribe, y en cada puerto el género se mezcló con nuevos instrumentos, lenguas y temas.</p>
+<p data-l="es">En muchas ocasiones, el género se ha convertido en <strong>música nacional</strong>. Es el caso del <strong>calipso de El Callao</strong>, en Venezuela, que llegó con los migrantes antillanos atraídos por las minas de oro y hoy es el alma de su carnaval, o del calipso limonense en Costa Rica. Siga en este mapa las rutas que recorrió.</p>
+<p data-l="en">Calypso has reached many countries, where it has been <strong>adopted and adapted</strong> to each place’s music and customs. Antillean workers, sailors and traders moving around the Caribbean Basin carried it with them, and in every port the genre blended with new instruments, languages and themes.</p>
+<p data-l="en">In many cases the genre has become <strong>national music</strong>. Such is the case of the <strong>calypso of El Callao</strong> in Venezuela, which arrived with Antillean migrants drawn by the gold mines and is today the soul of its carnival, or of Limón calypso in Costa Rica. Follow the routes it travelled on this map.</p>
+<p data-l="de">Der Calypso hat viele Länder erreicht, wo er <strong>übernommen und angepasst</strong> wurde – an die Musik und die Bräuche des jeweiligen Ortes. Antillanische Arbeiter, Seeleute und Händler, die sich durch das Karibikbecken bewegten, brachten ihn mit, und in jedem Hafen verband sich das Genre mit neuen Instrumenten, Sprachen und Themen.</p>
+<p data-l="de">Vielfach ist das Genre zur <strong>Nationalmusik</strong> geworden. So etwa der <strong>Calypso von El Callao</strong> in Venezuela, der mit antillanischen Migranten kam, die von den Goldminen angezogen wurden, und heute die Seele seines Karnevals ist, oder der Calypso aus Limón in Costa Rica. Folgen Sie auf dieser Karte seinen Wegen.</p>
 </div>
-<div class="media">
+<div class="ch-side">
+<div class="media ch-globe">
 <div class="frame"><div class="flourish-embed flourish-globe" data-src="visualisation/5553883"><noscript><img src="https://public.flourish.studio/visualisation/5553883/thumbnail" width="100%" alt="" /></noscript></div></div>
 <div class="cap"><span data-l="es">Globo interactivo — la expansión del calipso por el mundo</span><span data-l="en">Interactive globe — calypso’s spread around the world</span><span data-l="de">Interaktiver Globus — die Verbreitung des Calypso weltweit</span> · <a href="https://public.flourish.studio/visualisation/5553883/" target="_blank" rel="noopener"><span data-l="es">Abrir en pestaña nueva ↗</span><span data-l="en">Open in new tab ↗</span><span data-l="de">In neuem Tab öffnen ↗</span></a></div>
+</div>
+</div>
 </div>
 <div class="media">
 <div class="frame"><iframe src="https://uploads.knightlab.com/storymapjs/f65cd9e34352cf6b746494a06a0769d0/calypso/index.html" title="StoryMap: calypso routes" height="720" loading="lazy"></iframe></div>
@@ -351,37 +470,82 @@ html[data-lang="en"] .voice .es{display:none}
 </div>
 <section class="vbreak" aria-label="VocesVoicesStimmen">
 <div class="vb-stick">
-<div class="vb-img" aria-hidden="true" style="background-image:url(images/gypsy.png)"></div>
-<div class="vb-ghost" aria-hidden="true">Respect the Calypsonian</div>
+<div class="vb-img vb-img-rise" aria-hidden="true" style="background-image:url(images/terry-lyons.png)"></div>
+<div class="vb-ghost" aria-hidden="true">Obeah</div>
 <div class="shell vb-inner">
-<div class="vb-lbl"><span data-l="es">Voces del monarca</span><span data-l="en">Voices of the monarchs</span><span data-l="de">Stimmen der Monarchen</span> · 06 / 07</div>
-<figure class="voice"><blockquote>«I write the songs that champion the poor man's cause…»</blockquote><p class="es"><span data-l="es">«Escribo las canciones que defienden la causa del pobre…»</span><span data-l="de">„Ich schreibe die Lieder, die für die Sache der Armen eintreten …“</span></p><cite class="vb-credit"><span class="vc-name">Gypsy</span><span class="vc-song">“Respect the Calypsonian”</span><span class="vc-years"><b><span data-l="es">Calypso Monarch</span><span data-l="en">Calypso Monarch</span><span data-l="de">Calypso Monarch</span></b> 1997</span></cite></figure>
+<div class="vb-lbl"><span data-l="es">Voces del monarca</span><span data-l="en">Voices of the monarchs</span><span data-l="de">Stimmen der Monarchen</span> · 07 / 07</div>
+<figure class="voice"><blockquote>«One accused in sexual harassment. Up to now the police can't get statement.»</blockquote><p class="es"><span data-l="es">«Un señalado de acoso sexual. Hasta ahora, la policía no tiene ninguna declaración.»</span><span data-l="de">„Einer wird der sexuellen Belästigung beschuldigt. Bis heute hat die Polizei keine Aussage.“</span></p><cite class="vb-credit"><span class="vc-name">Terri Lyons</span><span class="vc-song">“Obeah”</span><span class="vc-years"><b><span data-l="es">Calypso Monarch</span><span data-l="en">Calypso Monarch</span><span data-l="de">Calypso Monarch</span></b> 2020 · 2026</span></cite></figure>
 </div>
 <div class="vb-bar" aria-hidden="true"></div>
 </div>
 </section>
 <div class="shell">
-
-<section class="ch" id="escuche">
-<div class="ch-head"><span class="n"><span data-l="es">Cap. 07</span><span data-l="en">Ch. 07</span><span data-l="de">Kap. 07</span></span><h2><span data-l="es">Escuche a los calipsonianos</span><span data-l="en">Listen to the calypsonians</span><span data-l="de">Hören Sie die Calypsonians</span></h2></div>
+<section class="ch" id="hoy">
+<div class="ch-head"><span class="n"><span data-l="es">Cap. 08</span><span data-l="en">Ch. 08</span><span data-l="de">Kap. 08</span></span><h2><span data-l="es">El calipso que moldea el mundo y el carnaval</span><span data-l="en">The calypso that shapes the world and the carnival</span><span data-l="de">Der Calypso, der die Welt und den Karneval prägt</span></h2></div>
+<div class="ch-split hoy-intro">
+<figure class="hoy-fig"><img src="images/female-calypso-monarchs.png" alt="Calypso Rose, Singing Sandra, Denyse Plummer, Karene Asche y Terri Lyons: ganadoras del Calypso Monarch" loading="lazy"><figcaption><span data-l="es">Las mujeres que han ganado el Calypso Monarch</span><span data-l="en">The women who have won Calypso Monarch</span><span data-l="de">Die Frauen, die den Calypso Monarch gewonnen haben</span></figcaption></figure>
+<div class="prose">
+<p data-l="es">El calipso no solo ha contado la historia de Trinidad y Tobago: también ha ayudado a escribirla. Durante más de un siglo ha sido periódico cantado, tribuna política y espejo de la sociedad, y en ese espejo se pueden leer sus cambios.</p>
+<p data-l="en">Calypso has not only told the story of Trinidad and Tobago: it has helped to write it. For more than a century it has been a sung newspaper, a political platform and a mirror of society, and in that mirror its changes can be read.</p>
+<p data-l="de">Der Calypso hat die Geschichte von Trinidad und Tobago nicht nur erzählt, sondern auch mitgeschrieben. Über ein Jahrhundert lang war er gesungene Zeitung, politische Tribüne und Spiegel der Gesellschaft, und in diesem Spiegel lassen sich ihre Veränderungen ablesen.</p>
+<p data-l="es">Uno de los más visibles es el lugar de la mujer. En un escenario dominado durante décadas por hombres, Calypso Rose se convirtió en 1978 en la primera mujer en ganar la corona, que desde entonces dejó de llamarse <em>Calypso King</em> para llamarse <em>Calypso Monarch</em>. Hoy las calipsonianas ocupan un lugar cada vez mayor, con temas que desafían a la sociedad: la violencia de género, la desigualdad o la dignidad de las trabajadoras, como en «Die With My Dignity» de Singing Sandra.</p>
+<p data-l="en">One of the most visible is the place of women. On a stage dominated by men for decades, Calypso Rose became in 1978 the first woman to win the crown, which from then on was no longer called <em>Calypso King</em> but <em>Calypso Monarch</em>. Today women calypsonians take an ever greater place, with songs that challenge society: gender violence, inequality or the dignity of women workers, as in Singing Sandra’s “Die With My Dignity”.</p>
+<p data-l="de">Eine der sichtbarsten ist die Rolle der Frau. Auf einer Bühne, die jahrzehntelang von Männern beherrscht wurde, gewann Calypso Rose 1978 als erste Frau die Krone, die seitdem nicht mehr <em>Calypso King</em>, sondern <em>Calypso Monarch</em> heißt. Heute nehmen Calypsonians einen immer größeren Platz ein, mit Themen, die die Gesellschaft herausfordern: geschlechtsspezifische Gewalt, Ungleichheit oder die Würde von Arbeiterinnen, wie in „Die With My Dignity“ von Singing Sandra.</p>
+</div>
+</div>
+<div class="ch-split hoy-row">
+<div class="prose">
+<p data-l="es">Las canciones también viajan fuera del carnaval y de su época. La cantante haitiano-estadounidense Leyla McCalla retomó «Money Is King», de Growling Tiger: un calipso de los años treinta sobre el poder del dinero que sigue sonando actual.</p>
+<p data-l="en">The songs also travel beyond carnival and their own era. Haitian-American singer Leyla McCalla took up Growling Tiger’s “Money Is King”: a 1930s calypso about the power of money that still sounds current.</p>
+<p data-l="de">Die Lieder reisen auch über den Karneval und ihre Zeit hinaus. Die haitianisch-amerikanische Sängerin Leyla McCalla griff „Money Is King“ von Growling Tiger auf: einen Calypso aus den 1930er-Jahren über die Macht des Geldes, der noch immer aktuell klingt.</p>
+</div>
+<div class="media hoy-media">
+<div class="frame video"><iframe referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/lcjQdPcbS3c" title="Leyla McCalla — Money Is King" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<div class="cap"><span data-l="es">Video — Leyla McCalla interpreta «Money Is King»</span><span data-l="en">Video — Leyla McCalla performs “Money Is King”</span><span data-l="de">Video — Leyla McCalla spielt „Money Is King“</span> · <a href="https://youtu.be/lcjQdPcbS3c" target="_blank" rel="noopener"><span data-l="es">Abrir en YouTube ↗</span><span data-l="en">Open on YouTube ↗</span><span data-l="de">Auf YouTube öffnen ↗</span></a></div>
+</div>
+</div>
+<div class="ch-split hoy-row">
+<div class="prose">
+<p data-l="es">Además, el calipso se interpreta hoy en otros formatos directamente ligados al carnaval. El más importante son las <em>steel bands</em>: orquestas de <em>steelpan</em> que adaptan calipsos para grandes conjuntos y los llevan a competencias como Panorama, uno de los momentos centrales de la temporada.</p>
+<p data-l="en">Calypso is also performed today in other formats directly linked to carnival. The most important are the <em>steel bands</em>: <em>steelpan</em> orchestras that arrange calypsos for large ensembles and take them to competitions such as Panorama, one of the high points of the season.</p>
+<p data-l="de">Außerdem wird Calypso heute in anderen Formaten gespielt, die direkt mit dem Karneval verbunden sind. Die wichtigsten sind die <em>Steel Bands</em>: <em>Steelpan</em>-Orchester, die Calypsos für große Ensembles arrangieren und sie zu Wettbewerben wie Panorama bringen, einem der Höhepunkte der Saison.</p>
+</div>
+<div class="media hoy-media">
+<div class="frame video"><iframe referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/WEke43lg4CM" title="Steel band — video" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<div class="cap"><span data-l="es">Video — una steel band interpreta calipso</span><span data-l="en">Video — a steel band plays calypso</span><span data-l="de">Video — eine Steel Band spielt Calypso</span> · <a href="https://youtu.be/WEke43lg4CM" target="_blank" rel="noopener"><span data-l="es">Abrir en YouTube ↗</span><span data-l="en">Open on YouTube ↗</span><span data-l="de">Auf YouTube öffnen ↗</span></a></div>
+</div>
+</div>
+<div class="ch-split hoy-row">
+<div class="prose">
+<p data-l="es">Ese valor también se reconoce oficialmente. Cada octubre, Trinidad y Tobago celebra el Calypso History Month, un mes dedicado a recordar a los grandes calipsonianos, volver a escuchar sus canciones y reconocer el calipso como parte del patrimonio nacional. Conciertos, charlas y programas de radio y televisión llevan entonces el género más allá de la temporada de carnaval.</p>
+<p data-l="en">That value is also officially recognised. Every October, Trinidad and Tobago celebrates Calypso History Month, a month devoted to remembering the great calypsonians, listening again to their songs and recognising calypso as part of the national heritage. Concerts, talks and radio and television programmes then carry the genre beyond the carnival season.</p>
+<p data-l="de">Dieser Wert wird auch offiziell anerkannt. Jeden Oktober feiert Trinidad und Tobago den Calypso History Month, einen Monat, der der Erinnerung an die großen Calypsonians, dem Wiederhören ihrer Lieder und der Anerkennung des Calypso als Teil des nationalen Erbes gewidmet ist. Konzerte, Vorträge sowie Radio- und Fernsehsendungen tragen das Genre dann über die Karnevalssaison hinaus.</p>
+</div>
+<div class="media hoy-media">
+<div class="frame video"><iframe referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/RcS7l0Cr0QY" title="Calypso History Month — video" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<div class="cap"><span data-l="es">Video — Calypso History Month</span><span data-l="en">Video — Calypso History Month</span><span data-l="de">Video — Calypso History Month</span> · <a href="https://youtu.be/RcS7l0Cr0QY" target="_blank" rel="noopener"><span data-l="es">Abrir en YouTube ↗</span><span data-l="en">Open on YouTube ↗</span><span data-l="de">Auf YouTube öffnen ↗</span></a></div>
+</div>
+</div>
+<div class="prose">
+<p data-l="es">Por eso, más que un género del pasado, el calipso sigue siendo la conciencia crítica del carnaval y una forma de pensar la sociedad en voz alta.</p>
+<p data-l="en">That is why, rather than a genre of the past, calypso remains the critical conscience of carnival and a way of thinking about society out loud.</p>
+<p data-l="de">Deshalb ist der Calypso kein Genre der Vergangenheit, sondern bleibt das kritische Gewissen des Karnevals und eine Art, laut über die Gesellschaft nachzudenken.</p>
+</div>
+</section>
+<section class="ch finale" id="final">
+<div class="finale-head"><span class="n"><span data-l="es">Para cerrar</span><span data-l="en">To close</span><span data-l="de">Zum Abschluss</span></span><h2>David Rudder — «Calypso Music»</h2><p class="annex-sub"><span data-l="es">Un calipso que canta al propio calipso: su historia, su fuerza y su lugar como voz del pueblo.</span><span data-l="en">A calypso that sings about calypso itself: its history, its power and its place as the voice of the people.</span><span data-l="de">Ein Calypso, der den Calypso selbst besingt: seine Geschichte, seine Kraft und seinen Platz als Stimme des Volkes.</span></p></div>
+<div class="media finale-media">
+<div class="frame video"><iframe referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/Z3uOzrj4yBo" title="David Rudder — Calypso Music" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<div class="cap">David Rudder — Calypso Music (1987) · <a href="https://youtu.be/Z3uOzrj4yBo" target="_blank" rel="noopener"><span data-l="es">Abrir en YouTube ↗</span><span data-l="en">Open on YouTube ↗</span><span data-l="de">Auf YouTube öffnen ↗</span></a></div>
+</div>
+</section>
+<section class="ch annex" id="escuche">
+<div class="annex-head"><h2><span data-l="es">Escuche a los calipsonianos</span><span data-l="en">Listen to the calypsonians</span><span data-l="de">Hören Sie die Calypsonians</span></h2><p class="annex-sub"><span data-l="es">Una selección de calipsonianos con sus discografías para escuchar en Spotify y YouTube.</span><span data-l="en">A selection of calypsonians with their discographies to listen to on Spotify and YouTube.</span><span data-l="de">Eine Auswahl von Calypsonians mit ihren Diskografien zum Anhören auf Spotify und YouTube.</span></p></div>
 <div class="media" style="margin-top:0">
 <div class="frame"><div class="flourish-embed flourish-cards" data-src="visualisation/5599368"></div></div>
 <div class="cap"><span data-l="es">Fichas de artistas — discografías en Spotify / YouTube</span><span data-l="en">Artist cards — discographies on Spotify / YouTube</span><span data-l="de">Künstlerkarten — Diskografien auf Spotify / YouTube</span> · <a href="https://public.flourish.studio/visualisation/5599368/" target="_blank" rel="noopener"><span data-l="es">Abrir en pestaña nueva ↗</span><span data-l="en">Open in new tab ↗</span><span data-l="de">In neuem Tab öffnen ↗</span></a></div>
 </div>
 </section>
-</div>
-<section class="vbreak" aria-label="VocesVoicesStimmen">
-<div class="vb-stick">
-<div class="vb-img vb-img-rise" aria-hidden="true" style="background-image:url(images/terry-lyons.png)"></div>
-<div class="vb-ghost" aria-hidden="true">Obeah</div>
-<div class="shell vb-inner">
-<div class="vb-lbl"><span data-l="es">Voces del monarca</span><span data-l="en">Voices of the monarchs</span><span data-l="de">Stimmen der Monarchen</span> · 07 / 07</div>
-<figure class="voice"><blockquote>«One accused in sexual harassment. Up to now the police can't get statement.»</blockquote><p class="es"><span data-l="es">«Un señalado de acoso sexual. Hasta ahora, la policía no tiene ninguna declaración.»</span><span data-l="de">„Einer wird der sexuellen Belästigung beschuldigt. Bis heute hat die Polizei keine Aussage.“</span></p><cite class="vb-credit"><span class="vc-name">Terry Lyons</span><span class="vc-song">“Obeah”</span><span class="vc-years"><b><span data-l="es">Calypso Monarch</span><span data-l="en">Calypso Monarch</span><span data-l="de">Calypso Monarch</span></b> 2020</span></cite></figure>
-</div>
-<div class="vb-bar" aria-hidden="true"></div>
-</div>
-</section>
-<div class="shell">
 
 <div class="sp-end">
 <div class="lbl"><span data-l="es">Sobre el especial</span><span data-l="en">About this special</span><span data-l="de">Über dieses Spezial</span></div>
@@ -435,5 +599,6 @@ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 var tick=false;function upd(){tick=false;var vh=innerHeight;vbs.forEach(function(v){var r=v.getBoundingClientRect();if(r.bottom<-vh||r.top>vh*2)return;var p=Math.min(1,Math.max(0,-r.top/(r.height-vh)));v.style.setProperty('--p',p.toFixed(4));var n=v._w.length;v._w.forEach(function(w,i){w.classList.toggle('on',p>.08+.55*i/n)});v.classList.toggle('done',p>.68)})}
 addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd()})();</script>
 <script src="https://public.flourish.studio/resources/embed.js"></script>
+<script>(function(){var d=document.documentElement;if(!('IntersectionObserver' in window))return;d.classList.add('rv');var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.5});document.querySelectorAll('.ch-fact').forEach(function(el){io.observe(el);});})();</script>
 </body>
 </html>
