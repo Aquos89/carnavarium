@@ -280,6 +280,8 @@ p { margin: 0; text-wrap: pretty; }
 }
 .sec-head .num { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.18em; color: var(--ink-soft); }
 .sec-head .title { font-family: var(--serif); font-size: clamp(28px, 4vw, 48px); font-weight: 500; letter-spacing: -0.01em; }
+.sec-intro { font-family: var(--serif); font-size: 1.12rem; line-height: 1.55; max-width: 62ch; margin: -12px 0 40px; color: var(--ink-soft); text-wrap: pretty; }
+.sec-intro b { color: var(--ink); font-weight: 600; }
 .sec-head .more { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
 
 /* ----- The Project -------------------------------------------------------- */
@@ -491,6 +493,17 @@ a.feature-article:hover h3 { color: var(--pink-text); }
 .article-item h4 { font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; font-weight: 500; margin-bottom: 8px; }
 .article-item h4 a { transition: color 0.15s; }
 .article-item h4 a:hover { color: var(--pink-text); }
+.article-item.is-active h4 a { color: var(--pink-text); }
+.research-filters { margin-bottom: 32px; }
+.utility .lang-sw { display: flex; gap: 2px; border: 1px solid currentColor; border-radius: 999px; padding: 2px; flex: none; }
+.utility .lang-sw button { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; background: none; border: 0; color: inherit; opacity: 0.7; padding: 3px 9px; border-radius: 999px; cursor: pointer; transition: background 0.15s, color 0.15s, opacity 0.15s; }
+.utility .lang-sw button:hover { opacity: 1; }
+.utility .lang-sw button[aria-pressed="true"] { background: var(--canvas); color: var(--ink); opacity: 1; }
+[data-l] { display: none; }
+html[data-lang="es"] [data-l="es"], html[data-lang="en"] [data-l="en"], html[data-lang="de"] [data-l="de"] { display: revert; }
+.article-empty { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); padding: 22px 0; border-top: 1px solid var(--rule); }
+.feature-article { animation: featIn 0.35s ease both; }
+@keyframes featIn { from { opacity: 0; } to { opacity: 1; } }
 .article-item .byline { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
 
 /* ----- News strip --------------------------------------------------------- */
@@ -552,8 +565,9 @@ a.feature-article:hover h3 { color: var(--pink-text); }
 @media (max-width: 720px) {
   /* Marquee bar is decorative — drop it and let the nav own the top edge,
      opaque so body text can't bleed through behind it. */
-  .utility { display: none; }
-  .nav { top: 0; background: var(--canvas); backdrop-filter: none; }
+  .utility .marquee { display: none; }
+  .utility .row { justify-content: flex-end; }
+  .nav { top: 32px; background: var(--canvas); backdrop-filter: none; }
   .nav .row { height: 62px; }
   .project .card { padding: 16px; max-width: none; width: 100%; margin-inline: 0; }
   /* portrait fills the card so both insets equal the card padding */
