@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carnival in the World — Carnavarium</title>
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=5">
+<style>
+a{color:inherit}a:hover{color:var(--pink-text)}
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.lang-sw button:hover{color:var(--ink)}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+@media(max-width:560px){.legal-nav a.back{display:none}}
+[data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+
+.cv-head{padding-block:clamp(44px,6vw,88px) clamp(28px,4vw,48px);border-bottom:1px solid var(--rule)}
+.cv-tag{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:22px}
+.cv-dot{width:18px;height:18px;border-radius:50%;flex:none}
+.cv-head h1{font-size:clamp(44px,8vw,112px);font-weight:600;letter-spacing:-.03em;line-height:.92}
+.cv-sub{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.cv-sub b{color:var(--ink);font-weight:400}
+.cv-alias{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,30px);line-height:1.2;margin-top:10px;color:var(--ink-soft)}
+.cv-head.has-banner .cv-alias{color:rgba(255,255,255,.88)}
+.cv-head.has-banner{position:relative;border-bottom:0;background:#000 var(--banner) right center/cover no-repeat;color:#fff;min-height:clamp(320px,34vw,520px);display:grid;align-content:end}
+.cv-head.has-banner>.shell{position:relative}
+.cv-head.has-banner .cv-tag,.cv-head.has-banner .cv-sub{color:rgba(255,255,255,.82)}
+.cv-head.has-banner .cv-sub b{color:#fff}
+.cv-head.has-banner h1{color:#fff;max-width:9ch}
+@media(max-width:720px){.cv-head.has-banner::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,.35) 70%,rgba(0,0,0,.15))}}
+
+.cv-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,380px);gap:clamp(32px,5vw,80px);padding-block:clamp(36px,5vw,64px)}
+.cv-intro{font-family:var(--serif);font-size:clamp(19px,1.7vw,24px);line-height:1.55;max-width:44ch;text-wrap:pretty}
+.cv-sheet{align-self:start;background:var(--canvas-soft);border:1px solid var(--rule);border-radius:4px;padding:20px 22px 8px}
+.cv-sheet-h{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);padding-bottom:12px;border-bottom:2px solid var(--ink)}
+.cv-sheet-h .cv-dot{width:10px;height:10px}
+.cv-facts{margin:0;display:flex;flex-direction:column}
+.cv-facts div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:12px;padding:11px 0;border-bottom:1px dotted var(--rule)}
+.cv-facts div:last-child{border-bottom:0}
+.cv-facts dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+.cv-recs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}.cv-recs li{padding-left:12px;position:relative}.cv-recs li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--ink-faint)}
+.cv-facts dd{margin:0;font-family:var(--sans);font-size:.88rem;line-height:1.45;color:var(--ink-soft)}
+@media(max-width:860px){.cv-body{grid-template-columns:1fr}}
+
+.cv-sec{padding-block:0 clamp(48px,6vw,96px)}
+.cv-sec h2{font-size:clamp(24px,2.6vw,34px);font-weight:500;padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.cv-rel{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:28px}
+.cv-card{display:flex;flex-direction:column;gap:10px}
+.cv-card .img{aspect-ratio:16/10;overflow:hidden;border:1px solid var(--rule);background:var(--canvas-deep)}
+.cv-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,.84,.3,1)}
+.cv-card:hover img{transform:scale(1.03)}
+.cv-card .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text);margin-top:6px}
+.cv-card h3{font-size:1.45rem;line-height:1.15}
+.cv-card p{font-family:var(--serif);font-size:1rem;line-height:1.5;color:var(--ink-soft);margin:0}
+.cv-empty{font-family:var(--serif);font-size:1.05rem;line-height:1.55;color:var(--ink-soft);max-width:56ch;padding:24px;border:1px dashed var(--rule);border-radius:4px}
+
+.cv-others{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:0;border:1px solid var(--rule)}
+.cv-others a{display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--rule);margin:-1px 0 0 -1px;font-family:var(--serif);font-size:1.1rem}
+.cv-others a:hover{background:var(--canvas-soft);color:var(--ink)}
+.cv-others .cv-dot{width:12px;height:12px}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-right">
+<a class="back" href="index.html#world"><span data-l="es">← El carnaval en el mundo</span><span data-l="en">← Carnival in the World</span><span data-l="de">← Karneval in der Welt</span></a>
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
+</div>
+</nav>
+
+<main id="cv"></main>
+
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
+<ul>
+<li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
+<li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="index.html#archive"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></h5>
+<ul>
+<li>oscaraquite.x@gmail.com</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · <span data-l="es">Un proyecto de humanidades digitales</span><span data-l="en">A Digital Humanities Project</span><span data-l="de">Ein Digital-Humanities-Projekt</span></span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+
+<script src="carnavales.js"></script>
+<script>(function(){
+var C=window.CARNAVALES||[],slug=new URLSearchParams(location.search).get("c"),c=C.find(function(x){return x.slug===slug})||C[0];
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function t(o,tag){tag=tag||"span";return ["es","en","de"].map(function(l){return "<"+tag+' data-l="'+l+'">'+esc(o[l])+"</"+tag+">"}).join("")}
+var lbl={sheet:{es:"Datos clave",en:"Key facts",de:"Eckdaten"},loc:{es:"Lugar",en:"Location",de:"Ort"},region:{es:"Región cultural",en:"Cultural region",de:"Kulturregion"},origin:{es:"Origen",en:"Origin",de:"Ursprung"},dates:{es:"Próxima edición",en:"Next edition",de:"Nächste Ausgabe"},tag:{es:"Ficha · El carnaval en el mundo",en:"Profile · Carnival in the World",de:"Steckbrief · Karneval in der Welt"},rel:{es:"En Carnavarium",en:"On Carnavarium",de:"Auf Carnavarium"},empty:{es:"Todavía no hay artículos ni especiales sobre este carnaval. Si investiga sobre él y quiere publicar en Carnavarium, escríbanos.",en:"There are no articles or specials on this carnival yet. If you research it and would like to publish on Carnavarium, get in touch.",de:"Zu diesem Karneval gibt es noch keine Artikel oder Spezials. Wenn Sie dazu forschen und auf Carnavarium veröffentlichen möchten, schreiben Sie uns."},others:{es:"Otros carnavales",en:"Other carnivals",de:"Weitere Karnevale"},open:{es:"Leer →",en:"Read →",de:"Lesen →"}};
+var h='<header class="cv-head'+(c.banner?' has-banner" style="--banner:url('+c.banner+')':'')+'"><div class="shell"><div class="cv-tag"><span class="cv-dot" style="background:'+c.color+'"></span>'+t(lbl.tag)+'</div><h1>'+t(c.place)+'</h1>'+(c.alias?'<p class="cv-alias">'+t(c.alias)+'</p>':'')+'<div class="cv-sub"><b>'+t(c.country)+'</b><span>'+t(c.dates)+'</span></div></div></header>';
+h+='<div class="shell cv-body"><p class="cv-intro">'+t(c.intro)+'</p><aside class="cv-sheet"><div class="cv-sheet-h"><span class="cv-dot" style="background:'+c.color+'"></span>'+t(lbl.sheet)+'</div><dl class="cv-facts"><div><dt>'+t(lbl.loc)+'</dt><dd>'+t(c.location)+'</dd></div><div><dt>'+t(lbl.region)+'</dt><dd>'+t(c.region)+'</dd></div><div><dt>'+t(lbl.origin)+'</dt><dd>'+t(c.origin)+'</dd></div><div><dt>'+t(lbl.dates)+'</dt><dd>'+t(c.dates)+'</dd></div>'+c.facts.map(function(f){return "<div><dt>"+t(f.k)+"</dt><dd>"+(f.list?'<ul class="cv-recs">'+f.list.map(function(x){return "<li>"+t(x)+"</li>"}).join("")+"</ul>":t(f.v))+"</dd></div>"}).join("")+'</dl></aside></div>';
+h+='<section class="shell cv-sec"><h2>'+t(lbl.rel)+'</h2>';
+h+=c.related.length?'<div class="cv-rel">'+c.related.map(function(r){return '<a class="cv-card" href="'+r.href+'"><div class="img"><img src="'+r.img+'" alt="" loading="lazy" /></div><div class="k">'+t(r.type)+'</div><h3>'+t(r.title)+'</h3><p>'+t(r.deck)+'</p></a>'}).join("")+'</div>':'<p class="cv-empty">'+t(lbl.empty)+' <a href="mailto:oscaraquite.x@gmail.com">oscaraquite.x@gmail.com</a></p>';
+h+='</section><section class="shell cv-sec"><h2>'+t(lbl.others)+'</h2><div class="cv-others">'+C.filter(function(x){return x!==c}).map(function(x){return '<a href="carnaval.html?c='+x.slug+'"><span class="cv-dot" style="background:'+x.color+'"></span>'+t(x.place)+'</a>'}).join("")+'</div></section>';
+document.getElementById("cv").innerHTML=h;
+var TT={};["es","en","de"].forEach(function(l){TT[l]=(c.alias?c.alias[l]+" · ":"")+c.place[l]+" — Carnavarium"});
+function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=TT[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}
+[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});
+set(document.documentElement.getAttribute("data-lang")||"en",false);
+})()</script>
+</body>
+</html>

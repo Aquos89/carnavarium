@@ -193,16 +193,49 @@ function Pillars() {
   );
 }
 
+const WORLD_BANNERS = { barranquilla: 1, "port-of-spain": 1, colonia: 1, venecia: 1, "nueva-orleans": 1, rio: 1, oruro: 1, cadiz: 1, pasto: 1, recife: 1, basilea: 1, "buenos-aires": 1, montevideo: 1, salvador: 1, binche: 1, gualeguaychu: 1 };
+
+function WorldCarousel({ children }) {
+  const ref = React.useRef(null);
+  const [st, setSt] = useState({ page: 0, pages: 1 });
+  const update = () => {
+    const el = ref.current; if (!el) return;
+    const pages = Math.max(1, Math.round(el.scrollWidth / el.clientWidth));
+    const page = Math.round(el.scrollLeft / el.clientWidth);
+    setSt({ page, pages });
+  };
+  React.useEffect(() => { update(); window.addEventListener("resize", update); return () => window.removeEventListener("resize", update); }, []);
+  const go = d => { const el = ref.current; el.scrollTo({ left: el.scrollLeft + d * el.clientWidth, behavior: "smooth" }); };
+  return (
+    <div className="world-carousel">
+      <div className="world-grid" ref={ref} onScroll={update}>{children}</div>
+      <div className="wc-nav">
+        <button type="button" onClick={() => go(-1)} disabled={st.page <= 0} aria-label="←">←</button>
+        <span className="wc-dots">{Array.from({ length: st.pages }, (_, i) => <button type="button" key={i} className={i === st.page ? "on" : ""} aria-label={"" + (i + 1)} onClick={() => { const el = ref.current; el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" }); }}></button>)}</span>
+        <button type="button" onClick={() => go(1)} disabled={st.page >= st.pages - 1} aria-label="→">→</button>
+      </div>
+    </div>
+  );
+}
+
 function World() {
   const cells = [
-    { place: "Barranquilla", country: T("Colombia", "Colombia", "Kolumbien"), date: T("14 — 17 feb", "Feb 14 — 17", "14.–17. Feb."), color: "var(--coral)" },
-    { place: T("Venecia", "Venice", "Venedig"), country: T("Italia", "Italy", "Italien"), date: T("1 — 17 feb", "Feb 1 — 17", "1.–17. Feb."), color: "var(--lilac)" },
-    { place: "Salvador", country: T("Brasil", "Brazil", "Brasilien"), date: T("12 — 17 feb", "Feb 12 — 17", "12.–17. Feb."), color: "var(--mustard)" },
-    { place: T("Basilea", "Basel", "Basel"), country: T("Suiza", "Switzerland", "Schweiz"), date: T("2 — 4 mar", "Mar 2 — 4", "2.–4. März"), color: "var(--sky)" },
-    { place: T("Colonia", "Cologne", "Köln"), country: T("Alemania", "Germany", "Deutschland"), date: T("12 — 17 feb", "Feb 12 — 17", "12.–17. Feb."), color: "var(--mint)" },
-    { place: "Port of Spain", country: T("Trinidad y Tobago", "Trinidad & Tobago", "Trinidad und Tobago"), date: T("16 — 17 feb", "Feb 16 — 17", "16.–17. Feb."), color: "var(--coral)" },
-    { place: "Oruro", country: T("Bolivia", "Bolivia", "Bolivien"), date: T("14 — 17 feb", "Feb 14 — 17", "14.–17. Feb."), color: "var(--plum)" },
-    { place: T("Nueva Orleans", "New Orleans", "New Orleans"), country: T("EE. UU.", "USA", "USA"), date: T("17 feb (Mardi Gras)", "Feb 17 (Mardi Gras)", "17. Feb. (Mardi Gras)"), color: "var(--mustard)" },
+    { slug: "barranquilla", place: "Barranquilla", country: T("Colombia", "Colombia", "Kolumbien"), date: T("6 — 9 feb 2027", "Feb 6 — 9, 2027", "6.–9. Feb. 2027"), color: "var(--coral)" },
+    { slug: "venecia", place: T("Venecia", "Venice", "Venedig"), country: T("Italia", "Italy", "Italien"), date: T("23 ene — 9 feb 2027", "Jan 23 — Feb 9, 2027", "23. Jan. – 9. Feb. 2027"), color: "var(--teal)" },
+    { slug: "salvador", alias: T("Carnaval de Bahía", "Carnaval da Bahia", "Karneval von Bahia"), place: "Salvador", country: T("Brasil", "Brazil", "Brasilien"), date: T("4 — 10 feb 2027", "Feb 4 — 10, 2027", "4.–10. Feb. 2027"), color: "var(--amber)" },
+    { slug: "basilea", alias: T("Basler Fasnacht", "Basler Fasnacht", "Basler Fasnacht"), place: T("Basilea", "Basel", "Basel"), country: T("Suiza", "Switzerland", "Schweiz"), date: T("15 — 17 feb 2027", "Feb 15 — 17, 2027", "15.–17. Feb. 2027"), color: "var(--green)" },
+    { slug: "colonia", alias: T("Kölner Karneval", "Kölner Karneval", "Kölner Karneval"), place: T("Colonia", "Cologne", "Köln"), country: T("Alemania", "Germany", "Deutschland"), date: T("4 — 9 feb 2027", "Feb 4 — 9, 2027", "4.–9. Feb. 2027"), color: "var(--green)" },
+    { slug: "port-of-spain", alias: T("Carnaval de Trinidad y Tobago", "Trinidad and Tobago Carnival", "Karneval von Trinidad und Tobago"), place: T("Puerto España", "Port of Spain", "Port of Spain"), country: T("Trinidad y Tobago", "Trinidad & Tobago", "Trinidad und Tobago"), date: T("8 — 9 feb 2027", "Feb 8 — 9, 2027", "8.–9. Feb. 2027"), color: "var(--coral)" },
+    { slug: "oruro", place: "Oruro", country: T("Bolivia", "Bolivia", "Bolivien"), date: T("6 — 9 feb 2027", "Feb 6 — 9, 2027", "6.–9. Feb. 2027"), color: "var(--purple)" },
+    { slug: "nueva-orleans", alias: T("Mardi Gras", "Mardi Gras", "Mardi Gras"), place: T("Nueva Orleans", "New Orleans", "New Orleans"), country: T("EE. UU.", "USA", "USA"), date: T("9 feb 2027 (Mardi Gras)", "Feb 9, 2027 (Mardi Gras)", "9. Feb. 2027 (Mardi Gras)"), color: "var(--coral)" },
+    { slug: "rio", place: T("Río de Janeiro", "Rio de Janeiro", "Rio de Janeiro"), country: T("Brasil", "Brazil", "Brasilien"), date: T("5 — 10 feb 2027", "Feb 5 — 10, 2027", "5.–10. Feb. 2027"), color: "var(--amber)" },
+    { slug: "pasto", alias: T("Carnaval de Negros y Blancos", "Carnival of Blacks and Whites", "Karneval der Schwarzen und Weißen"), place: T("Pasto", "Pasto", "Pasto"), country: T("Colombia", "Colombia", "Kolumbien"), date: T("2 — 7 ene 2027", "Jan 2 — 7, 2027", "2.–7. Jan. 2027"), color: "var(--purple)" },
+    { slug: "cadiz", place: T("Cádiz", "Cádiz", "Cádiz"), country: T("España", "Spain", "Spanien"), date: T("4 — 14 feb 2027", "Feb 4 — 14, 2027", "4.–14. Feb. 2027"), color: "var(--teal)" },
+    { slug: "binche", place: T("Binche", "Binche", "Binche"), country: T("Bélgica", "Belgium", "Belgien"), date: T("7 — 9 feb 2027", "Feb 7 — 9, 2027", "7.–9. Feb. 2027"), color: "var(--green)" },
+    { slug: "montevideo", place: T("Montevideo", "Montevideo", "Montevideo"), country: T("Uruguay", "Uruguay", "Uruguay"), date: T("21 ene — 6 feb 2027", "Jan 21 — Feb 6, 2027", "21. Jan. – 6. Feb. 2027"), color: "var(--blue)" },
+    { slug: "gualeguaychu", alias: T("Carnaval del País", "Carnaval del País", "Carnaval del País"), place: T("Gualeguaychú", "Gualeguaychú", "Gualeguaychú"), country: T("Argentina", "Argentina", "Argentinien"), date: T("Ene — feb 2027", "Jan — Feb 2027", "Jan. – Feb. 2027"), color: "var(--blue)" },
+    { slug: "buenos-aires", alias: T("Carnaval porteño", "Carnaval porteño", "Carnaval porteño"), place: T("Buenos Aires", "Buenos Aires", "Buenos Aires"), country: T("Argentina", "Argentina", "Argentinien"), date: T("Feb 2027", "Feb 2027", "Feb. 2027"), color: "var(--blue)" },
+    { slug: "recife", place: T("Recife", "Recife", "Recife"), country: T("Brasil", "Brazil", "Brasilien"), date: T("6 — 10 feb 2027", "Feb 6 — 10, 2027", "6.–10. Feb. 2027"), color: "var(--amber)" },
   ];
   return (
     <section id="world" className="section" style={{ background: "var(--canvas-soft)" }}>
@@ -229,19 +262,31 @@ function World() {
               )}
             </p>
           </div>
-          <div className="world-grid">
+          <WorldCarousel>
             {cells.map((c, i) => (
-              <div className="world-cell" key={i}>
+              <a className={"world-cell" + (WORLD_BANNERS[c.slug] ? " has-img" : "")} key={i} href={"carnaval.html?c=" + c.slug} style={{ "--c": c.color, "--img": WORLD_BANNERS[c.slug] ? "url(images/banners/" + c.slug + ".png)" : "none" }}>
+                <span className="wc-bg" aria-hidden="true"></span>
                 <span className="swatch" style={{ background: c.color }}></span>
                 <div>
                   <div className="place">{c.place}</div>
+                  {c.alias && <div className="wc-alias">{c.alias}</div>}
                   <div className="country">{c.country}</div>
                 </div>
-                <div className="date">{c.date}</div>
-              </div>
+                <div className="date"><span>{c.date}</span><span className="wc-num">{String(i + 1).padStart(2, "0")}<span className="wc-go">→</span></span></div>
+              </a>
             ))}
-          </div>
+          </WorldCarousel>
         </div>
+        <ul className="world-legend">
+          {[
+            ["var(--coral)", T("Gran Caribe", "Greater Caribbean", "Großkaribik")],
+            ["var(--amber)", T("Brasil", "Brazil", "Brasilien")],
+            ["var(--purple)", T("Andes", "Andes", "Anden")],
+            ["var(--blue)", T("Río de la Plata", "Río de la Plata", "Río de la Plata")],
+            ["var(--teal)", T("Europa mediterránea", "Mediterranean Europe", "Mittelmeer-Europa")],
+            ["var(--green)", T("Europa central", "Central Europe", "Mitteleuropa")],
+          ].map(([col, lab], i) => <li key={i}><span className="swatch" style={{ background: col }}></span>{lab}</li>)}
+        </ul>
         <a className="special-banner" href="especial-calypso.html">
           <div className="sb-tag"><b>{T("Especial", "Special", "Spezial")}</b><span>{T("Trinidad y Tobago · 8 capítulos", "Trinidad & Tobago · 8 chapters", "Trinidad und Tobago · 8 Kapitel")}</span></div>
           <h3>{T("La ruta del calipso", "The Calypso Route", "Die Route des Calypso")}</h3>
