@@ -354,8 +354,8 @@ function Timeline() {
 const FEATURES = {
   barranquilla: {
     href: "ensayo-musica-carnaval.html", img: "images/musica-carnaval.jpg", alt: "Música durante el Carnaval de Barranquilla",
-    kicker: T("Destacado · Lectura larga · ES", "Feature · Long Read · ES", "Feature · Longread · ES"),
-    title: "La música del Carnaval de Barranquilla: patrimonio vivo",
+    kicker: T("Destacado · Lectura larga · ES · EN · DE", "Feature · Long Read · ES · EN · DE", "Feature · Longread · ES · EN · DE"),
+    title: T("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe"),
     deck: T(
       "Cumbias, papayeras, Congos de Oro, verbenas y picós. Un recorrido por los circuitos donde suena el Carnaval de Barranquilla, y por las formas en que esa música se sostiene, se disputa y se renueva.",
       "Cumbias, papayeras, Congos de Oro, verbenas and picós. A journey through the circuits where the Barranquilla Carnival sounds, and the ways that music is sustained, contested and renewed.",
@@ -392,7 +392,7 @@ function Research() {
   const issue = T("Número 01", "Issue 01", "Ausgabe 01");
   const list = [
     { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <>Óscar Aquite · {issue}</>, href: "especial-calypso.html", feat: "calypso" },
-    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES", "Article · ES", "Artikel · ES"), title: FEATURES.barranquilla.title, byline: <>Óscar Aquite · {issue}</>, href: "ensayo-musica-carnaval.html", feat: "barranquilla" },
+    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <>Óscar Aquite · {issue}</>, href: "ensayo-musica-carnaval.html", feat: "barranquilla" },
     { date: "2026-05-01", cat: "Data Stories", kicker: T("Historia de datos", "Data Story", "Data Story"), title: T("Mapear 200 años de desfiles de Mardi Gras desde los archivos de la ciudad", "Mapping 200 years of Mardi Gras parades from city archives", "200 Jahre Mardi-Gras-Paraden aus städtischen Archiven kartiert"), byline: <>K. Devereaux · {issue}</> },
     { date: "2026-04-01", cat: "Field Notes", kicker: T("Notas de campo", "Field Notes", "Feldnotizen"), title: T("Escuchar una steelband desde dentro de la sala de máquinas", "On listening to a steelband from inside the engine room", "Eine Steelband aus dem Maschinenraum hören"), byline: <>T. Ramcharan · {issue}</> },
     { date: "2026-03-01", cat: "Visualizations", kicker: T("Visualización", "Visualization", "Visualisierung"), title: T("Una red de los disfraces prestados del carnaval (1900 — 2020)", "A network of carnival's borrowed costumes (1900 — 2020)", "Ein Netzwerk der entliehenen Karnevalskostüme (1900 — 2020)"), byline: <>Carnavarium Lab · {issue}</> },
