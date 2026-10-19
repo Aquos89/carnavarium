@@ -94,10 +94,10 @@ function Hero() {
             )}
           </p>
           <div className="stats">
-            <div className="stat"><span className="num">1,248</span><span className="lab">{T("Ítems en el archivo", "Items in Archive", "Objekte im Archiv")}</span></div>
-            <div className="stat"><span className="num">42</span><span className="lab">{T("Tradiciones mapeadas", "Traditions Mapped", "Kartierte Traditionen")}</span></div>
-            <div className="stat"><span className="num">17</span><span className="lab">{T("Datasets abiertos", "Open Datasets", "Offene Datensätze")}</span></div>
-            <div className="stat"><span className="num">9</span><span className="lab">{T("Líneas de investigación", "Active Research Lines", "Forschungslinien")}</span></div>
+            <div className="stat"><span className="num">16</span><span className="lab">{T("Carnavales en el atlas", "Carnivals in the Atlas", "Karnevale im Atlas")}</span></div>
+            <div className="stat"><span className="num">6</span><span className="lab">{T("Regiones culturales", "Cultural Regions", "Kulturregionen")}</span></div>
+            <div className="stat"><span className="num">3</span><span className="lab">{T("Publicaciones", "Publications", "Publikationen")}</span></div>
+            <div className="stat"><span className="num">1</span><span className="lab">{T("Dataset abierto", "Open Dataset", "Offener Datensatz")}</span></div>
           </div>
         </div>
       </div>
@@ -243,7 +243,6 @@ function World() {
         <div className="sec-head">
           <div className="num">§ 03</div>
           <h2 className="title">{T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt")}</h2>
-          <a href="#" className="more">{T("Abrir el atlas →", "Open atlas →", "Atlas öffnen →")}</a>
         </div>
         <div className="world">
           <div className="world-intro">
@@ -261,6 +260,13 @@ function World() {
                 "Stöbern Sie im Kalender; klicken Sie auf eine Stadt, um ihr Dossier mit Praktiken, Klängen, Bildern und Bibliografie zu öffnen."
               )}
             </p>
+            <a className="atlas-teaser" href="atlas.html">
+              <span className="at-img"><img src="images/atlas-preview.svg" alt={T("Mapa del atlas de carnavales", "Carnival atlas map", "Karte des Karnevalsatlas")} loading="lazy" /></span>
+              <span className="at-txt">
+                <span className="at-k">{T("Atlas · 16 carnavales · 6 regiones", "Atlas · 16 carnivals · 6 regions", "Atlas · 16 Karnevale · 6 Regionen")}</span>
+                <span className="at-cta">{T("Abrir el atlas →", "Open atlas →", "Atlas öffnen →")}</span>
+              </span>
+            </a>
           </div>
           <WorldCarousel>
             {cells.map((c, i) => (
@@ -365,11 +371,11 @@ function Timeline() {
   const events = [
     { year: "1296", event: T("Primera referencia escrita al carnevale en un decreto del dux de Venecia.", "Earliest written reference to carnevale in Venetian doge's decree.", "Früheste schriftliche Erwähnung des carnevale in einem Dekret des venezianischen Dogen."), place: T("Venecia, IT", "Venice, IT", "Venedig, IT") },
     { year: "1500s", event: T("El carnaval llega a las colonias españolas en América y se funde con tradiciones indígenas y africanas.", "Carnival arrives in the Spanish American colonies, fused with Indigenous and African traditions.", "Der Karneval erreicht die spanischen Kolonien in Amerika und verschmilzt mit indigenen und afrikanischen Traditionen."), place: T("Costa Caribe", "Caribbean Coast", "Karibikküste") },
-    { year: "1823", event: T("Fundación del Carnaval de Barranquilla en su forma moderna.", "Founding of the Barranquilla Carnival in its modern form.", "Gründung des Karnevals von Barranquilla in seiner modernen Form."), place: "Barranquilla, CO" },
-    { year: "1837", event: T("Primer desfile documentado de Mardi Gras en Estados Unidos.", "First documented Mardi Gras parade in the United States.", "Erste dokumentierte Mardi-Gras-Parade in den Vereinigten Staaten."), place: T("Mobile / Nueva Orleans", "Mobile / New Orleans", "Mobile / New Orleans") },
-    { year: "1928", event: T("El J'ouvert de Trinidad codifica su tradición de mas al amanecer.", "Trinidadian J'ouvert codifies its dawn-bound mas tradition.", "Das trinidadische J'ouvert festigt seine Mas-Tradition im Morgengrauen."), place: "Port of Spain, TT" },
+    { year: "1857", event: T("La Mistick Krewe of Comus desfila por primera vez en el Mardi Gras.", "The Mistick Krewe of Comus parades for the first time at Mardi Gras.", "Die Mistick Krewe of Comus zieht erstmals beim Mardi Gras."), place: T("Nueva Orleans, US", "New Orleans, US", "New Orleans, US") },
+    { year: "1881", event: T("Revueltas de Canboulay: Puerto España resiste la prohibición de las procesiones con antorchas.", "Canboulay riots: Port of Spain resists the ban on torch processions.", "Canboulay-Unruhen: Port of Spain widersetzt sich dem Verbot der Fackelumzüge."), place: "Port of Spain, TT" },
+    { year: "1903", event: T("Primera Batalla de Flores en Barranquilla, al terminar la Guerra de los Mil Días.", "First Batalla de Flores in Barranquilla, at the end of the Thousand Days' War.", "Erste Batalla de Flores in Barranquilla zum Ende des Tausend-Tage-Krieges."), place: "Barranquilla, CO" },
     { year: "1965", event: T("Se publica La cultura popular en la Edad Media y en el Renacimiento de Bajtín: lo carnavalesco entra en la teoría.", "Bakhtin's Rabelais and His World published — the carnivalesque enters theory.", "Bachtins Rabelais und seine Welt erscheint – das Karnevaleske hält Einzug in die Theorie."), place: T("Moscú, RU", "Moscow, RU", "Moskau, RU") },
-    { year: "2003", event: T("La UNESCO inscribe el Carnaval de Oruro en la lista del Patrimonio Cultural Inmaterial.", "UNESCO inscribes Oruro Carnival on Intangible Cultural Heritage list.", "Die UNESCO nimmt den Karneval von Oruro in die Liste des immateriellen Kulturerbes auf."), place: "Oruro, BO" },
+    { year: "2001", event: T("La UNESCO proclama el Carnaval de Oruro Obra Maestra del Patrimonio Oral e Inmaterial.", "UNESCO proclaims the Oruro Carnival a Masterpiece of the Oral and Intangible Heritage.", "Die UNESCO erklärt den Karneval von Oruro zum Meisterwerk des mündlichen und immateriellen Erbes."), place: "Oruro, BO" },
     { year: "2024", event: T("Carnavarium empieza a construir su corpus de metadatos abiertos.", "Carnavarium begins building its open metadata corpus.", "Carnavarium beginnt mit dem Aufbau seines offenen Metadatenkorpus."), place: "Regensburg / Barranquilla" },
   ];
   return (
@@ -378,7 +384,7 @@ function Timeline() {
         <div className="sec-head">
           <div className="num">§ 05</div>
           <h2 className="title">{T("Una cronología del mundo al revés", "A Timeline of the Inverted World", "Eine Chronik der verkehrten Welt")}</h2>
-          <a href="#" className="more">{T("Cronología completa →", "Full chronology →", "Ganze Chronik →")}</a>
+          <a href="chronology.html" className="more">{T("Cronología completa →", "Full chronology →", "Ganze Chronik →")}</a>
         </div>
         <div className="timeline-wrap">
           <div className="timeline">
@@ -443,23 +449,29 @@ const RESEARCH_CATS = {
   Interviews: T("Entrevistas", "Interviews", "Interviews"),
 };
 
+const RESEARCH_LINES = {
+  music: T("Música y sonido del carnaval", "Carnival music and sound", "Musik und Klang des Karnevals"),
+  corpus: T("Corpus textuales del carnaval", "Carnival text corpora", "Textkorpora des Karnevals"),
+  atlas: T("Carnaval comparado", "Comparative carnival", "Karneval im Vergleich"),
+  data: T("Datos abiertos y metadatos", "Open data and metadata", "Offene Daten und Metadaten"),
+};
+
 function Research() {
   const [cat, setCat] = useState("All");
-  const cats = Object.keys(RESEARCH_CATS);
+  const [hover, setHover] = useState(null);
   const issue = T("Número 01", "Issue 01", "Ausgabe 01");
   const list = [
-    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <>Óscar Aquite · {issue}</>, href: "samba-enredo-corpus.html", feat: "samba" },
-    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <>Óscar Aquite · {issue}</>, href: "especial-calypso.html", feat: "calypso" },
-    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <>Óscar Aquite · {issue}</>, href: "ensayo-musica-carnaval.html", feat: "barranquilla" },
-    { date: "2026-05-01", cat: "Data Stories", kicker: T("Historia de datos", "Data Story", "Data Story"), title: T("Mapear 200 años de desfiles de Mardi Gras desde los archivos de la ciudad", "Mapping 200 years of Mardi Gras parades from city archives", "200 Jahre Mardi-Gras-Paraden aus städtischen Archiven kartiert"), byline: <>K. Devereaux · {issue}</> },
-    { date: "2026-04-01", cat: "Field Notes", kicker: T("Notas de campo", "Field Notes", "Feldnotizen"), title: T("Escuchar una steelband desde dentro de la sala de máquinas", "On listening to a steelband from inside the engine room", "Eine Steelband aus dem Maschinenraum hören"), byline: <>T. Ramcharan · {issue}</> },
-    { date: "2026-03-01", cat: "Visualizations", kicker: T("Visualización", "Visualization", "Visualisierung"), title: T("Una red de los disfraces prestados del carnaval (1900 — 2020)", "A network of carnival's borrowed costumes (1900 — 2020)", "Ein Netzwerk der entliehenen Karnevalskostüme (1900 — 2020)"), byline: <>Carnavarium Lab · {issue}</> },
-    { date: "2026-02-01", cat: "Interviews", kicker: T("Entrevista", "Interview", "Interview"), title: T("Con Marisol — hacedora de disfraces, Sociedad de Negritos Puloy", "With Marisol — costume maker, Sociedad de Negritos Puloy", "Mit Marisol — Kostümbildnerin, Sociedad de Negritos Puloy"), byline: issue },
+    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <>Óscar Aquite · {issue}</>, href: "samba-enredo-corpus.html", feat: "samba", lines: ["corpus", "music", "data"] },
+    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <>Óscar Aquite · {issue}</>, href: "especial-calypso.html", feat: "calypso", lines: ["music", "atlas"] },
+    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <>Óscar Aquite · {issue}</>, href: "ensayo-musica-carnaval.html", feat: "barranquilla", lines: ["music"] },
   ];
+  const cats = Object.keys(RESEARCH_CATS).filter(c => c === "All" || list.some(a => a.cat === c));
   // newest first; the newest item with a feature card is the default featured one
-  const shown = list.filter(a => cat === "All" || a.cat === cat).sort((a, b) => b.date.localeCompare(a.date));
+  const [line, setLine] = useState(null);
+  const lineKeys = Object.keys(RESEARCH_LINES).filter(k => list.some(a => (a.lines || []).includes(k)));
+  const pickLine = k => { setLine(line === k ? null : k); setHover(null); };
+  const shown = list.filter(a => (cat === "All" || a.cat === cat) && (!line || (a.lines || []).includes(line))).sort((a, b) => b.date.localeCompare(a.date));
   const defFeat = (shown.find(a => a.feat) || list.filter(a => a.feat).sort((a, b) => b.date.localeCompare(a.date))[0]).feat;
-  const [hover, setHover] = useState(null);
   const featured = hover || defFeat;
   const setFeatured = k => setHover(k);
   const pickCat = c => { setCat(c); setHover(null); };
@@ -482,6 +494,12 @@ function Research() {
             <button key={c} className={cat === c ? "active" : ""} onClick={() => pickCat(c)}>{RESEARCH_CATS[c]}</button>
           ))}
         </div>
+        <div className="research-lines">
+          <span className="rl-label">{T("Líneas de investigación", "Research lines", "Forschungslinien")}</span>
+          {lineKeys.map(k => (
+            <button key={k} className={"rl-tag" + (line === k ? " active" : "")} onClick={() => pickLine(k)}>{RESEARCH_LINES[k]}</button>
+          ))}
+        </div>
         <div className="editorial">
           <a className="feature-article" href={f.href} key={featured}>
             <div className="img">
@@ -499,6 +517,9 @@ function Research() {
                 <div className="kicker">{a.kicker}</div>
                 <h4>{a.href ? <a href={a.href}>{a.title}</a> : a.title}</h4>
                 <div className="byline">{a.byline}</div>
+                {a.lines && <div className="rl-tags">{a.lines.map(k => (
+                  <button key={k} className={"rl-tag" + (line === k ? " active" : "")} onClick={() => pickLine(k)}>{RESEARCH_LINES[k]}</button>
+                ))}</div>}
               </article>
             ))}
           </div>
@@ -510,9 +531,7 @@ function Research() {
 
 function News() {
   const items = [
-    { date: T("10 may 2026", "10 May 2026", "10. Mai 2026"), title: T("Convocatoria de ensayos — Número 02: sonido, cuerpo y plaza pública", "Open call for essays — Issue 02: Sound, body and the public square", "Call for Essays — Ausgabe 02: Klang, Körper und öffentlicher Raum"), tag: T("Convocatorias", "Submissions", "Einreichungen") },
-    { date: T("02 may 2026", "02 May 2026", "02. Mai 2026"), title: T("Carnavarium se presenta en el congreso DH 2026, Lisboa", "Carnavarium presents at the DH 2026 conference, Lisbon", "Carnavarium auf der DH-2026-Konferenz in Lissabon"), tag: T("Congreso", "Conference", "Konferenz") },
-    { date: T("18 abr 2026", "18 Apr 2026", "18. Apr. 2026"), title: T("Nuevo dataset publicado — 1.248 ítems ya mapeables en JSON-LD", "New dataset released — 1,248 items now mappable in JSON-LD", "Neuer Datensatz veröffentlicht — 1.248 Objekte jetzt in JSON-LD kartierbar"), tag: T("Datos abiertos", "Open Data", "Offene Daten") },
+    { date: T("20 oct 2026", "20 Oct 2026", "20. Okt. 2026"), title: T("Carnavarium se presenta en el 6.º Culture Community Plenary de NFDI4Culture — Bochum, 9–11 nov", "Carnavarium presents at NFDI4Culture's 6th Culture Community Plenary — Bochum, 9–11 Nov", "Carnavarium auf dem 6. Culture Community Plenary von NFDI4Culture — Bochum, 9.–11. Nov."), tag: T("Congreso", "Conference", "Konferenz"), href: "https://nfdi4culture.de/de/veranstaltungen/details/6th-culture-community-plenary.html" },
   ];
   return (
     <section id="news" className="section" style={{ paddingBottom: 64 }}>
@@ -526,11 +545,11 @@ function News() {
       <div className="shell">
         <div className="news">
           {items.map((n, i) => (
-            <div className="news-item" key={i}>
+            <a className="news-item" key={i} href={n.href || "#news"} {...(n.href ? { target: "_blank", rel: "noopener" } : {})} style={{ color: "inherit", textDecoration: "none" }}>
               <div className="date">{n.date}</div>
               <div className="title">{n.title}</div>
-              <div className="tag">{n.tag}</div>
-            </div>
+              <div className="tag">{n.tag}{n.href ? " ↗" : ""}</div>
+            </a>
           ))}
         </div>
       </div>
