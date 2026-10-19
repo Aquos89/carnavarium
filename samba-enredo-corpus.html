@@ -77,6 +77,11 @@ html [data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en
 .ds-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
 .ds-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
 .ds-back:hover{background:var(--canvas-soft)}
+.ds-schema td i{font-style:italic;color:var(--ink-faint)}
+.ds-dl{display:flex;flex-direction:column;gap:6px;max-width:440px;margin:6px 0 1.4em;padding:18px 22px;border:1px solid var(--ink);background:var(--canvas);transition:background .15s,color .15s}
+.ds-dl:hover{background:var(--ink);color:var(--canvas)}
+.ds-dl-k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.ds-dl-t{font-size:1.1rem;font-weight:600}
 </style>
 </head>
 <body>
@@ -107,7 +112,7 @@ html [data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en
 <div><dt><span data-l="es">Fuente</span><span data-l="en">Source</span><span data-l="de">Quelle</span></dt><dd><span data-l="es">Sambas-enredo del Carnaval de Río</span><span data-l="en">Rio carnival sambas-enredo</span><span data-l="de">Sambas-Enredo des Karnevals von Rio</span></dd></div>
 <div><dt><span data-l="es">Cobertura</span><span data-l="en">Coverage</span><span data-l="de">Umfang</span></dt><dd><span data-l="es">Varias décadas; todas las categorías de competencia</span><span data-l="en">Several decades; all competition categories</span><span data-l="de">Mehrere Jahrzehnte; alle Wettbewerbskategorien</span></dd></div>
 <div><dt><span data-l="es">Lengua</span><span data-l="en">Language</span><span data-l="de">Sprache</span></dt><dd><span data-l="es">Portugués de Brasil</span><span data-l="en">Brazilian Portuguese</span><span data-l="de">Brasilianisches Portugiesisch</span></dd></div>
-<div><dt><span data-l="es">Acceso</span><span data-l="en">Access</span><span data-l="de">Zugang</span></dt><dd><span data-l="es">Recurso abierto y documentado (previsto)</span><span data-l="en">Open, documented resource (planned)</span><span data-l="de">Offene, dokumentierte Ressource (geplant)</span></dd></div>
+<div><dt><span data-l="es">Acceso</span><span data-l="en">Access</span><span data-l="de">Zugang</span></dt><dd><span data-l="es">Metadatos abiertos; letras de uso interno por derechos de autor</span><span data-l="en">Open metadata; lyrics for internal use only due to copyright</span><span data-l="de">Offene Metadaten; Liedtexte aus urheberrechtlichen Gründen nur intern</span></dd></div>
 </dl>
 </div>
 
@@ -131,9 +136,15 @@ html [data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en
 <tr><td>colocação</td><td><span data-l="es">Posición final en la competencia</span><span data-l="en">Final placement in the competition</span><span data-l="de">Platzierung im Wettbewerb</span></td></tr>
 <tr><td>pontuação</td><td><span data-l="es">Puntuación otorgada por el jurado</span><span data-l="en">Score awarded by the jury</span><span data-l="de">Von der Jury vergebene Punktzahl</span></td></tr>
 <tr><td>origem</td><td><span data-l="es">Procedencia geográfica de la escola: barrio o área metropolitana</span><span data-l="en">Geographic origin of the school: neighbourhood or metropolitan area</span><span data-l="de">Geografische Herkunft der Escola: Stadtviertel bzw. Großraum</span></td></tr>
-<tr><td>letra</td><td><span data-l="es">Texto completo del samba-enredo</span><span data-l="en">Full lyrics of the samba-enredo</span><span data-l="de">Vollständiger Liedtext des Samba-Enredo</span></td></tr>
+<tr><td>letra</td><td><span data-l="es">Texto completo del samba-enredo · <i>no publicado: protegido por derechos de autor</i></span><span data-l="en">Full lyrics of the samba-enredo · <i>not published: protected by copyright</i></span><span data-l="de">Vollständiger Liedtext des Samba-Enredo · <i>nicht veröffentlicht: urheberrechtlich geschützt</i></span></td></tr>
 </tbody>
 </table>
+
+<h2><span class="n">02</span><span data-l="es">Acceso a los datos</span><span data-l="en">Data access</span><span data-l="de">Datenzugang</span></h2>
+<p data-l="es">Las letras de los sambas-enredo están protegidas por derechos de autor, por lo que no se publican. Los metadatos del corpus sí son abiertos y pueden consultarse en una hoja de cálculo.</p>
+<p data-l="en">The samba-enredo lyrics are protected by copyright and are therefore not published. The corpus metadata, however, are open and available in a spreadsheet.</p>
+<p data-l="de">Die Liedtexte der Sambas-Enredo sind urheberrechtlich geschützt und werden daher nicht veröffentlicht. Die Metadaten des Korpus sind dagegen offen und in einer Tabelle einsehbar.</p>
+<a class="ds-dl" href="https://docs.google.com/spreadsheets/d/1PUUFyox4fjjQnlUvTFYfpjI6KmBXVhGAjzw3CGJSDYE/edit?usp=sharing" target="_blank" rel="noopener"><span class="ds-dl-k"><span data-l="es">Metadatos · Google Sheets</span><span data-l="en">Metadata · Google Sheets</span><span data-l="de">Metadaten · Google Sheets</span></span><span class="ds-dl-t"><span data-l="es">Abrir la tabla de metadatos ↗</span><span data-l="en">Open the metadata table ↗</span><span data-l="de">Metadatentabelle öffnen ↗</span></span></a>
 
 <div class="ds-end">
 <a class="ds-back" href="carnaval.html?c=rio"><span data-l="es">→ Ficha del Carnaval de Río</span><span data-l="en">→ Rio Carnival fact sheet</span><span data-l="de">→ Steckbrief Karneval von Rio</span></a>

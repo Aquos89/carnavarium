@@ -410,7 +410,7 @@ const FEATURES = {
   },
   samba: {
     href: "samba-enredo-corpus.html", img: "images/banners/rio.png", alt: "Carnaval de Río de Janeiro",
-    kicker: T("Dataset · En construcción · ES · EN · DE", "Dataset · In progress · ES · EN · DE", "Datensatz · Im Aufbau · ES · EN · DE"),
+    kicker: T("Dataset · Metadatos abiertos · ES · EN · DE", "Dataset · Open metadata · ES · EN · DE", "Datensatz · Offene Metadaten · ES · EN · DE"),
     title: T("Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)"),
     deck: T(
       "Un corpus estructurado de las letras del Carnaval de Río: escola, año, categoría, posición, puntuación y barrio.",
