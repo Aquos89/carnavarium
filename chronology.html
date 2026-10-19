@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chronology — Carnavarium</title>
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=5">
+<style>
+a{color:inherit}a:hover{color:var(--pink-text)}
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.lang-sw button:hover{color:var(--ink)}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+@media(max-width:560px){.legal-nav a.back{display:none}}
+[data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+
+.ch-view{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px;margin-left:auto}
+.ch-view button{border:0!important;padding:6px 12px!important}
+.tl{padding-block:clamp(28px,4vw,48px) 0}
+.tl-scroll{overflow-x:auto;overflow-y:hidden;border:1px solid var(--rule);background:var(--canvas-soft);border-radius:4px}
+.tl-canvas{position:relative;padding:12px 0 0}
+.tl-frame{position:relative}
+.tl-frame::before,.tl-frame::after{content:"";position:absolute;top:1px;bottom:1px;width:80px;pointer-events:none;z-index:3;transition:opacity .3s}
+.tl-frame::before{left:151px;background:linear-gradient(90deg,var(--canvas-soft),transparent)}
+.tl-frame::after{right:1px;background:linear-gradient(-90deg,var(--canvas-soft),transparent)}
+.tl-frame.at-start::before,.tl-frame.at-end::after{opacity:0}
+.tl-arrow{position:absolute;top:50%;z-index:4;width:44px;height:44px;margin-top:-22px;border-radius:50%;border:1px solid var(--ink);background:var(--canvas);color:var(--ink);font-size:1.1rem;cursor:pointer;transition:opacity .3s,background .2s}
+.tl-arrow:hover{background:var(--ink);color:var(--canvas)}
+.tl-arrow.l{left:166px}.tl-arrow.r{right:14px}
+.tl-frame.at-start .tl-arrow.l,.tl-frame.at-end .tl-arrow.r{opacity:0;pointer-events:none}
+.tl-scroll{cursor:grab}.tl-scroll.drag{cursor:grabbing;user-select:none}
+.tl-bar{display:flex;align-items:center;gap:16px;margin-top:14px}
+.tl-mini{position:relative;flex:1;height:30px;border:1px solid var(--rule);border-radius:3px;background:var(--canvas-soft);cursor:pointer;overflow:hidden}
+.tl-mini i{position:absolute;top:50%;width:5px;height:5px;margin:-2.5px 0 0 -2.5px;border-radius:50%}
+.tl-mini em{position:absolute;bottom:1px;font-family:var(--mono);font-style:normal;font-size:.5rem;color:var(--ink-faint);transform:translateX(-50%)}
+.tl-win{position:absolute;top:0;bottom:0;border:2px solid var(--ink);border-radius:3px;background:rgba(28,26,22,.06);cursor:grab}
+.tl-scrollhint{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
+.tl-scrollhint .ar{display:inline-block;animation:tlnudge 1.6s ease-in-out infinite}
+@keyframes tlnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+@media(max-width:720px){.tl-bar{flex-direction:column;align-items:stretch}}
+.tl-lane{position:relative;height:58px;border-bottom:1px dotted var(--rule);display:flex;align-items:center}
+.tl-lane .ln{position:sticky;left:0;z-index:2;width:150px;flex:none;height:100%;display:flex;align-items:center;gap:8px;padding:0 14px;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:var(--canvas-soft);border-right:1px solid var(--rule)}
+.tl-lane.dim .ln{color:var(--ink-faint)}
+.tl-track{position:absolute;left:150px;right:24px;top:0;bottom:0}
+.tl-pt{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid var(--canvas-soft);padding:0;cursor:pointer;transition:transform .2s,opacity .25s,box-shadow .2s}
+.tl-pt:hover{transform:scale(1.35)}
+.tl-pt.off{opacity:.15;pointer-events:none}
+.tl-pt.sel{transform:scale(1.6);box-shadow:0 0 0 2px var(--ink)}
+.tl-axis{position:relative;height:40px;margin-left:150px;margin-right:24px}
+.cx-tick{position:absolute;top:0;height:8px;border-left:1px solid var(--ink-faint)}
+.cx-tick span{position:absolute;top:12px;left:0;transform:translateX(-50%);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--ink-faint);white-space:nowrap}
+.tl-break{position:absolute;top:-6px;bottom:0;width:10px;margin-left:-5px;background:repeating-linear-gradient(135deg,transparent 0 3px,var(--ink-faint) 3px 4px);opacity:.5}
+.tl-grid{position:absolute;top:0;bottom:0;border-left:1px solid var(--canvas-deep);pointer-events:none}
+.tl-cursor{position:absolute;top:0;bottom:0;border-left:1px solid var(--ink);pointer-events:none;transition:left .35s cubic-bezier(.16,.84,.3,1)}
+.tl-detail{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(16px,3vw,40px);align-items:start;padding:clamp(24px,3vw,36px) 0 clamp(56px,7vw,100px);border-bottom:1px solid var(--rule)}
+.tl-detail .y{font-family:var(--serif);font-size:clamp(56px,8vw,112px);font-weight:600;line-height:.9;letter-spacing:-.03em}
+.tl-detail p{font-family:var(--serif);font-size:clamp(19px,1.8vw,26px);line-height:1.45;margin:0;max-width:44ch;text-wrap:pretty}
+.tl-nav{display:flex;gap:8px}
+.tl-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);font-size:1.1rem;cursor:pointer}
+.tl-nav button:hover{background:var(--ink);color:var(--canvas)}
+.tl-nav button:disabled{opacity:.3;pointer-events:none}
+.tl-count{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;color:var(--ink-faint);text-align:center;margin-top:10px}
+.tl-hint{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+@media(max-width:720px){.tl-detail{grid-template-columns:1fr}.tl-nav{order:-1}}
+[hidden]{display:none!important}
+.cx-lane{position:relative;border-bottom:1px solid var(--rule);display:flex;background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(0,0,0,.018) 6px 7px)}
+.cx-lane .ln{position:sticky;left:0;z-index:2;width:150px;flex:none;display:flex;align-items:center;padding:0 14px;font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);background:var(--canvas-soft);border-right:1px solid var(--rule);font-style:normal}
+.cx-track{position:absolute;left:150px;right:24px;top:0;bottom:0;overflow:hidden}
+.cx-lab{position:absolute;white-space:nowrap;font-family:var(--serif);font-style:italic;font-size:.82rem;color:var(--ink-faint);padding-left:6px;border-left:1px dashed var(--ink-faint);line-height:1.15;cursor:default}
+.cx-lab b{font-family:var(--mono);font-style:normal;font-weight:400;font-size:.58rem;letter-spacing:.08em;margin-right:5px}
+.cx-lab:hover{color:var(--ink)}
+.cx-lab.rt{transform:translateX(-100%);padding-left:0;padding-right:6px;border-left:0;border-right:1px dashed var(--ink-faint);text-align:right}
+.cx-line{position:absolute;top:0;bottom:0;border-left:1px dashed var(--ink-faint);opacity:.45;pointer-events:none}
+.ch-ctx-row{display:grid;grid-template-columns:92px 18px minmax(0,1fr);gap:0 18px;padding:12px 0;border-bottom:1px dotted var(--rule);color:var(--ink-faint)}
+.ch-ctx-row .y{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;padding-top:3px}
+.ch-ctx-row .mk{width:12px;height:12px;margin-top:5px;border:1px dashed var(--ink-faint);transform:rotate(45deg)}
+.ch-ctx-row p{font-family:var(--serif);font-style:italic;font-size:1rem;line-height:1.45;margin:0}
+.ch-ctx-row .k{font-family:var(--mono);font-style:normal;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
+.ch-toggle{display:flex;align-items:center;gap:8px}
+.ch-toggle .bx{width:12px;height:12px;border:1px dashed currentColor;transform:rotate(45deg)}
+.ch-toggle.active .bx{background:var(--canvas)}
+.no-ctx .cx-lane,.no-ctx .cx-line,.no-ctx .ch-ctx-row{display:none}
+.ch-head{padding-block:clamp(44px,6vw,88px) clamp(24px,3vw,40px)}
+.ch-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:22px}
+.ch-head h1{font-size:clamp(44px,8vw,112px);font-weight:600;letter-spacing:-.03em;line-height:.92;max-width:14ch}
+.ch-intro{font-family:var(--serif);font-size:clamp(19px,1.7vw,24px);line-height:1.55;max-width:52ch;margin-top:24px;color:var(--ink-soft);text-wrap:pretty}
+.ch-filters{display:flex;flex-direction:column;gap:12px;padding-block:20px;border-block:1px solid var(--rule)}
+.ch-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ch-row .lab{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);min-width:84px}
+.ch-row button{display:flex;align-items:center;gap:8px;flex:none;white-space:nowrap;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:none;border:1px solid var(--rule);border-radius:999px;padding:7px 14px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.ch-row button:hover{border-color:var(--ink-soft);color:var(--ink)}
+.ch-row button.active{background:var(--ink);border-color:var(--ink);color:var(--canvas)}
+.ch-dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+.ch-list{padding-block:clamp(32px,4vw,56px) clamp(56px,7vw,110px)}
+.ch-cent{display:grid;grid-template-columns:minmax(90px,180px) minmax(0,1fr);gap:0 clamp(20px,4vw,56px)}
+.ch-cent+.ch-cent{margin-top:clamp(28px,4vw,48px)}
+.ch-cent h2{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);font-weight:400;padding-top:10px;border-top:2px solid var(--ink);align-self:start;position:sticky;top:96px}
+.ch-evs{border-top:1px solid var(--rule)}
+.ch-ev{display:grid;grid-template-columns:92px 18px minmax(0,1fr);gap:0 18px;padding:20px 0;border-bottom:1px dotted var(--rule)}
+.ch-ev .y{font-family:var(--serif);font-size:1.7rem;font-weight:500;line-height:1;letter-spacing:-.01em}
+.ch-ev .ch-dot{margin-top:8px;width:12px;height:12px}
+.ch-ev p{font-family:var(--serif);font-size:1.12rem;line-height:1.5;margin:0;max-width:62ch;text-wrap:pretty}
+.ch-meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.ch-meta a{color:var(--ink);border-bottom:1px solid var(--rule)}
+.ch-meta a:hover{color:var(--pink-text);border-color:var(--pink-text)}
+.ch-empty{font-family:var(--serif);color:var(--ink-soft);padding:24px 0}
+.ch-note{font-family:var(--serif);font-size:.98rem;line-height:1.55;color:var(--ink-soft);max-width:62ch;padding:18px 20px;border:1px dashed var(--rule);border-radius:4px;margin-top:clamp(32px,4vw,56px)}
+@media(max-width:720px){.ch-cent{grid-template-columns:1fr}.ch-cent h2{position:static;margin-bottom:8px}.ch-ev{grid-template-columns:64px 14px minmax(0,1fr);gap:0 12px}.ch-ev .y{font-size:1.35rem}}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-right">
+<a class="back" href="index.html#world"><span data-l="es">← Inicio</span><span data-l="en">← Home</span><span data-l="de">← Startseite</span></a>
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
+</div>
+</nav>
+
+<main>
+<header class="shell ch-head">
+<div class="ch-tag"><span data-l="es">§ 05 · Cronología</span><span data-l="en">§ 05 · Chronology</span><span data-l="de">§ 05 · Chronik</span></div>
+<h1><span data-l="es">Una cronología del mundo al revés</span><span data-l="en">A Timeline of the Inverted World</span><span data-l="de">Eine Chronik der verkehrten Welt</span></h1>
+<p class="ch-intro"><span data-l="es">Siete siglos de carnaval: fundaciones, músicas, instituciones y reconocimientos. Cada hito enlaza con la ficha de su carnaval en el atlas.</span><span data-l="en">Seven centuries of carnival: foundations, music, institutions and recognitions. Each milestone links to its carnival's profile in the atlas.</span><span data-l="de">Sieben Jahrhunderte Karneval: Gründungen, Musik, Institutionen und Auszeichnungen. Jeder Meilenstein verweist auf den Steckbrief seines Karnevals im Atlas.</span></p>
+</header>
+<div class="shell">
+<div class="ch-filters"><div class="ch-row" id="ch-themes"></div><div class="ch-row" id="ch-regions"></div><div class="ch-row" id="ch-layers"></div></div>
+<div class="tl" id="tl"><div class="tl-frame at-start" id="tl-frame"><div class="tl-scroll" id="tl-scroll"><div class="tl-canvas" id="tl-canvas"></div></div><button type="button" class="tl-arrow l" id="tl-l" aria-label="←">←</button><button type="button" class="tl-arrow r" id="tl-r" aria-label="→">→</button></div>
+<div class="tl-bar"><div class="tl-scrollhint"><span data-l="es">Desplácese para recorrer 750 años</span><span data-l="en">Scroll to travel 750 years</span><span data-l="de">Scrollen Sie durch 750 Jahre</span><span class="ar">→</span></div><div class="tl-mini" id="tl-mini" title="1250 — 2030"><div class="tl-win" id="tl-win"></div></div></div>
+<div class="tl-hint"><span data-l="es">Arrastre la línea, use el minimapa o las flechas · Clic en un punto o teclas ← → para ver cada hito</span><span data-l="en">Drag the timeline, use the minimap or arrows · Click a point or use ← → to see each milestone</span><span data-l="de">Zeitleiste ziehen, Minikarte oder Pfeile nutzen · Punkt anklicken oder ← → für jeden Meilenstein</span></div><div class="tl-detail" id="tl-detail"></div></div>
+<div class="ch-list" id="ch-list" hidden></div>
+</div>
+</main>
+
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
+<ul>
+<li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
+<li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="index.html#archive"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></h5>
+<ul>
+<li>oscaraquite.x@gmail.com</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · <span data-l="es">Un proyecto de humanidades digitales</span><span data-l="en">A Digital Humanities Project</span><span data-l="de">Ein Digital-Humanities-Projekt</span></span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+
+<script src="carnavales.js"></script>
+<script>(function(){
+var C=window.CARNAVALES||[],R=window.CARNAVAL_REGIONES||[],LS=["es","en","de"];
+function E(y,th,slug,es,en,de,rg){return {y:y,th:th,slug:slug,rg:rg||null,t:{es:es,en:en,de:de}}}
+var EV=[
+E(1296,"origins","venecia","El Senado de la República de Venecia declara festivo el día anterior a la Cuaresma.","The Senate of the Republic of Venice declares the day before Lent a public holiday.","Der Senat der Republik Venedig erklärt den Tag vor der Fastenzeit zum Feiertag."),
+E(1591,"origins","cadiz","Primera noticia documentada del carnaval de Cádiz.","First documented record of the Cádiz carnival.","Erste urkundliche Erwähnung des Karnevals von Cádiz."),
+E(1823,"institutions","colonia","Se funda el Festkomitee y sale el primer Rosenmontagszug: nace el carnaval organizado de Colonia.","The Festkomitee is founded and the first Rosenmontagszug parades: Cologne's organised carnival is born.","Das Festkomitee wird gegründet, der erste Rosenmontagszug zieht: Der organisierte Kölner Karneval entsteht."),
+E(1840,"origins","rio","Primer baile de máscaras de carnaval en Río de Janeiro, en el Hotel Itália.","First carnival masked ball in Rio de Janeiro, at the Hotel Itália.","Erster Karnevalsmaskenball in Rio de Janeiro im Hotel Itália."),
+E(1857,"institutions","nueva-orleans","La Mistick Krewe of Comus desfila por primera vez y fija el modelo de las krewes de Mardi Gras.","The Mistick Krewe of Comus parades for the first time, setting the model for Mardi Gras krewes.","Die Mistick Krewe of Comus zieht erstmals und prägt das Modell der Mardi-Gras-Krewes."),
+E(1881,"conflict","port-of-spain","Revueltas de Canboulay: la población de Puerto España resiste la prohibición de las procesiones nocturnas con antorchas.","Canboulay riots: Port of Spain's people resist the ban on night-time torch processions.","Canboulay-Unruhen: Die Bevölkerung von Port of Spain widersetzt sich dem Verbot nächtlicher Fackelumzüge."),
+E(1903,"institutions","barranquilla","Primera Batalla de Flores en Barranquilla, celebrada al terminar la Guerra de los Mil Días.","First Batalla de Flores in Barranquilla, held at the end of the Thousand Days' War.","Erste Batalla de Flores in Barranquilla zum Ende des Tausend-Tage-Krieges."),
+E(1907,"music","recife","La palabra «frevo» aparece por primera vez en la prensa de Recife (9 de febrero).","The word “frevo” first appears in Recife's press (9 February).","Das Wort „Frevo“ erscheint erstmals in der Presse von Recife (9. Februar)."),
+E(1917,"music","rio","«Pelo Telefone», registrado por Donga, se convierte en el primer gran éxito grabado como samba.","“Pelo Telefone”, registered by Donga, becomes the first major hit recorded as a samba.","„Pelo Telefone“, registriert von Donga, wird zum ersten großen als Samba aufgenommenen Hit."),
+E(1928,"institutions","rio","Se funda Deixa Falar en el barrio de Estácio, considerada la primera escola de samba.","Deixa Falar is founded in the Estácio district, regarded as the first escola de samba.","Im Viertel Estácio wird Deixa Falar gegründet, die als erste Escola de Samba gilt."),
+E(1932,"institutions","rio","Primer concurso de escolas de samba en Río de Janeiro.","First escolas de samba competition in Rio de Janeiro.","Erster Wettbewerb der Escolas de Samba in Rio de Janeiro."),
+E(1950,"music","salvador","Dodô y Osmar recorren Salvador con su «fobica» amplificada: nace el trío eléctrico.","Dodô and Osmar drive through Salvador in their amplified “fobica”: the trio elétrico is born.","Dodô und Osmar fahren mit ihrer verstärkten „Fobica“ durch Salvador: Der Trio elétrico entsteht."),
+E(1956,"music","port-of-spain","Mighty Sparrow gana la corona del calipso con «Jean and Dinah».","Mighty Sparrow wins the calypso crown with “Jean and Dinah”.","Mighty Sparrow gewinnt mit „Jean and Dinah“ die Calypso-Krone."),
+E(1963,"music","port-of-spain","Primera edición de Panorama, la gran competencia de steelbands.","First Panorama, the great steelband competition.","Erstes Panorama, der große Steelband-Wettbewerb."),
+E(1965,"theory",null,"Se publica en Moscú el libro de Bajtín sobre Rabelais: lo carnavalesco entra en la teoría cultural.","Bakhtin's book on Rabelais is published in Moscow: the carnivalesque enters cultural theory.","Bachtins Buch über Rabelais erscheint in Moskau: Das Karnevaleske hält Einzug in die Kulturtheorie."),
+E(1978,"music","port-of-spain","Calypso Rose es la primera mujer en ganar la corona del calipso.","Calypso Rose becomes the first woman to win the calypso crown.","Calypso Rose gewinnt als erste Frau die Calypso-Krone."),
+E(1984,"institutions","rio","Se inaugura el Sambódromo de Río, diseñado por Oscar Niemeyer.","Rio's Sambódromo, designed by Oscar Niemeyer, opens.","Das von Oscar Niemeyer entworfene Sambódromo in Rio wird eröffnet."),
+E(2001,"heritage","oruro","La UNESCO proclama el Carnaval de Oruro Obra Maestra del Patrimonio Oral e Inmaterial.","UNESCO proclaims the Oruro Carnival a Masterpiece of the Oral and Intangible Heritage.","Die UNESCO erklärt den Karneval von Oruro zum Meisterwerk des mündlichen und immateriellen Erbes."),
+E(2003,"heritage","barranquilla","La UNESCO proclama Obras Maestras el Carnaval de Barranquilla y el de Binche.","UNESCO proclaims the Barranquilla and Binche carnivals Masterpieces.","Die UNESCO erklärt die Karnevale von Barranquilla und Binche zu Meisterwerken."),
+E(2008,"heritage",null,"Las Obras Maestras proclamadas pasan a la Lista Representativa del Patrimonio Cultural Inmaterial.","The proclaimed Masterpieces are incorporated into the Representative List of Intangible Cultural Heritage.","Die proklamierten Meisterwerke werden in die Repräsentative Liste des immateriellen Kulturerbes übernommen."),
+E(2009,"heritage","pasto","La UNESCO inscribe el Carnaval de Negros y Blancos de Pasto.","UNESCO inscribes Pasto's Carnival of Blacks and Whites.","Die UNESCO nimmt den Karneval der Schwarzen und Weißen von Pasto auf."),
+E(2012,"heritage","recife","La UNESCO inscribe el frevo, arte escénico del carnaval de Recife.","UNESCO inscribes frevo, the performing art of the Recife carnival.","Die UNESCO nimmt den Frevo auf, die darstellende Kunst des Karnevals von Recife."),
+E(2017,"heritage","basilea","La UNESCO inscribe la Fasnacht de Basilea.","UNESCO inscribes the Basel Fasnacht.","Die UNESCO nimmt die Basler Fasnacht auf."),
+E(1268,"origins","venecia","Una ley veneciana prohíbe a los enmascarados lanzar huevos perfumados: la referencia legal más antigua a las máscaras.","A Venetian law forbids masked people from throwing scented eggs: the oldest legal reference to masks.","Ein venezianisches Gesetz verbietet Maskierten das Werfen parfümierter Eier: der älteste rechtliche Hinweis auf Masken."),
+E(1376,"conflict","basilea","«Böse Fasnacht»: un torneo de carnaval en Basilea termina en revuelta contra la nobleza.","“Böse Fasnacht”: a carnival tournament in Basel ends in a revolt against the nobility.","„Böse Fasnacht“: Ein Fasnachtsturnier in Basel endet in einem Aufstand gegen den Adel."),
+E(1449,"origins",null,"Primera noticia del Schembartlauf de Núremberg, desfile de máscaras de los gremios.","First record of Nuremberg's Schembartlauf, the guilds' masked parade.","Erste Erwähnung des Nürnberger Schembartlaufs, des Maskenumzugs der Zünfte.","Europa central"),
+E(1534,"arts",null,"Rabelais publica Gargantúa, la obra que Bajtín leerá siglos después como cumbre de la cultura carnavalesca.","Rabelais publishes Gargantua, the work Bakhtin would later read as the summit of carnival culture.","Rabelais veröffentlicht Gargantua, das Bachtin später als Gipfel der Karnevalskultur liest."),
+E(1549,"origins","binche","Binche celebra grandes fiestas en honor de Carlos V y el futuro Felipe II; la tradición sitúa allí el origen de los Gilles.","Binche holds great festivities for Charles V and the future Philip II; tradition places the origin of the Gilles there.","Binche feiert große Feste zu Ehren Karls V. und des späteren Philipp II.; die Überlieferung verortet dort den Ursprung der Gilles."),
+E(1559,"arts",null,"Pieter Bruegel el Viejo pinta El combate entre don Carnal y doña Cuaresma.","Pieter Bruegel the Elder paints The Fight Between Carnival and Lent.","Pieter Bruegel d. Ä. malt Der Kampf zwischen Karneval und Fasten."),
+E(1606,"origins","oruro","Fundación de la villa de Oruro como centro minero de la Audiencia de Charcas.","Oruro is founded as a mining town of the Audiencia of Charcas.","Gründung von Oruro als Bergbaustadt der Audiencia von Charcas."),
+E(1783,"origins","port-of-spain","La Cédula de Población atrae a Trinidad a colonos católicos franceses, que traen sus bailes de máscaras.","The Cedula of Population draws French Catholic settlers to Trinidad, bringing their masquerade balls.","Die Cédula de Población lockt französische katholische Siedler nach Trinidad, die ihre Maskenbälle mitbringen."),
+E(1797,"conflict","venecia","Cae la República de Venecia y el carnaval entra en un largo declive.","The Republic of Venice falls and carnival enters a long decline.","Die Republik Venedig fällt, der Karneval verfällt für lange Zeit."),
+E(1838,"origins","port-of-spain","Con el fin del sistema de aprendizaje, la población liberada hace suyo el carnaval de Trinidad.","With the end of apprenticeship, the freed population makes Trinidad's carnival its own.","Mit dem Ende des Apprenticeship-Systems macht sich die befreite Bevölkerung den Karneval Trinidads zu eigen."),
+E(1855,"institutions","rio","Desfila el Congresso das Sumidades Carnavalescas, primera de las grandes sociedades de Río.","The Congresso das Sumidades Carnavalescas parades, first of Rio's great carnival societies.","Der Congresso das Sumidades Carnavalescas zieht, die erste der großen Karnevalsgesellschaften Rios."),
+E(1872,"institutions","nueva-orleans","Primer desfile de Rex, el Rey del Carnaval, y adopción del púrpura, verde y oro.","First parade of Rex, King of Carnival, and adoption of purple, green and gold.","Erste Parade von Rex, dem König des Karnevals, und Einführung von Violett, Grün und Gold."),
+E(1875,"institutions","nueva-orleans","Luisiana declara el Mardi Gras día festivo oficial.","Louisiana makes Mardi Gras a legal holiday.","Louisiana erklärt Mardi Gras zum gesetzlichen Feiertag."),
+E(1899,"music","rio","Chiquinha Gonzaga compone «Ó Abre Alas», considerada la primera marchinha de carnaval.","Chiquinha Gonzaga writes “Ó Abre Alas”, regarded as the first carnival marchinha.","Chiquinha Gonzaga komponiert „Ó Abre Alas“, das als erste Karnevals-Marchinha gilt."),
+E(1908,"music","montevideo","«La Gaditana que se va», considerada la primera murga de Montevideo, muestra el vínculo con Cádiz.","“La Gaditana que se va”, regarded as Montevideo's first murga, shows the link with Cádiz.","„La Gaditana que se va“, die als erste Murga Montevideos gilt, zeigt die Verbindung zu Cádiz."),
+E(1918,"institutions","barranquilla","Barranquilla elige a su primera Reina del Carnaval.","Barranquilla crowns its first Carnival Queen.","Barranquilla krönt ihre erste Karnevalskönigin."),
+E(1937,"conflict","cadiz","El régimen franquista prohíbe el carnaval en España; Cádiz lo mantiene como «Fiestas Típicas».","The Franco regime bans carnival in Spain; Cádiz keeps it alive as “Fiestas Típicas”.","Das Franco-Regime verbietet den Karneval in Spanien; Cádiz bewahrt ihn als „Fiestas Típicas“."),
+E(1969,"theory",null,"Victor Turner publica The Ritual Process: liminalidad y communitas.","Victor Turner publishes The Ritual Process: liminality and communitas.","Victor Turner veröffentlicht The Ritual Process: Liminalität und Communitas."),
+E(1974,"music","salvador","Se funda Ilê Aiyê en Liberdade, primer bloco afro de Salvador.","Ilê Aiyê is founded in Liberdade, Salvador's first bloco afro.","In Liberdade wird Ilê Aiyê gegründet, der erste Bloco Afro Salvadors."),
+E(1976,"conflict","buenos-aires","La dictadura militar argentina suprime los feriados de carnaval.","Argentina's military dictatorship abolishes the carnival holidays.","Die argentinische Militärdiktatur schafft die Karnevalsfeiertage ab."),
+E(1977,"institutions","cadiz","Cádiz recupera su carnaval en febrero tras el fin del franquismo.","Cádiz restores its carnival in February after the end of Francoism.","Cádiz stellt nach dem Ende des Franquismus seinen Karneval im Februar wieder her."),
+E(1978,"theory",null,"Peter Burke publica Popular Culture in Early Modern Europe, con el «mundo al revés» como clave.","Peter Burke publishes Popular Culture in Early Modern Europe, with the “world turned upside down” as a key.","Peter Burke veröffentlicht Popular Culture in Early Modern Europe mit der „verkehrten Welt“ als Schlüssel."),
+E(1979,"institutions","venecia","Venecia recupera oficialmente su carnaval.","Venice officially revives its carnival.","Venedig belebt seinen Karneval offiziell wieder."),
+E(1979,"theory",null,"Roberto DaMatta publica Carnavais, malandros e heróis.","Roberto DaMatta publishes Carnavais, malandros e heróis.","Roberto DaMatta veröffentlicht Carnavais, malandros e heróis.","Brasil"),
+E(1979,"theory",null,"Emmanuel Le Roy Ladurie publica Le Carnaval de Romans.","Emmanuel Le Roy Ladurie publishes Le Carnaval de Romans.","Emmanuel Le Roy Ladurie veröffentlicht Le Carnaval de Romans."),
+E(1979,"music","salvador","Se funda Olodum en el Pelourinho.","Olodum is founded in the Pelourinho.","Im Pelourinho wird Olodum gegründet."),
+E(2005,"heritage","salvador","La UNESCO proclama Obra Maestra el samba de roda del Recôncavo bahiano.","UNESCO proclaims the samba de roda of the Recôncavo of Bahia a Masterpiece.","Die UNESCO erklärt den Samba de Roda des Recôncavo in Bahia zum Meisterwerk."),
+E(2009,"heritage","montevideo","La UNESCO inscribe el candombe y su espacio sociocultural.","UNESCO inscribes candombe and its socio-cultural space.","Die UNESCO nimmt den Candombe und seinen soziokulturellen Raum auf."),
+E(2011,"institutions","buenos-aires","Argentina restituye los feriados de carnaval.","Argentina restores the carnival holidays.","Argentinien führt die Karnevalsfeiertage wieder ein."),
+E(2022,"conflict","rio","Tras la pandemia, Río celebra los desfiles del Sambódromo en abril.","After the pandemic, Rio holds its Sambódromo parades in April.","Nach der Pandemie finden die Paraden im Sambódromo in Rio im April statt.")
+];
+EV.sort(function(a,b){return a.y-b.y});
+function K(y,es,en,de){return {y:y,t:{es:es,en:en,de:de}}}
+var CTX=[
+K(1347,"Peste negra en Europa","Black Death in Europe","Pest in Europa"),
+K(1492,"Llegada de Colón a América","Columbus reaches the Americas","Kolumbus erreicht Amerika"),
+K(1517,"Reforma protestante","Protestant Reformation","Reformation"),
+K(1545,"Concilio de Trento","Council of Trent","Konzil von Trient"),
+K(1789,"Revolución francesa","French Revolution","Französische Revolution"),
+K(1810,"Independencias hispanoamericanas","Spanish American independence","Unabhängigkeit Hispanoamerikas"),
+K(1822,"Independencia de Brasil","Independence of Brazil","Unabhängigkeit Brasiliens"),
+K(1834,"Abolición de la esclavitud en el Imperio británico","Abolition of slavery in the British Empire","Abschaffung der Sklaverei im Britischen Empire"),
+K(1888,"Abolición de la esclavitud en Brasil","Abolition of slavery in Brazil","Abschaffung der Sklaverei in Brasilien"),
+K(1914,"Primera Guerra Mundial","First World War","Erster Weltkrieg"),
+K(1939,"Segunda Guerra Mundial","Second World War","Zweiter Weltkrieg"),
+K(1962,"Independencia de Trinidad y Tobago","Independence of Trinidad and Tobago","Unabhängigkeit von Trinidad und Tobago"),
+K(1964,"Golpe militar en Brasil","Military coup in Brazil","Militärputsch in Brasilien"),
+K(1989,"Caída del Muro de Berlín","Fall of the Berlin Wall","Fall der Berliner Mauer"),
+K(2020,"Pandemia de COVID-19","COVID-19 pandemic","COVID-19-Pandemie")
+];
+var ctxOn=true,ctxL={es:"Contexto histórico",en:"Historical context",de:"Historischer Kontext"},ctxK={es:"Contexto",en:"Context",de:"Kontext"};
+var TH={all:{es:"Todo",en:"All",de:"Alle"},origins:{es:"Orígenes",en:"Origins",de:"Ursprünge"},institutions:{es:"Instituciones",en:"Institutions",de:"Institutionen"},music:{es:"Música",en:"Music",de:"Musik"},conflict:{es:"Conflictos",en:"Conflicts",de:"Konflikte"},theory:{es:"Teoría",en:"Theory",de:"Theorie"},arts:{es:"Artes y letras",en:"Arts & letters",de:"Kunst & Literatur"},heritage:{es:"Patrimonio",en:"Heritage",de:"Kulturerbe"}};
+var lab={th:{es:"Tema",en:"Theme",de:"Thema"},rg:{es:"Región",en:"Region",de:"Region"},cent:{es:"Siglo",en:"Century",de:"Jahrhundert"},open:{es:"Ver ficha →",en:"View profile →",de:"Steckbrief →"},none:{es:"No hay hitos para esta combinación.",en:"No milestones for this combination.",de:"Keine Meilensteine für diese Auswahl."},all:{es:"Todas",en:"All",de:"Alle"}};
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function t(o){return LS.map(function(l){return '<span data-l="'+l+'">'+esc(o[l])+"</span>"}).join("")}
+function bySlug(s){return C.find(function(c){return c.slug===s})}
+function laneOf(e){var c=bySlug(e.slug);return c?c.region.es:(e.rg||null)}
+function colOf(e){var k=laneOf(e),r=R.find(function(x){return x.es===k});return r?r.color:"var(--ink)"}
+function ok(e){var k=laneOf(e);return (th==="all"||e.th===th)&&(rg===null||k===rgs[rg].es)}
+function roman(n){return ["","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI"][n]}
+var th="all",rg=null;
+var rgs=R.filter(function(r){return EV.some(function(e){return laneOf(e)===r.es})});
+document.getElementById("ch-themes").innerHTML='<span class="lab">'+t(lab.th)+'</span>'+Object.keys(TH).filter(function(k){return k==="all"||EV.some(function(e){return e.th===k})}).map(function(k){return '<button type="button" data-th="'+k+'">'+t(TH[k])+'</button>'}).join("")+'<div class="ch-view" role="group"><button type="button" data-view="tl">'+t({es:"Línea de tiempo",en:"Timeline",de:"Zeitleiste"})+'</button><button type="button" data-view="list">'+t({es:"Lista",en:"List",de:"Liste"})+'</button></div>';
+document.getElementById("ch-regions").innerHTML='<span class="lab">'+t(lab.rg)+'</span><button type="button" data-rg="">'+t(lab.all)+'</button>'+rgs.map(function(r,i){return '<button type="button" data-rg="'+i+'"><span class="ch-dot" style="background:'+r.color+'"></span>'+t(r)+'</button>'}).join("");
+document.getElementById("ch-layers").innerHTML='<span class="lab">'+t({es:"Capas",en:"Layers",de:"Ebenen"})+'</span><button type="button" class="ch-toggle active" id="ch-ctx" aria-pressed="true"><span class="bx"></span>'+t(ctxL)+'</button><span class="lab" style="min-width:0;text-transform:none;letter-spacing:.04em;font-family:var(--serif);font-style:italic;font-size:.85rem">'+t({es:"Hechos generales, como referencia. No forman parte de la historia del carnaval.",en:"General events, for reference only. Not part of carnival history.",de:"Allgemeine Ereignisse zur Orientierung. Nicht Teil der Karnevalsgeschichte."})+'</span>';
+function render(){
+ var ev=EV.filter(ok);
+ var groups={};ev.forEach(function(e){var k=Math.floor((e.y-1)/100)+1;(groups[k]=groups[k]||[]).push(e)});
+ if(ev.length)CTX.forEach(function(c){var k=Math.floor((c.y-1)/100)+1;if(groups[k])groups[k].push({ctx:1,y:c.y,t:c.t})});
+ Object.keys(groups).forEach(function(k){groups[k].sort(function(a,b){return a.y-b.y||(a.ctx?1:-1)})});
+ var h=Object.keys(groups).sort(function(a,b){return a-b}).map(function(k){return '<section class="ch-cent"><h2>'+t({es:"Siglo "+roman(+k),en:roman(+k)+" century",de:roman(+k)+". Jahrhundert"})+'</h2><div class="ch-evs">'+groups[k].map(function(e){if(e.ctx)return '<div class="ch-ctx-row"><div class="y">'+e.y+'</div><span class="mk"></span><p><span class="k">'+t(ctxK)+'</span>'+t(e.t)+'</p></div>';var c=bySlug(e.slug);return '<article class="ch-ev"><div class="y">'+e.y+'</div><span class="ch-dot" style="background:'+colOf(e)+'"></span><div><p>'+t(e.t)+'</p><div class="ch-meta"><span>'+t(TH[e.th])+'</span>'+(c?'<a href="carnaval.html?c='+c.slug+'">'+t(c.place)+' · '+t(lab.open)+'</a>':'')+'</div></div></article>'}).join("")+'</div></section>'}).join("");
+ document.getElementById("ch-list").innerHTML=h||'<p class="ch-empty">'+t(lab.none)+'</p>';
+ if(typeof renderTL==="function")renderTL();
+ [].forEach.call(document.querySelectorAll("[data-th]"),function(b){b.classList.toggle("active",b.dataset.th===th)});
+ [].forEach.call(document.querySelectorAll("[data-rg]"),function(b){b.classList.toggle("active",(b.dataset.rg===""?null:+b.dataset.rg)===rg)});
+}
+var view="tl",cur=0,BK=[1250,1800,2030],BP=[0,.3,1];
+function X(y){var i=y<BK[1]?0:1;return (BP[i]+(y-BK[i])/(BK[i+1]-BK[i])*(BP[i+1]-BP[i]))*100}
+var lanes=R.filter(function(r){return EV.some(function(e){return laneOf(e)===r.es})}).map(function(r){return {r:r,key:r.es}});
+lanes.push({r:{es:"Global",en:"Global",de:"Global",color:"var(--ink)"},key:null});
+var ticks=[],gridY=[];for(var yy=1300;yy<1800;yy+=50){ticks.push(yy);gridY.push(yy)}for(yy=1800;yy<=2030;yy+=10){ticks.push(yy);gridY.push(yy)}
+var cv=document.getElementById("tl-canvas"),CW=3200,TWpx=CW-174;cv.style.width=CW+"px";
+cv.innerHTML='<div style="position:absolute;left:150px;right:24px;top:0;bottom:40px">'+gridY.map(function(y){return '<div class="tl-grid" style="left:'+X(y)+'%"></div>'}).join("")+CTX.map(function(c){return '<div class="cx-line" style="left:'+X(c.y)+'%"></div>'}).join("")+'<div class="tl-cursor" id="tl-cursor"></div></div>'+'<div class="cx-lane" id="cx-lane"><div class="ln">'+t(ctxL)+'</div><div class="cx-track" id="cx-track">'+CTX.map(function(c,i){return '<div class="cx-lab" data-c="'+i+'" style="left:'+X(c.y)+'%"><b>'+c.y+'</b>'+t(c.t)+'</div>'}).join("")+'</div></div>'+lanes.map(function(L){return '<div class="tl-lane" data-lane="'+(L.key||"")+'"><div class="ln"><span class="ch-dot" style="background:'+L.r.color+'"></span>'+t(L.r)+'</div><div class="tl-track">'+(function(){var placed=[];return EV.map(function(e,i){if(laneOf(e)!==L.key)return "";var px=X(e.y)*TWpx/100,slots=[0,-1,1,-2,2],s=0;for(var j=0;j<slots.length;j++){if(!placed.some(function(p){return p.s===slots[j]&&Math.abs(p.x-px)<17})){s=slots[j];break}}placed.push({x:px,s:s});return '<button type="button" class="tl-pt" data-i="'+i+'" style="margin-top:'+(s*12-7)+'px;left:'+X(e.y)+'%;background:'+colOf(e)+'" aria-label="'+e.y+'"></button>'}).join("")})()+'</div></div>'}).join("")+'<div class="tl-axis">'+ticks.map(function(y){return '<div class="cx-tick" style="left:'+X(y)+'%"><span>'+y+'</span></div>'}).join("")+'<div class="tl-break" style="left:'+(BP[1]*100)+'%"></div></div>';
+function layoutCtx(){var tr=document.getElementById("cx-track");if(!tr||!tr.clientWidth)return;var rows=[],RH=20;var TW=tr.clientWidth;[].forEach.call(tr.querySelectorAll(".cx-lab"),function(el){el.classList.remove("rt");var x=el.offsetLeft,w=el.offsetWidth+10,r=0;if(x+el.offsetWidth>TW){el.classList.add("rt");x-=el.offsetWidth}while(rows[r]!==undefined&&rows[r]>x)r++;rows[r]=x+w;el.style.top=(8+r*RH)+"px"});document.getElementById("cx-lane").style.height=(16+rows.length*RH)+"px"}
+window.addEventListener("resize",layoutCtx);
+document.getElementById("ch-ctx").addEventListener("click",function(){ctxOn=!ctxOn;this.classList.toggle("active",ctxOn);this.setAttribute("aria-pressed",ctxOn);document.querySelector("main").classList.toggle("no-ctx",!ctxOn);if(ctxOn)layoutCtx()});
+function vis(){return EV.map(function(e,i){return i}).filter(function(i){return ok(EV[i])})}
+function show(i){cur=i;var e=EV[i],c=bySlug(e.slug),v=vis(),p=v.indexOf(i);
+ document.getElementById("tl-detail").innerHTML='<div><div class="y">'+e.y+'</div><div class="tl-count">'+(p+1)+' / '+v.length+'</div></div><div><p>'+t(e.t)+'</p><div class="ch-meta"><span>'+t(TH[e.th])+'</span>'+(c?'<span>'+t(c.region)+'</span><a href="carnaval.html?c='+c.slug+'">'+t(c.place)+' · '+t(lab.open)+'</a>':'')+'</div></div><div class="tl-nav"><button type="button" id="tl-prev" aria-label="←"'+(p<=0?" disabled":"")+'>←</button><button type="button" id="tl-next" aria-label="→"'+(p>=v.length-1?" disabled":"")+'>→</button></div>';
+ document.getElementById("tl-prev").onclick=function(){step(-1)};document.getElementById("tl-next").onclick=function(){step(1)};
+ [].forEach.call(cv.querySelectorAll(".tl-pt"),function(b){b.classList.toggle("sel",+b.dataset.i===i)});
+ document.getElementById("tl-cursor").style.left=X(e.y)+"%";
+ requestAnimationFrame(function(){var sc=cv.parentNode,pt=cv.querySelector('.tl-pt[data-i="'+i+'"]');if(pt&&sc.clientWidth){var r=pt.getBoundingClientRect(),sr=sc.getBoundingClientRect();if(r.left<sr.left+160||r.right>sr.right-20)sc.scrollTo({left:sc.scrollLeft+r.left-sr.left-sr.width/2-75,behavior:"smooth"})}});
+}
+function step(d){var v=vis(),p=v.indexOf(cur);if(p<0)p=0;var n=v[Math.max(0,Math.min(v.length-1,p+d))];if(n!==undefined)show(n)}
+function renderTL(){var v=vis();
+ [].forEach.call(cv.querySelectorAll(".tl-pt"),function(b){b.classList.toggle("off",v.indexOf(+b.dataset.i)<0)});
+ [].forEach.call(mini.querySelectorAll("i"),function(b){b.style.opacity=v.indexOf(+b.dataset.i)<0?.15:1});
+ [].forEach.call(cv.querySelectorAll(".tl-lane"),function(l){l.classList.toggle("dim",rg!==null&&l.dataset.lane!==rgs[rg].es)});
+ if(!v.length){document.getElementById("tl-detail").innerHTML='<p class="ch-empty">'+t(lab.none)+'</p>';return}
+ show(v.indexOf(cur)>-1?cur:v[0]);
+}
+var sc=document.getElementById("tl-scroll"),fr=document.getElementById("tl-frame"),mini=document.getElementById("tl-mini"),win=document.getElementById("tl-win");
+mini.insertAdjacentHTML("afterbegin",EV.map(function(e){return '<i data-i="'+EV.indexOf(e)+'" style="left:'+(150+X(e.y)*TWpx/100)/CW*100+'%;background:'+colOf(e)+'"></i>'}).join("")+[1300,1500,1700,1800,1900,2000].map(function(y){return '<em style="left:'+(150+X(y)*TWpx/100)/CW*100+'%">'+y+'</em>'}).join(""));
+function syncScroll(){var w=sc.scrollWidth||1;win.style.left=(sc.scrollLeft/w*100)+"%";win.style.width=(sc.clientWidth/w*100)+"%";fr.classList.toggle("at-start",sc.scrollLeft<4);fr.classList.toggle("at-end",sc.scrollLeft+sc.clientWidth>=sc.scrollWidth-4)}
+sc.addEventListener("scroll",syncScroll,{passive:true});window.addEventListener("resize",syncScroll);
+document.getElementById("tl-l").onclick=function(){sc.scrollBy({left:-sc.clientWidth*.6,behavior:"smooth"})};
+document.getElementById("tl-r").onclick=function(){sc.scrollBy({left:sc.clientWidth*.6,behavior:"smooth"})};
+function miniTo(ev,smooth){var r=mini.getBoundingClientRect(),f=(ev.clientX-r.left)/r.width;sc.scrollTo({left:f*sc.scrollWidth-sc.clientWidth/2,behavior:smooth?"smooth":"auto"})}
+var md=false;mini.addEventListener("pointerdown",function(ev){md=true;mini.setPointerCapture(ev.pointerId);miniTo(ev,ev.target!==win)});mini.addEventListener("pointermove",function(ev){if(md)miniTo(ev,false)});mini.addEventListener("pointerup",function(){md=false});
+var dg=null,moved=false;sc.addEventListener("pointerdown",function(ev){if(ev.pointerType!=="mouse"||ev.target.closest(".tl-pt"))return;dg={x:ev.clientX,s:sc.scrollLeft};moved=false;sc.classList.add("drag")});
+window.addEventListener("pointermove",function(ev){if(!dg)return;var d=ev.clientX-dg.x;if(Math.abs(d)>3)moved=true;sc.scrollLeft=dg.s-d});
+window.addEventListener("pointerup",function(){dg=null;sc.classList.remove("drag")});
+cv.addEventListener("click",function(ev){var b=ev.target.closest(".tl-pt");if(b)show(+b.dataset.i)});
+document.addEventListener("keydown",function(ev){if(view!=="tl")return;if(ev.key==="ArrowRight"){step(1);ev.preventDefault()}if(ev.key==="ArrowLeft"){step(-1);ev.preventDefault()}});
+function setView(v){view=v;document.getElementById("tl").hidden=v!=="tl";document.getElementById("ch-list").hidden=v!=="list";[].forEach.call(document.querySelectorAll("[data-view]"),function(b){b.classList.toggle("active",b.dataset.view===v)});if(v==="tl"){layoutCtx();if(EV[cur])show(cur);requestAnimationFrame(syncScroll)}}
+[].forEach.call(document.querySelectorAll("[data-view]"),function(b){b.addEventListener("click",function(){setView(b.dataset.view)})});
+[].forEach.call(document.querySelectorAll("[data-th]"),function(b){b.addEventListener("click",function(){th=b.dataset.th;render()})});
+[].forEach.call(document.querySelectorAll("[data-rg]"),function(b){b.addEventListener("click",function(){rg=b.dataset.rg===""?null:+b.dataset.rg;render()})});
+render();setView("tl");
+var TT={es:"Cronología — Carnavarium",en:"Chronology — Carnavarium",de:"Chronik — Carnavarium"};
+function set(l,save){document.documentElement.setAttribute("data-lang",l);setTimeout(layoutCtx,0);document.documentElement.lang=l;document.title=TT[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}
+[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});
+set(document.documentElement.getAttribute("data-lang")||"en",false);
+})()</script>
+</body>
+</html>
