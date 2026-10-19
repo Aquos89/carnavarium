@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Samba-Enredo Corpus (CSEC) — Carnavarium</title>
+<meta name="description" content="Samba-enredo dataset: a structured corpus of Rio de Janeiro carnival lyrics with metadata on school, year, category, placement, score and neighbourhood." />
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<meta property="og:title" content="Samba-Enredo Corpus (CSEC)" />
+<meta property="og:image" content="https://carnavarium.com/images/banners/rio.png" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=10">
+<style>
+a{color:inherit}a:hover{color:var(--pink-text)}
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid transparent}
+.legal-nav a.back:hover{border-color:var(--ink);color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+@media(max-width:560px){.legal-nav a.back{display:none}}
+html [data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+
+.ds-head{padding-block:clamp(40px,6vw,84px) clamp(24px,3vw,40px)}
+.ds-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:20px}
+.ds-head h1{font-size:clamp(32px,5.2vw,68px);font-weight:600;letter-spacing:-.022em;line-height:1.02;max-width:20ch;text-wrap:balance}
+.ds-deck{font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.5;color:var(--ink-soft);max-width:58ch;margin-top:22px;text-wrap:pretty}
+.ds-meta{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:30px;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.ds-meta .who{color:var(--ink)}
+.ds-status{display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+.ds-status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber)}
+
+.ds-figure{margin:0 0 clamp(36px,5vw,64px)}
+.ds-figure img{width:100%;height:clamp(220px,34vw,440px);object-fit:cover;border:1px solid var(--rule);display:block}
+
+.ds-card{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--ink);margin-bottom:clamp(40px,5vw,72px)}
+.ds-card>div{padding:18px 20px;border-right:1px solid var(--rule)}
+.ds-card>div:last-child{border-right:0}
+.ds-card dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+.ds-card dd{margin:0;font-size:.98rem;line-height:1.4;color:var(--ink)}
+@media(max-width:820px){.ds-card{grid-template-columns:repeat(2,minmax(0,1fr))}.ds-card>div:nth-child(2){border-right:0}.ds-card>div:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
+@media(max-width:480px){.ds-card{grid-template-columns:1fr}.ds-card>div{border-right:0;border-bottom:1px solid var(--rule)}.ds-card>div:last-child{border-bottom:0}}
+
+.ds-body{max-width:72ch;margin-inline:auto;padding-bottom:var(--section-gap)}
+.ds-body p{font-family:var(--serif);font-size:clamp(16px,1.2vw,18.5px);line-height:1.72;color:var(--ink);margin:0 0 1.1em;text-wrap:pretty}
+.ds-body h2{font-size:clamp(22px,2.2vw,30px);font-weight:600;line-height:1.16;margin:2em 0 .8em;padding-top:1em;border-top:1px solid var(--rule);display:flex;gap:14px;align-items:baseline}
+.ds-body h2 .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--ink-faint);font-weight:400}
+.ds-fn{font-family:var(--sans)!important;font-size:.86rem!important;color:var(--ink-soft)!important}
+
+.ds-schema{width:100%;border-collapse:collapse;margin:0 0 1.6em}
+.ds-schema th{text-align:left;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--rule)}
+.ds-schema td{padding:12px 14px 12px 0;border-bottom:1px solid color-mix(in srgb,var(--rule) 45%,transparent);vertical-align:top;line-height:1.45;font-size:.95rem;color:var(--ink-soft)}
+.ds-schema td:first-child{font-family:var(--mono);font-size:.8rem;color:var(--ink);white-space:nowrap;width:1%}
+
+.ds-q{list-style:none;padding:0;margin:0 0 1.4em;counter-reset:q}
+.ds-q li{font-family:var(--serif);font-size:clamp(16px,1.2vw,18px);line-height:1.6;padding:16px 0 16px 46px;border-top:1px solid color-mix(in srgb,var(--rule) 45%,transparent);position:relative;counter-increment:q}
+.ds-q li:last-child{border-bottom:1px solid color-mix(in srgb,var(--rule) 45%,transparent)}
+.ds-q li::before{content:"Q" counter(q);position:absolute;left:0;top:19px;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--pink-text)}
+
+.ds-pipe{list-style:none;padding:0;margin:0 0 1.6em;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.ds-pipe li{border:1px solid var(--rule);padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px}
+.ds-pipe .st{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.ds-pipe b{font-size:.98rem;font-weight:600;line-height:1.2}
+.ds-pipe span.d{font-size:.84rem;line-height:1.45;color:var(--ink-soft)}
+
+.ds-geo{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 1.4em}
+.ds-geo span{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;border:1px solid var(--rule);border-radius:999px;padding:6px 12px}
+
+.ds-kw{flex-wrap:wrap;gap:8px;margin-top:10px}html[data-lang="es"] .ds-kw[data-l="es"],html[data-lang="en"] .ds-kw[data-l="en"],html[data-lang="de"] .ds-kw[data-l="de"]{display:flex}
+.ds-kw span{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--canvas-soft);padding:6px 10px}
+.ds-end{margin-top:2.6em;padding-top:26px;border-top:1px solid var(--rule)}
+.ds-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.ds-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+.ds-back:hover{background:var(--canvas-soft)}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-right">
+<a class="back" href="index.html#research"><span data-l="es">← Investigación y creación</span><span data-l="en">← Research &amp; Creation</span><span data-l="de">← Forschung &amp; Kreation</span></a>
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
+</div>
+</nav>
+
+<header class="shell ds-head">
+<div class="ds-kicker"><span data-l="es">Investigación y creación · Dataset</span><span data-l="en">Research &amp; Creation · Dataset</span><span data-l="de">Forschung &amp; Kreation · Datensatz</span></div>
+<h1>Samba-Enredo Corpus (CSEC)</h1>
+<p class="ds-deck"><span data-l="es">Un corpus estructurado de las letras del Carnaval de Río de Janeiro, elemento central del patrimonio inmaterial de Brasil.</span><span data-l="en">A structured corpus of Rio de Janeiro carnival lyrics, a central element of Brazil's intangible heritage.</span><span data-l="de">Ein strukturiertes Korpus der Liedtexte des Karnevals von Rio de Janeiro, eines zentralen Elements des immateriellen Kulturerbes Brasiliens.</span></p>
+<div class="ds-meta">
+<span class="who">Óscar Aquite</span>
+<span>Institut für Digital Humanities · Universität Regensburg</span>
+<span class="ds-status"><span data-l="es">En construcción</span><span data-l="en">In progress</span><span data-l="de">Im Aufbau</span></span>
+</div>
+</header>
+
+<div class="shell">
+<figure class="ds-figure"><img src="images/banners/rio.png" alt="Carnaval de Río de Janeiro" /></figure>
+<dl class="ds-card">
+<div><dt><span data-l="es">Fuente</span><span data-l="en">Source</span><span data-l="de">Quelle</span></dt><dd><span data-l="es">Sambas-enredo del Carnaval de Río</span><span data-l="en">Rio carnival sambas-enredo</span><span data-l="de">Sambas-Enredo des Karnevals von Rio</span></dd></div>
+<div><dt><span data-l="es">Cobertura</span><span data-l="en">Coverage</span><span data-l="de">Umfang</span></dt><dd><span data-l="es">Varias décadas; todas las categorías de competencia</span><span data-l="en">Several decades; all competition categories</span><span data-l="de">Mehrere Jahrzehnte; alle Wettbewerbskategorien</span></dd></div>
+<div><dt><span data-l="es">Lengua</span><span data-l="en">Language</span><span data-l="de">Sprache</span></dt><dd><span data-l="es">Portugués de Brasil</span><span data-l="en">Brazilian Portuguese</span><span data-l="de">Brasilianisches Portugiesisch</span></dd></div>
+<div><dt><span data-l="es">Acceso</span><span data-l="en">Access</span><span data-l="de">Zugang</span></dt><dd><span data-l="es">Recurso abierto y documentado (previsto)</span><span data-l="en">Open, documented resource (planned)</span><span data-l="de">Offene, dokumentierte Ressource (geplant)</span></dd></div>
+</dl>
+</div>
+
+<main class="shell ds-body">
+
+<h2><span class="n">01</span><span data-l="es">Objeto y corpus</span><span data-l="en">Subject and corpus</span><span data-l="de">Gegenstand und Korpus</span></h2>
+<p data-l="es">El Carnaval de Río de Janeiro es una de las fiestas más importantes del mundo y el IPHAN lo reconoce como patrimonio inmaterial de Brasil; se prepara además una candidatura a la UNESCO. En el centro del espectáculo están los sambas-enredo: las canciones de competencia que cada escola de samba compone cada año para desarrollar un <em>enredo</em>, un tema narrativo. En ellas se condensan, en forma poética, la memoria colectiva, el comentario político, la identidad afrobrasileña y la historia urbana. Pese a su importancia cultural, estas letras casi no se han trabajado como datos de investigación estructurados.</p>
+<p data-l="en">The Rio de Janeiro carnival is one of the world's most important festivals and is recognised by Brazil's IPHAN as national intangible heritage; a UNESCO nomination is in preparation. At the centre of the spectacle are the sambas-enredo: the competition songs each samba school composes every year to unfold an <em>enredo</em>, a narrative theme. They condense collective memory, political commentary, Afro-Brazilian identity and urban history into poetic form. Despite their cultural significance, these lyrics have barely been treated as structured research data.</p>
+<p data-l="de">Der Karneval von Rio de Janeiro gilt als eines der bedeutendsten Feste der Welt und ist durch das brasilianische IPHAN als nationales immaterielles Kulturerbe anerkannt; eine UNESCO-Kandidatur befindet sich in Vorbereitung. Im Zentrum stehen die Sambas-Enredo – die jährlich komponierten Wettbewerbslieder der Escolas de Samba, die einen <em>Enredo</em>, ein narratives Thema, entfalten und kollektive Erinnerung, politische Kommentare, afrobrasilianische Identität und urbane Geschichte in poetischer Form verdichten. Trotz ihrer kulturellen Bedeutung sind diese Liedtexte bislang kaum als strukturiertes Forschungsdatum erschlossen.</p>
+
+<p data-l="es">Carnavarium construye un corpus digital que reúne de forma sistemática las letras del Carnaval de Río de varias décadas. Es el primer proyecto piloto de humanidades digitales de Carnavarium y la primera infraestructura de datos estructurada y reutilizable para este elemento central del patrimonio inmaterial brasileño. Cada samba-enredo se registra con los siguientes metadatos:</p>
+<p data-l="en">Carnavarium is building a digital corpus that systematically collects Rio carnival lyrics from several decades. It is Carnavarium's first Digital Humanities pilot project and the first structured, reusable data infrastructure for this central element of Brazil's intangible heritage. Each samba-enredo is recorded with the following metadata:</p>
+<p data-l="de">Carnavarium baut ein digitales Korpus auf, das die Liedtexte des Karnevals von Rio aus mehreren Jahrzehnten systematisch erfasst. Es ist das erste Digital-Humanities-Pilotprojekt von Carnavarium und die erste strukturierte, nachnutzbare Dateninfrastruktur für dieses zentrale Element des brasilianischen immateriellen Kulturerbes. Jeder Samba-Enredo wird mit folgenden Metadaten erfasst:</p>
+
+<table class="ds-schema">
+<thead><tr><th><span data-l="es">Campo</span><span data-l="en">Field</span><span data-l="de">Feld</span></th><th><span data-l="es">Descripción</span><span data-l="en">Description</span><span data-l="de">Beschreibung</span></th></tr></thead>
+<tbody>
+<tr><td>escola</td><td><span data-l="es">Escola de samba: asociación que organiza música, danza y desfile, y se prepara todo el año para el carnaval</span><span data-l="en">Samba school: an association that organises music, dance and parade and trains all year for carnival</span><span data-l="de">Escola de Samba: ein Verein, der Musik, Tanz und Parade organisiert und das ganze Jahr für den Karneval trainiert</span></td></tr>
+<tr><td>ano</td><td><span data-l="es">Año del carnaval</span><span data-l="en">Carnival year</span><span data-l="de">Karnevalsjahr</span></td></tr>
+<tr><td>categoria</td><td>Grupo Especial, Série Ouro, Série Prata…</td></tr>
+<tr><td>colocação</td><td><span data-l="es">Posición final en la competencia</span><span data-l="en">Final placement in the competition</span><span data-l="de">Platzierung im Wettbewerb</span></td></tr>
+<tr><td>pontuação</td><td><span data-l="es">Puntuación otorgada por el jurado</span><span data-l="en">Score awarded by the jury</span><span data-l="de">Von der Jury vergebene Punktzahl</span></td></tr>
+<tr><td>origem</td><td><span data-l="es">Procedencia geográfica de la escola: barrio o área metropolitana</span><span data-l="en">Geographic origin of the school: neighbourhood or metropolitan area</span><span data-l="de">Geografische Herkunft der Escola: Stadtviertel bzw. Großraum</span></td></tr>
+<tr><td>letra</td><td><span data-l="es">Texto completo del samba-enredo</span><span data-l="en">Full lyrics of the samba-enredo</span><span data-l="de">Vollständiger Liedtext des Samba-Enredo</span></td></tr>
+</tbody>
+</table>
+
+<div class="ds-end">
+<a class="ds-back" href="carnaval.html?c=rio"><span data-l="es">→ Ficha del Carnaval de Río</span><span data-l="en">→ Rio Carnival fact sheet</span><span data-l="de">→ Steckbrief Karneval von Rio</span></a>
+</div>
+</main>
+
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
+<ul>
+<li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
+<li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+<li><a href="index.html#research"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul><li><a href="impressum.html">Impressum</a></li><li><a href="datenschutz.html">Datenschutz</a></li></ul>
+</div>
+<div class="col">
+<h5><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></h5>
+<ul><li>oscaraquite.x@gmail.com</li><li>Luitpoldstraße 10<br />93047 Regensburg, DE</li></ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · <span data-l="es">Un proyecto de humanidades digitales</span><span data-l="en">A Digital Humanities Project</span><span data-l="de">Ein Digital-Humanities-Projekt</span></span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+<script>(function(){var T={es:"Samba-Enredo Corpus (CSEC) — Carnavarium",en:"Samba-Enredo Corpus (CSEC) — Carnavarium",de:"Samba-Enredo Corpus (CSEC) — Carnavarium"};function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=T[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});set(document.documentElement.getAttribute("data-lang")||"en",false)})()</script>
+</body>
+</html>

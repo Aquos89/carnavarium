@@ -215,7 +215,11 @@ window.CARNAVALES = [
       { k: { es: "Músicas", en: "Music", de: "Musik" }, v: {"es":"Samba-enredo, marchinha, samba de partido-alto","en":"Samba-enredo, marchinha, partido-alto samba","de":"Samba-enredo, Marchinha, Partido-alto"} },
       { k: { es: "Momentos", en: "Key events", de: "Höhepunkte" }, v: {"es":"Desfiles del Grupo Especial en el Sambódromo, Cordão da Bola Preta, desfile de las campeonas","en":"Grupo Especial parades in the Sambadrome, Cordão da Bola Preta, Champions' Parade","de":"Umzüge der Grupo Especial im Sambódromo, Cordão da Bola Preta, Parade der Siegerschulen"} }
     ],
-    related: []
+    related: [
+      { type: { es: "Dataset", en: "Dataset", de: "Datensatz" }, href: "samba-enredo-corpus.html", img: "images/banners/rio.png",
+        title: { es: "Samba-Enredo Corpus (CSEC)", en: "Samba-Enredo Corpus (CSEC)", de: "Samba-Enredo Corpus (CSEC)" },
+        deck: { es: "Letras, escolas, puntuaciones y barrios del Carnaval de Río como datos abiertos.", en: "Rio carnival lyrics, schools, scores and neighbourhoods as open data.", de: "Liedtexte, Escolas, Punktzahlen und Stadtteile des Karnevals von Rio als offene Daten." } }
+    ]
   },
   {
     slug: "pasto", color: "var(--purple)", banner: "images/banners/pasto.png", region: {"es":"Andes","en":"Andes","de":"Anden"},

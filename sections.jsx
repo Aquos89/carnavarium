@@ -408,6 +408,17 @@ const FEATURES = {
     ),
     byline: T("Por Óscar Aquite · 13 min de lectura · Número 01", "By Óscar Aquite · 13 min read · Issue 01", "Von Óscar Aquite · 13 Min. Lesezeit · Ausgabe 01"),
   },
+  samba: {
+    href: "samba-enredo-corpus.html", img: "images/banners/rio.png", alt: "Carnaval de Río de Janeiro",
+    kicker: T("Dataset · En construcción · ES · EN · DE", "Dataset · In progress · ES · EN · DE", "Datensatz · Im Aufbau · ES · EN · DE"),
+    title: T("Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)"),
+    deck: T(
+      "Un corpus estructurado de las letras del Carnaval de Río: escola, año, categoría, posición, puntuación y barrio.",
+      "A structured corpus of Rio carnival lyrics: school, year, category, placement, score and neighbourhood.",
+      "Ein strukturiertes Korpus der Liedtexte des Karnevals von Rio: Escola, Jahr, Kategorie, Platzierung, Punktzahl und Stadtteil."
+    ),
+    byline: T("Por Óscar Aquite · Universität Regensburg · Número 01", "By Óscar Aquite · Universität Regensburg · Issue 01", "Von Óscar Aquite · Universität Regensburg · Ausgabe 01"),
+  },
   calypso: {
     href: "especial-calypso.html", img: "images/calypso-hero.png", alt: "Especial Calipso — Trinidad y Tobago",
     kicker: T("Especial · Digital · ES · EN · DE", "Special · Digital · ES · EN · DE", "Spezial · Digital · ES · EN · DE"),
@@ -426,6 +437,7 @@ const RESEARCH_CATS = {
   Specials: T("Especiales", "Specials", "Spezials"),
   Articles: T("Artículos", "Articles", "Artikel"),
   "Data Stories": T("Historias de datos", "Data Stories", "Data Stories"),
+  Datasets: T("Datasets", "Datasets", "Datensätze"),
   "Field Notes": T("Notas de campo", "Field Notes", "Feldnotizen"),
   Visualizations: T("Visualizaciones", "Visualizations", "Visualisierungen"),
   Interviews: T("Entrevistas", "Interviews", "Interviews"),
@@ -436,6 +448,7 @@ function Research() {
   const cats = Object.keys(RESEARCH_CATS);
   const issue = T("Número 01", "Issue 01", "Ausgabe 01");
   const list = [
+    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <>Óscar Aquite · {issue}</>, href: "samba-enredo-corpus.html", feat: "samba" },
     { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <>Óscar Aquite · {issue}</>, href: "especial-calypso.html", feat: "calypso" },
     { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <>Óscar Aquite · {issue}</>, href: "ensayo-musica-carnaval.html", feat: "barranquilla" },
     { date: "2026-05-01", cat: "Data Stories", kicker: T("Historia de datos", "Data Story", "Data Story"), title: T("Mapear 200 años de desfiles de Mardi Gras desde los archivos de la ciudad", "Mapping 200 years of Mardi Gras parades from city archives", "200 Jahre Mardi-Gras-Paraden aus städtischen Archiven kartiert"), byline: <>K. Devereaux · {issue}</> },
