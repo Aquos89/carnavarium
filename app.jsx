@@ -59,9 +59,9 @@ function App() {
       <window.Hero />
       <window.ProjectSection />
       <window.Pillars />
+      <window.Timeline />
       <window.World />
       <window.Archive />
-      <window.Timeline />
       <window.Research />
       <window.News />
       <window.Footer />
