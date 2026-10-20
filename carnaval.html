@@ -63,6 +63,18 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .cv-card p{font-family:var(--serif);font-size:1rem;line-height:1.5;color:var(--ink-soft);margin:0}
 .cv-empty{font-family:var(--serif);font-size:1.05rem;line-height:1.55;color:var(--ink-soft);max-width:56ch;padding:24px;border:1px dashed var(--rule);border-radius:4px}
 
+.cv-gl-f{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.cv-gl-f button{display:flex;align-items:center;gap:6px;white-space:nowrap;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:none;border:1px solid var(--rule);border-radius:999px;padding:5px 12px;cursor:pointer}
+.cv-gl-f button:hover{border-color:var(--ink-soft);color:var(--ink)}
+.cv-gl-f button.active{background:var(--ink);border-color:var(--ink);color:var(--canvas)}
+.cv-gl-f .n{opacity:.6}
+.cv-gl{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:0 32px;margin:0}
+.cv-gl>div{padding:16px 0 18px;border-top:1px solid var(--rule)}
+.cv-gl dt{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:8px;height:auto;line-height:normal}
+.cv-gl dt b{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:500;font-style:italic;line-height:1.15}
+.cv-gl dt>.gc{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:6px}
+.cv-gl dt>.gc i{width:7px;height:7px;border-radius:50%;background:var(--gc)}
+.cv-gl dd{margin:0;font-family:var(--sans);font-size:.92rem;line-height:1.5;color:var(--ink-soft);text-wrap:pretty}
 .cv-others{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:0;border:1px solid var(--rule)}
 .cv-others a{display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--rule);margin:-1px 0 0 -1px;font-family:var(--serif);font-size:1.1rem}
 .cv-others a:hover{background:var(--canvas-soft);color:var(--ink)}
@@ -93,7 +105,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
 <ul>
 <li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
-<li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
 <li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
 <li><a href="index.html#archive"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
 </ul>
@@ -120,6 +132,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </footer>
 
 <script src="carnavales.js"></script>
+<script src="glosarios.js"></script>
 <script>(function(){
 var C=window.CARNAVALES||[],slug=new URLSearchParams(location.search).get("c"),c=C.find(function(x){return x.slug===slug})||C[0];
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
@@ -127,14 +140,19 @@ function t(o,tag){tag=tag||"span";return ["es","en","de"].map(function(l){return
 var lbl={sheet:{es:"Datos clave",en:"Key facts",de:"Eckdaten"},loc:{es:"Lugar",en:"Location",de:"Ort"},region:{es:"Región cultural",en:"Cultural region",de:"Kulturregion"},origin:{es:"Origen",en:"Origin",de:"Ursprung"},dates:{es:"Próxima edición",en:"Next edition",de:"Nächste Ausgabe"},tag:{es:"Ficha · El carnaval en el mundo",en:"Profile · Carnival in the World",de:"Steckbrief · Karneval in der Welt"},rel:{es:"En Carnavarium",en:"On Carnavarium",de:"Auf Carnavarium"},empty:{es:"Todavía no hay artículos ni especiales sobre este carnaval. Si investiga sobre él y quiere publicar en Carnavarium, escríbanos.",en:"There are no articles or specials on this carnival yet. If you research it and would like to publish on Carnavarium, get in touch.",de:"Zu diesem Karneval gibt es noch keine Artikel oder Spezials. Wenn Sie dazu forschen und auf Carnavarium veröffentlichen möchten, schreiben Sie uns."},others:{es:"Otros carnavales",en:"Other carnivals",de:"Weitere Karnevale"},open:{es:"Leer →",en:"Read →",de:"Lesen →"}};
 var h='<header class="cv-head'+(c.banner?' has-banner" style="--banner:url('+c.banner+')':'')+'"><div class="shell"><div class="cv-tag"><span class="cv-dot" style="background:'+c.color+'"></span>'+t(lbl.tag)+'</div><h1>'+t(c.place)+'</h1>'+(c.alias?'<p class="cv-alias">'+t(c.alias)+'</p>':'')+'<div class="cv-sub"><b>'+t(c.country)+'</b><span>'+t(c.dates)+'</span></div></div></header>';
 h+='<div class="shell cv-body"><p class="cv-intro">'+t(c.intro)+'</p><aside class="cv-sheet"><div class="cv-sheet-h"><span class="cv-dot" style="background:'+c.color+'"></span>'+t(lbl.sheet)+'</div><dl class="cv-facts"><div><dt>'+t(lbl.loc)+'</dt><dd>'+t(c.location)+'</dd></div><div><dt>'+t(lbl.region)+'</dt><dd>'+t(c.region)+'</dd></div><div><dt>'+t(lbl.origin)+'</dt><dd>'+t(c.origin)+'</dd></div><div><dt>'+t(lbl.dates)+'</dt><dd>'+t(c.dates)+'</dd></div>'+c.facts.map(function(f){return "<div><dt>"+t(f.k)+"</dt><dd>"+(f.list?'<ul class="cv-recs">'+f.list.map(function(x){return "<li>"+t(x)+"</li>"}).join("")+"</ul>":t(f.v))+"</dd></div>"}).join("")+'</dl></aside></div>';
+var GL=(window.CARNAVAL_GLOSARIO||{})[c.slug]||[],GC=window.CARNAVAL_GLOSARIO_CATS||{};
+if(GL.length){var gcats=Object.keys(GC).filter(function(k){return GL.some(function(g){return g.cat===k})});
+h+='<section class="shell cv-sec" id="glosario"><h2>'+t({es:"Glosario",en:"Glossary",de:"Glossar"})+'</h2><div class="cv-gl-f"><button type="button" class="active" data-gc="">'+t({es:"Todo",en:"All",de:"Alle"})+' <span class="n">'+GL.length+'</span></button>'+gcats.map(function(k){return '<button type="button" data-gc="'+k+'">'+t(GC[k])+' <span class="n">'+GL.filter(function(g){return g.cat===k}).length+'</span></button>'}).join("")+'</div><dl class="cv-gl" style="--gc:'+c.color+'">'+GL.map(function(g){return '<div data-cat="'+g.cat+'"><dt><b>'+esc(g.term)+'</b><span class="gc"><i></i>'+t(GC[g.cat])+'</span></dt><dd>'+t(g.def)+'</dd></div>'}).join("")+'</dl></section>'}
 h+='<section class="shell cv-sec"><h2>'+t(lbl.rel)+'</h2>';
 h+=c.related.length?'<div class="cv-rel">'+c.related.map(function(r){return '<a class="cv-card" href="'+r.href+'"><div class="img"><img src="'+r.img+'" alt="" loading="lazy" /></div><div class="k">'+t(r.type)+'</div><h3>'+t(r.title)+'</h3><p>'+t(r.deck)+'</p></a>'}).join("")+'</div>':'<p class="cv-empty">'+t(lbl.empty)+' <a href="mailto:oscaraquite.x@gmail.com">oscaraquite.x@gmail.com</a></p>';
 h+='</section><section class="shell cv-sec"><h2>'+t(lbl.others)+'</h2><div class="cv-others">'+C.filter(function(x){return x!==c}).map(function(x){return '<a href="carnaval.html?c='+x.slug+'"><span class="cv-dot" style="background:'+x.color+'"></span>'+t(x.place)+'</a>'}).join("")+'</div></section>';
 document.getElementById("cv").innerHTML=h;
+[].forEach.call(document.querySelectorAll("[data-gc]"),function(b){b.addEventListener("click",function(){var k=b.dataset.gc;[].forEach.call(document.querySelectorAll("[data-gc]"),function(x){x.classList.toggle("active",x===b)});[].forEach.call(document.querySelectorAll(".cv-gl>div"),function(d){d.style.display=!k||d.dataset.cat===k?"":"none"})})});
 var TT={};["es","en","de"].forEach(function(l){TT[l]=(c.alias?c.alias[l]+" · ":"")+c.place[l]+" — Carnavarium"});
 function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=TT[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}
 [].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});
 set(document.documentElement.getAttribute("data-lang")||"en",false);
 })()</script>
+<script src="to-top.js" defer></script>
 </body>
 </html>

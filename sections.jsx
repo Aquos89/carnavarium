@@ -36,7 +36,7 @@ function UtilityBar() {
     <div className="utility">
       <div className="shell row">
         <div className="marquee">
-          <span><span>◦ {msg}</span><span>◦ {msg}</span></span>
+          <span>{[0, 1].map(k => <React.Fragment key={k}><span>◦ {msg}</span>{NEWS[0] && <a className="mq-news" href="#news"><b>{T("Agenda", "Agenda", "Agenda")}</b> {NEWS[0].short}</a>}</React.Fragment>)}</span>
         </div>
         <LangSwitch />
       </div>
@@ -54,9 +54,9 @@ function Nav() {
         </a>
         <div className="nav-links">
           <a href="#project">{T("Proyecto", "Project", "Projekt")}</a>
-          <a href="#carnival">{T("El Carnaval", "The Carnival", "Der Karneval")}</a>
+          <a href="#timeline">{T("El Carnaval", "The Carnival", "Der Karneval")}</a>
           <a href="#world">{T("En el mundo", "In the World", "In der Welt")}</a>
-          <a href="archive.html">{T("Archivo", "Archive", "Archiv")}</a>
+          <a href="#archive">{T("Archivo", "Archive", "Archiv")}</a>
           <a href="#research">{T("Investigación", "Research", "Forschung")}</a>
           <a href="#news">{T("Noticias", "News", "News")}</a>
         </div>
@@ -68,22 +68,95 @@ function Nav() {
   );
 }
 
+function useTopBars() {
+  React.useEffect(() => {
+    const set = () => { const u = document.querySelector(".utility"), n = document.querySelector(".nav"); const h = (u ? u.offsetHeight : 0) + (n ? n.offsetHeight : 0); if (h) document.documentElement.style.setProperty("--top-bars", h + "px"); };
+    set(); const t = setTimeout(set, 300); window.addEventListener("resize", set);
+    return () => { clearTimeout(t); window.removeEventListener("resize", set); };
+  }, []);
+}
+
+function HeroHighlights() {
+  useTopBars();
+  const [open, setOpen] = useState(!!window.__cvLogoDone);
+  const [wide, setWide] = useState(false);
+  const hhRef = React.useRef(null);
+  const [hh, setHh] = useState(0);
+  const wideRef = React.useRef(false);
+  const busy = React.useRef(0);
+  React.useEffect(() => {
+    const measure = () => {
+      const el = hhRef.current; if (!el) return;
+      if (wideRef.current || Date.now() < busy.current) return;
+      const main = el.parentNode && el.parentNode.querySelector(".hero-main");
+      if (!main) return;
+      const h = Math.round(main.getBoundingClientRect().height);
+      if (h > 120) setHh(h);
+    };
+    const t1 = setTimeout(measure, 60), t2 = setTimeout(measure, 900);
+    const onDone = () => setTimeout(measure, 60);
+    window.addEventListener("cv:logo-done", onDone);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    let rt; const onR = () => { clearTimeout(rt); rt = setTimeout(measure, 150); };
+    window.addEventListener("resize", onR);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(rt); window.removeEventListener("resize", onR); window.removeEventListener("cv:logo-done", onDone); };
+  }, []);
+  const toggle = () => { busy.current = Date.now() + 900; wideRef.current = !wide; setWide(!wide); };
+  React.useEffect(() => {
+    if (open) return;
+    const on = () => setTimeout(() => setOpen(true), 250);
+    window.addEventListener("cv:logo-done", on);
+    const fb = setTimeout(() => setOpen(true), 9000);
+    return () => { window.removeEventListener("cv:logo-done", on); clearTimeout(fb); };
+  }, [open]);
+  const n = NEWS[0];
+  const items = [
+    { ac: "var(--amber)", href: FEATURES.samba.href, img: FEATURES.samba.img, k: T("Dataset", "Dataset", "Datensatz"), t: FEATURES.samba.title, d: T("Letras del Carnaval de Río con metadatos abiertos.", "Rio Carnival lyrics with open metadata.", "Liedtexte des Karnevals von Rio mit offenen Metadaten.") },
+    { ac: "var(--pink)", pos: "22% 40%", href: FEATURES.calypso.href, img: FEATURES.calypso.img, k: T("Especial", "Special", "Spezial"), t: FEATURES.calypso.title, d: T("Ocho capítulos con música, mapas y archivo.", "Eight chapters with music, maps and archive.", "Acht Kapitel mit Musik, Karten und Archiv.") },
+    n && { ac: "var(--teal)", href: n.href, ext: true, date: n, k: n.tag, t: n.title, d: n.place },
+  ].filter(Boolean);
+  return (
+    <aside ref={hhRef} style={hh ? { "--hh-h": hh + "px" } : null} className={"hh" + (open ? " open" : "") + (wide ? " wide" : "")} aria-label="Destacados / Highlights">
+      <div className="hh-win">
+        <div className="hh-bar"><span className="hh-dots"><i></i><i></i><i></i></span><span className="hh-title">{T("Destacados", "Highlights", "Highlights")}</span><span className="hh-n">0{items.length}</span><button type="button" className="hh-toggle" onClick={toggle} aria-expanded={wide}>{wide ? T("Reducir", "Collapse", "Verkleinern") : T("Ampliar", "Expand", "Erweitern")}<i aria-hidden="true">{wide ? "→" : "←"}</i></button></div>
+        <div className="hh-list">
+          {items.map((it, i) => (
+            <a key={i} className={"hh-item" + (i === 0 ? " hh-feat" : "")} href={it.href} style={{ "--d": (0.55 + i * 0.14) + "s", "--ac": it.ac }} {...(it.ext ? { target: "_blank", rel: "noopener" } : {})}>
+              {it.img ? <span className="hh-img"><img src={it.img} alt="" style={it.pos ? { objectPosition: it.pos } : null} /></span> : <span className="hh-img hh-date"><b>{it.date.day}</b><span>{it.date.month}</span></span>}
+              <span className="hh-txt"><span className="hh-k">{it.k}</span><span className="hh-t">{it.t}</span><span className="hh-d">{it.d}</span></span>
+              <span className="hh-go" aria-hidden="true">{it.ext ? "↗" : "→"}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </aside>
+  );
+}
+
 function Hero() {
   return (
     <section className="hero">
       <div className="shell">
+        <div className="hero-top">
+        <div className="hero-main">
+
+
+        <div className="hero-logo-wrap">
+        <window.LogoAnimation />
         <div className="proclamation" style={{ marginBottom: 28 }}>
           <span className="pulse"></span>
           {T("Lectura del Bando — Se abre el archivo", "Lectura del Bando — The archive opens", "Lectura del Bando — Das Archiv öffnet sich")}
         </div>
-
-        <window.LogoAnimation />
+        </div>
 
         <h1 className="hero-headline">
           Where carnival<br/>
           world goes <em>digital</em><br/>
           unfurled.
         </h1>
+        </div>
+        <HeroHighlights />
+        </div>
 
         <div className="hero-meta">
           <p className="lede">
@@ -154,40 +227,53 @@ function ProjectSection() {
 function Pillars() {
   const data = [
     {
-      n: "A", title: T("El Carnaval", "The Carnival", "Der Karneval"),
+      n: "02", href: "#timeline", title: T("El Carnaval", "The Carnival", "Der Karneval"),
       blurb: T("Fundamentos culturales y teóricos: del mundo al revés de Bajtín a la práctica festiva encarnada.", "Cultural and theoretical foundations: from Bakhtin's inverted world to embodied festival practice.", "Kulturelle und theoretische Grundlagen: von Bachtins verkehrter Welt bis zur verkörperten Festpraxis."),
-      bullets: [T("Cronología 1500 — hoy", "Timeline 1500 — Now", "Chronik 1500 — heute"), T("Glosario de figuras", "Glossary of Figures", "Glossar der Figuren"), T("Conceptos y teoría", "Concepts & Theory", "Begriffe & Theorie")],
+      bullets: [T("Cronología 1268 — hoy", "Timeline 1268 — Now", "Chronik 1268 — heute"), T("Contexto histórico", "Historical context", "Historischer Kontext"), T("Teoría del carnaval", "Carnival theory", "Karnevalstheorie")],
     },
     {
-      n: "W", title: T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt"),
+      n: "03", href: "#world", title: T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt"),
       blurb: T("Una perspectiva global y comparada de las tradiciones del carnaval: calendario anual y estudios regionales.", "A global, comparative perspective on carnival traditions — annual calendar, regional studies.", "Eine globale, vergleichende Perspektive auf Karnevalstraditionen – Jahreskalender, Regionalstudien."),
-      bullets: [T("Calendario anual", "Annual Calendar", "Jahreskalender"), T("Estudios regionales", "Regional Studies", "Regionalstudien"), T("Mapeo comparado", "Comparative Mapping", "Vergleichende Kartierung")],
+      bullets: [T("Atlas de 16 carnavales", "Atlas of 16 carnivals", "Atlas mit 16 Karnevalen"), T("6 regiones culturales", "6 cultural regions", "6 Kulturregionen"), T("Calendario de próximas ediciones", "Calendar of upcoming editions", "Kalender der nächsten Ausgaben")],
     },
     {
-      n: "R", title: T("Investigación y creación", "Research & Creation", "Forschung & Kreation"),
+      n: "04", href: "#archive", title: T("Archivo", "Archive", "Archiv"),
+      blurb: T("Fuentes primarias digitalizadas —textos, grabaciones, fotografías y videos— con metadatos abiertos. En construcción.", "Digitised primary sources — texts, recordings, photographs and videos — with open metadata. In progress.", "Digitalisierte Primärquellen – Texte, Aufnahmen, Fotografien und Videos – mit offenen Metadaten. Im Aufbau."),
+      bullets: [T("Textos y documentos", "Texts & documents", "Texte & Dokumente"), T("Sonido e imagen", "Sound & image", "Ton & Bild"), T("Búsqueda por tipo", "Search by type", "Suche nach Typ")],
+    },
+    {
+      n: "05", href: "#research", title: T("Investigación y creación", "Research & Creation", "Forschung & Kreation"),
       blurb: T("Donde la investigación humanística se encuentra con la experimentación digital. Ensayos, datasets, visualizaciones.", "Where humanistic research meets digital experimentation. Essays, datasets, visualizations.", "Wo geisteswissenschaftliche Forschung auf digitales Experimentieren trifft. Essays, Datensätze, Visualisierungen."),
-      bullets: [T("Proyectos de HD", "DH Projects", "DH-Projekte"), T("Visualización de datos", "Data Visualization", "Datenvisualisierung"), T("Datasets abiertos", "Open Datasets", "Offene Datensätze")],
+      bullets: [T("Artículos y especiales", "Articles & specials", "Artikel & Spezials"), T("Datasets abiertos", "Open datasets", "Offene Datensätze"), T("Líneas de investigación", "Research lines", "Forschungslinien")],
     },
   ];
   return (
     <section id="carnival" className="section">
       <div className="shell">
-        <div className="sec-head">
-          <div className="num">§ 02</div>
-          <h2 className="title">{T("Tres entradas", "Three Ways In", "Drei Zugänge")}</h2>
-          <a href="#" className="more">{T("Todas las secciones →", "All sections →", "Alle Rubriken →")}</a>
+        <div className="entries-head">
+          <span className="k">§ 01 · {T("Cómo explorar Carnavarium", "How to explore Carnavarium", "Carnavarium erkunden")}</span>
+          <h2>{T("Cuatro entradas al proyecto", "Four ways into the project", "Vier Zugänge zum Projekt")}</h2>
         </div>
         <div className="pillars">
           {data.map((p, i) => (
-            <div className="pillar" key={i}>
+            <a className="pillar" key={i} href={p.href} style={{ color: "inherit", textDecoration: "none" }}>
               <div className="badge">{p.n}</div>
               <h3>{p.title}</h3>
               <p>{p.blurb}</p>
               <ul>{p.bullets.map((b, j) => <li key={j}>{b}</li>)}</ul>
               <span className="arrow">→</span>
-            </div>
+            </a>
           ))}
         </div>
+        <a className="entries-news" href="#news">
+          <span className="en-badge">06</span>
+          <span className="en-main">
+            <span className="en-k">{T("Además", "Also", "Außerdem")}</span>
+            <span className="en-t">{T("Noticias y convocatorias", "News & Calls", "News & Calls")}</span>
+            <span className="en-d">{T("La actualidad de los carnavales y de su investigación: novedades, congresos y convocatorias.", "The latest on carnivals and their research: news, conferences and calls.", "Aktuelles aus den Karnevalen und ihrer Erforschung: Neuigkeiten, Tagungen und Calls.")}</span>
+          </span>
+          <span className="arrow">→</span>
+        </a>
       </div>
     </section>
   );
@@ -205,9 +291,45 @@ function WorldCarousel({ children }) {
     setSt({ page, pages });
   };
   React.useEffect(() => { update(); window.addEventListener("resize", update); return () => window.removeEventListener("resize", update); }, []);
-  const go = d => { const el = ref.current; el.scrollTo({ left: el.scrollLeft + d * el.clientWidth, behavior: "smooth" }); };
+  const hold = React.useRef(false);
+  React.useEffect(() => {
+    const el = ref.current; if (!el) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    el.style.scrollSnapType = "none";
+    let pos = el.scrollLeft, raf, last = performance.now(), wait = 0, ours = false;
+    const SPEED = 28; // px per second
+    const tick = now => {
+      const dt = Math.min(64, now - last); last = now;
+      if (!hold.current && !document.hidden) {
+        const max = el.scrollWidth - el.clientWidth;
+        if (wait > 0) wait -= dt;
+        else if (pos >= max - 1) { wait = 1800; pos = 0; ours = true; el.scrollTo({ left: 0, behavior: "smooth" }); }
+        else { pos += SPEED * dt / 1000; ours = true; el.scrollLeft = pos; }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    const onScroll = () => { if (!ours) pos = el.scrollLeft; ours = false; };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    raf = requestAnimationFrame(tick);
+    // occasional reveal of a hidden banner
+    let peeked = null;
+    const peek = () => {
+      if (peeked) { peeked.classList.remove("peek"); peeked = null; }
+      if (hold.current) return;
+      const r = el.getBoundingClientRect();
+      const vis = [...el.querySelectorAll(".world-cell.has-img")].filter(c => { const b = c.getBoundingClientRect(); return b.left >= r.left - 2 && b.right <= r.right + 2; });
+      if (!vis.length) return;
+      peeked = vis[Math.floor(Math.random() * vis.length)];
+      peeked.classList.add("peek");
+      setTimeout(() => { if (peeked) { peeked.classList.remove("peek"); peeked = null; } }, 2600);
+    };
+    const pi = setInterval(peek, 4200);
+    return () => { cancelAnimationFrame(raf); clearInterval(pi); el.removeEventListener("scroll", onScroll); };
+  }, []);
+  const pause = v => () => { hold.current = v; if (v) ref.current && ref.current.querySelectorAll(".peek").forEach(c => c.classList.remove("peek")); };
+  const go = d => { const el = ref.current; hold.current = true; setTimeout(() => { hold.current = false; }, 5000); el.scrollTo({ left: el.scrollLeft + d * el.clientWidth, behavior: "smooth" }); };
   return (
-    <div className="world-carousel">
+    <div className="world-carousel" onMouseEnter={pause(true)} onMouseLeave={pause(false)} onFocus={pause(true)} onBlur={pause(false)} onTouchStart={pause(true)} onTouchEnd={() => setTimeout(pause(false), 4000)}>
       <div className="world-grid" ref={ref} onScroll={update}>{children}</div>
       <div className="wc-nav">
         <button type="button" onClick={() => go(-1)} disabled={st.page <= 0} aria-label="←">←</button>
@@ -260,14 +382,11 @@ function World() {
                 "Stöbern Sie im Kalender; klicken Sie auf eine Stadt, um ihr Dossier mit Praktiken, Klängen, Bildern und Bibliografie zu öffnen."
               )}
             </p>
-            <a className="atlas-teaser" href="atlas.html">
-              <span className="at-img"><img src="images/atlas-preview.svg" alt={T("Mapa del atlas de carnavales", "Carnival atlas map", "Karte des Karnevalsatlas")} loading="lazy" /></span>
-              <span className="at-txt">
-                <span className="at-k">{T("Atlas · 16 carnavales · 6 regiones", "Atlas · 16 carnivals · 6 regions", "Atlas · 16 Karnevale · 6 Regionen")}</span>
-                <span className="at-cta">{T("Abrir el atlas →", "Open atlas →", "Atlas öffnen →")}</span>
-              </span>
-            </a>
           </div>
+          <a className="atlas-teaser" href="atlas.html">
+            <span className="at-img"><img src="images/atlas-preview.svg" alt="" /><span className="at-pill">{T("Explorar el Atlas", "Explore the Atlas", "Atlas erkunden")}<i aria-hidden="true">→</i></span></span>
+            <span className="at-txt"><span className="at-k">{T("16 carnavales · 6 regiones culturales", "16 carnivals · 6 cultural regions", "16 Karnevale · 6 Kulturregionen")}</span></span>
+          </a>
           <WorldCarousel>
             {cells.map((c, i) => (
               <a className={"world-cell" + (WORLD_BANNERS[c.slug] ? " has-img" : "")} key={i} href={"carnaval.html?c=" + c.slug} style={{ "--c": c.color, "--img": WORLD_BANNERS[c.slug] ? "url(images/banners/" + c.slug + ".png)" : "none" }}>
@@ -379,11 +498,18 @@ function Timeline() {
     { year: "2024", event: T("Carnavarium empieza a construir su corpus de metadatos abiertos.", "Carnavarium begins building its open metadata corpus.", "Carnavarium beginnt mit dem Aufbau seines offenen Metadatenkorpus."), place: "Regensburg / Barranquilla" },
   ];
   return (
-    <section className="section">
+    <section id="timeline" className="section">
       <div className="shell">
         <div className="sec-head">
-          <div className="num">§ 05</div>
-          <h2 className="title">{T("Una cronología del mundo al revés", "A Timeline of the Inverted World", "Eine Chronik der verkehrten Welt")}</h2>
+          <div className="num">§ 02</div>
+          <h2 className="title">{T("El Carnaval", "The Carnival", "Der Karneval")}</h2>
+        </div>
+        <div className="sub-head">
+          <h3>{T("¿Por qué el carnaval cambia de fecha?", "Why does carnival change date?", "Warum wandert der Karneval im Kalender?")}</h3>
+        </div>
+        <window.CarnivalCalendar />
+        <div className="sub-head">
+          <h3>{T("Una cronología del mundo al revés", "A Timeline of the Inverted World", "Eine Chronik der verkehrten Welt")}</h3>
           <a href="chronology.html" className="more">{T("Cronología completa →", "Full chronology →", "Ganze Chronik →")}</a>
         </div>
         <div className="timeline-wrap">
@@ -397,6 +523,11 @@ function Timeline() {
             ))}
           </div>
         </div>
+        <div className="sub-head">
+          <h3>{T("Conceptos para pensar el carnaval", "Concepts for thinking about carnival", "Begriffe, um den Karneval zu denken")}</h3>
+          <a href="chronology.html?th=theory" className="more">{T("La teoría en la cronología →", "Theory in the chronology →", "Theorie in der Chronik →")}</a>
+        </div>
+        <window.CarnivalConcepts />
       </div>
     </section>
   );
@@ -480,7 +611,7 @@ function Research() {
     <section id="research" className="section">
       <div className="shell">
         <div className="sec-head">
-          <div className="num">§ 06</div>
+          <div className="num">§ 05</div>
           <h2 className="title">{T("Investigación y creación", "Research & Creation", "Forschung & Kreation")}</h2>
           <a href="#" className="more">{T("Todos los números →", "All issues →", "Alle Ausgaben →")}</a>
         </div>
@@ -529,29 +660,53 @@ function Research() {
   );
 }
 
+const NEWS = [
+  { day: "9–11", month: T("nov 2026", "Nov 2026", "Nov. 2026"), date: T("Publicado el 20 oct 2026", "Posted 20 Oct 2026", "Veröffentlicht am 20. Okt. 2026"), title: T("Carnavarium se presenta en el 6.º Culture Community Plenary de NFDI4Culture", "Carnavarium presents at NFDI4Culture's 6th Culture Community Plenary", "Carnavarium auf dem 6. Culture Community Plenary von NFDI4Culture"), short: T("Carnavarium en el 6.º Plenary de NFDI4Culture · Bochum, 9–11 nov", "Carnavarium at NFDI4Culture's 6th Plenary · Bochum, 9–11 Nov", "Carnavarium beim 6. Plenary von NFDI4Culture · Bochum, 9.–11. Nov."), place: "Deutsches Bergbau-Museum · Bochum, DE", tag: T("Congreso", "Conference", "Konferenz"), href: "https://nfdi4culture.de/de/veranstaltungen/details/6th-culture-community-plenary.html" },
+];
+
 function News() {
-  const items = [
-    { date: T("20 oct 2026", "20 Oct 2026", "20. Okt. 2026"), title: T("Carnavarium se presenta en el 6.º Culture Community Plenary de NFDI4Culture — Bochum, 9–11 nov", "Carnavarium presents at NFDI4Culture's 6th Culture Community Plenary — Bochum, 9–11 Nov", "Carnavarium auf dem 6. Culture Community Plenary von NFDI4Culture — Bochum, 9.–11. Nov."), tag: T("Congreso", "Conference", "Konferenz"), href: "https://nfdi4culture.de/de/veranstaltungen/details/6th-culture-community-plenary.html" },
-  ];
+  const [first, ...rest] = NEWS;
   return (
-    <section id="news" className="section" style={{ paddingBottom: 64 }}>
+    <section id="news" className="section news-sec">
       <div className="shell">
         <div className="sec-head">
-          <div className="num">§ 07</div>
-          <h2 className="title">{T("Noticias", "News", "Neuigkeiten")}</h2>
-          <a href="#" className="more">{T("Todas las novedades →", "All updates →", "Alle Neuigkeiten →")}</a>
+          <div className="num">§ 06</div>
+          <h2 className="title">{T("Noticias y convocatorias", "News & Calls", "News & Calls")}</h2>
         </div>
-      </div>
-      <div className="shell">
-        <div className="news">
-          {items.map((n, i) => (
-            <a className="news-item" key={i} href={n.href || "#news"} {...(n.href ? { target: "_blank", rel: "noopener" } : {})} style={{ color: "inherit", textDecoration: "none" }}>
-              <div className="date">{n.date}</div>
-              <div className="title">{n.title}</div>
-              <div className="tag">{n.tag}{n.href ? " ↗" : ""}</div>
+        <p className="sec-intro">{T(
+          <><b>Lo que pasa en el mundo del carnaval.</b> Novedades de los carnavales y de su investigación, congresos, convocatorias y noticias del proyecto.</>,
+          <><b>What is happening in the world of carnival.</b> News from carnivals and their research, conferences, calls and project updates.</>,
+          <><b>Was in der Welt des Karnevals geschieht.</b> Neues aus den Karnevalen und ihrer Erforschung, Tagungen, Calls und Projektneuigkeiten.</>
+        )}</p>
+        <div className="news-layout">
+          {first && (
+            <a className="news-feat" href={first.href} target="_blank" rel="noopener">
+              <div className="nf-date"><span className="d">{first.day}</span><span className="m">{first.month}</span></div>
+              <div className="nf-body">
+                <div className="nf-tag">{first.tag}</div>
+                <h3>{first.title}</h3>
+                <div className="nf-place">{first.place}</div>
+                <div className="nf-foot"><span>{first.date}</span><span className="nf-cta">{T("Más información", "More information", "Mehr erfahren")} <i aria-hidden="true">↗</i></span></div>
+              </div>
             </a>
-          ))}
+          )}
+          <aside className="news-submit">
+            <div className="ns-k">{T("Comparta una noticia", "Share news", "Neuigkeit teilen")}</div>
+            <p>{T("¿Tiene una noticia sobre un carnaval, un congreso o una convocatoria? Envíenos la información y la difundimos aquí.", "Have news about a carnival, a conference or a call? Send us the details and we'll share it here.", "Haben Sie Neuigkeiten zu einem Karneval, einer Tagung oder einem Call? Schicken Sie uns die Informationen, wir verbreiten sie hier.")}</p>
+            <a className="ns-btn" href="mailto:oscaraquite.x@gmail.com?subject=Carnavarium%20%E2%80%94%20Noticia%20%2F%20Convocatoria">{T("Enviar una noticia", "Submit news", "Neuigkeit einsenden")} <i aria-hidden="true">→</i></a>
+          </aside>
         </div>
+        {rest.length > 0 && (
+          <div className="news">
+            {rest.map((n, i) => (
+              <a className="news-item" key={i} href={n.href || "#news"} {...(n.href ? { target: "_blank", rel: "noopener" } : {})} style={{ color: "inherit", textDecoration: "none" }}>
+                <div className="date">{n.day} {n.month}</div>
+                <div className="title">{n.title}</div>
+                <div className="tag">{n.tag}{n.href ? " ↗" : ""}</div>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -570,7 +725,7 @@ function Footer() {
           <h5>{T("Secciones", "Sections", "Rubriken")}</h5>
           <ul>
             <li><a href="#project">{T("El proyecto y yo", "Project & Me", "Projekt und ich")}</a></li>
-            <li><a href="#carnival">{T("El Carnaval", "The Carnival", "Der Karneval")}</a></li>
+            <li><a href="#timeline">{T("El Carnaval", "The Carnival", "Der Karneval")}</a></li>
             <li><a href="#world">{T("En el mundo", "In the World", "In der Welt")}</a></li>
             <li><a href="archive.html">{T("Archivo", "Archive", "Archiv")}</a></li>
           </ul>
