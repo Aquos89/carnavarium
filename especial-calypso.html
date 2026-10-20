@@ -600,5 +600,6 @@ var tick=false;function upd(){tick=false;var vh=innerHeight;vbs.forEach(function
 addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd()})();</script>
 <script src="https://public.flourish.studio/resources/embed.js"></script>
 <script>(function(){var d=document.documentElement;if(!('IntersectionObserver' in window))return;d.classList.add('rv');var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.5});document.querySelectorAll('.ch-fact').forEach(function(el){io.observe(el);});})();</script>
+<script src="to-top.js" defer></script>
 </body>
 </html>

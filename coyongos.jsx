@@ -23,6 +23,7 @@ function LogoAnimation() {
   }, []);
 
   const finish = () => setDone(true);
+  useEffect(() => { if (done) { window.__cvLogoDone = true; window.dispatchEvent(new Event("cv:logo-done")); } }, [done]);
 
   return (
     <div className={"hero-logo" + (done ? " is-done" : "")}>

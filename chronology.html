@@ -130,7 +130,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 
 <main>
 <header class="shell ch-head">
-<div class="ch-tag"><span data-l="es">§ 05 · Cronología</span><span data-l="en">§ 05 · Chronology</span><span data-l="de">§ 05 · Chronik</span></div>
+<div class="ch-tag"><span data-l="es">§ 02 · Cronología</span><span data-l="en">§ 02 · Chronology</span><span data-l="de">§ 02 · Chronik</span></div>
 <h1><span data-l="es">Una cronología del mundo al revés</span><span data-l="en">A Timeline of the Inverted World</span><span data-l="de">Eine Chronik der verkehrten Welt</span></h1>
 <p class="ch-intro"><span data-l="es">Siete siglos de carnaval: fundaciones, músicas, instituciones y reconocimientos. Cada hito enlaza con la ficha de su carnaval en el atlas.</span><span data-l="en">Seven centuries of carnival: foundations, music, institutions and recognitions. Each milestone links to its carnival's profile in the atlas.</span><span data-l="de">Sieben Jahrhunderte Karneval: Gründungen, Musik, Institutionen und Auszeichnungen. Jeder Meilenstein verweist auf den Steckbrief seines Karnevals im Atlas.</span></p>
 </header>
@@ -154,7 +154,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
 <ul>
 <li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
-<li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
 <li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
 <li><a href="index.html#archive"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
 </ul>
@@ -327,11 +327,12 @@ function setView(v){view=v;document.getElementById("tl").hidden=v!=="tl";documen
 [].forEach.call(document.querySelectorAll("[data-view]"),function(b){b.addEventListener("click",function(){setView(b.dataset.view)})});
 [].forEach.call(document.querySelectorAll("[data-th]"),function(b){b.addEventListener("click",function(){th=b.dataset.th;render()})});
 [].forEach.call(document.querySelectorAll("[data-rg]"),function(b){b.addEventListener("click",function(){rg=b.dataset.rg===""?null:+b.dataset.rg;render()})});
-render();setView("tl");
+(function(){var p=new URLSearchParams(location.search).get("th");if(p&&TH[p])th=p})();render();setView("tl");
 var TT={es:"Cronología — Carnavarium",en:"Chronology — Carnavarium",de:"Chronik — Carnavarium"};
 function set(l,save){document.documentElement.setAttribute("data-lang",l);setTimeout(layoutCtx,0);document.documentElement.lang=l;document.title=TT[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}
 [].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});
 set(document.documentElement.getAttribute("data-lang")||"en",false);
 })()</script>
+<script src="to-top.js" defer></script>
 </body>
 </html>
