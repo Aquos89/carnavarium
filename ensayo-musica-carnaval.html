@@ -70,39 +70,66 @@
 .art-end p{font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink-soft);margin:0}
 .art-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;transition:background .15s}
 .art-back:hover{background:var(--canvas-soft)}
+.legal-nav .nav-links a.is-current{border-color:var(--ink);color:var(--ink);font-weight:600}
+.legal-nav .nav-links a.is-current::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-right:7px;vertical-align:middle;transform:translateY(-1px)}
+a.who{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a.who:hover{color:var(--pink-text)!important}
+.fig-arch{color:var(--ink);border-bottom:1px solid var(--rule)}
+.fig-arch:hover{color:var(--pink-text);border-color:var(--pink-text)}
+.art-hero{position:relative;color:var(--canvas);background:var(--ink) url("images/banners/barranquilla.png") center/cover no-repeat;margin-bottom:clamp(28px,4vw,48px)}
+.art-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,26,22,.9) 0%,rgba(28,26,22,.72) 45%,rgba(28,26,22,.35) 100%),linear-gradient(0deg,rgba(28,26,22,.6),rgba(28,26,22,0) 50%)}
+.art-hero .art-head{position:relative;padding-block:clamp(56px,8vw,120px) clamp(32px,4vw,52px)}
+.art-hero .art-kicker{color:var(--amber)}
+.art-hero h1,.art-hero .art-deck,.art-hero .art-meta,.art-hero .art-meta .who{color:var(--canvas)}
+.art-hero .art-deck{opacity:.92}
+.art-hero .art-meta{border-top-color:rgba(241,233,214,.35)}
+.av{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--ink);vertical-align:middle;margin-right:8px;flex:none;background:var(--canvas-deep)}
+a.who{display:inline-flex;align-items:center}
+.art-meta,.sp-meta,.ds-meta{align-items:center}
+.art-sum{background:var(--canvas-soft);border:1px solid var(--rule);border-radius:6px;padding:22px 24px;margin:0 0 2.4em}
+.art-sum .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text);margin-bottom:10px}
+.art-sum p{margin:0!important}
+.art-end .ae-row{display:grid;grid-template-columns:136px minmax(0,1fr);gap:26px;align-items:start}
+.art-end .ae-ph{width:136px;height:136px;border-radius:50%;object-fit:cover;border:1px solid var(--ink);background:var(--canvas-deep)}
+.art-end .ae-ph-wrap{display:block}
 </style>
 </head>
 <body>
 <nav class="legal-nav">
 <div class="shell row">
 <a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html" class="is-current" aria-current="page"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
 <div class="nav-right">
-<a class="back" href="index.html#research"><span data-l="es">← Investigación y creación</span><span data-l="en">← Research &amp; Creation</span><span data-l="de">← Forschung &amp; Kreation</span></a>
 <div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
 </div>
 </div>
 </nav>
 
+<div class="art-hero">
 <header class="shell art-head">
 <div class="art-kicker"><span data-l="es">Investigación y creación · Artículo</span><span data-l="en">Research &amp; Creation · Article</span><span data-l="de">Forschung &amp; Kreation · Artikel</span></div>
 <h1><span data-l="es">La música del Carnaval de Barranquilla: patrimonio vivo</span><span data-l="en">The Music of the Barranquilla Carnival: A Living Heritage</span><span data-l="de">Die Musik des Karnevals von Barranquilla: lebendiges Erbe</span></h1>
 <p class="art-deck"><span data-l="es">Cumbias, papayeras, Congos de Oro, verbenas y picós. Un recorrido por los circuitos donde suena el Carnaval de Barranquilla, y por las formas en que esa música se sostiene, se disputa y se renueva.</span><span data-l="en">Cumbias, papayeras, Congos de Oro, verbenas and picós. A journey through the circuits where the Barranquilla Carnival sounds, and through the ways that music is sustained, contested and renewed.</span><span data-l="de">Cumbias, Papayeras, Congos de Oro, Verbenas und Picós. Ein Streifzug durch die Orte, an denen der Karneval von Barranquilla erklingt, und durch die Weisen, wie diese Musik bewahrt, umkämpft und erneuert wird.</span></p>
 <div class="art-meta">
-<span class="who">Óscar Aquite</span>
+<a class="who" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a>
 <span><span data-l="es">Artículo · 2020</span><span data-l="en">Article · 2020</span><span data-l="de">Artikel · 2020</span></span>
 <span><span data-l="es">13 min de lectura</span><span data-l="en">13 min read</span><span data-l="de">13 Min. Lesezeit</span></span>
 <span>ES · EN · DE</span>
 </div>
 </header>
+</div>
 
 <div class="shell">
 <figure class="art-figure">
-<img src="images/musica-carnaval.jpg" alt="Músicos y comparsas durante el Carnaval de Barranquilla" />
-<figcaption><span data-l="es">Carnaval de Barranquilla — música en la calle durante los desfiles</span><span data-l="en">Barranquilla Carnival — street music during the parades</span><span data-l="de">Karneval von Barranquilla — Straßenmusik während der Umzüge</span></figcaption>
+<img src="images/musica-carnaval.jpg" alt="Músicos y comparsas durante el Carnaval de Barranquilla. Ilustración: Javier Jara, 2017" />
+<figcaption><span data-l="es">Carnaval de Barranquilla — música en la calle durante los desfiles · Ilustración: Javier Jara, 2017 · </span><span data-l="en">Barranquilla Carnival — street music during the parades · Illustration: Javier Jara, 2017 · </span><span data-l="de">Karneval von Barranquilla — Straßenmusik während der Umzüge · Illustration: Javier Jara, 2017 · </span><a href="archive.html?id=AR-1301" class="fig-arch"><span data-l="es">Archivo Carnavarium · AR-1301</span><span data-l="en">Carnavarium Archive · AR-1301</span><span data-l="de">Carnavarium-Archiv · AR-1301</span></a></figcaption>
 </figure>
 </div>
 
 <main class="shell art-body">
+<div class="art-sum" data-l="es"><div class="lbl">Resumen</div><p>La música del Carnaval de Barranquilla nace del intercambio entre la ciudad, la región, el país y la cuenca del Caribe, y por eso reúne géneros tan diversos como la cumbia, el merecumbé, la salsa, la champeta y el reguetón. Este artículo recorre los espacios donde esa música se crea y se comparte: los desfiles, el Festival de Orquestas y su Congo de Oro, la radio y las plataformas digitales, las fiestas de salón, los salones burreros, las verbenas y las tiendas esquineras. Cierra con las iniciativas que, desde la declaratoria de la Unesco en 2003, buscan sostener ese patrimonio vivo durante todo el año.</p></div>
+<div class="art-sum" data-l="en"><div class="lbl">Abstract</div><p>The music of the Barranquilla Carnival is born of exchanges between the city, the region, the country and the Caribbean basin, which is why it brings together genres as diverse as cumbia, merecumbé, salsa, champeta and reggaeton. This article traces the spaces where that music is created and shared: the parades, the Orchestra Festival and its Congo de Oro, radio and digital platforms, ballroom parties, salones burreros, verbenas and corner shops. It closes with the initiatives that, since UNESCO’s proclamation in 2003, seek to sustain this living heritage all year round.</p></div>
+<div class="art-sum" data-l="de"><div class="lbl">Zusammenfassung</div><p>Die Musik des Karnevals von Barranquilla entsteht aus dem Austausch zwischen der Stadt, der Region, dem Land und dem karibischen Raum und vereint deshalb so unterschiedliche Genres wie Cumbia, Merecumbé, Salsa, Champeta und Reggaeton. Der Artikel führt durch die Orte, an denen diese Musik entsteht und geteilt wird: die Umzüge, das Orchesterfestival mit seinem Congo de Oro, Radio und digitale Plattformen, Salonfeste, Salones burreros, Verbenas und Eckläden. Zum Schluss stellt er die Initiativen vor, die seit der UNESCO-Erklärung von 2003 dieses lebendige Erbe das ganze Jahr über erhalten wollen.</p></div>
 
 <p class="tr-note" data-l="en">Translated from the Spanish original. Song titles are kept in their original language.</p>
 <p class="tr-note" data-l="de">Aus dem spanischen Original übersetzt. Liedtitel bleiben in der Originalsprache.</p>
@@ -270,10 +297,11 @@
 
 <div class="art-end">
 <div class="lbl"><span data-l="es">Sobre el autor</span><span data-l="en">About the author</span><span data-l="de">Über den Autor</span></div>
-<p data-l="es"><strong>Óscar Aquite</strong> es magíster en Estudios sobre Desarrollo y músico con énfasis en Producción de Audio de la Universidad de los Andes. Actualmente cursa el Master of Arts in Digital Humanities en la Universität Regensburg y es el fundador de Carnavarium.</p>
-<p data-l="en"><strong>Óscar Aquite</strong> holds a master's degree in Development Studies and a degree in Music with an emphasis on Audio Production from the Universidad de los Andes. He is currently studying for the Master of Arts in Digital Humanities at the Universität Regensburg and is the founder of Carnavarium.</p>
-<p data-l="de"><strong>Óscar Aquite</strong> hat einen Master in Entwicklungsstudien und einen Abschluss in Musik mit Schwerpunkt Audioproduktion der Universidad de los Andes. Derzeit studiert er im Master of Arts Digital Humanities an der Universität Regensburg und ist Gründer von Carnavarium.</p>
-<a class="art-back" href="index.html#research"><span data-l="es">← Volver a Investigación y creación</span><span data-l="en">← Back to Research &amp; Creation</span><span data-l="de">← Zurück zu Forschung &amp; Kreation</span></a>
+<div class="ae-row"><a class="ae-ph-wrap" href="autor-oscar-aquite.html" aria-hidden="true" tabindex="-1"><img class="ae-ph" src="images/oscar-aquite.png" alt="" /></a><div><p data-l="es"><a href="autor-oscar-aquite.html"><strong>Óscar Aquite</strong></a> es magíster en Estudios sobre Desarrollo y músico con énfasis en Producción de Audio de la Universidad de los Andes. Actualmente cursa el Master of Arts in Digital Humanities en la Universität Regensburg y es el fundador de Carnavarium.</p>
+<p data-l="en"><a href="autor-oscar-aquite.html"><strong>Óscar Aquite</strong></a> holds a master's degree in Development Studies and a degree in Music with an emphasis on Audio Production from the Universidad de los Andes. He is currently studying for the Master of Arts in Digital Humanities at the Universität Regensburg and is the founder of Carnavarium.</p>
+<p data-l="de"><a href="autor-oscar-aquite.html"><strong>Óscar Aquite</strong></a> hat einen Master in Entwicklungsstudien und einen Abschluss in Musik mit Schwerpunkt Audioproduktion der Universidad de los Andes. Derzeit studiert er im Master of Arts Digital Humanities an der Universität Regensburg und ist Gründer von Carnavarium.</p>
+</div></div>
+<a class="art-back" href="investigacion.html"><span data-l="es">← Volver a Investigación y creación</span><span data-l="en">← Back to Research &amp; Creation</span><span data-l="de">← Zurück zu Forschung &amp; Kreation</span></a>
 </div>
 
 </main>
@@ -291,7 +319,7 @@
 <li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
 <li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
 <li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
-<li><a href="index.html#archive"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+<li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
 </ul>
 </div>
 <div class="col">
@@ -316,5 +344,6 @@
 </footer>
 <script>(function(){var T={es:"La música del Carnaval de Barranquilla: patrimonio vivo — Carnavarium",en:"The Music of the Barranquilla Carnival: A Living Heritage — Carnavarium",de:"Die Musik des Karnevals von Barranquilla: lebendiges Erbe — Carnavarium"};function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=T[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});set(document.documentElement.getAttribute("data-lang")||"en",false)})()</script>
 <script src="to-top.js" defer></script>
+<script src="read-left.js" defer></script>
 </body>
 </html>

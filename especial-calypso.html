@@ -176,14 +176,25 @@ html,body{overflow-x:clip!important;overflow-y:visible!important}
 @media(max-width:560px){.legal-nav a.back{display:none}}
 html[data-lang="en"] .voice .es{display:none}
 .sp-back:hover{background:var(--canvas-soft);color:var(--ink)}
+.legal-nav .nav-links a.is-current{border-color:var(--ink);color:var(--ink);font-weight:600}
+.legal-nav .nav-links a.is-current::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-right:7px;vertical-align:middle;transform:translateY(-1px)}
+a.who{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a.who:hover{color:var(--pink-text)!important}
+.av{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--ink);vertical-align:middle;margin-right:8px;flex:none;background:var(--canvas-deep)}
+a.who{display:inline-flex;align-items:center}
+.art-meta,.sp-meta,.ds-meta{align-items:center}
+.sp-end .ae-row{display:grid;grid-template-columns:136px minmax(0,1fr);gap:26px;align-items:start}
+.sp-end .ae-ph{width:136px;height:136px;border-radius:50%;object-fit:cover;border:1px solid var(--ink);background:var(--canvas-deep)}
+.sp-end .ae-ph-wrap{display:block}
+.tr-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 18px}
 </style>
 </head>
 <body>
 <nav class="legal-nav">
 <div class="shell row">
 <a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html" class="is-current" aria-current="page"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
 <div class="nav-right">
-<a class="back" href="index.html#world">← Carnival in the World</a>
 <div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
 </div>
 </div>
@@ -198,7 +209,7 @@ html[data-lang="en"] .voice .es{display:none}
 <p data-l="en" class="sp-deck">A journey through the history, musical features and artistic references of calypso, and its contribution to the Caribbean imagination, from its golden age (1920–1930) to the present day.</p>
 <p data-l="de" class="sp-deck">Ein Streifzug durch Geschichte, musikalische Merkmale und künstlerische Bezüge des Calypso und seinen Beitrag zum karibischen Selbstverständnis – vom goldenen Zeitalter (1920–1930) bis heute.</p>
 <div class="sp-meta">
-<span class="who">Óscar Aquite</span>
+<a class="who" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a>
 <span><span data-l="es">14 de marzo de 2021</span><span data-l="en">14 March 2021</span><span data-l="de">14. März 2021</span></span>
 <span><span data-l="es">7 capítulos</span><span data-l="en">7 chapters</span><span data-l="de">7 Kapitel</span></span>
 <span><span data-l="es">Español</span><span data-l="en">English</span><span data-l="de">Deutsch</span></span>
@@ -209,6 +220,8 @@ html[data-lang="en"] .voice .es{display:none}
 <div class="shell">
 <p class="sp-credit"><span data-l="es">Ruta del calipso — publicado originalmente en Ruta Caribe</span><span data-l="en">The Calypso Route — originally published on Ruta Caribe</span><span data-l="de">Die Route des Calypso — ursprünglich erschienen auf Ruta Caribe</span></p>
 
+<p class="tr-note" data-l="en">Translated from the Spanish original.</p>
+<p class="tr-note" data-l="de">Aus dem spanischen Original übersetzt.</p>
 <nav class="sp-index" aria-label="Index">
 <a href="#ritmo"><span class="n">01</span><span class="t"><span data-l="es">Un ritmo, un universo</span><span data-l="en">One rhythm, one universe</span><span data-l="de">Ein Rhythmus, ein Universum</span></span></a>
 <a href="#historia"><span class="n">02</span><span class="t"><span data-l="es">Historia del calipso</span><span data-l="en">A history of calypso</span><span data-l="de">Geschichte des Calypso</span></span></a>
@@ -549,9 +562,10 @@ html[data-lang="en"] .voice .es{display:none}
 
 <div class="sp-end">
 <div class="lbl"><span data-l="es">Sobre el especial</span><span data-l="en">About this special</span><span data-l="de">Über dieses Spezial</span></div>
-<p data-l="es">Publicado originalmente en el blog <em>Ruta Caribe</em> (2021) y adaptado para Carnavarium. <strong>Óscar Aquite</strong> es músico, productor de audio y magíster en Estudios sobre Desarrollo; cursa el Master of Arts in Digital Humanities en la Universität Regensburg y es el fundador de Carnavarium.</p>
-<p data-l="en">Originally published on the blog <em>Ruta Caribe</em> (2021) and adapted for Carnavarium. <strong>Óscar Aquite</strong> is a musician and audio producer with a master’s degree in Development Studies; he is studying for the Master of Arts in Digital Humanities at the Universität Regensburg and is the founder of Carnavarium.</p>
-<p data-l="de">Ursprünglich im Blog <em>Ruta Caribe</em> (2021) erschienen und für Carnavarium bearbeitet. <strong>Óscar Aquite</strong> ist Musiker, Audioproduzent und Master in Entwicklungsstudien; er studiert im Master of Arts Digital Humanities an der Universität Regensburg und ist Gründer von Carnavarium.</p>
+<div class="ae-row"><a class="ae-ph-wrap" href="autor-oscar-aquite.html" aria-hidden="true" tabindex="-1"><img class="ae-ph" src="images/oscar-aquite.png" alt="" /></a><div><p data-l="es">Publicado originalmente en el blog <em>Ruta Caribe</em> (2021) y adaptado para Carnavarium. <a href="autor-oscar-aquite.html"><strong>Óscar Aquite</strong></a> es músico, productor de audio y magíster en Estudios sobre Desarrollo; cursa el Master of Arts in Digital Humanities en la Universität Regensburg y es el fundador de Carnavarium.</p>
+<p data-l="en">Originally published on the blog <em>Ruta Caribe</em> (2021) and adapted for Carnavarium. <a href="autor-oscar-aquite.html"><strong>Óscar Aquite</strong></a> is a musician and audio producer with a master’s degree in Development Studies; he is studying for the Master of Arts in Digital Humanities at the Universität Regensburg and is the founder of Carnavarium.</p>
+<p data-l="de">Ursprünglich im Blog <em>Ruta Caribe</em> (2021) erschienen und für Carnavarium bearbeitet. <a href="autor-oscar-aquite.html"><strong>Óscar Aquite</strong></a> ist Musiker, Audioproduzent und Master in Entwicklungsstudien; er studiert im Master of Arts Digital Humanities an der Universität Regensburg und ist Gründer von Carnavarium.</p>
+</div></div>
 <a class="sp-back" href="index.html#world"><span data-l="es">← Volver a Carnival in the World</span><span data-l="en">← Back to Carnival in the World</span><span data-l="de">← Zurück zu Carnival in the World</span></a>
 </div>
 </div>
@@ -569,7 +583,7 @@ html[data-lang="en"] .voice .es{display:none}
 <li><a href="index.html#project">Project &amp; Me</a></li>
 <li><a href="index.html#carnival">The Carnival</a></li>
 <li><a href="index.html#world">In the World</a></li>
-<li><a href="index.html#archive">Archive</a></li>
+<li><a href="archive.html">Archive</a></li>
 </ul>
 </div>
 <div class="col">
@@ -601,5 +615,6 @@ addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(u
 <script src="https://public.flourish.studio/resources/embed.js"></script>
 <script>(function(){var d=document.documentElement;if(!('IntersectionObserver' in window))return;d.classList.add('rv');var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.5});document.querySelectorAll('.ch-fact').forEach(function(el){io.observe(el);});})();</script>
 <script src="to-top.js" defer></script>
+<script src="read-left.js" defer></script>
 </body>
 </html>

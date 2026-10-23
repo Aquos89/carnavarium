@@ -47,6 +47,7 @@
 .arch-thumb .ph{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);background:color-mix(in srgb,var(--canvas) 78%,transparent);padding:5px 11px;border-radius:3px}
 .t-text {background:repeating-linear-gradient(0deg,color-mix(in srgb,var(--amber) 26%,var(--canvas-soft)) 0 2px,var(--canvas-soft) 2px 9px)}
 .t-photo{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--pink) 22%,var(--canvas-soft)) 0 9px,var(--canvas-soft) 9px 18px)}
+.t-illus{background:repeating-linear-gradient(60deg,color-mix(in srgb,var(--green) 24%,var(--canvas-soft)) 0 6px,var(--canvas-soft) 6px 14px)}
 .t-video{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--teal) 30%,var(--canvas-soft)) 0 9px,var(--canvas-soft) 9px 18px)}
 .t-audio{background:repeating-linear-gradient(90deg,color-mix(in srgb,var(--purple) 24%,var(--canvas-soft)) 0 3px,var(--canvas-soft) 3px 11px)}
 
@@ -83,3 +84,15 @@
 .sheet-note a{border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent)}
 .sheet-note a:hover{color:var(--pink-text);border-color:var(--pink-text)}
 @media(max-width:620px){.sheet-dl{grid-template-columns:1fr}}
+
+.arch-thumb.has-img,.sheet-thumb.has-img{background:var(--ink);padding:0;overflow:hidden}
+.arch-thumb.has-img img,.sheet-thumb.has-img img{width:100%;height:100%;object-fit:cover;display:block}
+.sheet-thumb.has-img{aspect-ratio:3/2}
+.sheet-used{margin-top:22px;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.sheet-used a{color:var(--ink);border-bottom:1px solid var(--ink);text-transform:none;letter-spacing:0;font-family:var(--serif);font-size:1rem}
+.sheet-used a:hover{color:var(--pink-text);border-color:var(--pink-text)}
+
+.legal-nav .lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.legal-nav .lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.legal-nav .lang-sw button:hover{color:var(--ink)}
+.legal-nav .lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}

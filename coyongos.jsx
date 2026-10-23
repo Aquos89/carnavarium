@@ -19,7 +19,16 @@ function LogoAnimation() {
     if (reduce) { setDone(true); return; }
     const v = videoRef.current;
     if (!v) return;
-    v.play().catch(() => setDone(true));
+    v.currentTime = 0;
+    const guard = setTimeout(() => { if (v.paused || v.readyState < 2) setDone(true); }, 6000);
+    v.addEventListener("playing", () => clearTimeout(guard), { once: true });
+    const tryPlay = () => v.play().catch(() => {
+      const kick = () => { v.play().catch(() => setDone(true)); window.removeEventListener("pointerdown", kick); window.removeEventListener("keydown", kick); };
+      window.addEventListener("pointerdown", kick, { once: true });
+      window.addEventListener("keydown", kick, { once: true });
+    });
+    if (v.readyState >= 2) tryPlay(); else { v.addEventListener("loadeddata", tryPlay, { once: true }); v.load(); }
+    return () => clearTimeout(guard);
   }, []);
 
   const finish = () => setDone(true);
@@ -31,11 +40,12 @@ function LogoAnimation() {
         <video
           ref={videoRef}
           src="media/logo-animation.mp4"
-          poster="images/logo-carnavarium.png"
           muted
+          autoPlay
           playsInline
           preload="auto"
           onEnded={finish}
+          onPlaying={(e) => { const v = e.currentTarget; const d = isFinite(v.duration) ? Math.max(.6, v.duration - v.currentTime) : 4; window.__cvLogoStart = d; window.dispatchEvent(new CustomEvent("cv:logo-start", { detail: d })); }}
           onError={finish}
           aria-label="Carnavarium logo animation"
         ></video>

@@ -60,8 +60,8 @@ function Nav() {
           <a href="#research">{T("Investigación", "Research", "Forschung")}</a>
           <a href="#news">{T("Noticias", "News", "News")}</a>
         </div>
-        <a className="nav-cta" href="archive.html">
-          {T("Entrar al archivo", "Enter Archive", "Zum Archiv")} <span>→</span>
+        <a className="nav-cta" href="apoyar.html">
+          {T("Apoya el proyecto", "Support the project", "Projekt unterstützen")} <span>→</span>
         </a>
       </div>
     </nav>
@@ -87,6 +87,20 @@ function HeroHighlights() {
   React.useEffect(() => {
     const measure = () => {
       const el = hhRef.current; if (!el) return;
+      const top = el.parentNode, lg = top && top.querySelector(".hero-logo-wrap"), hl = top && top.querySelector(".hero-headline"), mn = top && top.querySelector(".hero-main");
+      if (lg && hl && mn && window.innerWidth > 1180) {
+        const r = document.createRange(); r.selectNodeContents(hl);
+        const G = Math.max(lg.offsetWidth, r.getBoundingClientRect().width), C = mn.clientWidth;
+        const tl = top.getBoundingClientRect().left, er = el.getBoundingClientRect().right;
+        if (!wideRef.current) { el.dataset.wc = el.offsetWidth; el.dataset.hl = el.getBoundingClientRect().left; }
+        const wc = +el.dataset.wc || el.offsetWidth;
+        const ww = 2 * wc - 72 + Math.min(580, window.innerWidth * .4);
+        const sx = Math.max(0, Math.min(C - G, ((+el.dataset.hl || (tl + C)) - tl - G) / 2));
+        const sxw = Math.max(0, Math.min(sx, er - ww - 24 - G - tl));
+        top.style.setProperty("--sx", Math.round(sx) + "px");
+        top.style.setProperty("--sxw", Math.round(sxw) + "px");
+        el.style.setProperty("--hh-avail", Math.round(er - tl - G - 24) + "px");
+      }
       if (wideRef.current || Date.now() < busy.current) return;
       const main = el.parentNode && el.parentNode.querySelector(".hero-main");
       if (!main) return;
@@ -102,27 +116,34 @@ function HeroHighlights() {
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(rt); window.removeEventListener("resize", onR); window.removeEventListener("cv:logo-done", onDone); };
   }, []);
   const toggle = () => { busy.current = Date.now() + 900; wideRef.current = !wide; setWide(!wide); };
+  const leaveT = React.useRef(0);
+  const setW = (v) => { clearTimeout(leaveT.current); const go = () => { if (wideRef.current === v) return; busy.current = Date.now() + 900; wideRef.current = v; setWide(v); }; if (v) go(); else leaveT.current = setTimeout(go, 180); };
+  const hov = true;
+  const canHov = () => window.innerWidth > 1180;
+  const [dur, setDur] = useState(window.__cvLogoStart || 0);
   React.useEffect(() => {
     if (open) return;
-    const on = () => setTimeout(() => setOpen(true), 250);
+    const st = () => {};
+    const on = () => setTimeout(() => setOpen(true), 200);
+    window.addEventListener("cv:logo-start", st);
     window.addEventListener("cv:logo-done", on);
     const fb = setTimeout(() => setOpen(true), 9000);
-    return () => { window.removeEventListener("cv:logo-done", on); clearTimeout(fb); };
+    return () => { window.removeEventListener("cv:logo-start", st); window.removeEventListener("cv:logo-done", on); clearTimeout(fb); };
   }, [open]);
   const n = NEWS[0];
   const items = [
-    { ac: "var(--amber)", href: FEATURES.samba.href, img: FEATURES.samba.img, k: T("Dataset", "Dataset", "Datensatz"), t: FEATURES.samba.title, d: T("Letras del Carnaval de Río con metadatos abiertos.", "Rio Carnival lyrics with open metadata.", "Liedtexte des Karnevals von Rio mit offenen Metadaten.") },
-    { ac: "var(--pink)", pos: "22% 40%", href: FEATURES.calypso.href, img: FEATURES.calypso.img, k: T("Especial", "Special", "Spezial"), t: FEATURES.calypso.title, d: T("Ocho capítulos con música, mapas y archivo.", "Eight chapters with music, maps and archive.", "Acht Kapitel mit Musik, Karten und Archiv.") },
-    n && { ac: "var(--teal)", href: n.href, ext: true, date: n, k: n.tag, t: n.title, d: n.place },
+    { ac: "var(--amber)", pos: "64% 30%", href: FEATURES.samba.href, img: FEATURES.samba.img, k: T("Dataset", "Dataset", "Datensatz"), t: FEATURES.samba.title, d: T("Letras del Carnaval de Río con metadatos abiertos.", "Rio Carnival lyrics with open metadata.", "Liedtexte des Karnevals von Rio mit offenen Metadaten.") },
+    { ac: "var(--pink)", pos: "24% 45%", href: FEATURES.calypso.href, img: FEATURES.calypso.img, k: T("Especial", "Special", "Spezial"), t: T("La ruta del calipso", "The Calypso Route", "Die Calypso-Route"), d: T("Ocho capítulos con música, mapas y archivo.", "Eight chapters with music, maps and archive.", "Acht Kapitel mit Musik, Karten und Archiv.") },
+    n && { ac: "var(--teal)", href: n.href, ext: true, date: n, logo: n.logo, k: n.tag, t: n.title, d: n.place },
   ].filter(Boolean);
   return (
-    <aside ref={hhRef} style={hh ? { "--hh-h": hh + "px" } : null} className={"hh" + (open ? " open" : "") + (wide ? " wide" : "")} aria-label="Destacados / Highlights">
+    <aside ref={hhRef} style={{ ...(hh ? { "--hh-h": hh + "px" } : {}), ...(dur ? { "--hh-in": dur + "s" } : {}) }} className={"hh" + (open ? " open" : "") + (wide ? " wide" : "")} aria-label="Destacados / Highlights" onMouseEnter={() => canHov() && setW(true)} onMouseLeave={() => canHov() && setW(false)}>
       <div className="hh-win">
-        <div className="hh-bar"><span className="hh-dots"><i></i><i></i><i></i></span><span className="hh-title">{T("Destacados", "Highlights", "Highlights")}</span><span className="hh-n">0{items.length}</span><button type="button" className="hh-toggle" onClick={toggle} aria-expanded={wide}>{wide ? T("Reducir", "Collapse", "Verkleinern") : T("Ampliar", "Expand", "Erweitern")}<i aria-hidden="true">{wide ? "→" : "←"}</i></button></div>
+        <div className="hh-bar"><span className="hh-dots"><i></i><i></i><i></i></span><span className="hh-title">{T("Destacados", "Highlights", "Highlights")}</span><span className="hh-n">0{items.length}</span><button type="button" className="hh-toggle" onClick={toggle} aria-expanded={wide}><b className="hh-spark" aria-hidden="true">✦</b><span className="hh-word" aria-label="Highlights">{[["es", "Destacados"], ["en", "Highlights"], ["de", "Highlights"]].map(([l, w]) => <span key={l} data-l={l} className="hh-wl">{w.split("").map((c, i) => <span key={i} className="hh-ch" style={{ "--i": i }} aria-hidden="true">{c}</span>)}</span>)}</span><i aria-hidden="true">{wide ? "→" : "←"}</i></button></div>
         <div className="hh-list">
           {items.map((it, i) => (
             <a key={i} className={"hh-item" + (i === 0 ? " hh-feat" : "")} href={it.href} style={{ "--d": (0.55 + i * 0.14) + "s", "--ac": it.ac }} {...(it.ext ? { target: "_blank", rel: "noopener" } : {})}>
-              {it.img ? <span className="hh-img"><img src={it.img} alt="" style={it.pos ? { objectPosition: it.pos } : null} /></span> : <span className="hh-img hh-date"><b>{it.date.day}</b><span>{it.date.month}</span></span>}
+              {it.logo ? <span className="hh-img hh-logo"><img src={it.logo} alt="NFDI4Culture" /></span> : it.img ? <span className="hh-img"><img src={it.img} alt="" style={it.pos ? { objectPosition: it.pos } : null} /></span> : <span className="hh-img hh-date"><b>{it.date.day}</b><span>{it.date.month}</span></span>}
               <span className="hh-txt"><span className="hh-k">{it.k}</span><span className="hh-t">{it.t}</span><span className="hh-d">{it.d}</span></span>
               <span className="hh-go" aria-hidden="true">{it.ext ? "↗" : "→"}</span>
             </a>
@@ -143,10 +164,6 @@ function Hero() {
 
         <div className="hero-logo-wrap">
         <window.LogoAnimation />
-        <div className="proclamation" style={{ marginBottom: 28 }}>
-          <span className="pulse"></span>
-          {T("Lectura del Bando — Se abre el archivo", "Lectura del Bando — The archive opens", "Lectura del Bando — Das Archiv öffnet sich")}
-        </div>
         </div>
 
         <h1 className="hero-headline">
@@ -208,7 +225,7 @@ function ProjectSection() {
             <div className="portrait">
               <img src="images/oscar-aquite.png" alt="Oscar Aquite Peña" />
             </div>
-            <div className="name">Oscar Aquite</div>
+            <div className="name"><a href="autor-oscar-aquite.html">Oscar Aquite</a></div>
             <div className="role">{T("Fundador · Humanista digital", "Founder · Digital Humanist", "Gründer · Digital Humanist")}</div>
             <p className="blurb">
               {T(
@@ -217,6 +234,7 @@ function ProjectSection() {
                 "Forscher zu Karnevalskulturen und ihren musikalischen und gesellschaftlichen Ausdrucksformen. Master of Arts, Digital Humanities — Universität Regensburg. Master of Arts, Musikethnologie — Universität Würzburg. Master of Arts, Interdisziplinäre Entwicklungsstudien — Universidad de los Andes (Bogotá, Kolumbien)."
               )}
             </p>
+            <a className="pf-more" href="autor-oscar-aquite.html">{T("Ver perfil →", "View profile →", "Profil ansehen →")}</a>
           </div>
         </div>
       </div>
@@ -412,16 +430,6 @@ function World() {
             ["var(--green)", T("Europa central", "Central Europe", "Mitteleuropa")],
           ].map(([col, lab], i) => <li key={i}><span className="swatch" style={{ background: col }}></span>{lab}</li>)}
         </ul>
-        <a className="special-banner" href="especial-calypso.html">
-          <div className="sb-tag"><b>{T("Especial", "Special", "Spezial")}</b><span>{T("Trinidad y Tobago · 8 capítulos", "Trinidad & Tobago · 8 chapters", "Trinidad und Tobago · 8 Kapitel")}</span></div>
-          <h3>{T("La ruta del calipso", "The Calypso Route", "Die Route des Calypso")}</h3>
-          <p>{T(
-            "Historia, monarcas, géneros hermanos y rutas de migración del ritmo que cuenta la historia del carnaval de Port of Spain.",
-            "History, monarchs, sister genres and migration routes of the rhythm that tells the story of Port of Spain's carnival.",
-            "Geschichte, Monarchen, verwandte Genres und Migrationsrouten des Rhythmus, der die Geschichte des Karnevals von Port of Spain erzählt."
-          )}</p>
-          <span className="sb-cta">{T("Entrar al especial →", "Enter the special →", "Zum Spezial →")}</span>
-        </a>
       </div>
     </section>
   );
@@ -543,7 +551,25 @@ const FEATURES = {
       "Cumbias, papayeras, Congos de Oro, verbenas and picós. A journey through the circuits where the Barranquilla Carnival sounds, and the ways that music is sustained, contested and renewed.",
       "Cumbias, Papayeras, Congos de Oro, Verbenas und Picós. Ein Streifzug durch die Orte, an denen der Karneval von Barranquilla erklingt, und durch die Weisen, wie diese Musik bewahrt, umkämpft und erneuert wird."
     ),
-    byline: T("Por Óscar Aquite · 13 min de lectura · Número 01", "By Óscar Aquite · 13 min read · Issue 01", "Von Óscar Aquite · 13 Min. Lesezeit · Ausgabe 01"),
+    byline: T("Por Óscar Aquite · 13 min de lectura", "By Óscar Aquite · 13 min read", "Von Óscar Aquite · 13 Min. Lesezeit"),
+  },
+  garabato: {
+    href: "ensayo-garabato.html", img: "images/banner-reina.png", alt: "Carnaval de Barranquilla",
+    kicker: T("Ensayo · Barranquilla · Texto en inglés", "Essay · Barranquilla · English", "Essay · Barranquilla · Englisch"),
+    title: T("¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla", "Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla", "Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla"),
+    deck: T("Cómo una danza de origen esclavo llegó a encabezar uno de los desfiles de la élite barranquillera. Estratos, gusto y violencia simbólica en el carnaval.", "How a dance of enslaved origin came to lead one of the parades of Barranquilla’s elite. Estratos, taste and symbolic violence in carnival.", "Wie ein Tanz versklavter Herkunft an die Spitze eines Umzugs der Elite Barranquillas gelangte. Estratos, Geschmack und symbolische Gewalt im Karneval."),
+    byline: T("Por Óscar Aquite · 24 min de lectura", "By Óscar Aquite · 24 min read", "Von Óscar Aquite · 24 Min. Lesezeit"),
+  },
+  macta: {
+    href: "ensayo-macta-llega.html", img: "images/banner-macta.png", alt: "Carnaval de Barranquilla",
+    kicker: T("Ensayo · Barranquilla · ES · EN · DE", "Essay · Barranquilla · ES · EN · DE", "Essay · Barranquilla · ES · EN · DE"),
+    title: T(<><em>Llegó Macta</em>: música, comunidad y redes sociales en el Carnaval de Barranquilla</>, <><em>Macta arrived</em>: Music, community, and social media in Barranquilla’s Carnival</>, <><em>Macta ist da</em>: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla</>),
+    deck: T(
+      "Nadie elige la canción del carnaval: la adoptan la calle y las redes. Comunidades virtuales, algoritmos y una champeta irreverente.",
+      "No one chooses the song of the carnival: the street and the networks adopt it. Virtual communities, algorithms and an irreverent champeta.",
+      "Niemand wählt das Karnevalslied: Straße und Netzwerke machen es dazu. Virtuelle Gemeinschaften, Algorithmen und eine respektlose Champeta."
+    ),
+    byline: T("Por Óscar Aquite · 26 min de lectura", "By Óscar Aquite · 26 min read", "Von Óscar Aquite · 26 Min. Lesezeit"),
   },
   samba: {
     href: "samba-enredo-corpus.html", img: "images/banners/rio.png", alt: "Carnaval de Río de Janeiro",
@@ -554,7 +580,7 @@ const FEATURES = {
       "A structured corpus of Rio carnival lyrics: school, year, category, placement, score and neighbourhood.",
       "Ein strukturiertes Korpus der Liedtexte des Karnevals von Rio: Escola, Jahr, Kategorie, Platzierung, Punktzahl und Stadtteil."
     ),
-    byline: T("Por Óscar Aquite · Universität Regensburg · Número 01", "By Óscar Aquite · Universität Regensburg · Issue 01", "Von Óscar Aquite · Universität Regensburg · Ausgabe 01"),
+    byline: T("Por Óscar Aquite · Universität Regensburg", "By Óscar Aquite · Universität Regensburg", "Von Óscar Aquite · Universität Regensburg"),
   },
   calypso: {
     href: "especial-calypso.html", img: "images/calypso-hero.png", alt: "Especial Calipso — Trinidad y Tobago",
@@ -565,7 +591,7 @@ const FEATURES = {
       "From the kaiso of Port of Spain's streets to the Calypso Monarch: eight chapters of music, maps and voices on the genre that turned carnival into a sung newspaper.",
       "Vom Kaiso der Straßen von Port of Spain bis zum Calypso Monarch: acht Kapitel mit Musik, Karten und Stimmen über das Genre, das den Karneval zur gesungenen Zeitung machte."
     ),
-    byline: T("Por Óscar Aquite · Especial multimedia · Número 01", "By Óscar Aquite · Multimedia special · Issue 01", "Von Óscar Aquite · Multimedia-Spezial · Ausgabe 01"),
+    byline: T("Por Óscar Aquite · Especial multimedia", "By Óscar Aquite · Multimedia special", "Von Óscar Aquite · Multimedia-Spezial"),
   },
 };
 
@@ -590,18 +616,19 @@ const RESEARCH_LINES = {
 function Research() {
   const [cat, setCat] = useState("All");
   const [hover, setHover] = useState(null);
-  const issue = T("Número 01", "Issue 01", "Ausgabe 01");
   const list = [
-    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <>Óscar Aquite · {issue}</>, href: "samba-enredo-corpus.html", feat: "samba", lines: ["corpus", "music", "data"] },
-    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <>Óscar Aquite · {issue}</>, href: "especial-calypso.html", feat: "calypso", lines: ["music", "atlas"] },
-    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <>Óscar Aquite · {issue}</>, href: "ensayo-musica-carnaval.html", feat: "barranquilla", lines: ["music"] },
+    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a></>, href: "samba-enredo-corpus.html", feat: "samba", lines: ["corpus", "music", "data"] },
+    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a></>, href: "especial-calypso.html", feat: "calypso", lines: ["music", "atlas"] },
+    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a></>, href: "ensayo-musica-carnaval.html", feat: "barranquilla", lines: ["music"] },
+    { date: "2022-03-22", cat: "Articles", kicker: T("Ensayo · ES · EN · DE", "Essay · ES · EN · DE", "Essay · ES · EN · DE"), title: FEATURES.macta.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a></>, href: "ensayo-macta-llega.html", feat: "macta", lines: ["music"] },
+    { date: "2022-02-24", cat: "Articles", kicker: T("Ensayo · Texto en inglés", "Essay · English", "Essay · Englisch"), title: FEATURES.garabato.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a></>, href: "ensayo-garabato.html", feat: "garabato", lines: ["music"] },
   ];
   const cats = Object.keys(RESEARCH_CATS).filter(c => c === "All" || list.some(a => a.cat === c));
   // newest first; the newest item with a feature card is the default featured one
   const [line, setLine] = useState(null);
   const lineKeys = Object.keys(RESEARCH_LINES).filter(k => list.some(a => (a.lines || []).includes(k)));
   const pickLine = k => { setLine(line === k ? null : k); setHover(null); };
-  const shown = list.filter(a => (cat === "All" || a.cat === cat) && (!line || (a.lines || []).includes(line))).sort((a, b) => b.date.localeCompare(a.date));
+  const shown = list.filter(a => (cat === "All" || a.cat === cat) && (!line || (a.lines || []).includes(line))).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
   const defFeat = (shown.find(a => a.feat) || list.filter(a => a.feat).sort((a, b) => b.date.localeCompare(a.date))[0]).feat;
   const featured = hover || defFeat;
   const setFeatured = k => setHover(k);
@@ -613,23 +640,16 @@ function Research() {
         <div className="sec-head">
           <div className="num">§ 05</div>
           <h2 className="title">{T("Investigación y creación", "Research & Creation", "Forschung & Kreation")}</h2>
-          <a href="#" className="more">{T("Todos los números →", "All issues →", "Alle Ausgaben →")}</a>
+          
         </div>
         <p className="sec-intro">{T(
           <><b>Lo que significa.</b> Nuestras propias interpretaciones a partir de esas fuentes: artículos, ensayos, especiales digitales, historias de datos y visualizaciones.</>,
           <><b>What it means.</b> Our own interpretations built on those sources: articles, essays, digital specials, data stories and visualizations.</>,
           <><b>Was es bedeutet.</b> Unsere eigenen Deutungen auf Grundlage dieser Quellen: Artikel, Essays, digitale Spezials, Data Stories und Visualisierungen.</>
         )}</p>
-        <div className="archive-filters research-filters">
-          {cats.map(c => (
-            <button key={c} className={cat === c ? "active" : ""} onClick={() => pickCat(c)}>{RESEARCH_CATS[c]}</button>
-          ))}
-        </div>
-        <div className="research-lines">
-          <span className="rl-label">{T("Líneas de investigación", "Research lines", "Forschungslinien")}</span>
-          {lineKeys.map(k => (
-            <button key={k} className={"rl-tag" + (line === k ? " active" : "")} onClick={() => pickLine(k)}>{RESEARCH_LINES[k]}</button>
-          ))}
+        <div className="rs-latest">
+          <h3>{T("Últimas entregas", "Latest releases", "Neueste Beiträge")}</h3>
+          <a className="rs-finder" href="investigacion.html">{T("Buscador de proyectos →", "Project finder →", "Projektsuche →")}</a>
         </div>
         <div className="editorial">
           <a className="feature-article" href={f.href} key={featured}>
@@ -639,7 +659,7 @@ function Research() {
             <div className="kicker">{f.kicker}</div>
             <h3>{f.title}</h3>
             <p className="deck">{f.deck}</p>
-            <div className="byline">{f.byline}</div>
+            <div className="byline au-row"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" /><span>{f.byline}</span></div>
           </a>
 
           <div className="article-list" onMouseLeave={() => setHover(null)}>
@@ -660,8 +680,9 @@ function Research() {
   );
 }
 
+const NFDI4C_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/NFDI4Culture_Logo.png/1920px-NFDI4Culture_Logo.png";
 const NEWS = [
-  { day: "9–11", month: T("nov 2026", "Nov 2026", "Nov. 2026"), date: T("Publicado el 20 oct 2026", "Posted 20 Oct 2026", "Veröffentlicht am 20. Okt. 2026"), title: T("Carnavarium se presenta en el 6.º Culture Community Plenary de NFDI4Culture", "Carnavarium presents at NFDI4Culture's 6th Culture Community Plenary", "Carnavarium auf dem 6. Culture Community Plenary von NFDI4Culture"), short: T("Carnavarium en el 6.º Plenary de NFDI4Culture · Bochum, 9–11 nov", "Carnavarium at NFDI4Culture's 6th Plenary · Bochum, 9–11 Nov", "Carnavarium beim 6. Plenary von NFDI4Culture · Bochum, 9.–11. Nov."), place: "Deutsches Bergbau-Museum · Bochum, DE", tag: T("Congreso", "Conference", "Konferenz"), href: "https://nfdi4culture.de/de/veranstaltungen/details/6th-culture-community-plenary.html" },
+  { logo: NFDI4C_LOGO, day: "9–11", month: T("nov 2026", "Nov 2026", "Nov. 2026"), date: T("Publicado el 20 oct 2026", "Posted 20 Oct 2026", "Veröffentlicht am 20. Okt. 2026"), title: T("Carnavarium se presenta en el 6.º Culture Community Plenary de NFDI4Culture", "Carnavarium presents at NFDI4Culture's 6th Culture Community Plenary", "Carnavarium auf dem 6. Culture Community Plenary von NFDI4Culture"), short: T("Carnavarium en el 6.º Plenary de NFDI4Culture · Bochum, 9–11 nov", "Carnavarium at NFDI4Culture's 6th Plenary · Bochum, 9–11 Nov", "Carnavarium beim 6. Plenary von NFDI4Culture · Bochum, 9.–11. Nov."), place: "Deutsches Bergbau-Museum · Bochum, DE", tag: T("Congreso", "Conference", "Konferenz"), href: "https://nfdi4culture.de/de/veranstaltungen/details/6th-culture-community-plenary.html" },
 ];
 
 function News() {
@@ -683,6 +704,7 @@ function News() {
             <a className="news-feat" href={first.href} target="_blank" rel="noopener">
               <div className="nf-date"><span className="d">{first.day}</span><span className="m">{first.month}</span></div>
               <div className="nf-body">
+                {first.logo && <img className="nf-logo" src={first.logo} alt="NFDI4Culture" />}
                 <div className="nf-tag">{first.tag}</div>
                 <h3>{first.title}</h3>
                 <div className="nf-place">{first.place}</div>
@@ -736,7 +758,7 @@ function Footer() {
             <li><a href="#">{T("Metadatos abiertos", "Open Metadata", "Offene Metadaten")}</a></li>
             <li><a href="#">{T("API y datasets", "API & Datasets", "API & Datensätze")}</a></li>
             <li><a href="#">{T("Metodología", "Methodology", "Methodik")}</a></li>
-            <li><a href="#">{T("Envíos", "Submissions", "Einreichungen")}</a></li>
+            <li><a href="apoyar.html">{T("Apoya el proyecto", "Support the project", "Projekt unterstützen")}</a></li>
           </ul>
         </div>
         <div className="col">

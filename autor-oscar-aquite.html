@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Óscar Aquite — Carnavarium</title>
+<meta name="description" content="Óscar Aquite, fundador de Carnavarium: investigador de las culturas del carnaval y de sus expresiones musicales y sociales." />
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<meta property="og:title" content="Óscar Aquite — Carnavarium" />
+<meta property="og:description" content="Perfil y publicaciones de Óscar Aquite en Carnavarium." />
+<meta property="og:image" content="https://carnavarium.com/images/oscar-aquite.png" />
+<meta property="og:type" content="profile" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=5">
+<style>
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid transparent;transition:border-color .15s}
+.legal-nav a.back:hover{border-color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.lang-sw button:hover{color:var(--ink)}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+@media(max-width:560px){.legal-nav a.back{display:none}}
+[data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+
+.art-head{padding-block:clamp(40px,6vw,84px) clamp(24px,3vw,40px)}
+.art-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:20px}
+.art-head h1{font-size:clamp(32px,5.4vw,70px);font-weight:600;letter-spacing:-.022em;line-height:1.02;max-width:19ch}
+.art-deck{font-family:var(--serif);font-size:clamp(18px,1.55vw,23px);line-height:1.5;color:var(--ink-soft);max-width:54ch;margin-top:22px}
+.art-meta{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:30px;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.art-meta .who{color:var(--ink)}
+
+.art-figure{margin:0 0 clamp(36px,5vw,64px)}
+.art-figure img{width:100%;height:clamp(240px,42vw,540px);object-fit:cover;border:1px solid var(--rule)}
+.art-figure figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+
+.art-body{max-width:68ch;margin-inline:auto;padding-bottom:var(--section-gap)}
+.art-body p{font-family:var(--serif);font-size:clamp(17px,1.3vw,19.5px);line-height:1.72;color:var(--ink);margin-bottom:1.15em}
+.art-body p.drop::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:4.1em;line-height:.82;padding:.05em .09em 0 0;color:var(--pink-text)}
+.art-body h2{font-size:clamp(23px,2.4vw,32px);font-weight:600;line-height:1.16;margin:2.1em 0 .7em;padding-top:1.1em;border-top:1px solid var(--rule);max-width:none}
+.art-body h2>b{display:block;max-width:26ch;font-weight:inherit}
+.art-body em{font-style:italic}
+.tr-note{font-family:var(--mono)!important;font-size:.7rem!important;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)!important;margin:0 0 2em!important}
+
+.art-list{list-style:none;padding:0;margin:0 0 1.6em;flex-direction:column;gap:0;counter-reset:al}
+.art-list li{font-family:var(--serif);font-size:clamp(16px,1.2vw,18px);line-height:1.62;color:var(--ink-soft);padding:16px 0 16px 46px;border-top:1px solid color-mix(in srgb,var(--rule) 45%,transparent);position:relative;counter-increment:al}
+.art-list li:last-child{border-bottom:1px solid color-mix(in srgb,var(--rule) 45%,transparent)}
+.art-list li::before{content:counter(al,decimal-leading-zero);position:absolute;left:0;top:18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--ink-faint)}
+.art-list li b{color:var(--ink);font-weight:600}
+
+.year-table{width:100%;border-collapse:collapse;margin:0 0 1.8em;font-size:.94rem}
+.year-table th{text-align:left;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--rule)}
+.year-table td{padding:11px 14px 11px 0;border-bottom:1px solid color-mix(in srgb,var(--rule) 40%,transparent);vertical-align:top;line-height:1.45}
+.year-table .yr{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);white-space:nowrap;width:1%}
+.year-table .song{font-family:var(--serif);font-size:1.02rem;color:var(--ink)}
+.year-table .song i{display:block;font-style:normal;font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);margin-top:2px}
+.year-table tbody tr:last-child td{border-bottom:none}
+
+.pull{margin:2.2em 0;padding:26px 0;border-block:1px solid var(--rule)}
+.pull p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,27px);line-height:1.34;color:var(--ink);margin:0;text-wrap:balance}
+.pull .pull-tr{font-family:var(--mono);font-style:normal;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:12px}
+
+.art-end{margin-top:2.6em;padding-top:26px;border-top:1px solid var(--rule)}
+.art-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.art-end p{font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink-soft);margin:0}
+.art-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;transition:background .15s}
+.art-back:hover{background:var(--canvas-soft)}
+.art-epi{display:grid;gap:22px;margin:0 0 2.4em}
+.art-epi blockquote{margin:0;padding-left:18px;border-left:2px solid var(--pink)}
+.art-epi blockquote p{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.35vw,20px);line-height:1.5;margin:0 0 6px}
+.art-epi cite{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.art-sum{background:var(--canvas-soft);border:1px solid var(--rule);border-radius:6px;padding:22px 24px;margin:0 0 2.4em}
+.art-sum .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text);margin-bottom:10px}
+.art-sum p{margin:0!important}
+.art-refs{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.art-refs li{font-family:var(--sans);font-size:.86rem;line-height:1.55;color:var(--ink-soft);padding-left:1.6em;text-indent:-1.6em;overflow-wrap:anywhere}
+.art-refs a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px}
+.art-refs a:hover{text-decoration-color:var(--ink)}
+.art-video{margin:3em 0;width:min(1100px,calc(100vw - 2 * var(--gutter,24px)));position:relative;left:50%;transform:translateX(-50%)}
+.art-video .fr{position:relative;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--ink)}
+.art-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.art-video figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+.art-video figcaption a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.art-hero{position:relative;color:var(--canvas);background:var(--ink) url("images/banner-macta.png") center/cover no-repeat;margin-bottom:clamp(36px,5vw,64px)}
+.art-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,26,22,.9) 0%,rgba(28,26,22,.72) 45%,rgba(28,26,22,.35) 100%),linear-gradient(0deg,rgba(28,26,22,.6),rgba(28,26,22,0) 50%)}
+.art-hero .art-head{position:relative;padding-block:clamp(56px,8vw,120px) clamp(32px,4vw,52px)}
+.art-hero .art-kicker{color:var(--amber)}
+.art-hero h1{color:var(--canvas)}
+.art-hero .art-deck{color:var(--canvas);opacity:.92}
+.art-hero .art-meta{color:var(--canvas);border-top-color:rgba(241,233,214,.35)}
+.art-hero .art-meta .who{color:var(--canvas)}
+.legal-nav .nav-links a.is-current{border-color:var(--ink);color:var(--ink);font-weight:600}
+.legal-nav .nav-links a.is-current::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-right:7px;vertical-align:middle;transform:translateY(-1px)}
+.pf-head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end;padding-block:clamp(40px,6vw,84px) clamp(32px,4vw,56px);border-bottom:1px solid var(--rule)}
+.pf-portrait{aspect-ratio:4/5;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--canvas-deep)}
+.pf-portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:18px}
+.pf-head h1{font-size:clamp(40px,6.4vw,88px);font-weight:600;letter-spacing:-.025em;line-height:.98}
+.pf-role{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px}
+.pf-bio{font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.55;color:var(--ink);max-width:56ch;margin-top:24px;text-wrap:pretty}
+.pf-contact{display:inline-flex;margin-top:24px;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;transition:background .15s,color .15s}
+.pf-contact:hover{background:var(--ink);color:var(--canvas)}
+.pf-sec{padding-block:clamp(36px,5vw,64px);border-bottom:1px solid var(--rule)}
+.pf-sec h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--ink-soft);margin:0 0 24px}
+.pf-edu{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pf-edu li{padding:20px;border:1px solid var(--rule);border-radius:6px;background:var(--canvas-soft);display:flex;flex-direction:column;gap:8px}
+.pf-edu b{font-family:var(--serif);font-size:1.15rem;font-weight:500;line-height:1.25}
+.pf-edu span.u{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.pf-works{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.pf-work{display:flex;flex-direction:column;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--canvas);color:inherit;transition:transform .2s,box-shadow .2s}
+.pf-work:hover{transform:translateY(-3px);box-shadow:0 10px 24px -12px rgba(28,26,22,.45);color:inherit}
+.pf-work .img{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--ink)}
+.pf-work img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-work .b{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px}
+.pf-work .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text)}
+.pf-work h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;line-height:1.25;text-wrap:pretty}
+.pf-work p{font-size:.88rem;line-height:1.5;color:var(--ink-soft);margin:0}
+@media(max-width:820px){.pf-head{grid-template-columns:1fr}.pf-portrait{max-width:260px}.pf-edu{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-links"><a href="index.html#project" class="is-current" aria-current="page"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
+<div class="nav-right">
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
+</div>
+</nav>
+
+<header class="shell pf-head">
+<div class="pf-portrait"><img src="images/oscar-aquite.png" alt="Óscar Aquite" /></div>
+<div>
+<div class="pf-kicker"><span data-l="es">Equipo · Autor</span><span data-l="en">Team · Author</span><span data-l="de">Team · Autor</span></div>
+<h1>Óscar Aquite</h1>
+<div class="pf-role"><span data-l="es">Fundador · Humanista digital</span><span data-l="en">Founder · Digital Humanist</span><span data-l="de">Gründer · Digital Humanist</span></div>
+<p class="pf-bio"><span data-l="es">Investigador de las culturas del carnaval y de sus expresiones musicales y sociales.</span><span data-l="en">Researcher of carnival cultures and their musical and social expressions.</span><span data-l="de">Forscher zu Karnevalskulturen und ihren musikalischen und gesellschaftlichen Ausdrucksformen.</span></p>
+<a class="pf-contact" href="mailto:oscaraquite.x@gmail.com">oscaraquite.x@gmail.com</a>
+</div>
+</header>
+<section class="shell pf-sec">
+<h2><span data-l="es">Formación</span><span data-l="en">Education</span><span data-l="de">Ausbildung</span></h2>
+<ul class="pf-edu">
+<li><b><span data-l="es">Master of Arts en Humanidades Digitales</span><span data-l="en">Master of Arts, Digital Humanities</span><span data-l="de">Master of Arts, Digital Humanities</span></b><span class="u">Universität Regensburg · <span data-l="es">Alemania</span><span data-l="en">Germany</span><span data-l="de">Deutschland</span></span></li>
+<li><b><span data-l="es">Master of Arts en Etnomusicología</span><span data-l="en">Master of Arts, Ethnomusicology</span><span data-l="de">Master of Arts, Musikethnologie</span></b><span class="u">Universität Würzburg · <span data-l="es">Alemania</span><span data-l="en">Germany</span><span data-l="de">Deutschland</span></span></li>
+<li><b><span data-l="es">Maestría en Estudios Interdisciplinarios sobre Desarrollo</span><span data-l="en">Master of Arts, Interdisciplinary Development Studies</span><span data-l="de">Master of Arts, Interdisziplinäre Entwicklungsstudien</span></b><span class="u">Universidad de los Andes · Bogotá, <span data-l="es">Colombia</span><span data-l="en">Colombia</span><span data-l="de">Kolumbien</span></span></li>
+</ul>
+</section>
+<section class="shell pf-sec" style="border-bottom:0">
+<h2><span data-l="es">Publicaciones en Carnavarium</span><span data-l="en">Publications on Carnavarium</span><span data-l="de">Veröffentlichungen auf Carnavarium</span> · 5</h2>
+<div class="pf-works">
+<a class="pf-work" href="ensayo-macta-llega.html"><div class="img"><img src="images/banner-macta.png" alt="" loading="lazy" /></div><div class="b"><div class="k"><span data-l="es">Ensayo · 2022</span><span data-l="en">Essay · 2022</span><span data-l="de">Essay · 2022</span></div><h3><span data-l="es"><em>Llegó Macta</em>: música, comunidad y redes sociales en el Carnaval de Barranquilla</span><span data-l="en"><em>Macta arrived</em>: Music, community, and social media in Barranquilla’s Carnival</span><span data-l="de"><em>Macta ist da</em>: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla</span></h3><p><span data-l="es">Redes sociales, algoritmos y la canción del carnaval.</span><span data-l="en">Social media, algorithms and the song of the carnival.</span><span data-l="de">Soziale Medien, Algorithmen und das Karnevalslied.</span></p></div></a>
+<a class="pf-work" href="ensayo-garabato.html"><div class="img"><img src="images/banner-reina.png" alt="" loading="lazy" /></div><div class="b"><div class="k"><span data-l="es">Ensayo · 2022</span><span data-l="en">Essay · 2022</span><span data-l="de">Essay · 2022</span></div><h3><span data-l="es">¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla</span><span data-l="en">Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla</span><span data-l="de">Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla</span></h3><p><span data-l="es">El garabato, los estratos y el gusto de la élite.</span><span data-l="en">Garabato, estratos and the taste of the elite.</span><span data-l="de">Garabato, Estratos und der Geschmack der Elite.</span></p></div></a>
+<a class="pf-work" href="samba-enredo-corpus.html"><div class="img"><img src="images/banners/rio.png" alt="" loading="lazy" /></div><div class="b"><div class="k"><span data-l="es">Dataset · En construcción</span><span data-l="en">Dataset · In progress</span><span data-l="de">Datensatz · Im Aufbau</span></div><h3>Samba-Enredo Corpus (CSEC)</h3><p><span data-l="es">Letras del Carnaval de Río con metadatos abiertos.</span><span data-l="en">Rio carnival lyrics with open metadata.</span><span data-l="de">Liedtexte des Karnevals von Rio mit offenen Metadaten.</span></p></div></a>
+<a class="pf-work" href="especial-calypso.html"><div class="img"><img src="images/calypso-hero.png" alt="" loading="lazy" /></div><div class="b"><div class="k"><span data-l="es">Especial · 2021</span><span data-l="en">Special · 2021</span><span data-l="de">Spezial · 2021</span></div><h3><span data-l="es">La ruta del calipso</span><span data-l="en">The Calypso Route</span><span data-l="de">Die Calypso-Route</span></h3><p><span data-l="es">Ocho capítulos con música, mapas y archivo.</span><span data-l="en">Eight chapters of music, maps and archive.</span><span data-l="de">Acht Kapitel mit Musik, Karten und Archiv.</span></p></div></a>
+<a class="pf-work" href="ensayo-musica-carnaval.html"><div class="img"><img src="images/musica-carnaval.jpg" alt="" loading="lazy" /></div><div class="b"><div class="k"><span data-l="es">Artículo · 2020</span><span data-l="en">Article · 2020</span><span data-l="de">Artikel · 2020</span></div><h3><span data-l="es">La música del Carnaval de Barranquilla: patrimonio vivo</span><span data-l="en">The Music of the Barranquilla Carnival: A Living Heritage</span><span data-l="de">Die Musik des Karnevals von Barranquilla: lebendiges Erbe</span></h3><p><span data-l="es">Cumbias, papayeras, Congos de Oro, verbenas y picós.</span><span data-l="en">Cumbias, papayeras, Congos de Oro, verbenas and picós.</span><span data-l="de">Cumbias, Papayeras, Congos de Oro, Verbenas und Picós.</span></p></div></a>
+</div>
+</section>
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
+<ul>
+<li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
+<li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></h5>
+<ul>
+<li>oscaraquite.x@gmail.com</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · <span data-l="es">Un proyecto de humanidades digitales</span><span data-l="en">A Digital Humanities Project</span><span data-l="de">Ein Digital-Humanities-Projekt</span></span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+<script>(function(){var T={es:"Óscar Aquite — Carnavarium",en:"Óscar Aquite — Carnavarium",de:"Óscar Aquite — Carnavarium"};function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=T[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});set(document.documentElement.getAttribute("data-lang")||"en",false)})()</script>
+<script src="to-top.js" defer></script>
+</body>
+</html>

@@ -82,14 +82,19 @@ html [data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en
 .ds-dl:hover{background:var(--ink);color:var(--canvas)}
 .ds-dl-k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
 .ds-dl-t{font-size:1.1rem;font-weight:600}
+a.who{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a.who:hover{color:var(--pink-text)!important}
+.av{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--ink);vertical-align:middle;margin-right:8px;flex:none;background:var(--canvas-deep)}
+a.who{display:inline-flex;align-items:center}
+.art-meta,.sp-meta,.ds-meta{align-items:center}
 </style>
 </head>
 <body>
 <nav class="legal-nav">
 <div class="shell row">
 <a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html" class="is-current" aria-current="page"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
 <div class="nav-right">
-<a class="back" href="index.html#research"><span data-l="es">← Investigación y creación</span><span data-l="en">← Research &amp; Creation</span><span data-l="de">← Forschung &amp; Kreation</span></a>
 <div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
 </div>
 </div>
@@ -100,7 +105,7 @@ html [data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en
 <h1>Samba-Enredo Corpus (CSEC)</h1>
 <p class="ds-deck"><span data-l="es">Un corpus estructurado de las letras del Carnaval de Río de Janeiro, elemento central del patrimonio inmaterial de Brasil.</span><span data-l="en">A structured corpus of Rio de Janeiro carnival lyrics, a central element of Brazil's intangible heritage.</span><span data-l="de">Ein strukturiertes Korpus der Liedtexte des Karnevals von Rio de Janeiro, eines zentralen Elements des immateriellen Kulturerbes Brasiliens.</span></p>
 <div class="ds-meta">
-<span class="who">Óscar Aquite</span>
+<a class="who" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a>
 <span>Institut für Digital Humanities · Universität Regensburg</span>
 <span class="ds-status"><span data-l="es">En construcción</span><span data-l="en">In progress</span><span data-l="de">Im Aufbau</span></span>
 </div>
@@ -164,7 +169,7 @@ html [data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en
 <li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
 <li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
 <li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
-<li><a href="index.html#research"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a></li>
+<li><a href="investigacion.html"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a></li>
 </ul>
 </div>
 <div class="col">

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research &amp; Creation — Carnavarium</title>
+<meta name="description" content="Artículos, ensayos, especiales y datasets de Carnavarium sobre las culturas del carnaval." />
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<meta property="og:title" content="Investigación y creación — Carnavarium" />
+<meta property="og:description" content="Artículos, ensayos, especiales y datasets sobre las culturas del carnaval." />
+<meta property="og:image" content="https://carnavarium.com/images/og-image.png" />
+<meta property="og:type" content="website" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=5">
+<style>
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid transparent;transition:border-color .15s}
+.legal-nav a.back:hover{border-color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.lang-sw button:hover{color:var(--ink)}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+@media(max-width:560px){.legal-nav a.back{display:none}}
+[data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+
+.art-head{padding-block:clamp(40px,6vw,84px) clamp(24px,3vw,40px)}
+.art-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:20px}
+.art-head h1{font-size:clamp(32px,5.4vw,70px);font-weight:600;letter-spacing:-.022em;line-height:1.02;max-width:19ch}
+.art-deck{font-family:var(--serif);font-size:clamp(18px,1.55vw,23px);line-height:1.5;color:var(--ink-soft);max-width:54ch;margin-top:22px}
+.art-meta{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:30px;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.art-meta .who{color:var(--ink)}
+
+.art-figure{margin:0 0 clamp(36px,5vw,64px)}
+.art-figure img{width:100%;height:clamp(240px,42vw,540px);object-fit:cover;border:1px solid var(--rule)}
+.art-figure figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+
+.art-body{max-width:68ch;margin-inline:auto;padding-bottom:var(--section-gap)}
+.art-body p{font-family:var(--serif);font-size:clamp(17px,1.3vw,19.5px);line-height:1.72;color:var(--ink);margin-bottom:1.15em}
+.art-body p.drop::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:4.1em;line-height:.82;padding:.05em .09em 0 0;color:var(--pink-text)}
+.art-body h2{font-size:clamp(23px,2.4vw,32px);font-weight:600;line-height:1.16;margin:2.1em 0 .7em;padding-top:1.1em;border-top:1px solid var(--rule);max-width:none}
+.art-body h2>b{display:block;max-width:26ch;font-weight:inherit}
+.art-body em{font-style:italic}
+.tr-note{font-family:var(--mono)!important;font-size:.7rem!important;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)!important;margin:0 0 2em!important}
+
+.art-list{list-style:none;padding:0;margin:0 0 1.6em;flex-direction:column;gap:0;counter-reset:al}
+.art-list li{font-family:var(--serif);font-size:clamp(16px,1.2vw,18px);line-height:1.62;color:var(--ink-soft);padding:16px 0 16px 46px;border-top:1px solid color-mix(in srgb,var(--rule) 45%,transparent);position:relative;counter-increment:al}
+.art-list li:last-child{border-bottom:1px solid color-mix(in srgb,var(--rule) 45%,transparent)}
+.art-list li::before{content:counter(al,decimal-leading-zero);position:absolute;left:0;top:18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--ink-faint)}
+.art-list li b{color:var(--ink);font-weight:600}
+
+.year-table{width:100%;border-collapse:collapse;margin:0 0 1.8em;font-size:.94rem}
+.year-table th{text-align:left;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--rule)}
+.year-table td{padding:11px 14px 11px 0;border-bottom:1px solid color-mix(in srgb,var(--rule) 40%,transparent);vertical-align:top;line-height:1.45}
+.year-table .yr{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);white-space:nowrap;width:1%}
+.year-table .song{font-family:var(--serif);font-size:1.02rem;color:var(--ink)}
+.year-table .song i{display:block;font-style:normal;font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);margin-top:2px}
+.year-table tbody tr:last-child td{border-bottom:none}
+
+.pull{margin:2.2em 0;padding:26px 0;border-block:1px solid var(--rule)}
+.pull p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,27px);line-height:1.34;color:var(--ink);margin:0;text-wrap:balance}
+.pull .pull-tr{font-family:var(--mono);font-style:normal;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:12px}
+
+.art-end{margin-top:2.6em;padding-top:26px;border-top:1px solid var(--rule)}
+.art-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.art-end p{font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink-soft);margin:0}
+.art-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;transition:background .15s}
+.art-back:hover{background:var(--canvas-soft)}
+.art-epi{display:grid;gap:22px;margin:0 0 2.4em}
+.art-epi blockquote{margin:0;padding-left:18px;border-left:2px solid var(--pink)}
+.art-epi blockquote p{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.35vw,20px);line-height:1.5;margin:0 0 6px}
+.art-epi cite{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.art-sum{background:var(--canvas-soft);border:1px solid var(--rule);border-radius:6px;padding:22px 24px;margin:0 0 2.4em}
+.art-sum .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text);margin-bottom:10px}
+.art-sum p{margin:0!important}
+.art-refs{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.art-refs li{font-family:var(--sans);font-size:.86rem;line-height:1.55;color:var(--ink-soft);padding-left:1.6em;text-indent:-1.6em;overflow-wrap:anywhere}
+.art-refs a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px}
+.art-refs a:hover{text-decoration-color:var(--ink)}
+.art-video{margin:3em 0;width:min(1100px,calc(100vw - 2 * var(--gutter,24px)));position:relative;left:50%;transform:translateX(-50%)}
+.art-video .fr{position:relative;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--ink)}
+.art-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.art-video figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+.art-video figcaption a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.art-hero{position:relative;color:var(--canvas);background:var(--ink) url("images/banner-macta.png") center/cover no-repeat;margin-bottom:clamp(36px,5vw,64px)}
+.art-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,26,22,.9) 0%,rgba(28,26,22,.72) 45%,rgba(28,26,22,.35) 100%),linear-gradient(0deg,rgba(28,26,22,.6),rgba(28,26,22,0) 50%)}
+.art-hero .art-head{position:relative;padding-block:clamp(56px,8vw,120px) clamp(32px,4vw,52px)}
+.art-hero .art-kicker{color:var(--amber)}
+.art-hero h1{color:var(--canvas)}
+.art-hero .art-deck{color:var(--canvas);opacity:.92}
+.art-hero .art-meta{color:var(--canvas);border-top-color:rgba(241,233,214,.35)}
+.art-hero .art-meta .who{color:var(--canvas)}
+.legal-nav .nav-links a.is-current{border-color:var(--ink);color:var(--ink);font-weight:600}
+.legal-nav .nav-links a.is-current::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-right:7px;vertical-align:middle;transform:translateY(-1px)}
+.pf-head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end;padding-block:clamp(40px,6vw,84px) clamp(32px,4vw,56px);border-bottom:1px solid var(--rule)}
+.pf-portrait{aspect-ratio:4/5;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--canvas-deep)}
+.pf-portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:18px}
+.pf-head h1{font-size:clamp(40px,6.4vw,88px);font-weight:600;letter-spacing:-.025em;line-height:.98}
+.pf-role{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px}
+.pf-bio{font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.55;color:var(--ink);max-width:56ch;margin-top:24px;text-wrap:pretty}
+.pf-contact{display:inline-flex;margin-top:24px;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;transition:background .15s,color .15s}
+.pf-contact:hover{background:var(--ink);color:var(--canvas)}
+.pf-sec{padding-block:clamp(36px,5vw,64px);border-bottom:1px solid var(--rule)}
+.pf-sec h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--ink-soft);margin:0 0 24px}
+.pf-edu{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pf-edu li{padding:20px;border:1px solid var(--rule);border-radius:6px;background:var(--canvas-soft);display:flex;flex-direction:column;gap:8px}
+.pf-edu b{font-family:var(--serif);font-size:1.15rem;font-weight:500;line-height:1.25}
+.pf-edu span.u{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.pf-works{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.pf-work{display:flex;flex-direction:column;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--canvas);color:inherit;transition:transform .2s,box-shadow .2s}
+.pf-work:hover{transform:translateY(-3px);box-shadow:0 10px 24px -12px rgba(28,26,22,.45);color:inherit}
+.pf-work .img{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--ink)}
+.pf-work img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-work .b{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px}
+.pf-work .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text)}
+.pf-work h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;line-height:1.25;text-wrap:pretty}
+.pf-work p{font-size:.88rem;line-height:1.5;color:var(--ink-soft);margin:0}
+@media(max-width:820px){.pf-head{grid-template-columns:1fr}.pf-portrait{max-width:260px}.pf-edu{grid-template-columns:1fr}}
+.rs-head{padding-block:clamp(40px,6vw,84px) clamp(28px,3vw,44px);border-bottom:1px solid var(--rule)}
+.rs-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:18px}
+.rs-head h1{font-size:clamp(40px,6.4vw,88px);font-weight:600;letter-spacing:-.025em;line-height:.98;max-width:14ch}
+.rs-deck{font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.55;color:var(--ink-soft);max-width:60ch;margin-top:22px;text-wrap:pretty}
+.rs-ctrl{display:flex;flex-direction:column;gap:14px;padding-block:24px;border-bottom:1px solid var(--rule)}
+.rs-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rs-row .lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-right:8px;min-width:12ch}
+.rs-row button{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;background:none;border:1px solid var(--rule);color:var(--ink-soft);padding:8px 14px;border-radius:999px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.rs-row button:hover{color:var(--ink);border-color:var(--ink)}
+.rs-row button.on{background:var(--ink);color:var(--canvas);border-color:var(--ink)}
+.rs-row button .n{opacity:.6}
+.rs-list{display:flex;flex-direction:column;padding-bottom:var(--section-gap)}
+.rs-item{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:clamp(20px,3vw,44px);padding-block:clamp(24px,3vw,36px);border-bottom:1px solid var(--rule);color:inherit}
+.rs-item[hidden]{display:none}
+.rs-item .img{aspect-ratio:16/10;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--canvas-deep)}
+.rs-item .img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,.84,.3,1)}
+.rs-item:hover .img img{transform:scale(1.04)}
+.rs-item .b{display:flex;flex-direction:column;gap:10px;align-self:center}
+.rs-item .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text)}
+.rs-item h2{font-family:var(--serif);font-size:clamp(22px,2.4vw,32px);font-weight:500;line-height:1.18;text-wrap:pretty}
+.rs-item h2 a{color:inherit}
+.rs-item h2 a:hover{color:var(--pink-text)}
+.rs-item p{font-family:var(--serif);font-size:1.02rem;line-height:1.55;color:var(--ink-soft);margin:0;max-width:62ch}
+.rs-item .by{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 18px}
+.rs-item .by a{color:var(--ink);border-bottom:1px solid var(--rule)}
+.rs-item .by a:hover{color:var(--pink-text)}
+.rs-tags{display:flex;flex-wrap:wrap;gap:6px}
+.rs-tags span.t{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--canvas-soft);border:1px solid var(--rule);color:var(--ink-soft)}
+.rs-empty{padding:40px 0;font-family:var(--serif);font-size:1.1rem;color:var(--ink-soft)}
+.rs-row button{white-space:nowrap}
+.rs-row button [data-l],.rs-row .lbl [data-l],.rs-item .by [data-l],.rs-tags [data-l]{display:none}
+html[data-lang="es"] .rs-ctrl [data-l="es"],html[data-lang="en"] .rs-ctrl [data-l="en"],html[data-lang="de"] .rs-ctrl [data-l="de"],html[data-lang="es"] .rs-item .by [data-l="es"],html[data-lang="en"] .rs-item .by [data-l="en"],html[data-lang="de"] .rs-item .by [data-l="de"],html[data-lang="es"] .rs-tags [data-l="es"],html[data-lang="en"] .rs-tags [data-l="en"],html[data-lang="de"] .rs-tags [data-l="de"]{display:inline}
+.rs-item .by>*{white-space:nowrap}
+@media(max-width:760px){.rs-item{grid-template-columns:1fr}.rs-row .lbl{min-width:0;width:100%}}
+.av{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--ink);vertical-align:middle;margin-right:8px;flex:none;background:var(--canvas-deep)}
+.rs-item .by{align-items:center}
+.rs-item .by a.au{display:inline-flex;align-items:center;border-bottom:0}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html" class="is-current" aria-current="page"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
+<div class="nav-right">
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
+</div>
+</nav>
+
+<header class="shell rs-head">
+<div class="rs-kicker">§ 05</div>
+<h1><span data-l="es">Investigación y creación</span><span data-l="en">Research &amp; Creation</span><span data-l="de">Forschung &amp; Kreation</span></h1>
+<p class="rs-deck"><span data-l="es"><b>Lo que significa.</b> Nuestras propias interpretaciones a partir de las fuentes: artículos, ensayos, especiales digitales, historias de datos y visualizaciones.</span><span data-l="en"><b>What it means.</b> Our own interpretations built on the sources: articles, essays, digital specials, data stories and visualizations.</span><span data-l="de"><b>Was es bedeutet.</b> Unsere eigenen Deutungen auf Grundlage der Quellen: Artikel, Essays, digitale Spezials, Data Stories und Visualisierungen.</span></p>
+</header>
+<div class="shell rs-ctrl">
+<div class="rs-row" data-g="cat"><span class="lbl"><span data-l="es">Tipo</span><span data-l="en">Type</span><span data-l="de">Typ</span></span><button type="button" class="on" data-v=""><span data-l="es">Todo</span><span data-l="en">All</span><span data-l="de">Alle</span> <span class="n">5</span></button><button type="button" data-v="Articles"><span data-l="es">Artículos y ensayos</span><span data-l="en">Articles &amp; essays</span><span data-l="de">Artikel &amp; Essays</span> <span class="n">3</span></button><button type="button" data-v="Specials"><span data-l="es">Especiales</span><span data-l="en">Specials</span><span data-l="de">Spezials</span> <span class="n">1</span></button><button type="button" data-v="Datasets"><span data-l="es">Datasets</span><span data-l="en">Datasets</span><span data-l="de">Datensätze</span> <span class="n">1</span></button></div>
+<div class="rs-row" data-g="line"><span class="lbl"><span data-l="es">Líneas de investigación</span><span data-l="en">Research lines</span><span data-l="de">Forschungslinien</span></span><button type="button" class="on" data-v=""><span data-l="es">Todas</span><span data-l="en">All</span><span data-l="de">Alle</span></button><button type="button" data-v="music"><span data-l="es">Música y sonido</span><span data-l="en">Music and sound</span><span data-l="de">Musik und Klang</span> <span class="n">5</span></button><button type="button" data-v="corpus"><span data-l="es">Corpus textuales</span><span data-l="en">Text corpora</span><span data-l="de">Textkorpora</span> <span class="n">1</span></button><button type="button" data-v="atlas"><span data-l="es">Carnaval comparado</span><span data-l="en">Comparative carnival</span><span data-l="de">Karneval im Vergleich</span> <span class="n">1</span></button><button type="button" data-v="data"><span data-l="es">Datos abiertos</span><span data-l="en">Open data</span><span data-l="de">Offene Daten</span> <span class="n">1</span></button></div>
+</div>
+<main class="shell rs-list" id="rsList">
+<article class="rs-item" data-cat="Articles" data-lines="music">
+<a class="img" href="ensayo-macta-llega.html" tabindex="-1" aria-hidden="true"><img src="images/banner-macta.png" alt="" loading="lazy" /></a>
+<div class="b"><div class="k"><span data-l="es">Ensayo · 2022</span><span data-l="en">Essay · 2022</span><span data-l="de">Essay · 2022</span></div><h2><a href="ensayo-macta-llega.html"><span data-l="es"><em>Llegó Macta</em>: música, comunidad y redes sociales en el Carnaval de Barranquilla</span><span data-l="en"><em>Macta arrived</em>: Music, community, and social media in Barranquilla’s Carnival</span><span data-l="de"><em>Macta ist da</em>: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla</span></a></h2><p><span data-l="es">Nadie elige la canción del carnaval: la adoptan la calle y las redes. Comunidades virtuales, algoritmos y una champeta irreverente.</span><span data-l="en">No one chooses the song of the carnival: the street and the networks adopt it. Virtual communities, algorithms and an irreverent champeta.</span><span data-l="de">Niemand wählt das Karnevalslied: Straße und Netzwerke machen es dazu. Virtuelle Gemeinschaften, Algorithmen und eine respektlose Champeta.</span></p>
+<div class="by"><a class="au" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a><span><span data-l="es">26 min de lectura</span><span data-l="en">26 min read</span><span data-l="de">26 Min. Lesezeit</span></span></div>
+<div class="rs-tags"><span class="t"><span data-l="es">Música y sonido</span><span data-l="en">Music and sound</span><span data-l="de">Musik und Klang</span></span></div></div>
+</article>
+<article class="rs-item" data-cat="Articles" data-lines="music">
+<a class="img" href="ensayo-garabato.html" tabindex="-1" aria-hidden="true"><img src="images/banner-reina.png" alt="" loading="lazy" /></a>
+<div class="b"><div class="k"><span data-l="es">Ensayo · 2022</span><span data-l="en">Essay · 2022</span><span data-l="de">Essay · 2022</span></div><h2><a href="ensayo-garabato.html"><span data-l="es">¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla</span><span data-l="en">Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla</span><span data-l="de">Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla</span></a></h2><p><span data-l="es">Cómo una danza de origen esclavo llegó a encabezar uno de los desfiles de la élite barranquillera. Estratos, gusto y violencia simbólica en el carnaval.</span><span data-l="en">How a dance of enslaved origin came to lead one of the parades of Barranquilla’s elite. Estratos, taste and symbolic violence in carnival.</span><span data-l="de">Wie ein Tanz versklavter Herkunft an die Spitze eines Umzugs der Elite Barranquillas gelangte. Estratos, Geschmack und symbolische Gewalt im Karneval.</span></p>
+<div class="by"><a class="au" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a><span><span data-l="es">24 min de lectura</span><span data-l="en">24 min read</span><span data-l="de">24 Min. Lesezeit</span></span></div>
+<div class="rs-tags"><span class="t"><span data-l="es">Música y sonido</span><span data-l="en">Music and sound</span><span data-l="de">Musik und Klang</span></span></div></div>
+</article>
+<article class="rs-item" data-cat="Datasets" data-lines="corpus music data">
+<a class="img" href="samba-enredo-corpus.html" tabindex="-1" aria-hidden="true"><img src="images/banners/rio.png" alt="" loading="lazy" /></a>
+<div class="b"><div class="k"><span data-l="es">Dataset · En construcción</span><span data-l="en">Dataset · In progress</span><span data-l="de">Datensatz · Im Aufbau</span></div><h2><a href="samba-enredo-corpus.html">Samba-Enredo Corpus (CSEC)</a></h2><p><span data-l="es">Un corpus estructurado de las letras del Carnaval de Río: escola, año, categoría, posición, puntuación y barrio.</span><span data-l="en">A structured corpus of Rio carnival lyrics: school, year, category, placement, score and neighbourhood.</span><span data-l="de">Ein strukturiertes Korpus der Liedtexte des Karnevals von Rio: Escola, Jahr, Kategorie, Platzierung, Punktzahl und Stadtteil.</span></p>
+<div class="by"><a class="au" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a><span>Universität Regensburg</span></div>
+<div class="rs-tags"><span class="t"><span data-l="es">Corpus textuales</span><span data-l="en">Text corpora</span><span data-l="de">Textkorpora</span></span><span class="t"><span data-l="es">Música y sonido</span><span data-l="en">Music and sound</span><span data-l="de">Musik und Klang</span></span><span class="t"><span data-l="es">Datos abiertos</span><span data-l="en">Open data</span><span data-l="de">Offene Daten</span></span></div></div>
+</article>
+<article class="rs-item" data-cat="Specials" data-lines="music atlas">
+<a class="img" href="especial-calypso.html" tabindex="-1" aria-hidden="true"><img src="images/calypso-hero.png" alt="" loading="lazy" /></a>
+<div class="b"><div class="k"><span data-l="es">Especial · 2021</span><span data-l="en">Special · 2021</span><span data-l="de">Spezial · 2021</span></div><h2><a href="especial-calypso.html"><span data-l="es">La ruta del calipso</span><span data-l="en">The Calypso Route</span><span data-l="de">Die Calypso-Route</span></a></h2><p><span data-l="es">Del kaiso de las calles de Port of Spain al Calypso Monarch: capítulos con música, mapas y voces sobre el género que convirtió el carnaval en periódico cantado.</span><span data-l="en">From the kaiso of Port of Spain’s streets to the Calypso Monarch: chapters of music, maps and voices on the genre that turned carnival into a sung newspaper.</span><span data-l="de">Vom Kaiso der Straßen von Port of Spain bis zum Calypso Monarch: Kapitel mit Musik, Karten und Stimmen über das Genre, das den Karneval zur gesungenen Zeitung machte.</span></p>
+<div class="by"><a class="au" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a><span><span data-l="es">7 capítulos</span><span data-l="en">7 chapters</span><span data-l="de">7 Kapitel</span></span></div>
+<div class="rs-tags"><span class="t"><span data-l="es">Música y sonido</span><span data-l="en">Music and sound</span><span data-l="de">Musik und Klang</span></span><span class="t"><span data-l="es">Carnaval comparado</span><span data-l="en">Comparative carnival</span><span data-l="de">Karneval im Vergleich</span></span></div></div>
+</article>
+<article class="rs-item" data-cat="Articles" data-lines="music">
+<a class="img" href="ensayo-musica-carnaval.html" tabindex="-1" aria-hidden="true"><img src="images/musica-carnaval.jpg" alt="" loading="lazy" /></a>
+<div class="b"><div class="k"><span data-l="es">Artículo · 2020</span><span data-l="en">Article · 2020</span><span data-l="de">Artikel · 2020</span></div><h2><a href="ensayo-musica-carnaval.html"><span data-l="es">La música del Carnaval de Barranquilla: patrimonio vivo</span><span data-l="en">The Music of the Barranquilla Carnival: A Living Heritage</span><span data-l="de">Die Musik des Karnevals von Barranquilla: lebendiges Erbe</span></a></h2><p><span data-l="es">Cumbias, papayeras, Congos de Oro, verbenas y picós. Los circuitos donde suena el carnaval y las formas en que esa música se sostiene, se disputa y se renueva.</span><span data-l="en">Cumbias, papayeras, Congos de Oro, verbenas and picós. The circuits where carnival sounds and the ways that music is sustained, contested and renewed.</span><span data-l="de">Cumbias, Papayeras, Congos de Oro, Verbenas und Picós. Die Orte, an denen der Karneval erklingt, und wie diese Musik bewahrt, umkämpft und erneuert wird.</span></p>
+<div class="by"><a class="au" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Óscar Aquite</a><span><span data-l="es">13 min de lectura</span><span data-l="en">13 min read</span><span data-l="de">13 Min. Lesezeit</span></span></div>
+<div class="rs-tags"><span class="t"><span data-l="es">Música y sonido</span><span data-l="en">Music and sound</span><span data-l="de">Musik und Klang</span></span></div></div>
+</article>
+<p class="rs-empty" id="rsEmpty" hidden><span data-l="es">No hay publicaciones con esos filtros.</span><span data-l="en">No publications match those filters.</span><span data-l="de">Keine Veröffentlichungen mit diesen Filtern.</span></p>
+</main>
+<script>(function(){var f={cat:"",line:""};function ap(){var n=0;[].forEach.call(document.querySelectorAll(".rs-item"),function(a){var ok=(!f.cat||a.dataset.cat===f.cat)&&(!f.line||a.dataset.lines.split(" ").indexOf(f.line)>-1);a.hidden=!ok;if(ok)n++});document.getElementById("rsEmpty").hidden=n>0}[].forEach.call(document.querySelectorAll(".rs-row"),function(r){r.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;f[r.dataset.g]=b.dataset.v;[].forEach.call(r.querySelectorAll("button"),function(x){x.classList.toggle("on",x===b)});ap()})})})()</script>
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
+<ul>
+<li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
+<li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></h5>
+<ul>
+<li>oscaraquite.x@gmail.com</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · <span data-l="es">Un proyecto de humanidades digitales</span><span data-l="en">A Digital Humanities Project</span><span data-l="de">Ein Digital-Humanities-Projekt</span></span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+<script>(function(){var T={es:"Investigación y creación — Carnavarium",en:"Research & Creation — Carnavarium",de:"Forschung & Kreation — Carnavarium"};function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=T[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});set(document.documentElement.getAttribute("data-lang")||"en",false)})()</script>
+<script src="to-top.js" defer></script>
+</body>
+</html>

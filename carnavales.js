@@ -28,7 +28,13 @@ window.CARNAVALES = [
     related: [
       { type: { es: "Artículo", en: "Article", de: "Artikel" }, href: "ensayo-musica-carnaval.html", img: "images/musica-carnaval.jpg",
         title: { es: "La música del Carnaval de Barranquilla: patrimonio vivo", en: "The Music of the Barranquilla Carnival: A Living Heritage", de: "Die Musik des Karnevals von Barranquilla: lebendiges Erbe" },
-        deck: { es: "Cumbias, papayeras, Congos de Oro, verbenas y picós.", en: "Cumbias, papayeras, Congos de Oro, verbenas and picós.", de: "Cumbias, Papayeras, Congos de Oro, Verbenas und Picós." } }
+        deck: { es: "Cumbias, papayeras, Congos de Oro, verbenas y picós.", en: "Cumbias, papayeras, Congos de Oro, verbenas and picós.", de: "Cumbias, Papayeras, Congos de Oro, Verbenas und Picós." } },
+      { type: { es: "Ensayo", en: "Essay", de: "Essay" }, href: "ensayo-garabato.html", img: "images/banner-reina.png",
+        title: {"es":"¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla","en":"Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla","de":"Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla"},
+        deck: {"es":"El garabato, los estratos y el gusto de la élite.","en":"Garabato, estratos and the taste of the elite.","de":"Garabato, Estratos und der Geschmack der Elite."} },
+      { type: { es: "Ensayo", en: "Essay", de: "Essay" }, href: "ensayo-macta-llega.html", img: "images/banner-macta.png",
+        title: { es: "Llegó Macta: música, comunidad y redes sociales en el Carnaval de Barranquilla", en: "Macta arrived: Music, community, and social media in Barranquilla’s Carnival", de: "Macta ist da: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla" },
+        deck: { es: "Redes sociales, algoritmos y la canción del carnaval.", en: "Social media, algorithms and the song of the carnival.", de: "Soziale Medien, Algorithmen und das Karnevalslied." } }
     ]
   },
   {

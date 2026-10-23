@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Support the project — Carnavarium</title>
+<meta name="description" content="Formas de apoyar Carnavarium: materiales para el archivo, textos, traducción, alianzas y difusión." />
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<meta property="og:title" content="Apoya Carnavarium" />
+<meta property="og:description" content="Formas de apoyar el proyecto y cómo funciona cada una." />
+<meta property="og:image" content="https://carnavarium.com/images/og-image.png" />
+<meta property="og:type" content="website" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=5">
+<style>
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.legal-nav a.back{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid transparent;transition:border-color .15s}
+.legal-nav a.back:hover{border-color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.lang-sw button:hover{color:var(--ink)}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+@media(max-width:560px){.legal-nav a.back{display:none}}
+[data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+
+.art-head{padding-block:clamp(40px,6vw,84px) clamp(24px,3vw,40px)}
+.art-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:20px}
+.art-head h1{font-size:clamp(32px,5.4vw,70px);font-weight:600;letter-spacing:-.022em;line-height:1.02;max-width:19ch}
+.art-deck{font-family:var(--serif);font-size:clamp(18px,1.55vw,23px);line-height:1.5;color:var(--ink-soft);max-width:54ch;margin-top:22px}
+.art-meta{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:30px;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.art-meta .who{color:var(--ink)}
+
+.art-figure{margin:0 0 clamp(36px,5vw,64px)}
+.art-figure img{width:100%;height:clamp(240px,42vw,540px);object-fit:cover;border:1px solid var(--rule)}
+.art-figure figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+
+.art-body{max-width:68ch;margin-inline:auto;padding-bottom:var(--section-gap)}
+.art-body p{font-family:var(--serif);font-size:clamp(17px,1.3vw,19.5px);line-height:1.72;color:var(--ink);margin-bottom:1.15em}
+.art-body p.drop::first-letter{float:left;font-family:var(--serif);font-weight:600;font-size:4.1em;line-height:.82;padding:.05em .09em 0 0;color:var(--pink-text)}
+.art-body h2{font-size:clamp(23px,2.4vw,32px);font-weight:600;line-height:1.16;margin:2.1em 0 .7em;padding-top:1.1em;border-top:1px solid var(--rule);max-width:none}
+.art-body h2>b{display:block;max-width:26ch;font-weight:inherit}
+.art-body em{font-style:italic}
+.tr-note{font-family:var(--mono)!important;font-size:.7rem!important;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)!important;margin:0 0 2em!important}
+
+.art-list{list-style:none;padding:0;margin:0 0 1.6em;flex-direction:column;gap:0;counter-reset:al}
+.art-list li{font-family:var(--serif);font-size:clamp(16px,1.2vw,18px);line-height:1.62;color:var(--ink-soft);padding:16px 0 16px 46px;border-top:1px solid color-mix(in srgb,var(--rule) 45%,transparent);position:relative;counter-increment:al}
+.art-list li:last-child{border-bottom:1px solid color-mix(in srgb,var(--rule) 45%,transparent)}
+.art-list li::before{content:counter(al,decimal-leading-zero);position:absolute;left:0;top:18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--ink-faint)}
+.art-list li b{color:var(--ink);font-weight:600}
+
+.year-table{width:100%;border-collapse:collapse;margin:0 0 1.8em;font-size:.94rem}
+.year-table th{text-align:left;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;padding:0 14px 10px 0;border-bottom:1px solid var(--rule)}
+.year-table td{padding:11px 14px 11px 0;border-bottom:1px solid color-mix(in srgb,var(--rule) 40%,transparent);vertical-align:top;line-height:1.45}
+.year-table .yr{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);white-space:nowrap;width:1%}
+.year-table .song{font-family:var(--serif);font-size:1.02rem;color:var(--ink)}
+.year-table .song i{display:block;font-style:normal;font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);margin-top:2px}
+.year-table tbody tr:last-child td{border-bottom:none}
+
+.pull{margin:2.2em 0;padding:26px 0;border-block:1px solid var(--rule)}
+.pull p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2vw,27px);line-height:1.34;color:var(--ink);margin:0;text-wrap:balance}
+.pull .pull-tr{font-family:var(--mono);font-style:normal;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:12px}
+
+.art-end{margin-top:2.6em;padding-top:26px;border-top:1px solid var(--rule)}
+.art-end .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px}
+.art-end p{font-family:var(--sans);font-size:.95rem;line-height:1.6;color:var(--ink-soft);margin:0}
+.art-back{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;transition:background .15s}
+.art-back:hover{background:var(--canvas-soft)}
+.art-epi{display:grid;gap:22px;margin:0 0 2.4em}
+.art-epi blockquote{margin:0;padding-left:18px;border-left:2px solid var(--pink)}
+.art-epi blockquote p{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.35vw,20px);line-height:1.5;margin:0 0 6px}
+.art-epi cite{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.art-sum{background:var(--canvas-soft);border:1px solid var(--rule);border-radius:6px;padding:22px 24px;margin:0 0 2.4em}
+.art-sum .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text);margin-bottom:10px}
+.art-sum p{margin:0!important}
+.art-refs{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.art-refs li{font-family:var(--sans);font-size:.86rem;line-height:1.55;color:var(--ink-soft);padding-left:1.6em;text-indent:-1.6em;overflow-wrap:anywhere}
+.art-refs a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:2px}
+.art-refs a:hover{text-decoration-color:var(--ink)}
+.art-video{margin:3em 0;width:min(1100px,calc(100vw - 2 * var(--gutter,24px)));position:relative;left:50%;transform:translateX(-50%)}
+.art-video .fr{position:relative;aspect-ratio:16/9;border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--ink)}
+.art-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.art-video figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+.art-video figcaption a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.art-hero{position:relative;color:var(--canvas);background:var(--ink) url("images/banner-macta.png") center/cover no-repeat;margin-bottom:clamp(36px,5vw,64px)}
+.art-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,26,22,.9) 0%,rgba(28,26,22,.72) 45%,rgba(28,26,22,.35) 100%),linear-gradient(0deg,rgba(28,26,22,.6),rgba(28,26,22,0) 50%)}
+.art-hero .art-head{position:relative;padding-block:clamp(56px,8vw,120px) clamp(32px,4vw,52px)}
+.art-hero .art-kicker{color:var(--amber)}
+.art-hero h1{color:var(--canvas)}
+.art-hero .art-deck{color:var(--canvas);opacity:.92}
+.art-hero .art-meta{color:var(--canvas);border-top-color:rgba(241,233,214,.35)}
+.art-hero .art-meta .who{color:var(--canvas)}
+.legal-nav .nav-links a.is-current{border-color:var(--ink);color:var(--ink);font-weight:600}
+.legal-nav .nav-links a.is-current::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-right:7px;vertical-align:middle;transform:translateY(-1px)}
+.pf-head{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end;padding-block:clamp(40px,6vw,84px) clamp(32px,4vw,56px);border-bottom:1px solid var(--rule)}
+.pf-portrait{aspect-ratio:4/5;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--canvas-deep)}
+.pf-portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:18px}
+.pf-head h1{font-size:clamp(40px,6.4vw,88px);font-weight:600;letter-spacing:-.025em;line-height:.98}
+.pf-role{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:16px}
+.pf-bio{font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.55;color:var(--ink);max-width:56ch;margin-top:24px;text-wrap:pretty}
+.pf-contact{display:inline-flex;margin-top:24px;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;transition:background .15s,color .15s}
+.pf-contact:hover{background:var(--ink);color:var(--canvas)}
+.pf-sec{padding-block:clamp(36px,5vw,64px);border-bottom:1px solid var(--rule)}
+.pf-sec h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--ink-soft);margin:0 0 24px}
+.pf-edu{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pf-edu li{padding:20px;border:1px solid var(--rule);border-radius:6px;background:var(--canvas-soft);display:flex;flex-direction:column;gap:8px}
+.pf-edu b{font-family:var(--serif);font-size:1.15rem;font-weight:500;line-height:1.25}
+.pf-edu span.u{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.pf-works{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.pf-work{display:flex;flex-direction:column;border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:var(--canvas);color:inherit;transition:transform .2s,box-shadow .2s}
+.pf-work:hover{transform:translateY(-3px);box-shadow:0 10px 24px -12px rgba(28,26,22,.45);color:inherit}
+.pf-work .img{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--ink)}
+.pf-work img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-work .b{padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px}
+.pf-work .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text)}
+.pf-work h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;line-height:1.25;text-wrap:pretty}
+.pf-work p{font-size:.88rem;line-height:1.5;color:var(--ink-soft);margin:0}
+@media(max-width:820px){.pf-head{grid-template-columns:1fr}.pf-portrait{max-width:260px}.pf-edu{grid-template-columns:1fr}}
+.sp-hd{padding-block:clamp(40px,6vw,84px) clamp(28px,3vw,44px);border-bottom:1px solid var(--rule)}
+.sp-hd .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink-text);margin-bottom:18px}
+.sp-hd h1{font-size:clamp(40px,6.4vw,88px);font-weight:600;letter-spacing:-.025em;line-height:.98;max-width:14ch}
+.sp-hd p{font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.55;color:var(--ink-soft);max-width:60ch;margin-top:22px;text-wrap:pretty}
+.sup-sec{padding-block:clamp(36px,5vw,64px);border-bottom:1px solid var(--rule)}
+.sup-sec>h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--ink-soft);margin:0 0 24px}
+.ways{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.way{display:flex;flex-direction:column;gap:12px;padding:24px;border:1px solid var(--ink);border-radius:8px;background:var(--canvas)}
+.way .n{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--pink-text)}
+.way h3{font-family:var(--serif);font-size:1.4rem;font-weight:500;line-height:1.2}
+.way p{font-size:.95rem;line-height:1.55;color:var(--ink-soft);margin:0}
+.way ol{margin:4px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;font-size:.9rem;line-height:1.5;color:var(--ink)}
+.way .go{margin-top:auto;align-self:flex-start;display:inline-flex;padding:10px 16px;border-radius:999px;background:var(--pink);color:var(--ink);font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;transition:background .15s,color .15s}
+.way .go:hover{background:var(--ink);color:var(--canvas)}
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;counter-reset:st}
+.steps li{counter-increment:st;padding:20px;border-top:2px solid var(--ink);display:flex;flex-direction:column;gap:8px}
+.steps li::before{content:counter(st,decimal-leading-zero);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--pink-text)}
+.steps b{font-family:var(--serif);font-size:1.15rem;font-weight:500}
+.steps span.d{font-size:.92rem;line-height:1.5;color:var(--ink-soft)}
+.sup-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:28px;margin-block:clamp(24px,3vw,36px) 0;border-radius:8px;background:var(--ink);color:var(--canvas)}
+.sup-cta p{font-family:var(--serif);font-size:clamp(18px,1.6vw,24px);margin:0;max-width:40ch}
+.sup-cta a{display:inline-flex;gap:6px;white-space:nowrap;text-transform:uppercase;padding:12px 20px;border-radius:999px;background:var(--pink);color:var(--ink);font-family:var(--mono);font-size:.74rem;letter-spacing:.1em}
+.sup-cta a:hover{background:var(--canvas);color:var(--ink)}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.sup-legal{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:18px;margin-top:clamp(32px,4vw,48px);padding:22px 24px;border:1px solid var(--rule);border-left:0;border-right:0}
+.sup-legal b{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:400;color:var(--pink-text)}
+.sup-legal p{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-soft);max-width:78ch}
+.sup-legal a{color:var(--ink);border-bottom:1px solid var(--rule)}
+.sup-legal a:hover{color:var(--pink-text)}
+@media(max-width:640px){.sup-legal{grid-template-columns:1fr}}
+.sup-form-sec{padding-bottom:var(--section-gap);scroll-margin-top:90px}
+.sup-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px;max-width:860px;padding:28px;border:1px solid var(--ink);border-radius:8px;background:var(--canvas-soft)}
+.sup-form .wide{grid-column:1/-1}
+.sup-form .f{display:flex;flex-direction:column;gap:8px}
+.sup-form .lb{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.sup-form input:not([type=checkbox]),.sup-form select,.sup-form textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--canvas);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;width:100%}
+.sup-form textarea{resize:vertical;min-height:140px}
+.sup-form :is(input,select,textarea):focus{outline:2px solid var(--pink);outline-offset:1px;border-color:var(--ink)}
+.sup-form select.flash{animation:supFlash 1.2s ease}
+@keyframes supFlash{0%,100%{background:var(--canvas)}30%{background:color-mix(in srgb,var(--pink) 35%,var(--canvas))}}
+.sup-form .chk{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
+.sup-form .chk input{margin-top:4px;accent-color:var(--pink);width:16px;height:16px;flex:none}
+.sup-form .chk a{color:var(--ink);border-bottom:1px solid var(--rule)}
+.sup-form .act{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.sup-form button{display:inline-flex;gap:6px;white-space:nowrap;padding:12px 22px;border:0;border-radius:999px;background:var(--pink);color:var(--ink);font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.sup-form button:hover{background:var(--ink);color:var(--canvas)}
+.sup-form .hint{margin:0;font-size:.88rem;color:var(--ink-soft)}
+.sup-form .hint.err{color:var(--pink-text)}
+@media(max-width:640px){.sup-form{grid-template-columns:1fr;padding:20px}}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
+<div class="nav-right">
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
+</div>
+</nav>
+
+<header class="shell sp-hd">
+<div class="k"><span data-l="es">Apoya el proyecto</span><span data-l="en">Support the project</span><span data-l="de">Unterstütze das Projekt</span></div>
+<h1><span data-l="es">Haz parte de Carnavarium</span><span data-l="en">Be part of Carnavarium</span><span data-l="de">Werde Teil von Carnavarium</span></h1>
+<p><span data-l="es">Carnavarium es un proyecto independiente de humanidades digitales. Crece con los materiales, textos, conocimientos y alianzas de quienes viven y estudian el carnaval. Estas son las formas de sumarte y cómo funciona cada una.</span><span data-l="en">Carnavarium is an independent digital humanities project. It grows with the materials, texts, knowledge and partnerships of those who live and study carnival. Here are the ways to join and how each one works.</span><span data-l="de">Carnavarium ist ein unabhängiges Digital-Humanities-Projekt. Es wächst mit den Materialien, Texten, dem Wissen und den Partnerschaften derer, die den Karneval leben und erforschen. Hier sind die Wege, mitzumachen, und wie jeder funktioniert.</span></p>
+</header>
+<section class="shell sup-sec">
+<h2><span data-l="es">Formas de apoyar</span><span data-l="en">Ways to support</span><span data-l="de">Wege der Unterstützung</span></h2>
+<div class="ways">
+<article class="way"><span class="n">01</span><h3><span data-l="es">Comparte materiales para el archivo</span><span data-l="en">Share materials for the archive</span><span data-l="de">Teile Materialien für das Archiv</span></h3><p><span data-l="es">Fotografías, grabaciones, videos, documentos o ilustraciones sobre cualquier carnaval. Cada objeto conserva su autoría, su procedencia y sus condiciones de uso.</span><span data-l="en">Photographs, recordings, videos, documents or illustrations about any carnival. Every object keeps its authorship, provenance and terms of use.</span><span data-l="de">Fotografien, Aufnahmen, Videos, Dokumente oder Illustrationen zu jedem Karneval. Jedes Objekt behält Urheberschaft, Herkunft und Nutzungsbedingungen.</span></p><ol><li><span data-l="es">Escribe con una breve descripción, fecha y lugar del material.</span><span data-l="en">Write with a short description, date and place of the material.</span><span data-l="de">Schreib mit einer kurzen Beschreibung, Datum und Ort des Materials.</span></li><li><span data-l="es">Indica quién es el autor y qué derechos de uso concedes.</span><span data-l="en">Say who the author is and which usage rights you grant.</span><span data-l="de">Nenne die Urheberschaft und die Nutzungsrechte, die du gewährst.</span></li><li><span data-l="es">Lo catalogamos con metadatos abiertos y lo publicamos con tu crédito.</span><span data-l="en">We catalogue it with open metadata and publish it with your credit.</span><span data-l="de">Wir katalogisieren es mit offenen Metadaten und veröffentlichen es mit deinem Credit.</span></li></ol><a class="go" href="#contacto" data-type="archivo"><span data-l="es">Enviar materiales</span><span data-l="en">Send materials</span><span data-l="de">Materialien senden</span> →</a></article>
+<article class="way"><span class="n">02</span><h3><span data-l="es">Propón un texto o una creación</span><span data-l="en">Propose a text or a creative work</span><span data-l="de">Schlage einen Text oder ein Werk vor</span></h3><p><span data-l="es">Artículos, ensayos, crónicas, especiales digitales, historias de datos, arte o literatura sobre las culturas del carnaval.</span><span data-l="en">Articles, essays, chronicles, digital specials, data stories, art or literature on carnival cultures.</span><span data-l="de">Artikel, Essays, Chroniken, digitale Spezials, Data Stories, Kunst oder Literatur über Karnevalskulturen.</span></p><ol><li><span data-l="es">Envía una propuesta breve (unas 300 palabras) y, si existe, un borrador.</span><span data-l="en">Send a short pitch (about 300 words) and, if available, a draft.</span><span data-l="de">Schick ein kurzes Exposé (etwa 300 Wörter) und, falls vorhanden, einen Entwurf.</span></li><li><span data-l="es">Revisión editorial y, si hace falta, una ronda de ajustes contigo.</span><span data-l="en">Editorial review and, if needed, one round of edits with you.</span><span data-l="de">Redaktionelle Prüfung und bei Bedarf eine Überarbeitungsrunde mit dir.</span></li><li><span data-l="es">Publicación en ES · EN · DE con tu página de autor.</span><span data-l="en">Publication in ES · EN · DE with your author page.</span><span data-l="de">Veröffentlichung auf ES · EN · DE mit deiner Autorenseite.</span></li></ol><a class="go" href="#contacto" data-type="texto"><span data-l="es">Enviar propuesta</span><span data-l="en">Send a pitch</span><span data-l="de">Exposé senden</span> →</a></article>
+<article class="way"><span class="n">03</span><h3><span data-l="es">Ayuda con traducción y datos</span><span data-l="en">Help with translation and data</span><span data-l="de">Hilf bei Übersetzung und Daten</span></h3><p><span data-l="es">Revisar traducciones, corregir metadatos, transcribir letras o verificar las fuentes de la cronología.</span><span data-l="en">Review translations, correct metadata, transcribe lyrics or verify the sources of the chronology.</span><span data-l="de">Übersetzungen prüfen, Metadaten korrigieren, Liedtexte transkribieren oder Quellen der Chronologie prüfen.</span></p><ol><li><span data-l="es">Cuéntanos tus idiomas o tu experiencia.</span><span data-l="en">Tell us your languages or expertise.</span><span data-l="de">Nenne uns deine Sprachen oder dein Fachgebiet.</span></li><li><span data-l="es">Te asignamos una tarea concreta y acotada.</span><span data-l="en">We assign you a specific, bounded task.</span><span data-l="de">Wir geben dir eine konkrete, überschaubare Aufgabe.</span></li><li><span data-l="es">Tu nombre figura en los créditos de lo que revises.</span><span data-l="en">Your name appears in the credits of what you review.</span><span data-l="de">Dein Name erscheint in den Credits dessen, was du prüfst.</span></li></ol><a class="go" href="#contacto" data-type="traduccion"><span data-l="es">Ofrecer ayuda</span><span data-l="en">Offer help</span><span data-l="de">Hilfe anbieten</span> →</a></article>
+<article class="way"><span class="n">04</span><h3><span data-l="es">Alianzas institucionales</span><span data-l="en">Institutional partnerships</span><span data-l="de">Institutionelle Partnerschaften</span></h3><p><span data-l="es">Universidades, archivos, festivales, museos y organizaciones de carnaval que quieran compartir colecciones, investigar o presentar el proyecto.</span><span data-l="en">Universities, archives, festivals, museums and carnival organisations wishing to share collections, research or present the project.</span><span data-l="de">Universitäten, Archive, Festivals, Museen und Karnevalsorganisationen, die Sammlungen teilen, forschen oder das Projekt präsentieren möchten.</span></p><ol><li><span data-l="es">Escríbenos con la propuesta de colaboración.</span><span data-l="en">Write to us with your proposal.</span><span data-l="de">Schreib uns deinen Kooperationsvorschlag.</span></li><li><span data-l="es">Acordamos objetivos, alcance y créditos.</span><span data-l="en">We agree on goals, scope and credits.</span><span data-l="de">Wir vereinbaren Ziele, Umfang und Credits.</span></li><li><span data-l="es">La alianza aparece en el proyecto y en sus publicaciones.</span><span data-l="en">The partnership is shown on the project and its publications.</span><span data-l="de">Die Partnerschaft erscheint im Projekt und in seinen Veröffentlichungen.</span></li></ol><a class="go" href="#contacto" data-type="alianza"><span data-l="es">Proponer alianza</span><span data-l="en">Propose a partnership</span><span data-l="de">Partnerschaft vorschlagen</span> →</a></article>
+<article class="way"><span class="n">05</span><h3><span data-l="es">Difunde y cita</span><span data-l="en">Share and cite</span><span data-l="de">Teilen und zitieren</span></h3><p><span data-l="es">Compartir las publicaciones, citarlas en tu trabajo o usar los datos abiertos ayuda a que el proyecto crezca.</span><span data-l="en">Sharing the publications, citing them in your work or using the open data helps the project grow.</span><span data-l="de">Die Veröffentlichungen teilen, sie in deiner Arbeit zitieren oder die offenen Daten nutzen hilft dem Projekt zu wachsen.</span></p><ol><li><span data-l="es">Comparte un artículo o especial en tus redes.</span><span data-l="en">Share an article or special on your networks.</span><span data-l="de">Teile einen Artikel oder ein Spezial in deinen Netzwerken.</span></li><li><span data-l="es">Cita a Carnavarium y a sus autores.</span><span data-l="en">Cite Carnavarium and its authors.</span><span data-l="de">Zitiere Carnavarium und seine Autor:innen.</span></li><li><span data-l="es">Si usas los datos, cuéntanos para enlazar tu trabajo.</span><span data-l="en">If you use the data, let us know so we can link your work.</span><span data-l="de">Wenn du die Daten nutzt, sag uns Bescheid, damit wir deine Arbeit verlinken.</span></li></ol><a class="go" href="investigacion.html"><span data-l="es">Ver publicaciones</span><span data-l="en">See publications</span><span data-l="de">Veröffentlichungen ansehen</span> →</a></article>
+<article class="way"><span class="n">06</span><h3><span data-l="es">Apoyo económico</span><span data-l="en">Financial support</span><span data-l="de">Finanzielle Unterstützung</span></h3><p><span data-l="es">Una donación puntual o mensual ayuda a cubrir alojamiento web, dominio, digitalización de materiales y traducción.</span><span data-l="en">A one-off or monthly donation helps cover hosting, domain, digitisation of materials and translation.</span><span data-l="de">Eine einmalige oder monatliche Spende hilft, Hosting, Domain, Digitalisierung von Materialien und Übersetzung zu finanzieren.</span></p><ol><li><span data-l="es">Escríbenos para recibir los datos de donación.</span><span data-l="en">Write to us to receive the donation details.</span><span data-l="de">Schreib uns, um die Spendendaten zu erhalten.</span></li><li><span data-l="es">Elige un aporte puntual o recurrente.</span><span data-l="en">Choose a one-off or recurring contribution.</span><span data-l="de">Wähle einen einmaligen oder regelmäßigen Beitrag.</span></li><li><span data-l="es">Si lo deseas, tu nombre figura entre quienes apoyan el proyecto.</span><span data-l="en">If you wish, your name appears among the project’s supporters.</span><span data-l="de">Auf Wunsch erscheint dein Name unter den Unterstützer:innen des Projekts.</span></li></ol><a class="go" href="#contacto" data-type="donacion"><span data-l="es">Quiero donar</span><span data-l="en">I want to donate</span><span data-l="de">Ich möchte spenden</span> →</a></article>
+<article class="way"><span class="n">07</span><h3><span data-l="es">Testimonios y memoria oral</span><span data-l="en">Testimonies and oral memory</span><span data-l="de">Zeitzeugnisse und mündliche Erinnerung</span></h3><p><span data-l="es">Tus recuerdos del carnaval —una comparsa, una canción, un desfile— son fuentes de primera mano que no existen en ningún otro lugar.</span><span data-l="en">Your carnival memories —a comparsa, a song, a parade— are first-hand sources that exist nowhere else.</span><span data-l="de">Deine Karnevalserinnerungen – eine Comparsa, ein Lied, ein Umzug – sind Quellen aus erster Hand, die es nirgendwo sonst gibt.</span></p><ol><li><span data-l="es">Envía un texto, una nota de voz o propón una breve entrevista.</span><span data-l="en">Send a text or a voice note, or suggest a short interview.</span><span data-l="de">Schick einen Text oder eine Sprachnachricht oder schlag ein kurzes Interview vor.</span></li><li><span data-l="es">Acordamos contigo cómo se cita y qué se publica.</span><span data-l="en">We agree with you how it’s cited and what is published.</span><span data-l="de">Wir vereinbaren mit dir, wie zitiert und was veröffentlicht wird.</span></li><li><span data-l="es">Tu testimonio entra al archivo con su fecha, lugar y autoría.</span><span data-l="en">Your testimony enters the archive with its date, place and authorship.</span><span data-l="de">Dein Zeugnis kommt mit Datum, Ort und Urheberschaft ins Archiv.</span></li></ol><a class="go" href="#contacto" data-type="testimonio"><span data-l="es">Compartir mi testimonio</span><span data-l="en">Share my testimony</span><span data-l="de">Mein Zeugnis teilen</span> →</a></article>
+<article class="way"><span class="n">08</span><h3><span data-l="es">Invita o presenta el proyecto</span><span data-l="en">Invite or present the project</span><span data-l="de">Lade ein oder stelle das Projekt vor</span></h3><p><span data-l="es">Charlas, congresos, clases o festivales: llevar Carnavarium a nuevos públicos abre alianzas y le da visibilidad académica.</span><span data-l="en">Talks, conferences, classes or festivals: bringing Carnavarium to new audiences opens partnerships and gives it academic visibility.</span><span data-l="de">Vorträge, Tagungen, Seminare oder Festivals: Carnavarium neuem Publikum vorzustellen, öffnet Partnerschaften und schafft akademische Sichtbarkeit.</span></p><ol><li><span data-l="es">Escríbenos con la fecha, el formato y el público.</span><span data-l="en">Write with the date, format and audience.</span><span data-l="de">Schreib uns Datum, Format und Publikum.</span></li><li><span data-l="es">Preparamos una presentación a la medida.</span><span data-l="en">We prepare a tailored presentation.</span><span data-l="de">Wir bereiten eine passende Präsentation vor.</span></li><li><span data-l="es">Si eres docente, te proponemos materiales para usar en clase.</span><span data-l="en">If you teach, we suggest materials to use in class.</span><span data-l="de">Wenn du lehrst, schlagen wir dir Materialien für den Unterricht vor.</span></li></ol><a class="go" href="#contacto" data-type="invitacion"><span data-l="es">Invitar al proyecto</span><span data-l="en">Invite the project</span><span data-l="de">Projekt einladen</span> →</a></article>
+</div>
+<div class="sup-cta"><p><span data-l="es">¿Tienes otra idea para apoyar el proyecto? Escríbenos.</span><span data-l="en">Have another idea to support the project? Write to us.</span><span data-l="de">Hast du eine andere Idee, das Projekt zu unterstützen? Schreib uns.</span></p><a href="#contacto" data-type="otra"><span data-l="es">Apoyar de otra manera</span><span data-l="en">Support another way</span><span data-l="de">Anders unterstützen</span> →</a></div>
+</section>
+<section class="shell sup-sec" style="border-bottom:0;padding-bottom:var(--section-gap)">
+<h2><span data-l="es">Cómo procedemos</span><span data-l="en">How we proceed</span><span data-l="de">Wie wir vorgehen</span></h2>
+<ol class="steps">
+<li><b><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></b><span class="d"><span data-l="es">Escribes al correo del proyecto con tu propuesta o material.</span><span data-l="en">You write to the project email with your proposal or material.</span><span data-l="de">Du schreibst mit deinem Vorschlag oder Material an die Projekt-E-Mail.</span></span></li>
+<li><b><span data-l="es">Revisión</span><span data-l="en">Review</span><span data-l="de">Prüfung</span></b><span class="d"><span data-l="es">Revisamos contenido, procedencia y derechos, y respondemos con los siguientes pasos.</span><span data-l="en">We review content, provenance and rights, and reply with next steps.</span><span data-l="de">Wir prüfen Inhalt, Herkunft und Rechte und antworten mit den nächsten Schritten.</span></span></li>
+<li><b><span data-l="es">Preparación</span><span data-l="en">Preparation</span><span data-l="de">Aufbereitung</span></b><span class="d"><span data-l="es">Catalogamos, editamos y traducimos a los tres idiomas del sitio.</span><span data-l="en">We catalogue, edit and translate into the site’s three languages.</span><span data-l="de">Wir katalogisieren, redigieren und übersetzen in die drei Sprachen der Website.</span></span></li>
+<li><b><span data-l="es">Publicación</span><span data-l="en">Publication</span><span data-l="de">Veröffentlichung</span></b><span class="d"><span data-l="es">Se publica con tu crédito y te avisamos para que lo compartas.</span><span data-l="en">It’s published with your credit and we let you know so you can share it.</span><span data-l="de">Es wird mit deinem Credit veröffentlicht, und wir geben dir Bescheid, damit du es teilen kannst.</span></span></li>
+</ol>
+<aside class="sup-legal"><b><span data-l="es">Derechos de autor</span><span data-l="en">Copyright</span><span data-l="de">Urheberrecht</span></b><p><span data-l="es">Toda colaboración se sujeta a las normas de derechos de autor vigentes, en particular la legislación alemana (UrhG) y la de los países de origen de los materiales. Solo publicamos materiales cuya autoría esté identificada y cuyo uso haya sido autorizado por sus titulares o esté permitido por la ley. Cada objeto y texto conserva el crédito de sus autores y la licencia acordada. Más información en el <a href="impressum.html">Impressum</a> y la <a href="datenschutz.html">Datenschutzerklärung</a>.</span><span data-l="en">All contributions are subject to applicable copyright law, in particular German law (UrhG) and that of the materials’ countries of origin. We only publish materials whose authorship is identified and whose use has been authorised by the rights holders or is permitted by law. Every object and text keeps its authors’ credit and the agreed licence. More in the <a href="impressum.html">Impressum</a> and the <a href="datenschutz.html">Datenschutzerklärung</a>.</span><span data-l="de">Alle Beiträge unterliegen dem geltenden Urheberrecht, insbesondere dem deutschen Urheberrechtsgesetz (UrhG) und dem Recht der Herkunftsländer der Materialien. Wir veröffentlichen nur Materialien, deren Urheberschaft feststeht und deren Nutzung von den Rechteinhabern genehmigt oder gesetzlich erlaubt ist. Jedes Objekt und jeder Text behält die Nennung seiner Urheber:innen und die vereinbarte Lizenz. Mehr im <a href="impressum.html">Impressum</a> und in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span></p></aside>
+</section>
+<section class="shell sup-sec sup-form-sec" id="contacto">
+<h2><span data-l="es">Formulario de contacto</span><span data-l="en">Contact form</span><span data-l="de">Kontaktformular</span></h2>
+<form class="sup-form" id="supForm" novalidate>
+<label class="f"><span class="lb"><span data-l="es">Nombre</span><span data-l="en">Name</span><span data-l="de">Name</span></span><input name="name" required autocomplete="name" /></label>
+<label class="f"><span class="lb"><span data-l="es">Correo electrónico</span><span data-l="en">Email</span><span data-l="de">E-Mail</span></span><input name="email" type="email" required autocomplete="email" /></label>
+<label class="f wide"><span class="lb"><span data-l="es">Tipo de apoyo</span><span data-l="en">Type of support</span><span data-l="de">Art der Unterstützung</span></span><select name="type" id="supType" required><option value="archivo" data-es="Materiales para el archivo" data-en="Materials for the archive" data-de="Materialien für das Archiv">Materiales para el archivo</option><option value="texto" data-es="Texto o creación" data-en="Text or creative work" data-de="Text oder Werk">Texto o creación</option><option value="traduccion" data-es="Traducción y datos" data-en="Translation and data" data-de="Übersetzung und Daten">Traducción y datos</option><option value="alianza" data-es="Alianza institucional" data-en="Institutional partnership" data-de="Institutionelle Partnerschaft">Alianza institucional</option><option value="difusion" data-es="Difusión y citas" data-en="Sharing and citing" data-de="Teilen und Zitieren">Difusión y citas</option><option value="donacion" data-es="Apoyo económico" data-en="Financial support" data-de="Finanzielle Unterstützung">Apoyo económico</option><option value="testimonio" data-es="Testimonio y memoria oral" data-en="Testimony and oral memory" data-de="Zeitzeugnis">Testimonio y memoria oral</option><option value="invitacion" data-es="Invitación o presentación" data-en="Invitation or presentation" data-de="Einladung oder Vortrag">Invitación o presentación</option><option value="otra" data-es="Otra forma de apoyar" data-en="Another way to support" data-de="Andere Unterstützung">Otra forma de apoyar</option></select></label>
+<label class="f wide"><span class="lb"><span data-l="es">Mensaje</span><span data-l="en">Message</span><span data-l="de">Nachricht</span></span><textarea name="msg" rows="6" required></textarea></label>
+<label class="chk wide"><input type="checkbox" name="ok" required /><span><span data-l="es">Acepto que mis datos se usen solo para responder a este mensaje, según la <a href="datenschutz.html">Datenschutzerklärung</a>.</span><span data-l="en">I agree that my data will only be used to reply to this message, as described in the <a href="datenschutz.html">Datenschutzerklärung</a>.</span><span data-l="de">Ich bin einverstanden, dass meine Daten nur zur Beantwortung dieser Nachricht verwendet werden, gemäß der <a href="datenschutz.html">Datenschutzerklärung</a>.</span></span></label>
+<div class="wide act"><button type="submit"><span data-l="es">Enviar mensaje</span><span data-l="en">Send message</span><span data-l="de">Nachricht senden</span> →</button><p class="hint" id="supHint" aria-live="polite"></p></div>
+</form>
+</section>
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
+<ul>
+<li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
+<li><a href="index.html#carnival"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></h5>
+<ul>
+<li>oscaraquite.x@gmail.com</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · <span data-l="es">Un proyecto de humanidades digitales</span><span data-l="en">A Digital Humanities Project</span><span data-l="de">Ein Digital-Humanities-Projekt</span></span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+<script>(function(){var T={es:"Apoya el proyecto — Carnavarium",en:"Support the project — Carnavarium",de:"Unterstütze das Projekt — Carnavarium"};function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=T[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});set(document.documentElement.getAttribute("data-lang")||"en",false)})()</script>
+<script>(function(){var f=document.getElementById("supForm"),sel=document.getElementById("supType"),hint=document.getElementById("supHint");
+function lang(){return document.documentElement.getAttribute("data-lang")||"en"}
+function relabel(){var l=lang();[].forEach.call(sel.options,function(o){o.textContent=o.dataset[l]})}
+relabel();new MutationObserver(relabel).observe(document.documentElement,{attributes:true,attributeFilter:["data-lang"]});
+document.addEventListener("click",function(e){var a=e.target.closest("a[data-type]");if(!a)return;e.preventDefault();sel.value=a.dataset.type;sel.classList.remove("flash");void sel.offsetWidth;sel.classList.add("flash");var sec=document.getElementById("contacto");window.scrollTo({top:sec.getBoundingClientRect().top+scrollY-90,behavior:"smooth"});setTimeout(function(){f.elements.name.focus({preventScroll:true})},500);history.replaceState(null,"","#contacto")});
+var M={es:["Completa todos los campos y acepta la política de datos.","Se abrirá tu programa de correo con el mensaje listo para enviar."],en:["Please fill in all fields and accept the data policy.","Your email app will open with the message ready to send."],de:["Bitte fülle alle Felder aus und akzeptiere die Datenschutzerklärung.","Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht."]};
+f.addEventListener("submit",function(e){e.preventDefault();var l=lang();if(!f.checkValidity()){hint.textContent=M[l][0];hint.className="hint err";return}var t=sel.options[sel.selectedIndex].dataset[l];var body=f.elements.msg.value+"\n\n— "+f.elements.name.value+" <"+f.elements.email.value+">\n"+t;location.href="mailto:oscaraquite.x@gmail.com?subject="+encodeURIComponent("Carnavarium — "+t)+"&body="+encodeURIComponent(body);hint.textContent=M[l][1];hint.className="hint"});
+})()</script>
+<script src="to-top.js" defer></script>
+</body>
+</html>
