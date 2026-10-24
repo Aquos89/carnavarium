@@ -42,6 +42,10 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .at-map .pt:hover circle.c,.at-map .pt.hl circle.c{r:10}
 .at-tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--canvas);font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:7px 11px;border-radius:3px;white-space:nowrap;transform:translate(-50%,calc(-100% - 16px));opacity:0;transition:opacity .15s}
 .at-tip.on{opacity:1}
+.at-map svg{cursor:grab}.at-map svg:active{cursor:grabbing}.at-map .land{vector-effect:non-scaling-stroke}
+.at-zoom{position:absolute;left:10px;top:10px;display:flex;flex-direction:column;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--canvas)}
+.at-zoom button{width:34px;height:34px;border:0;background:none;font-family:var(--mono);font-size:1rem;line-height:1;color:var(--ink);cursor:pointer}
+.at-zoom button+button{border-top:1px solid var(--rule)}.at-zoom button:hover{background:var(--canvas-deep)}
 .at-osm{position:absolute;right:10px;bottom:8px;font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;color:var(--ink-faint)}
 .at-region{padding-bottom:clamp(40px,5vw,72px)}
 .at-region h2{display:flex;align-items:center;gap:12px;font-size:clamp(24px,2.6vw,34px);font-weight:500;padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:24px}
@@ -49,8 +53,8 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .at-region h2 .n{margin-left:auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--ink-faint)}
 .at-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:24px}
 .at-card{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit}
-.at-card .img{aspect-ratio:16/9;overflow:hidden;border:1px solid var(--rule);background:var(--canvas-deep)}
-.at-card img{width:100%;height:100%;object-fit:cover;object-position:right center;display:block;transition:transform .5s cubic-bezier(.16,.84,.3,1)}
+.at-card .img{aspect-ratio:16/9;display:grid;place-items:center;overflow:hidden;border:1px solid var(--rule);background:var(--canvas-deep)}
+.at-card .ph{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}.at-card img{width:100%;height:100%;object-fit:cover;object-position:right center;display:block;transition:transform .5s cubic-bezier(.16,.84,.3,1)}
 .at-card:hover img,.at-card.hl img{transform:scale(1.04)}
 .at-card .k{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
 .at-card h3{font-size:1.4rem;line-height:1.1}
@@ -63,7 +67,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <nav class="legal-nav">
 <div class="shell row">
 <a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
-<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html" class="is-current" aria-current="page"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="el-carnaval.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html" class="is-current" aria-current="page"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
 <div class="nav-right">
 <div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
 </div>
@@ -74,11 +78,11 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <header class="shell at-head">
 <div class="at-tag"><span data-l="es">§ 03 · El carnaval en el mundo</span><span data-l="en">§ 03 · Carnival in the World</span><span data-l="de">§ 03 · Karneval in der Welt</span></div>
 <h1><span data-l="es">Atlas de carnavales</span><span data-l="en">Carnival Atlas</span><span data-l="de">Karnevalsatlas</span></h1>
-<p class="at-intro"><span data-l="es">Dieciséis carnavales de América y Europa, agrupados por región cultural. Cada punto lleva a su ficha, con datos clave, reconocimientos y el contenido de Carnavarium relacionado.</span><span data-l="en">Sixteen carnivals across the Americas and Europe, grouped by cultural region. Each point leads to its profile, with key facts, recognitions and related Carnavarium content.</span><span data-l="de">Sechzehn Karnevale in Amerika und Europa, nach Kulturregionen gruppiert. Jeder Punkt führt zum Steckbrief mit Eckdaten, Auszeichnungen und verwandten Inhalten auf Carnavarium.</span></p>
+<p class="at-intro"><span data-l="es">Cincuenta y seis carnavales de África, América, Asia, Europa y Oceanía, agrupados por región cultural. Cada punto lleva a su ficha, con datos clave, reconocimientos y el contenido de Carnavarium relacionado.</span><span data-l="en">Fifty-six carnivals across Africa, the Americas, Asia, Europe and Oceania, grouped by cultural region. Each point leads to its profile, with key facts, recognitions and related Carnavarium content.</span><span data-l="de">Sechsundfünfzig Karnevale in Afrika, Amerika, Asien, Europa und Ozeanien, nach Kulturregionen gruppiert. Jeder Punkt führt zum Steckbrief mit Eckdaten, Auszeichnungen und verwandten Inhalten auf Carnavarium.</span></p>
 </header>
 <div class="shell">
 <div class="at-filters" id="at-filters" role="group" aria-label="Regiones / Regions / Regionen"></div>
-<div class="at-map" id="at-map"><svg role="img" aria-label="Mapa / Map / Karte"></svg><div class="at-tip" id="at-tip"></div><div class="at-osm">Natural Earth</div></div>
+<div class="at-map" id="at-map"><svg role="img" aria-label="Mapa / Map / Karte"></svg><div class="at-tip" id="at-tip"></div><div class="at-osm">Natural Earth</div><div class="at-zoom" role="group" aria-label="Zoom"><button type="button" data-z="+" aria-label="Acercar / Zoom in / Vergrößern">+</button><button type="button" data-z="-" aria-label="Alejar / Zoom out / Verkleinern">−</button><button type="button" data-z="0" aria-label="Restablecer / Reset / Zurücksetzen">⟲</button></div></div>
 <div id="at-list"></div>
 </div>
 </main>
@@ -94,7 +98,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
 <ul>
 <li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
-<li><a href="index.html#timeline"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="el-carnaval.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
 <li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
 <li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
 </ul>
@@ -120,12 +124,12 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </div>
 </footer>
 
-<script src="carnavales.js"></script>
+<script src="carnavales.js?v=72"></script>
 <script src="vendor/d3.min.js"></script>
 <script src="vendor/topojson-client.min.js"></script>
 <script>(function(){
 var C=window.CARNAVALES||[],R=window.CARNAVAL_REGIONES||[],LS=["es","en","de"];
-var XY={barranquilla:[-74.80,10.96],venecia:[12.32,45.44],salvador:[-38.50,-12.97],basilea:[7.59,47.56],colonia:[6.96,50.94],"port-of-spain":[-61.51,10.66],oruro:[-67.11,-17.97],"nueva-orleans":[-90.07,29.95],rio:[-43.17,-22.91],pasto:[-77.28,1.21],cadiz:[-6.29,36.53],binche:[4.17,50.41],montevideo:[-56.16,-34.90],gualeguaychu:[-58.52,-33.01],"buenos-aires":[-58.38,-34.60],recife:[-34.88,-8.05]};
+var XY={barranquilla:[-74.80,10.96],venecia:[12.32,45.44],salvador:[-38.50,-12.97],basilea:[7.59,47.56],colonia:[6.96,50.94],"port-of-spain":[-61.51,10.66],oruro:[-67.11,-17.97],"nueva-orleans":[-90.07,29.95],rio:[-43.17,-22.91],pasto:[-77.28,1.21],cadiz:[-6.29,36.53],binche:[4.17,50.41],montevideo:[-56.16,-34.90],gualeguaychu:[-58.52,-33.01],"buenos-aires":[-58.38,-34.60],recife:[-34.88,-8.05],bijagos:[-15.83,11.28],calabar:[8.33,4.95],puno:[-70.02,-15.84],tilcara:[-65.40,-23.58],providencia:[-81.37,13.35],riosucio:[-75.70,5.42],cayena:[-52.33,4.94],kandy:[80.64,7.29],surakarta:[110.82,-7.57],ivrea:[7.88,45.47],mohacs:[18.68,45.99],viareggio:[10.25,43.87],dunkerque:[2.38,51.03],"jacmel":[-72.53,18.23],"bridgetown":[-59.61,13.1],"veracruz":[-96.13,19.17],"mazatlan":[-106.42,23.25],"cajamarca":[-78.51,-7.16],"encarnacion":[-55.87,-27.33],"olinda":[-34.85,-8.01],"sao-luis":[-44.3,-2.53],"niza":[7.26,43.7],"tenerife":[-16.25,28.46],"las-palmas":[-15.43,28.12],"rottweil":[8.63,48.17],"lucerna":[8.31,47.05],"aalst":[4.04,50.94],"patras":[21.73,38.25],"rijeka":[14.44,45.33],"ptuj":[15.87,46.42],"mindelo":[-24.98,16.89],"luanda":[13.23,-8.84],"victoria":[55.45,-4.62],"goa":[73.83,15.49],"sydney":[151.21,-33.87],"las-tablas":[-80.27,7.76],limon:[-83.03,9.99],mazatenango:[-91.50,14.53],"san-miguel":[-88.18,13.48],"notting-hill":[-0.205,51.515]};
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
 function t(o){return LS.map(function(l){return '<span data-l="'+l+'">'+esc(o[l])+"</span>"}).join("")}
 function L(){return document.documentElement.getAttribute("data-lang")||"en"}
@@ -134,7 +138,7 @@ var groups=R.map(function(r){return {r:r,items:C.filter(function(c){return c.reg
 var sel=null;
 var f='<button type="button" data-r="" class="active">'+t(all)+' <span class="n">'+C.length+'</span></button>'+groups.map(function(g,i){return '<button type="button" data-r="'+i+'"><span class="at-dot" style="background:'+g.r.color+'"></span>'+t(g.r)+' <span class="n">'+g.items.length+'</span></button>'}).join("");
 document.getElementById("at-filters").innerHTML=f;
-document.getElementById("at-list").innerHTML=groups.map(function(g,i){return '<section class="at-region" data-r="'+i+'"><h2><span class="at-dot" style="background:'+g.r.color+'"></span>'+t(g.r)+'<span class="n">'+g.items.length+' '+t(cnt)+'</span></h2><div class="at-grid">'+g.items.map(function(c){return '<a class="at-card" data-s="'+c.slug+'" href="carnaval.html?c='+c.slug+'"><div class="img">'+(c.banner?'<img src="'+c.banner+'" alt="" loading="lazy" />':'')+'</div><div class="k"><span class="at-dot" style="background:'+c.color+'"></span>'+t(c.country)+'</div><h3>'+t(c.place)+'</h3>'+(c.alias?'<p class="alias">'+t(c.alias)+'</p>':'')+'<div class="d">'+t(c.dates)+'</div></a>'}).join("")+'</div></section>'}).join("");
+document.getElementById("at-list").innerHTML=groups.map(function(g,i){return '<section class="at-region" data-r="'+i+'"><h2><span class="at-dot" style="background:'+g.r.color+'"></span>'+t(g.r)+'<span class="n">'+g.items.length+' '+t(cnt)+'</span></h2><div class="at-grid">'+g.items.map(function(c){return '<a class="at-card" data-s="'+c.slug+'" href="carnaval.html?c='+c.slug+'"><div class="img">'+(c.banner?'<img src="'+c.banner+'" alt="" loading="lazy" />':'<span class="ph" style="border-bottom:3px solid '+c.color+';padding-bottom:6px">'+esc(c.place.es)+'</span>')+'</div><div class="k"><span class="at-dot" style="background:'+c.color+'"></span>'+t(c.country)+'</div><h3>'+t(c.place)+'</h3>'+(c.alias?'<p class="alias">'+t(c.alias)+'</p>':'')+'<div class="d">'+t(c.dates)+'</div></a>'}).join("")+'</div></section>'}).join("");
 var map=document.getElementById("at-map"),tip=document.getElementById("at-tip"),land=null;
 function card(s){return document.querySelector('.at-card[data-s="'+s+'"]')}
 function draw(){
@@ -143,12 +147,18 @@ function draw(){
  var pts=C.filter(function(c){return XY[c.slug]}).map(function(c){return XY[c.slug]});
  var proj=d3.geoNaturalEarth1().fitExtent([[pad,pad],[w-pad,h-pad]],{type:"MultiPoint",coordinates:pts}),path=d3.geoPath(proj);
  var svg=d3.select(map).select("svg").attr("viewBox","0 0 "+w+" "+h);svg.selectAll("*").remove();
- svg.append("g").selectAll("path").data(land.features).join("path").attr("class","land").attr("d",path);
- var g=svg.append("g").selectAll("g").data(C.filter(function(c){return XY[c.slug]})).join("g").attr("class","pt").attr("data-s",function(c){return c.slug}).attr("transform",function(c){var p=proj(XY[c.slug]);return "translate("+p[0]+","+p[1]+")"});
+ var lg=svg.append("g");lg.selectAll("path").data(land.features).join("path").attr("class","land").attr("d",path);
+ var g=svg.append("g").selectAll("g").data(C.filter(function(c){return XY[c.slug]})).join("g").attr("class","pt").attr("data-s",function(c){return c.slug});
+ function pos(c){return zt.apply(proj(XY[c.slug]))}
+ function place(){lg.attr("transform",zt);g.attr("transform",function(c){var p=pos(c);return "translate("+p[0]+","+p[1]+")"})}
+ zm=d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[w,h]]).filter(function(e){if(e.type==="wheel")return false;if(e.type==="touchstart")return e.touches.length>1;return !e.button}).on("zoom",function(e){zt=e.transform;tip.classList.remove("on");place()});
+ svg.call(zm).on("dblclick.zoom",null);svg.style("touch-action","pan-y");zsvg=svg;svg.call(zm.transform,zt);place();
  g.append("circle").attr("class","c").attr("r",7).attr("fill",function(c){return c.color});
- g.on("mouseenter",function(e,c){var p=proj(XY[c.slug]);tip.textContent=c.place[L()]+" · "+c.country[L()];tip.style.left=(p[0]/w*100)+"%";tip.style.top=(p[1]/h*100)+"%";tip.classList.add("on");var k=card(c.slug);k&&k.classList.add("hl")}).on("mouseleave",function(e,c){tip.classList.remove("on");var k=card(c.slug);k&&k.classList.remove("hl")}).on("click",function(e,c){location.href="carnaval.html?c="+c.slug});
+ g.on("mouseenter",function(e,c){var p=pos(c);tip.textContent=c.place[L()]+" · "+c.country[L()];tip.style.left=(p[0]/w*100)+"%";tip.style.top=(p[1]/h*100)+"%";tip.classList.add("on");var k=card(c.slug);k&&k.classList.add("hl")}).on("mouseleave",function(e,c){tip.classList.remove("on");var k=card(c.slug);k&&k.classList.remove("hl")}).on("click",function(e,c){location.href="carnaval.html?c="+c.slug});
  apply();
 }
+var zt=d3.zoomIdentity,zm=null,zsvg=null;
+[].forEach.call(document.querySelectorAll(".at-zoom button"),function(b){b.addEventListener("click",function(){if(!zm)return;var t=zsvg.transition().duration(350);if(b.dataset.z==="0")zsvg.transition().duration(450).call(zm.transform,d3.zoomIdentity);else zm.scaleBy(t,b.dataset.z==="+"?1.8:1/1.8)})});
 function apply(){
  var on=sel===null?null:groups[sel].items.map(function(c){return c.slug});
  d3.select(map).selectAll(".pt").classed("dim",function(c){return on&&on.indexOf(c.slug)<0});

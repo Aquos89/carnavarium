@@ -1,0 +1,2 @@
+- Para vincular/enlazar el especial «La ruta del calipso» (tarjetas, destacados, listados, relacionados) usar siempre images/calypso-card.png, no calypso-hero.png (que es solo la portada del propio especial).
+- Para vincular el especial «Ruta de la cumbia» (tarjetas, destacados, listados, relacionados) usar siempre images/cumbia-card.png; banner-cumbia.png es solo la portada del propio especial.

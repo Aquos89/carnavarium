@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Master’s thesis: Between millo and picó — Carnavarium</title>
+<meta name="description" content="Tesis de maestría de Oscar Aquite sobre música y autenticidad en la comparsa La Puntica No Má’ del Carnaval de Barranquilla." />
+<link rel="icon" href="images/logo-mark.png" type="image/png" />
+<link rel="apple-touch-icon" href="images/favicon-180.png" />
+<meta property="og:title" content="Between millo and picó — Oscar Aquite" />
+<meta property="og:description" content="Music as discursive masking in La Puntica No Ma’, Barranquilla Carnival. Master’s thesis, Universität Würzburg, 2024." />
+<meta property="og:image" content="https://carnavarium.com/images/banner-tesis.png" />
+<meta property="og:type" content="article" />
+<script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css?v=51">
+<style>
+
+a{color:inherit}a:hover{color:var(--pink-text)}
+.legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
+.legal-nav .row{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.nav-right{display:flex;align-items:center;gap:20px}
+.lang-sw{display:flex;gap:2px;border:1px solid var(--ink);border-radius:999px;padding:3px}
+.lang-sw button{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:none;border:0;color:var(--ink-soft);padding:7px 11px;border-radius:999px;cursor:pointer}
+.lang-sw button:hover{color:var(--ink)}
+.lang-sw button[aria-pressed="true"]{background:var(--ink);color:var(--canvas)}
+.legal-nav .nav-links a.is-current{border-color:var(--ink);color:var(--ink);font-weight:600}
+.legal-nav .nav-links a.is-current::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-right:7px;vertical-align:middle;transform:translateY(-1px)}
+@media(max-width:720px){.legal-nav .row{height:62px}}
+[data-l]{display:none}html[data-lang="es"] [data-l="es"],html[data-lang="en"] [data-l="en"],html[data-lang="de"] [data-l="de"]{display:revert}
+.th-hero{position:relative;color:var(--canvas);background:var(--ink) url("images/banner-tesis.png") center/cover no-repeat}
+.th-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,26,22,.92) 0%,rgba(28,26,22,.78) 50%,rgba(28,26,22,.4) 100%),linear-gradient(0deg,rgba(28,26,22,.6),rgba(28,26,22,0) 50%)}
+.th-head{position:relative;padding-block:clamp(56px,8vw,120px) clamp(32px,4vw,52px)}
+.th-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:20px}
+.th-head h1{font-size:clamp(30px,4.6vw,62px);font-weight:600;letter-spacing:-.02em;line-height:1.04;max-width:22ch;color:var(--canvas);text-wrap:balance}
+.th-deck{font-family:var(--serif);font-size:clamp(18px,1.5vw,22px);line-height:1.5;max-width:58ch;margin-top:22px;opacity:.92;text-wrap:pretty}
+.th-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin-top:30px;padding-top:20px;border-top:1px solid rgba(241,233,214,.35);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.th-meta a.who{display:inline-flex;align-items:center;color:var(--canvas);text-decoration:underline;text-underline-offset:3px}
+.av{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--canvas);margin-right:8px}
+.th-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.th-btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:12px 20px;border-radius:999px;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--pink);background:var(--pink);color:var(--ink);transition:background .15s,color .15s,border-color .15s}
+.th-btn:hover{background:var(--canvas);border-color:var(--canvas);color:var(--ink)}
+.th-btn.ghost{background:none;border-color:rgba(241,233,214,.6);color:var(--canvas)}.th-btn.ghost:hover{background:var(--canvas);color:var(--ink)}
+.th-sec{padding-block:clamp(40px,5vw,72px);border-bottom:1px solid var(--rule)}
+.th-sec h2{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--pink-text);margin:0 0 24px}
+.th-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:start}
+.th-q{list-style:none;padding:0;margin:0;display:grid;gap:22px}
+.th-q li{font-family:var(--serif);font-size:clamp(20px,1.9vw,27px);line-height:1.35;padding-left:18px;border-left:2px solid var(--pink);text-wrap:pretty}
+.th-p{font-family:var(--serif);font-size:clamp(17px,1.3vw,19px);line-height:1.68;margin:24px 0 0;color:var(--ink-soft);text-wrap:pretty}
+.th-facts{margin:0;border-top:1px solid var(--ink)}
+.th-facts div{padding:14px 0;border-bottom:1px solid var(--rule)}
+.th-facts dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+.th-facts dd{margin:0;font-family:var(--serif);font-size:1.05rem;line-height:1.45}
+.th-toc{list-style:none;padding:0;margin:0;border-top:1px solid var(--ink)}
+.th-toc>li{display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:16px;padding:18px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.th-toc .n{font-family:var(--mono);font-size:.8rem;color:var(--pink-text)}
+.th-toc .t{font-family:var(--serif);font-size:clamp(19px,1.7vw,24px);line-height:1.25}
+.th-toc .s{display:block;margin-top:8px;font-family:var(--sans);font-size:.88rem;line-height:1.5;color:var(--ink-soft)}
+.th-toc .pg{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--ink-faint)}
+.th-end{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px;border:1px solid var(--ink);border-radius:8px;background:var(--canvas-soft)}
+.th-end p{margin:0;font-family:var(--serif);font-size:1.2rem;line-height:1.4;max-width:46ch}
+.th-end .th-btn:hover{background:var(--ink);border-color:var(--ink);color:var(--canvas)}
+.th-back{display:inline-flex;margin-top:26px;padding:11px 18px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+.th-back:hover{background:var(--canvas-soft)}
+@media(max-width:900px){.th-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.th-toc>li{grid-template-columns:40px minmax(0,1fr)}.th-toc .pg{display:none}}
+</style>
+</head>
+<body>
+<nav class="legal-nav">
+<div class="shell row">
+<a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="el-carnaval.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html" class="is-current" aria-current="page"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
+<div class="nav-right">
+<div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+</div>
+</div>
+</nav>
+<main>
+<div class="th-hero">
+<header class="shell th-head">
+<div class="th-kicker"><span data-l="es">Investigación y creación · Tesis de maestría</span><span data-l="en">Research &amp; Creation · Master’s thesis</span><span data-l="de">Forschung &amp; Kreation · Masterarbeit</span></div>
+<h1>Between <em>millo</em> and <em>picó</em>: music as discursive masking in La Puntica No Ma’, a costume troupe of the Barranquilla Carnival (Colombia)</h1>
+<p class="th-deck"><span data-l="es">Qué escuchan y disfrutan los miembros de una comparsa de disfraz colectivo, y qué discursos sobre la autenticidad del carnaval revela esa música: entre la cumbia de Chorrera y el picó, el concepto de enmascaramiento discursivo. Trabajo de campo en el Carnaval de 2023.</span><span data-l="en">What the members of a collective costume troupe listen to and enjoy, and what discourses on carnival authenticity that music reveals: between Chorrera cumbia and the picó, the concept of discursive masking. Fieldwork at the 2023 Carnival.</span><span data-l="de">Was die Mitglieder einer Kostümcomparsa hören und genießen und welche Diskurse über die Authentizität des Karnevals diese Musik offenlegt: zwischen Cumbia aus Chorrera und Picó, das Konzept der diskursiven Maskierung. Feldforschung im Karneval 2023.</span></p>
+<div class="th-meta"><a class="who" href="autor-oscar-aquite.html"><img class="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a><span>Universität Würzburg</span><span>2024</span><span><span data-l="es">100 pp. · en inglés</span><span data-l="en">100 pp. · in English</span><span data-l="de">100 S. · auf Englisch</span></span></div>
+<div class="th-acts"><a class="th-btn" href="media/aquite-2024-masterarbeit-la-puntica.pdf" download><span data-l="es">Descargar PDF</span><span data-l="en">Download PDF</span><span data-l="de">PDF herunterladen</span> ↓</a><a class="th-btn ghost" href="especial-cumbia.html"><span data-l="es">Leer el especial «Ruta de la cumbia»</span><span data-l="en">Read the special “The Cumbia Route”</span><span data-l="de">Zum Spezial „Die Route der Cumbia“</span> →</a></div>
+</header>
+</div>
+<section class="shell th-sec">
+<div class="th-grid">
+<div>
+<h2><span data-l="es">Preguntas de investigación</span><span data-l="en">Research questions</span><span data-l="de">Forschungsfragen</span></h2>
+<ol class="th-q">
+<li><span data-l="es">¿Cómo se pueden identificar discursos a través de la música que escuchan y disfrutan los miembros de una comparsa de carnaval?</span><span data-l="en">How can discourses be identified through the music listened to and enjoyed by the members of a carnival comparsa?</span><span data-l="de">Wie lassen sich Diskurse anhand der Musik erkennen, die die Mitglieder einer Karnevalscomparsa hören und genießen?</span></li>
+<li><span data-l="es">¿Qué discursos sobre la autenticidad del Carnaval de Barranquilla se reconocen hoy en la música que escuchan y disfrutan los miembros de una misma comparsa de disfraz colectivo, como La Puntica No Má’?</span><span data-l="en">What discourses on authenticity about the Carnival of Barranquilla can currently be recognized in the music listened to and enjoyed by the members of the same collective costume troupe, such as La Puntica No Má’?</span><span data-l="de">Welche Diskurse über die Authentizität des Karnevals von Barranquilla lassen sich heute in der Musik erkennen, die die Mitglieder einer Kostümcomparsa wie La Puntica No Má’ hören und genießen?</span></li>
+</ol>
+<p class="th-p"><span data-l="es">La tesis identifica dos géneros con discursos aparentemente contradictorios sobre la autenticidad, la cumbia de Chorrera y la champeta, y los descifra dividiéndolos en imaginarios. De ahí surge el concepto de <em>enmascaramiento discursivo musical</em>.</span><span data-l="en">The thesis identifies two genres with apparently contradictory discourses on authenticity, Chorrera cumbia and champeta, and deciphers them by dividing their positions into imaginaries. From this emerges the concept of <em>musical discursive masking</em>.</span><span data-l="de">Die Arbeit identifiziert zwei Genres mit scheinbar widersprüchlichen Authentizitätsdiskursen, die Cumbia aus Chorrera und die Champeta, und entschlüsselt sie, indem sie ihre Positionen in Imaginarien gliedert. Daraus entsteht das Konzept der <em>musikalischen diskursiven Maskierung</em>.</span></p>
+</div>
+<dl class="th-facts">
+<div><dt><span data-l="es">Programa</span><span data-l="en">Programme</span><span data-l="de">Studiengang</span></dt><dd><span data-l="es">Maestría en Etnomusicología (M.A.)</span><span data-l="en">Ethnomusicology M.A.</span><span data-l="de">Ethnomusikologie M.A.</span></dd></div>
+<div><dt><span data-l="es">Institución</span><span data-l="en">Institution</span><span data-l="de">Institution</span></dt><dd>Institut für Musikforschung · Julius-Maximilians-Universität Würzburg</dd></div>
+<div><dt><span data-l="es">Dirección</span><span data-l="en">Supervisors</span><span data-l="de">Betreuung</span></dt><dd>Nepomuk Riva · Fabian C. Moss</dd></div>
+<div><dt><span data-l="es">Semestre</span><span data-l="en">Semester</span><span data-l="de">Semester</span></dt><dd><span data-l="es">Invierno 2024</span><span data-l="en">Winter 2024</span><span data-l="de">Wintersemester 2024</span></dd></div>
+<div><dt><span data-l="es">Trabajo de campo</span><span data-l="en">Fieldwork</span><span data-l="de">Feldforschung</span></dt><dd><span data-l="es">Carnaval de Barranquilla 2023</span><span data-l="en">Barranquilla Carnival 2023</span><span data-l="de">Karneval von Barranquilla 2023</span></dd></div>
+</dl>
+</div>
+</section>
+<section class="shell th-sec">
+<h2><span data-l="es">Contenido</span><span data-l="en">Contents</span><span data-l="de">Inhalt</span></h2>
+<ol class="th-toc">
+<li><span class="n">01</span><span class="t"><span data-l="es">Introducción</span><span data-l="en">Introduction</span><span data-l="de">Einleitung</span><span class="s"><span data-l="es">El Caribe colombiano, Barranquilla y su carnaval · La música del carnaval</span><span data-l="en">The Colombian Caribbean, Barranquilla and its Carnival · Carnival music</span><span data-l="de">Die kolumbianische Karibik, Barranquilla und ihr Karneval · Karnevalsmusik</span></span></span><span class="pg">p. 4</span></li>
+<li><span class="n">02</span><span class="t"><span data-l="es">Teoría</span><span data-l="en">Theory</span><span data-l="de">Theorie</span><span class="s"><span data-l="es">Narrativas, discursos y representaciones de la música del carnaval · Narrativas y representaciones desde la globalización · La autenticidad como discurso</span><span data-l="en">Narratives, discourses and representations of carnival music · Narratives and representations from the perspective of globalization · Authenticity as discourse</span><span data-l="de">Narrative, Diskurse und Repräsentationen der Karnevalsmusik · Narrative und Repräsentationen aus Sicht der Globalisierung · Authentizität als Diskurs</span></span></span><span class="pg">p. 9</span></li>
+<li><span class="n">03</span><span class="t"><span data-l="es">Metodología</span><span data-l="en">Methodology</span><span data-l="de">Methodik</span><span class="s"><span data-l="es">Enfoque, recolección de datos, cronograma y análisis</span><span data-l="en">Approach, data collection, schedule and analysis</span><span data-l="de">Ansatz, Datenerhebung, Zeitplan und Analyse</span></span></span><span class="pg">p. 23</span></li>
+<li><span class="n">04</span><span class="t"><span data-l="es">Estudio de caso: La Puntica No Má’</span><span data-l="en">Case study: La Puntica No Má’</span><span data-l="de">Fallstudie: La Puntica No Má’</span><span class="s"><span data-l="es">La comparsa y la música · Presentaciones: Los Originales de Chorrera, La Quinceañera, Qué Bonito, Carnavalera · Datos cuantitativos y cualitativos</span><span data-l="en">The comparsa and its music · Performances: Los Originales de Chorrera, La Quinceañera, Qué Bonito, Carnavalera · Quantitative and qualitative data</span><span data-l="de">Die Comparsa und die Musik · Auftritte: Los Originales de Chorrera, La Quinceañera, Qué Bonito, Carnavalera · Quantitative und qualitative Daten</span></span></span><span class="pg">p. 27</span></li>
+<li><span class="n">05</span><span class="t"><span data-l="es">Discusión</span><span data-l="en">Discussion</span><span data-l="de">Diskussion</span><span class="s"><span data-l="es">La cumbia de Chorrera, fuente de ancestralidad auténtica · La champeta, experimento de expansión auténtica · «Como virgen todo es auténtico» · La música como enmascaramiento discursivo</span><span data-l="en">Chorrera cumbia as a source of authentic ancestry · Champeta as an experiment in authentic expansion · “As a virgin everything is authentic” · Music as discursive masking</span><span data-l="de">Cumbia aus Chorrera als Quelle authentischer Herkunft · Champeta als Experiment authentischer Erweiterung · „Als Jungfrau ist alles authentisch“ · Musik als diskursive Maskierung</span></span></span><span class="pg">p. 43</span></li>
+<li><span class="n">06</span><span class="t"><span data-l="es">Conclusiones</span><span data-l="en">Conclusions</span><span data-l="de">Schlussfolgerungen</span></span><span class="pg">p. 65</span></li>
+<li><span class="n">07</span><span class="t"><span data-l="es">Referencias y anexos</span><span data-l="en">References and appendices</span><span data-l="de">Literatur und Anhänge</span></span><span class="pg">p. 68</span></li>
+</ol>
+</section>
+<section class="shell th-sec" style="border-bottom:0">
+<div class="th-end"><p><span data-l="es">La tesis completa, con anexos, está disponible en PDF (inglés).</span><span data-l="en">The full thesis, with appendices, is available as a PDF.</span><span data-l="de">Die vollständige Arbeit mit Anhängen ist als PDF (Englisch) verfügbar.</span></p><a class="th-btn" href="media/aquite-2024-masterarbeit-la-puntica.pdf" download><span data-l="es">Descargar PDF</span><span data-l="en">Download PDF</span><span data-l="de">PDF herunterladen</span> ↓</a></div>
+<a class="th-back" href="investigacion.html"><span data-l="es">← Volver a Investigación y creación</span><span data-l="en">← Back to Research &amp; Creation</span><span data-l="de">← Zurück zu Forschung &amp; Kreation</span></a>
+</section>
+</main>
+<footer class="footer">
+<div class="shell footer-grid">
+<div class="brand">
+<img src="images/logo-mark.png" alt="" aria-hidden="true" class="footer-mark" style="height:64px;width:auto" />
+<div class="big">Carnavarium</div>
+<div class="slogan">"Where carnival world goes digital unfurled."</div>
+</div>
+<div class="col">
+<h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
+<ul>
+<li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
+<li><a href="el-carnaval.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="atlas.html"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
+</ul>
+</div>
+<div class="col">
+<h5>Legal</h5>
+<ul>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="datenschutz.html">Datenschutz</a></li>
+</ul>
+</div>
+<div class="col">
+<h5><span data-l="es">Contacto</span><span data-l="en">Contact</span><span data-l="de">Kontakt</span></h5>
+<ul>
+<li>oscaraquite.x@gmail.com</li>
+<li>Luitpoldstraße 10<br />93047 Regensburg, DE</li>
+</ul>
+</div>
+<div class="legal">
+<span>© 2026 Carnavarium · <span data-l="es">Un proyecto de humanidades digitales</span><span data-l="en">A Digital Humanities Project</span><span data-l="de">Ein Digital-Humanities-Projekt</span></span>
+<span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+</div>
+</div>
+</footer>
+<script>(function(){var T={es:"Tesis de maestría: Between millo and picó — Carnavarium",en:"Master’s thesis: Between millo and picó — Carnavarium",de:"Masterarbeit: Between millo and picó — Carnavarium"};function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=T[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});set(document.documentElement.getAttribute("data-lang")||"en",false)})()</script>
+<script src="to-top.js" defer></script>
+</body>
+</html>

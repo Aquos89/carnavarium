@@ -123,4 +123,61 @@ function CarnivalConcepts() {
   );
 }
 
-Object.assign(window, { CarnivalCalendar, CarnivalConcepts });
+function useCountUp(target, ref) {
+  const [v, setV] = useState(0);
+  React.useEffect(() => {
+    const el = ref.current; if (!el) return;
+    let raf, done = false;
+    const run = () => { const t0 = performance.now(), D = 1600; const step = t => { const p = Math.min(1, (t - t0) / D), e = 1 - Math.pow(1 - p, 4); setV(Math.round(target * e)); if (p < 1) raf = requestAnimationFrame(step); }; raf = requestAnimationFrame(step); };
+    const io = new IntersectionObserver(es => { if (!done && es[0].isIntersecting) { done = true; run(); io.disconnect(); } }, { threshold: .35 });
+    io.observe(el);
+    return () => { io.disconnect(); cancelAnimationFrame(raf); };
+  }, [target]);
+  return v;
+}
+
+const TEASE = [
+  { h: "#que-es", n: "01", c: "var(--pink)", k: T("Qué es", "What it is", "Was er ist"), d: T("Exceso, máscara y burla antes de la Cuaresma.", "Excess, masks and mockery before Lent.", "Überschwang, Maske und Spott vor der Fastenzeit.") },
+  { h: "#calendario", n: "02", c: "var(--amber)", k: T("Calendario", "Calendar", "Kalender"), d: T("Por qué la fecha baila con la luna.", "Why the date dances with the moon.", "Warum das Datum mit dem Mond tanzt.") },
+  { h: "#cronologia", n: "03", c: "var(--teal)", k: T("Cronología", "Timeline", "Chronik"), d: T("De Venecia, 1296, a hoy.", "From Venice, 1296, to today.", "Von Venedig 1296 bis heute.") },
+  { h: "#conceptos", n: "04", c: "var(--purple)", k: T("Conceptos", "Concepts", "Begriffe"), d: T("Bajtín, Turner, Burke, DaMatta.", "Bakhtin, Turner, Burke, DaMatta.", "Bachtin, Turner, Burke, DaMatta.") },
+];
+
+function CarnivalTeaser() {
+  const today = new Date(); const now = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  let y = today.getFullYear(), tue = addD(easterDate(y), -47);
+  if (tue.getTime() < now) { y++; tue = addD(easterDate(y), -47); }
+  const days = Math.round((tue.getTime() - now) / 864e5);
+  const ref = React.useRef(null);
+  const v = useCountUp(days, ref);
+  const names = CAL_ROWS.map(r => r);
+  const row = (k, rev) => (
+    <div className={"ct-mq" + (rev ? " rev" : "")} aria-hidden="true"><div className="ct-mq-in">
+      {[0, 1].map(j => <span key={j} className="ct-mq-set">{(rev ? names.slice().reverse() : names).map((r, i) => <a key={k + j + i} href={"carnaval.html?c=" + r.slug} tabIndex={-1} style={{ "--c": r.color }}>{r.name}<i>✦</i></a>)}</span>)}
+    </div></div>
+  );
+  return (
+    <div className="ct" ref={ref}>
+      <div className="ct-top">
+        <div className="ct-count">
+          <div className="ct-k">{T("Faltan", "Only", "Noch")}</div>
+          <div className="ct-num">{v}</div>
+          <div className="ct-unit">{T(<>días para el <b>Martes de Carnaval</b> {y}</>, <>days to <b>Shrove Tuesday</b> {y}</>, <>Tage bis zum <b>Fastnachtsdienstag</b> {y}</>)}<span className="ct-date">{fmtD(tue)} · {T("después, la Ceniza", "then, Ash Wednesday", "danach Aschermittwoch")}</span></div>
+        </div>
+        <div className="ct-tiles">
+          {TEASE.map(t => (
+            <a key={t.n} className="ct-tile" href={"el-carnaval.html" + t.h} style={{ "--c": t.c }}>
+              <span className="n">{t.n}</span>
+              <span className="b"><span className="k">{t.k}</span><span className="d">{t.d}</span></span>
+              <span className="ar" aria-hidden="true">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+      {row("a", false)}
+      {row("b", true)}
+    </div>
+  );
+}
+
+Object.assign(window, { CarnivalCalendar, CarnivalConcepts, CarnivalTeaser });
