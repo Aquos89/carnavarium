@@ -138,9 +138,30 @@ function useCountUp(target, ref) {
 
 const TEASE = [
   { h: "#que-es", n: "01", c: "var(--pink)", k: T("Qué es", "What it is", "Was er ist"), d: T("Exceso, máscara y burla antes de la Cuaresma.", "Excess, masks and mockery before Lent.", "Überschwang, Maske und Spott vor der Fastenzeit.") },
-  { h: "#calendario", n: "02", c: "var(--amber)", k: T("Calendario", "Calendar", "Kalender"), d: T("Por qué la fecha baila con la luna.", "Why the date dances with the moon.", "Warum das Datum mit dem Mond tanzt.") },
-  { h: "#cronologia", n: "03", c: "var(--teal)", k: T("Cronología", "Timeline", "Chronik"), d: T("De Venecia, 1296, a hoy.", "From Venice, 1296, to today.", "Von Venedig 1296 bis heute.") },
-  { h: "#conceptos", n: "04", c: "var(--purple)", k: T("Conceptos", "Concepts", "Begriffe"), d: T("Bajtín, Turner, Burke, DaMatta.", "Bakhtin, Turner, Burke, DaMatta.", "Bachtin, Turner, Burke, DaMatta.") },
+  { h: "#palabra", n: "02", c: "var(--coral)", k: T("La palabra", "The word", "Das Wort"), d: T("Carne levare, carrus navalis y otras hipótesis.", "Carne levare, carrus navalis and other theories.", "Carne levare, carrus navalis und andere Hypothesen.") },
+  { h: "#definiciones", n: "03", c: "var(--blue)", k: T("Criterios", "Criteria", "Kriterien"), d: T("Qué hace que una fiesta sea carnaval.", "What makes a festival a carnival.", "Was ein Fest zum Karneval macht.") },
+  { h: "#calendario", n: "04", c: "var(--amber)", k: T("Calendario", "Calendar", "Kalender"), d: T("Por qué la fecha baila con la luna.", "Why the date dances with the moon.", "Warum das Datum mit dem Mond tanzt.") },
+  { h: "#cronologia", n: "05", c: "var(--teal)", k: T("Cronología", "Timeline", "Chronik"), d: T("De Venecia, 1094, a hoy.", "From Venice, 1094, to today.", "Von Venedig 1094 bis heute.") },
+  { h: "#reconocimientos", n: "06", c: "var(--coral)", k: T("Reconocimiento", "Recognition", "Anerkennung"), d: T("De la fiesta local a la lista de la UNESCO.", "From local festival to the UNESCO list.", "Vom lokalen Fest zur UNESCO-Liste.") },
+  { h: "#conceptos", n: "07", c: "var(--purple)", k: T("Conceptos", "Concepts", "Begriffe"), d: T("Bajtín, Turner, Burke, DaMatta.", "Bakhtin, Turner, Burke, DaMatta.", "Bachtin, Turner, Burke, DaMatta.") },
+];
+
+const CT_WORDS = [
+  ["#que-es", "var(--pink)", T("Carnestolendas", "Shrovetide", "Fastnacht")],
+  ["#palabra", "var(--coral)", "Carne levare"],
+  ["#definiciones", "var(--blue)", T("Mundo al revés", "World upside down", "Verkehrte Welt")],
+  ["#calendario", "var(--amber)", T("Miércoles de Ceniza", "Ash Wednesday", "Aschermittwoch")],
+  ["#conceptos", "var(--purple)", T("Liminalidad", "Liminality", "Liminalität")],
+  ["#definiciones", "var(--blue)", T("Máscara", "Mask", "Maske")],
+  ["#palabra", "var(--coral)", "Carrus navalis"],
+  ["#reconocimientos", "var(--coral)", "UNESCO"],
+  ["#cronologia", "var(--teal)", T("Comparsa", "Comparsa", "Comparsa")],
+  ["#calendario", "var(--amber)", T("Cuaresma", "Lent", "Fastenzeit")],
+  ["#conceptos", "var(--purple)", "Communitas"],
+  ["#definiciones", "var(--blue)", T("Sátira", "Satire", "Satire")],
+  ["#que-es", "var(--pink)", T("Rey Momo", "King Momo", "König Momo")],
+  ["#definiciones", "var(--blue)", T("Entierro", "Burial", "Begräbnis")],
+  ["#conceptos", "var(--purple)", T("Cuerpo grotesco", "Grotesque body", "Grotesker Leib")],
 ];
 
 function CarnivalTeaser() {
@@ -150,10 +171,9 @@ function CarnivalTeaser() {
   const days = Math.round((tue.getTime() - now) / 864e5);
   const ref = React.useRef(null);
   const v = useCountUp(days, ref);
-  const names = CAL_ROWS.map(r => r);
   const row = (k, rev) => (
     <div className={"ct-mq" + (rev ? " rev" : "")} aria-hidden="true"><div className="ct-mq-in">
-      {[0, 1].map(j => <span key={j} className="ct-mq-set">{(rev ? names.slice().reverse() : names).map((r, i) => <a key={k + j + i} href={"carnaval.html?c=" + r.slug} tabIndex={-1} style={{ "--c": r.color }}>{r.name}<i>✦</i></a>)}</span>)}
+      {[0, 1].map(j => <span key={j} className="ct-mq-set">{(rev ? CT_WORDS.slice().reverse() : CT_WORDS).map((w, i) => <a key={k + j + i} href={"el-carnaval.html" + w[0]} tabIndex={-1} style={{ "--c": w[1] }}>{w[2]}<i>✦</i></a>)}</span>)}
     </div></div>
   );
   return (
