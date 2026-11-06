@@ -171,3 +171,6 @@ a.who{display:inline-flex;align-items:center}
 .sp-end .ae-ph{width:136px;height:136px;border-radius:50%;object-fit:cover;border:1px solid var(--ink);background:var(--canvas-deep)}
 .sp-end .ae-ph-wrap{display:block}
 .tr-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 18px}
+/* Divisor con dos figuras (p. ej. Apuleyo y Forero): imagen a todo el ancho, encuadre hacia la izquierda y fundido lateral más corto */
+.vb-img.vb-img-wide{inset:-12% -4% -12% 0;background-position:22% 30%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 90%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 90%,transparent 100%)}
+@media(max-width:760px){.vb-img.vb-img-wide{inset:-10% -30% -10% 0;background-position:18% 30%}}
