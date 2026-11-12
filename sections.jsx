@@ -91,7 +91,9 @@ function useTopBars() {
 
 function HeroHighlights() {
   useTopBars();
-  const [open, setOpen] = useState(!!window.__cvLogoDone);
+  /* en celular y tablet (≤1180 px) los Destacados se ven desde el principio, sin esperar a que termine la animación del logo */
+  const isSmall = () => window.matchMedia("(max-width: 1180px)").matches;
+  const [open, setOpen] = useState(!!window.__cvLogoDone || isSmall());
   const [wide, setWide] = useState(false);
   const hhRef = React.useRef(null);
   const [hh, setHh] = useState(0);
@@ -147,12 +149,15 @@ function HeroHighlights() {
   const [dur, setDur] = useState(window.__cvLogoStart || 0);
   React.useEffect(() => {
     if (open) return;
+    if (isSmall()) { setOpen(true); return; }
+    const mq = window.matchMedia("(max-width: 1180px)"), onMq = () => { if (mq.matches) setOpen(true); };
+    mq.addEventListener ? mq.addEventListener("change", onMq) : mq.addListener(onMq);
     const st = () => {};
     const on = () => setTimeout(() => setOpen(true), 200);
     window.addEventListener("cv:logo-start", st);
     window.addEventListener("cv:logo-done", on);
     const fb = setTimeout(() => setOpen(true), 9000);
-    return () => { window.removeEventListener("cv:logo-start", st); window.removeEventListener("cv:logo-done", on); clearTimeout(fb); };
+    return () => { window.removeEventListener("cv:logo-start", st); window.removeEventListener("cv:logo-done", on); clearTimeout(fb); mq.removeEventListener ? mq.removeEventListener("change", onMq) : mq.removeListener(onMq); };
   }, [open]);
   const n = NEWS[0];
   const items = [
