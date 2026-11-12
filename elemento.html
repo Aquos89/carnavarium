@@ -53,6 +53,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .el-map .nd circle{stroke:var(--canvas-soft);stroke-width:3;transition:r .2s}
 .el-map a.nd:hover circle{r:13}
 .el-map .nm{font-family:var(--serif);font-size:13px;fill:var(--ink)}
+.el-map .nm.sm{font-size:10.5px}
 .el-map .rl{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;fill:var(--ink-faint)}
 .el-map .ct{font-family:var(--serif);font-size:15px;font-weight:600;fill:var(--ink)}
 .el-map text{paint-order:stroke;stroke:var(--canvas-soft);stroke-width:5px;stroke-linejoin:round}
@@ -66,6 +67,11 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .el-in .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-text)}
 .el-in b{font-family:var(--serif);font-size:1.15rem;font-weight:500;line-height:1.25}
 .el-more{display:flex;flex-wrap:wrap;gap:8px}
+.el-img figcaption{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;line-height:1.5;color:var(--ink-faint);padding:8px 12px;border-top:1px solid var(--rule)}
+.el-src{list-style:none;margin:0;padding:0}
+.el-src li{padding:12px 0;border-bottom:1px dotted var(--rule);font-family:var(--serif);font-size:.98rem;line-height:1.5;color:var(--ink-soft)}
+.el-src a{color:var(--ink);border-bottom:1px solid color-mix(in srgb,var(--ink) 30%,transparent);word-break:break-word}
+.el-src a:hover{color:var(--pink-text);border-color:var(--pink-text)}
 </style>
 </head>
 <body>
@@ -119,7 +125,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </footer>
 
 <script src="carnavales.js?v=74"></script>
-<script src="elementos.js?v=1"></script>
+<script src="elementos.js?v=3"></script>
 <script>(function(){
 var LS=["es","en","de"],C=window.CARNAVALES||[],ET=window.ELEMENTO_TIPOS||{},ER=window.ELEMENTO_RELACIONES||{};
 var id=new URLSearchParams(location.search).get("e"),e=window.elemento(id)||window.ELEMENTOS[0];
@@ -128,15 +134,16 @@ function t(o){return LS.map(function(l){return '<span data-l="'+l+'">'+esc(o[l])
 function L(){return document.documentElement.getAttribute("data-lang")||"en"}
 function carn(s){return C.find(function(x){return x.slug===s})}
 var ty=ET[e.tipo],rels=window.relacionesDe(e.id);
-var lbl={tag:{es:"Elemento",en:"Element",de:"Element"},rel:{es:"Relaciones",en:"Connections",de:"Verbindungen"},none:{es:"Todavía no hay relaciones registradas para este elemento.",en:"No connections have been recorded for this element yet.",de:"Für dieses Element sind noch keine Verbindungen erfasst."},map:{es:"Mapa de relaciones",en:"Connection map",de:"Verbindungskarte"},cap:{es:"Haga clic en un elemento para abrir su ficha",en:"Click an element to open its page",de:"Klicken Sie auf ein Element, um seine Seite zu öffnen"},en:{es:"Aparece en Carnavarium",en:"Featured on Carnavarium",de:"Auf Carnavarium"},more:{es:"Más elementos de",en:"More elements from",de:"Weitere Elemente aus"},all:{es:"Todos los elementos",en:"All elements",de:"Alle Elemente"}};
+var lbl={tag:{es:"Elemento",en:"Element",de:"Element"},rel:{es:"Relaciones",en:"Connections",de:"Verbindungen"},none:{es:"Todavía no hay relaciones registradas para este elemento.",en:"No connections have been recorded for this element yet.",de:"Für dieses Element sind noch keine Verbindungen erfasst."},map:{es:"Mapa de relaciones",en:"Connection map",de:"Verbindungskarte"},cap:{es:"Haga clic en un elemento para abrir su ficha",en:"Click an element to open its page",de:"Klicken Sie auf ein Element, um seine Seite zu öffnen"},en:{es:"Aparece en Carnavarium",en:"Featured on Carnavarium",de:"Auf Carnavarium"},more:{es:"Más elementos de",en:"More elements from",de:"Weitere Elemente aus"},all:{es:"Todos los elementos",en:"All elements",de:"Alle Elemente"},src:{es:"Fuentes",en:"Sources",de:"Quellen"},imgsrc:{es:"Fuente de la imagen:",en:"Image source:",de:"Bildquelle:"},open:{es:"enlace",en:"link",de:"Link"}};
 function chip(x){var c=ET[x.tipo];return '<a class="el-chip" href="elemento.html?e='+x.id+'" style="--ec:'+c.color+'"><i></i>'+t(x.nombre)+'</a>'}
 /* relaciones agrupadas por etiqueta, desde el punto de vista de este elemento */
 var groups=[],gi={};
 rels.forEach(function(r){var k=r.rel+(r.inversa?"~":"");if(!(k in gi)){gi[k]=groups.length;groups.push({lab:r.inversa?ER[r.rel].inv:ER[r.rel],items:[]})}groups[gi[k]].items.push(r.otro)});
 var c0=carn(e.carnavales[0]);
 var h='<header class="el-head" style="--ec:'+ty.color+'"><div class="shell"><div class="el-crumb">'+(c0?'<a href="carnaval.html?c='+c0.slug+'#elementos">'+t(lbl.all)+' · '+t(c0.place)+'</a>':'')+'<span class="el-type"><i></i>'+t(ty)+'</span></div><h1>'+t(e.nombre)+'</h1><div class="el-carn">'+e.carnavales.map(function(s){var c=carn(s);return c?'<a href="carnaval.html?c='+s+'"><i style="background:'+c.color+'"></i>'+t(c.place)+'</a>':""}).join("")+'</div></div></header>';
-h+='<div class="shell el-body"><div><p class="el-intro">'+t(e.resumen)+'</p>'+(e.img?'<figure class="el-img"><img src="'+e.img+'" alt="" /></figure>':'');
+h+='<div class="shell el-body"><div><p class="el-intro">'+t(e.resumen)+'</p>'+(e.img?'<figure class="el-img"><img src="'+e.img+'" alt="" />'+(e.imgCred?'<figcaption>'+t(lbl.imgsrc)+' '+esc(e.imgCred)+'</figcaption>':'')+'</figure>':'');
 h+='<div class="el-h">'+t(lbl.rel)+'</div>'+(groups.length?'<dl class="el-rels">'+groups.map(function(g){return '<div><dt>'+t(g.lab)+'</dt><dd>'+g.items.map(chip).join("")+'</dd></div>'}).join("")+'</dl>':'<p class="el-none">'+t(lbl.none)+'</p>');
+if(e.fuentes.length)h+='<div class="el-h">'+t(lbl.src)+'</div><ul class="el-src">'+e.fuentes.map(function(f){var ext=/^https?:/.test(f.url);return '<li>'+esc(f.t)+(f.url?' <a href="'+esc(f.url)+'"'+(ext?' target="_blank" rel="noopener"':'')+'>'+t(lbl.open)+(ext?' ↗':' →')+'</a>':'')+'</li>'}).join("")+'</ul>';
 h+='</div><aside class="el-map" aria-label="'+esc(lbl.map.es)+'"><div class="el-h" style="margin-top:0">'+t(lbl.map)+'</div><svg id="el-svg" viewBox="0 0 420 400" role="img"></svg><div class="el-map-cap">'+t(lbl.cap)+'</div></aside></div>';
 if(e.en.length)h+='<section class="shell el-sec"><h2>'+t(lbl.en)+'</h2><div class="el-in">'+e.en.map(function(x){return '<a href="'+x.href+'"><span class="k">'+t(x.k)+'</span><b>'+t(x.t)+' →</b></a>'}).join("")+'</div></section>';
 e.carnavales.forEach(function(s){var c=carn(s),o=window.elementosDe(s).filter(function(x){return x.id!==e.id});if(c&&o.length)h+='<section class="shell el-sec"><h2>'+t(lbl.more)+' '+t(c.place)+'</h2><div class="el-more">'+o.map(chip).join("")+'</div></section>'});
@@ -146,17 +153,18 @@ document.getElementById("el").innerHTML=h;
 function svgEsc(s){return esc(s)}
 function wrap(txt,max){var w=txt.split(" "),out=[],cur="";w.forEach(function(x){if((cur+" "+x).trim().length>max&&cur){out.push(cur);cur=x}else cur=(cur+" "+x).trim()});if(cur)out.push(cur);return out.slice(0,3)}
 function draw(){
- var l=L(),W=420,H=400,cx=W/2,cy=H/2,n=rels.length,R=n>6?150:135,s="";
- var pts=rels.map(function(r,i){var a=-Math.PI/2+i*2*Math.PI/Math.max(n,1);return {r:r,x:cx+R*Math.cos(a),y:cy+R*Math.sin(a)}});
+ var l=L(),W=420,H=400,cx=W/2,cy=H/2,n=rels.length,dense=n>10,s="";
+ /* con muchos vecinos: dos anillos alternos, solo nombres y letra más pequeña */
+ var pts=rels.map(function(r,i){var a=-Math.PI/2+i*2*Math.PI/Math.max(n,1),R=dense?(i%2?178:112):(n>6?150:135);return {r:r,x:cx+R*Math.cos(a),y:cy+R*Math.sin(a)}});
  pts.forEach(function(p){s+='<line class="lnk" x1="'+cx+'" y1="'+cy+'" x2="'+p.x.toFixed(1)+'" y2="'+p.y.toFixed(1)+'"/>'});
- pts.forEach(function(p){var o=p.r.otro,col=ET[o.tipo].color,lab=(p.r.inversa?ER[p.r.rel].inv:ER[p.r.rel])[l],below=p.y>=cy-5,ly=below?p.y+26:p.y-30;
-  var nm=wrap(o.nombre[l],16);
-  s+='<a class="nd" href="elemento.html?e='+o.id+'"><title>'+svgEsc(o.nombre[l])+'</title><circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="10" fill="'+col+'"/>';
-  var tx='<text class="rl" text-anchor="middle" x="'+p.x.toFixed(1)+'" y="'+(below?ly:ly-nm.length*15+15).toFixed(1)+'">'+svgEsc(lab)+'</text>';
-  var names=nm.map(function(line,j){return '<text class="nm" text-anchor="middle" x="'+p.x.toFixed(1)+'" y="'+((below?ly+15:ly-(nm.length-1)*15+17)+j*15).toFixed(1)+'">'+svgEsc(line)+'</text>'}).join("");
-  s+=tx+names+'</a>'});
+ pts.forEach(function(p){var o=p.r.otro,col=ET[o.tipo].color,lab=(p.r.inversa?ER[p.r.rel].inv:ER[p.r.rel])[l],below=p.y>=cy-5;
+  s+='<a class="nd" href="elemento.html?e='+o.id+'"><title>'+esc(o.nombre[l])+'</title><circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="'+(dense?7:10)+'" fill="'+col+'"/>';
+  if(dense){var nm=o.nombre[l].length>18?o.nombre[l].slice(0,17)+"…":o.nombre[l];s+='<text class="nm sm" text-anchor="middle" x="'+p.x.toFixed(1)+'" y="'+(below?p.y+18:p.y-11).toFixed(1)+'">'+esc(nm)+'</text></a>';return}
+  var ly=below?p.y+26:p.y-30,nl=wrap(o.nombre[l],16);
+  s+='<text class="rl" text-anchor="middle" x="'+p.x.toFixed(1)+'" y="'+(below?ly:ly-nl.length*15+15).toFixed(1)+'">'+esc(lab)+'</text>';
+  s+=nl.map(function(line,j){return '<text class="nm" text-anchor="middle" x="'+p.x.toFixed(1)+'" y="'+((below?ly+15:ly-(nl.length-1)*15+17)+j*15).toFixed(1)+'">'+esc(line)+'</text>'}).join("")+'</a>'});
  var cn=wrap(e.nombre[l],18);
- s+='<g class="nd"><circle cx="'+cx+'" cy="'+cy+'" r="16" fill="'+ty.color+'"/>'+cn.map(function(line,j){return '<text class="ct" text-anchor="middle" x="'+cx+'" y="'+(cy+36+j*17)+'">'+svgEsc(line)+'</text>'}).join("")+'</g>';
+ s+='<g class="nd"><circle cx="'+cx+'" cy="'+cy+'" r="16" fill="'+ty.color+'"/>'+cn.map(function(line,j){return '<text class="ct" text-anchor="middle" x="'+cx+'" y="'+(cy+36+j*17)+'">'+esc(line)+'</text>'}).join("")+'</g>';
  document.getElementById("el-svg").innerHTML=s;
 }
 var TT={};LS.forEach(function(l){TT[l]=e.nombre[l]+" — Carnavarium"});
