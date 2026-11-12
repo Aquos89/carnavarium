@@ -528,7 +528,7 @@ function Archive() {
   const filters = Object.keys(ARCHIVE_TYPES).filter(f => f === "All" || items.some(i => i.type === f));
   const visible = filter === "All" ? items : items.filter(i => i.type === filter);
   /* portada: siempre primero las marimondas (JIPS) y luego Javier Jara; después, el resto en su orden */
-  const PINNED = ["AR-1302", "AR-1301"];
+  const PINNED = ["AR-1302", "AR-1301", "AR-1303"];
   const pinRank = it => { const k = PINNED.indexOf(it.id); return k < 0 ? PINNED.length + items.indexOf(it) : k; };
   const noSave = { draggable: false, onContextMenu: e => e.preventDefault() };
   return (
