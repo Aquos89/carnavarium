@@ -45,24 +45,37 @@ function UtilityBar() {
 }
 
 function Nav() {
+  const [open, setOpen] = React.useState(false);
+  React.useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+  const close = () => setOpen(false);
   return (
-    <nav className="nav">
+    <nav className={"nav" + (open ? " is-open" : "")}>
       <div className="shell row">
         <a className="wordmark" href="#">
           <window.LogoMark size={36} />
           <span>carnavarium</span>
         </a>
-        <div className="nav-links">
+        <div className="nav-links" onClick={close}>
           <a href="#project">{T("Proyecto", "Project", "Projekt")}</a>
           <a href="#timeline">{T("El Carnaval", "The Carnival", "Der Karneval")}</a>
           <a href="#world">{T("En el mundo", "In the World", "In der Welt")}</a>
           <a href="#archive">{T("Archivo", "Archive", "Archiv")}</a>
           <a href="#research">{T("Investigación", "Research", "Forschung")}</a>
           <a href="#news">{T("Noticias", "News", "News")}</a>
+          <a className="nav-links-cta" href="apoyar.html">{T("Apoya el proyecto", "Support the project", "Projekt unterstützen")} <span>→</span></a>
         </div>
-        <a className="nav-cta" href="apoyar.html">
-          {T("Apoya el proyecto", "Support the project", "Projekt unterstützen")} <span>→</span>
-        </a>
+        <div className="nav-end">
+          <a className="nav-cta" href="apoyar.html">
+            {T("Apoya el proyecto", "Support the project", "Projekt unterstützen")} <span>→</span>
+          </a>
+          <button className="nav-toggle" type="button" aria-expanded={open} aria-label={T("Menú", "Menu", "Menü")} onClick={() => setOpen(!open)}>
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </nav>
   );
@@ -661,6 +674,7 @@ function Research() {
 const NFDI4C_LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/NFDI4Culture_Logo.png/1920px-NFDI4Culture_Logo.png";
 const NEWS = [
   { logo: NFDI4C_LOGO, day: "9–11", month: T("nov 2026", "Nov 2026", "Nov. 2026"), date: T("Publicado el 20 oct 2026", "Posted 20 Oct 2026", "Veröffentlicht am 20. Okt. 2026"), title: T("Carnavarium se presenta en el 6.º Culture Community Plenary de NFDI4Culture", "Carnavarium presents at NFDI4Culture's 6th Culture Community Plenary", "Carnavarium auf dem 6. Culture Community Plenary von NFDI4Culture"), short: T("Carnavarium en el 6.º Plenary de NFDI4Culture · Bochum, 9–11 nov", "Carnavarium at NFDI4Culture's 6th Plenary · Bochum, 9–11 Nov", "Carnavarium beim 6. Plenary von NFDI4Culture · Bochum, 9.–11. Nov."), place: "Deutsches Bergbau-Museum · Bochum, DE", tag: T("Congreso", "Conference", "Konferenz"), href: "https://nfdi4culture.de/de/veranstaltungen/details/6th-culture-community-plenary.html" },
+  { day: "7", month: T("nov 2026", "Nov 2026", "Nov. 2026"), date: T("Publicado el 8 nov 2026", "Posted 8 Nov 2026", "Veröffentlicht am 8. Nov. 2026"), title: T("Oscar Aquite y Carnavarium en el workshop «Kultursensible Musikvermittlung», con la ponencia y actividad práctica «Ein Karneval voller Spannungen: Musikalische Aneignung in der kolumbianischen Karibik»", "Oscar Aquite and Carnavarium at the workshop “Kultursensible Musikvermittlung”, with the talk and hands-on activity “Ein Karneval voller Spannungen: Musikalische Aneignung in der kolumbianischen Karibik”", "Oscar Aquite und Carnavarium beim Workshop „Kultursensible Musikvermittlung“ mit Vortrag und Praxisübung „Ein Karneval voller Spannungen: Musikalische Aneignung in der kolumbianischen Karibik“"), short: T("Carnavarium en el workshop «Kultursensible Musikvermittlung» · 7 nov", "Carnavarium at the workshop “Kultursensible Musikvermittlung” · 7 Nov", "Carnavarium beim Workshop „Kultursensible Musikvermittlung“ · 7. Nov."), tag: T("Workshop", "Workshop", "Workshop") },
 ];
 
 function News() {
