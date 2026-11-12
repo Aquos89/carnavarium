@@ -517,11 +517,19 @@ function Archive() {
   const [filter, setFilter] = useState("All");
   /* Solo los objetos que de verdad están en el archivo (los mismos de archive.jsx). */
   const items = [
+    { id: "AR-1303", title: T("Otra ola que nos lleva", "Otra ola que nos lleva", "Otra ola que nos lleva"), author: "José Palacio (JIPS)", year: "2021", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-otra-ola-que-nos-lleva.jpg" },
+    { id: "AR-1304", title: T("Reconstrucción de la memoria", "Reconstrucción de la memoria", "Reconstrucción de la memoria"), author: "José Palacio (JIPS)", year: "2020", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-reconstruccion-de-la-memoria.jpg" },
+    { id: "AR-1305", title: T("Bocadillo de carnaval", "Bocadillo de carnaval", "Bocadillo de carnaval"), author: "José Palacio (JIPS)", year: "2020", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-bocadillo-de-carnaval.jpg" },
     { id: "AR-1302", title: T("Danza de las marimondas", "Danza de las marimondas", "Danza de las marimondas"), author: "José Palacio (JIPS)", year: "2019", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-danza-de-las-marimondas.jpg" },
-    { id: "AR-1301", title: T("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"), author: "Javier Jara", year: "2017", origin: "Barranquilla, CO", type: "Illustrations", img: "images/musica-carnaval.jpg" },
+    { id: "AR-1306", title: T("Batalla de Flores 2.0", "Batalla de Flores 2.0", "Batalla de Flores 2.0"), author: "José Palacio (JIPS)", year: "2018", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-batalla-de-flores-2-0.jpg" },
+    { id: "AR-1307", title: T("Noche de verbena en la Popular", "Noche de verbena en la Popular", "Noche de verbena en la Popular"), author: "José Palacio (JIPS)", year: "2018", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-noche-de-verbena-en-la-popular.jpg" },
+    { id: "AR-1301", title: T("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"), author: "Javier Jara", year: "2017", origin: "Bogotá, CO", type: "Illustrations", img: "images/musica-carnaval.jpg" },
   ];
   const filters = Object.keys(ARCHIVE_TYPES).filter(f => f === "All" || items.some(i => i.type === f));
   const visible = filter === "All" ? items : items.filter(i => i.type === filter);
+  /* portada: siempre primero las marimondas (JIPS) y luego Javier Jara; después, el resto en su orden */
+  const PINNED = ["AR-1302", "AR-1301"];
+  const pinRank = it => { const k = PINNED.indexOf(it.id); return k < 0 ? PINNED.length + items.indexOf(it) : k; };
   const noSave = { draggable: false, onContextMenu: e => e.preventDefault() };
   return (
     <section id="archive" className="section ab">
@@ -548,7 +556,7 @@ function Archive() {
             </div>
           )}
           <div className="ab-cards">
-            {visible.map((it, i) => (
+            {PINNED.map(id => visible.find(x => x.id === id)).filter(Boolean).map((it, i) => (
               <a className="ab-card" key={it.id} href={"archive.html?id=" + it.id} style={{ "--r": (i % 2 ? 1.1 : -1.3) + "deg" }}>
                 <span className="ab-photo" onContextMenu={e => e.preventDefault()}><img src={it.img} alt="" loading="lazy" {...noSave} /><i className="ab-tape" aria-hidden="true"></i></span>
                 <span className="ab-row"><span className="ab-id">{it.id}</span><span className="ab-type">{ARCHIVE_TYPES[it.type]}</span></span>
@@ -687,47 +695,118 @@ function Research() {
   const featured = hover || defFeat;
   const setFeatured = k => setHover(k);
   const pickCat = c => { setCat(c); setHover(null); };
-  const f = FEATURES[featured];
+  /* Revista: lo publicado (sin datasets). Laboratorio: lo construido con datos */
+  const pubs = list.filter(a => a.cat !== "Datasets" && (!line || (a.lines || []).includes(line))).sort((a, b) => b.date.localeCompare(a.date));
+  const allPubs = list.filter(a => a.cat !== "Datasets");
+  const pubLines = Object.keys(RESEARCH_LINES).filter(k => allPubs.some(a => (a.lines || []).includes(k)));
+  const featKey = hover || (pubs.find(a => a.feat) || allPubs.find(a => a.feat)).feat;
+  const f = FEATURES[featKey];
+  const latest = allPubs.reduce((m, a) => (a.date > m ? a.date : m), "0");
+  const MES = { es: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"], en: ["January","February","March","April","May","June","July","August","September","October","November","December"], de: ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"] };
+  const mi = +latest.slice(5, 7) - 1, yr = latest.slice(0, 4);
+  /* datos reales para el laboratorio */
+  const EL = window.ELEMENTOS || [], ETY = window.ELEMENTO_TIPOS || {};
+  const nRel = EL.reduce((n, e) => n + ((e.rel || []).length), 0);
+  const nCarnEl = new Set(EL.flatMap(e => e.carnavales || [])).size;
+  const CD = window.CARNAVALES || [];
+  const nReg = new Set(CD.map(c => c.region && c.region.es)).size;
+  const elSorted = EL.slice().sort((x, y) => Object.keys(ETY).indexOf(x.tipo) - Object.keys(ETY).indexOf(y.tipo));
+  const proj = xy => [((xy[0] + 180) / 360) * 300, ((90 - xy[1]) / 180) * 150];
   return (
-    <section id="research" className="section">
+    <section id="research" className="section rv">
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 05</div>
           <h2 className="title">{T("Investigación y creación", "Research & Creation", "Forschung & Kreation")}</h2>
-          
+          <a className="rs-finder ec-btn" href="investigacion.html">{T("Buscador de proyectos →", "Project finder →", "Projektsuche →")}</a>
         </div>
         <p className="sec-intro">{T(
           <><b>Lo que significa.</b> Nuestras propias interpretaciones a partir de esas fuentes: artículos, ensayos, especiales digitales, historias de datos y visualizaciones.</>,
           <><b>What it means.</b> Our own interpretations built on those sources: articles, essays, digital specials, data stories and visualizations.</>,
           <><b>Was es bedeutet.</b> Unsere eigenen Deutungen auf Grundlage dieser Quellen: Artikel, Essays, digitale Spezials, Data Stories und Visualisierungen.</>
         )}</p>
-        <div className="rs-latest">
-          <h3>{T("Últimas entregas", "Latest releases", "Neueste Beiträge")}</h3>
-          <a className="rs-finder" href="investigacion.html">{T("Buscador de proyectos →", "Project finder →", "Projektsuche →")}</a>
-        </div>
-        <div className="editorial">
-          <a className="feature-article" href={f.href} key={featured}>
-            <div className="img">
-              <img src={f.img} alt={f.alt} />
-            </div>
-            <div className="kicker">{f.kicker}</div>
-            <h3>{f.title}</h3>
-            <p className="deck">{f.deck}</p>
-            <div className="byline au-row"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" /><span>{f.byline}</span></div>
-          </a>
 
-          <div className="article-list" onMouseLeave={() => setHover(null)}>
-            {shown.map((a, i) => (
-              <article className={"article-item" + (a.feat && a.feat === featured ? " is-active" : "")} key={i} onMouseEnter={a.feat ? () => setFeatured(a.feat) : undefined} onFocus={a.feat ? () => setFeatured(a.feat) : undefined}>
-                <div className="kicker">{a.kicker}</div>
-                <h4>{a.href ? <a href={a.href}>{a.title}</a> : a.title}</h4>
-                <div className="byline">{a.byline}</div>
-                {a.lines && <div className="rl-tags">{a.lines.map(k => (
-                  <button key={k} className={"rl-tag" + (line === k ? " active" : "")} onClick={() => pickLine(k)}>{RESEARCH_LINES[k]}</button>
-                ))}</div>}
-              </article>
-            ))}
+        <div className="rv-paper">
+          <div className="rv-mast">
+            <span className="rv-vol">{T("Vol. I · Núm. " + allPubs.length, "Vol. I · No. " + allPubs.length, "Bd. I · Nr. " + allPubs.length)}</span>
+            <span className="rv-name">Carnavarium <i>{T("Revista", "Review", "Revue")}</i></span>
+            <span className="rv-date">{T(MES.es[mi] + " " + yr, MES.en[mi] + " " + yr, MES.de[mi] + " " + yr)}</span>
           </div>
+          <div className="editorial rv-ed">
+            <a className="feature-article rv-cover" href={f.href} key={featKey}>
+              <div className="rv-cover-k">{T("En portada", "Cover story", "Titelgeschichte")}</div>
+              <div className="img"><img src={f.img} alt={f.alt} /></div>
+              <div className="kicker">{f.kicker}</div>
+              <h3>{f.title}</h3>
+              <p className="deck">{f.deck}</p>
+              <div className="byline au-row"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" /><span>{f.byline}</span></div>
+            </a>
+            <div className="rv-sum" onMouseLeave={() => setHover(null)}>
+              <div className="rv-sum-k">{T("Sumario", "Contents", "Inhalt")}</div>
+              <div className="rv-grp">{T("Textos", "Writing", "Texte")}</div>
+              <ol>
+                {pubs.map((a, i) => (
+                  <li key={a.href} className={a.feat === featKey ? "is-active" : ""} onMouseEnter={() => a.feat && setHover(a.feat)}>
+                    <a href={a.href} onFocus={() => a.feat && setHover(a.feat)}>
+                      <span className="no">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="tt"><span className="k">{a.kicker}</span><b>{a.title}</b></span>
+                      <span className="pg">{a.date.slice(0, 4)}</span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+              <div className="rv-grp">{T("Datos · en el suplemento", "Data · in the supplement", "Daten · in der Beilage")}</div>
+              <ol className="rv-data">
+                {[[T("Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)"), T("Dataset · en construcción", "Dataset · in progress", "Datensatz · im Aufbau")],
+                  [T("Grafo de elementos", "Element graph", "Elementgraph"), T("Datos enlazados · en línea", "Linked data · live", "Verknüpfte Daten · online")],
+                  [T("Atlas georreferenciado", "Georeferenced atlas", "Georeferenzierter Atlas"), T("Geodatos · en línea", "Geodata · live", "Geodaten · online")]].map(([t, k], i) => (
+                  <li key={i}><a href="#laboratorio">
+                    <span className="no">{String(allPubs.length + i + 1).padStart(2, "0")}</span>
+                    <span className="tt"><span className="k">{k}</span><b>{t}</b></span>
+                    <span className="pg">↓</span>
+                  </a></li>
+                ))}
+              </ol>
+              {pubLines.length > 1 && <div className="rv-lines"><span className="rv-lines-k">{T("Líneas", "Research lines", "Forschungslinien")}</span>{pubLines.map(k => (
+                <button key={k} className={"rl-tag" + (line === k ? " active" : "")} onClick={() => pickLine(k)}>{RESEARCH_LINES[k]}</button>
+              ))}</div>}
+            </div>
+          </div>
+
+        <div className="lab" id="laboratorio">
+          <div className="lab-head">
+            <span className="lab-k">{T("Suplemento · Laboratorio", "Supplement · Lab", "Beilage · Labor")}</span>
+            <h3>{T("Lo que construimos con datos", "What we build with data", "Was wir mit Daten bauen")}</h3>
+            <span className="lab-note">{T("Cifras en vivo desde los datos del sitio", "Live figures from the site’s data", "Live-Zahlen aus den Daten der Website")}</span>
+          </div>
+          <div className="lab-grid">
+            <a className="lab-card" href="samba-enredo-corpus.html">
+              <div className="lab-st wip"><span className="lab-no">{String(allPubs.length + 1).padStart(2, "0")}</span><i></i>{T("En construcción", "In progress", "Im Aufbau")}</div>
+              <h4>Samba-Enredo Corpus <span className="lab-ab">CSEC</span></h4>
+              <p>{T("Letras del Carnaval de Río como datos de investigación estructurados.", "Rio carnival lyrics as structured research data.", "Liedtexte des Karnevals von Rio als strukturierte Forschungsdaten.")}</p>
+              <pre className="lab-code">{"samba_enredo {\n  escola    · ano\n  categoria · posicao\n  nota      · bairro\n  letra     → interno\n}"}</pre>
+              <div className="lab-meta">{T("Metadatos abiertos · PT-BR", "Open metadata · PT-BR", "Offene Metadaten · PT-BR")}<span>→</span></div>
+            </a>
+            <a className="lab-card" href="carnaval.html?c=rio#elementos">
+              <div className="lab-st on"><span className="lab-no">{String(allPubs.length + 2).padStart(2, "0")}</span><i></i>{T("En línea", "Live", "Online")}</div>
+              <h4>{T("Grafo de elementos", "Element graph", "Elementgraph")}</h4>
+              <div className="lab-nums"><span><b>{EL.length}</b>{T("elementos", "elements", "Elemente")}</span><span><b>{nRel}</b>{T("relaciones", "links", "Relationen")}</span><span><b>{nCarnEl}</b>{T("carnavales", "carnivals", "Karnevale")}</span></div>
+              <div className="lab-dots" aria-hidden="true">{elSorted.map(e => <i key={e.id} style={{ background: (ETY[e.tipo] || {}).color }} title={e.nombre && e.nombre.es}></i>)}</div>
+              <div className="lab-meta">{T("Un punto por elemento, color por tipo", "One dot per element, coloured by type", "Ein Punkt pro Element, Farbe nach Typ")}<span>→</span></div>
+            </a>
+            <a className="lab-card" href="atlas.html">
+              <div className="lab-st on"><span className="lab-no">{String(allPubs.length + 3).padStart(2, "0")}</span><i></i>{T("En línea", "Live", "Online")}</div>
+              <h4>{T("Atlas georreferenciado", "Georeferenced atlas", "Georeferenzierter Atlas")}</h4>
+              <div className="lab-nums"><span><b>{CD.length}</b>{T("carnavales", "carnivals", "Karnevale")}</span><span><b>{nReg}</b>{T("regiones", "regions", "Regionen")}</span><span><b>{Object.keys(WORLD_XY).length}</b>{T("coordenadas", "coordinates", "Koordinaten")}</span></div>
+              <svg className="lab-map" viewBox="0 25 300 100" aria-hidden="true">
+                {[60, 120, 180, 240].map(x => <line key={"v" + x} x1={x} y1="25" x2={x} y2="125" />)}
+                {[50, 75, 100].map(y => <line key={"h" + y} x1="0" y1={y} x2="300" y2={y} />)}
+                {CD.filter(c => WORLD_XY[c.slug]).map(c => { const p = proj(WORLD_XY[c.slug]); return <circle key={c.slug} cx={p[0].toFixed(1)} cy={p[1].toFixed(1)} r="2.4" style={{ fill: c.color }} />; })}
+              </svg>
+              <div className="lab-meta">{T("Proyección equirectangular", "Equirectangular projection", "Plattkarte")}<span>→</span></div>
+            </a>
+          </div>
+        </div>
         </div>
       </div>
     </section>
