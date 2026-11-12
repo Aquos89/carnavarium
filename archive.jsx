@@ -16,61 +16,6 @@ const PERM = tr("Con permiso", "With permission", "Mit Genehmigung");
 const PD = tr("Dominio público", "Public domain", "Gemeinfrei");
 
 const ARCHIVE_ITEMS = [
-  { id: "AR-0142", type: "Music", year: 1987, country: "CO", rights: PERM,
-    title: tr("Letanía de los Coyongos", "Litany of the Coyongos", "Litanei der Coyongos"),
-    desc: tr("Grabación de campo de la danza de relación en su formato tradicional, con caja, guacharaca y voz.", "Field recording of the narrative dance in its traditional format, with drum, guacharaca and voice.", "Feldaufnahme des Erzähltanzes in seiner traditionellen Form, mit Trommel, Guacharaca und Gesang."),
-    place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Audio · 12 min", "Audio · 12 min", "Audio · 12 Min."),
-    collection: tr("Danzas de relación", "Narrative dances", "Erzähltänze") },
-  { id: "AR-0211", type: "Texts", year: 1965, country: "RU", rights: PD,
-    title: tr("Notas sobre la inversión del mundo", "Notes on the world upside down", "Notizen zur verkehrten Welt"),
-    desc: tr("Ejemplar anotado del capítulo sobre el carnavalesco, con marginalia de un lector no identificado.", "Annotated copy of the chapter on the carnivalesque, with marginalia by an unidentified reader.", "Annotiertes Exemplar des Kapitels über das Karnevaleske, mit Randnotizen eines unbekannten Lesers."),
-    place: tr("Moscú", "Moscow", "Moskau"), format: tr("PDF · 38 pp.", "PDF · 38 pp.", "PDF · 38 S."),
-    collection: tr("Teoría del carnaval", "Carnival theory", "Karnevalstheorie") },
-  { id: "AR-0339", type: "Videos", year: 1972, country: "CO", rights: PERM,
-    title: tr("Lectura del Bando, Plaza de la Paz", "Lectura del Bando, Plaza de la Paz", "Lectura del Bando, Plaza de la Paz"),
-    desc: tr("Transferencia digital de un carrete de 8mm. Registro del acto de proclamación frente a la catedral.", "Digital transfer of an 8mm reel. Record of the proclamation ceremony in front of the cathedral.", "Digitalisierung einer 8-mm-Filmrolle. Aufnahme der Proklamation vor der Kathedrale."),
-    place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Video · 6 min", "Video · 6 min", "Video · 6 Min."),
-    collection: tr("Ceremonias de apertura", "Opening ceremonies", "Eröffnungszeremonien") },
-  { id: "AR-0407", type: "Photographs", year: 2001, country: "VE", rights: tr("CC BY-NC", "CC BY-NC", "CC BY-NC"),
-    title: tr("Diablos de Yare — máscaras y procesión", "Dancing Devils of Yare — masks and procession", "Teufel von Yare — Masken und Prozession"),
-    desc: tr("Serie fotográfica de la festividad, con detalle de la construcción de máscaras de cartón piedra.", "Photo series of the festival, detailing how the papier-mâché masks are made.", "Fotoserie des Festes, mit Details zur Herstellung der Pappmaché-Masken."),
-    place: tr("San Francisco de Yare", "San Francisco de Yare", "San Francisco de Yare"), format: tr("24 imágenes", "24 images", "24 Bilder"),
-    collection: tr("Máscaras del Caribe", "Caribbean masks", "Masken der Karibik") },
-  { id: "AR-0512", type: "Texts", year: 1998, country: "DE", rights: CONSULT,
-    title: tr("Die Narrenkappe und die Umkehrung der Ordnung", "Die Narrenkappe und die Umkehrung der Ordnung", "Die Narrenkappe und die Umkehrung der Ordnung"),
-    desc: tr("Estudio sobre el gorro de bufón como signo de la suspensión temporal de la jerarquía social.", "A study of the fool's cap as a sign of the temporary suspension of social hierarchy.", "Studie über die Narrenkappe als Zeichen der zeitweiligen Aufhebung sozialer Hierarchie."),
-    place: tr("Colonia", "Cologne", "Köln"), format: tr("PDF · 22 pp.", "PDF · 22 pp.", "PDF · 22 S."),
-    collection: tr("Fastnacht", "Fastnacht", "Fastnacht") },
-  { id: "AR-0628", type: "Videos", year: 1984, country: "BR", rights: CONSULT,
-    title: tr("Mangueira — ensayo de escola de samba", "Mangueira — samba school rehearsal", "Mangueira — Probe einer Sambaschule"),
-    desc: tr("Metraje de archivo del ensayo previo al desfile, con la bateria completa en la cuadra.", "Archival footage of the pre-parade rehearsal, with the full bateria in the quadra.", "Archivmaterial der Probe vor dem Umzug, mit der kompletten Bateria in der Quadra."),
-    place: tr("Río de Janeiro", "Rio de Janeiro", "Rio de Janeiro"), format: tr("Video · 19 min", "Video · 19 min", "Video · 19 Min."),
-    collection: tr("Escolas de samba", "Samba schools", "Sambaschulen") },
-  { id: "AR-0701", type: "Music", year: 2019, country: "TT", rights: tr("CC BY-NC", "CC BY-NC", "CC BY-NC"),
-    title: tr("Renegades Panyard — ensayo de steelband", "Renegades Panyard — steelband rehearsal", "Renegades Panyard — Steelband-Probe"),
-    desc: tr("Registro sonoro de la sección de tenores durante el ensayo de Panorama.", "Sound recording of the tenor section during the Panorama rehearsal.", "Tonaufnahme der Tenor-Sektion während der Panorama-Probe."),
-    place: tr("Puerto España", "Port of Spain", "Port of Spain"), format: tr("Audio · 31 min", "Audio · 31 min", "Audio · 31 Min."),
-    collection: tr("Steelpan", "Steelpan", "Steelpan") },
-  { id: "AR-0823", type: "Texts", year: 2014, country: "BO", rights: tr("CC BY", "CC BY", "CC BY"),
-    title: tr("Diablada — notación coreográfica", "Diablada — choreographic notation", "Diablada — choreografische Notation"),
-    desc: tr("Transcripción de las figuras de la danza, con esquemas de desplazamiento en planta.", "Transcription of the dance figures, with floor-plan movement diagrams.", "Transkription der Tanzfiguren, mit Grundriss-Schemata der Bewegungen."),
-    place: tr("Oruro", "Oruro", "Oruro"), format: tr("PDF · 14 pp.", "PDF · 14 pp.", "PDF · 14 S."),
-    collection: tr("Coreografías andinas", "Andean choreographies", "Andine Choreografien") },
-  { id: "AR-0904", type: "Music", year: 1972, country: "CO", rights: CONSULT,
-    title: tr("Las cuatro fiestas — Adolfo Echeverría", "Las cuatro fiestas — Adolfo Echeverría", "Las cuatro fiestas — Adolfo Echeverría"),
-    desc: tr("Prensado original en vinilo de 45 rpm, cara A. Voz de Nury Borrás.", "Original 45 rpm vinyl pressing, side A. Vocals by Nury Borrás.", "Originalpressung auf 45er-Vinyl, Seite A. Gesang: Nury Borrás."),
-    place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Audio · 3 min", "Audio · 3 min", "Audio · 3 Min."),
-    collection: tr("Discografía carnavalera", "Carnival discography", "Karnevalsdiskografie") },
-  { id: "AR-1015", type: "Photographs", year: 2018, country: "CH", rights: tr("CC BY-NC", "CC BY-NC", "CC BY-NC"),
-    title: tr("Carnaval de Basel — Morgestraich", "Basel Carnival — Morgestraich", "Basler Fasnacht — Morgestraich"),
-    desc: tr("Fotografías del inicio nocturno del cortejo, con los faroles pintados a mano.", "Photographs of the night-time start of the procession, with hand-painted lanterns.", "Fotografien vom nächtlichen Beginn des Umzugs, mit handbemalten Laternen."),
-    place: tr("Basilea", "Basel", "Basel"), format: tr("16 imágenes", "16 images", "16 Bilder"),
-    collection: tr("Fasnacht", "Fasnacht", "Fasnacht") },
-  { id: "AR-1122", type: "Texts", year: 1553, country: "DE", rights: PD,
-    title: tr("Fastnachtspiel — texto y acotaciones", "Fastnachtspiel — text and stage directions", "Fastnachtspiel — Text und Regieanweisungen"),
-    desc: tr("Edición de un juego de carnaval del siglo XVI, con las acotaciones escénicas originales.", "Edition of a sixteenth-century carnival play, with the original stage directions.", "Edition eines Fastnachtspiels aus dem 16. Jahrhundert, mit den originalen Regieanweisungen."),
-    place: tr("Núremberg", "Nuremberg", "Nürnberg"), format: tr("PDF · 46 pp.", "PDF · 46 pp.", "PDF · 46 S."),
-    collection: tr("Teatro carnavalesco", "Carnival theatre", "Fastnachtstheater") },
   { id: "AR-1301", type: "Illustrations", year: 2017, country: "CO", rights: PERM, author: "Javier Jara", img: "images/musica-carnaval.jpg",
     title: tr("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"),
     desc: tr("Ilustración de músicos durante los desfiles del Carnaval de Barranquilla. Imagen de portada del artículo «La música del Carnaval de Barranquilla: patrimonio vivo».", "Illustration of musicians during the Barranquilla Carnival parades. Cover image of the article “The Music of the Barranquilla Carnival: A Living Heritage”.", "Illustration von Musikern während der Umzüge des Karnevals von Barranquilla. Titelbild des Artikels „Die Musik des Karnevals von Barranquilla: lebendiges Erbe“."),
@@ -87,11 +32,6 @@ const ARCHIVE_ITEMS = [
     contact: { href: "https://www.jipslab.com/", label: "jipslab.com" },
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en smartphone · 1 imagen", "Digital work on smartphone · 1 image", "Digitales Werk auf dem Smartphone · 1 Bild"),
     collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
-  { id: "AR-1208", type: "Photographs", year: 2016, country: "CO", rights: tr("CC BY", "CC BY", "CC BY"),
-    title: tr("Garabato — vestuario y utilería", "Garabato — costume and props", "Garabato — Kostüm und Requisiten"),
-    desc: tr("Documentación fotográfica del traje completo: capa, sombrero y el garabato como objeto.", "Photographic documentation of the full costume: cape, hat and the garabato itself.", "Fotodokumentation des kompletten Kostüms: Umhang, Hut und der Garabato als Objekt."),
-    place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("31 imágenes", "31 images", "31 Bilder"),
-    collection: tr("Danzas de relación", "Narrative dances", "Erzähltänze") },
 ];
 
 const TYPE_KEY = { Texts: "text", Photographs: "photo", Illustrations: "illus", Videos: "video", Music: "audio" };
@@ -209,7 +149,7 @@ function ArchivePage() {
           {q && <button className="clear" onClick={() => setQ("")} aria-label={t(UI.clear)}>×</button>}
         </div>
         <div className="arch-filters">
-          {["All", "Texts", "Photographs", "Illustrations", "Videos", "Music"].map(f => (
+          {["All", "Texts", "Photographs", "Illustrations", "Videos", "Music"].filter(f => counts[f]).map(f => (
             <button key={f} className={type === f ? "active" : ""} onClick={() => setType(f)}>
               {t(TYPE_L[f])}
               <span className="n">{counts[f] || 0}</span>
