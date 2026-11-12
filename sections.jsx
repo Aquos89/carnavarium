@@ -462,13 +462,14 @@ function Archive() {
   const [filter, setFilter] = useState("All");
   /* Solo los objetos que de verdad están en el archivo (los mismos de archive.jsx). */
   const items = [
-    { id: "AR-1302", title: T("Danza de las marimondas — JIPS", "Danza de las marimondas — JIPS", "Danza de las marimondas — JIPS"), year: "2019", origin: "Barranquilla, CO", type: "Illustrations", typeKey: "illus" },
-    { id: "AR-1301", title: T("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"), year: "2017", origin: "Barranquilla, CO", type: "Illustrations", typeKey: "illus" },
+    { id: "AR-1302", title: T("Danza de las marimondas", "Danza de las marimondas", "Danza de las marimondas"), author: "José Palacio (JIPS)", year: "2019", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-danza-de-las-marimondas.jpg" },
+    { id: "AR-1301", title: T("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"), author: "Javier Jara", year: "2017", origin: "Barranquilla, CO", type: "Illustrations", img: "images/musica-carnaval.jpg" },
   ];
   const filters = Object.keys(ARCHIVE_TYPES).filter(f => f === "All" || items.some(i => i.type === f));
   const visible = filter === "All" ? items : items.filter(i => i.type === filter);
+  const noSave = { draggable: false, onContextMenu: e => e.preventDefault() };
   return (
-    <section id="archive" className="section">
+    <section id="archive" className="section ab">
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 04</div>
@@ -480,23 +481,33 @@ function Archive() {
           <><b>What there is.</b> The primary sources: photographs, videos, recordings, posters and text corpora, described with open metadata to search, filter and consult.</>,
           <><b>Was es gibt.</b> Die Primärquellen: Fotografien, Videos, Aufnahmen, Plakate und Textkorpora, beschrieben mit offenen Metadaten zum Suchen, Filtern und Nachschlagen.</>
         )}</p>
-        <div className="archive">
-          <div className="archive-filters">
-            {filters.map(f => (
-              <button key={f} className={filter === f ? "active" : ""} onClick={() => setFilter(f)}>{ARCHIVE_TYPES[f]}</button>
-            ))}
+        <div className="ab-drawer">
+          <div className="ab-plate" aria-hidden="true">
+            <span>{T("Gaveta", "Drawer", "Schublade")} 01</span>
+            <b>{T("Archivo Carnavarium", "Carnavarium Archive", "Carnavarium-Archiv")}</b>
+            <span>{items.length} {T("objetos", "objects", "Objekte")}</span>
           </div>
-          <div className="archive-list">
-            {visible.map(it => (
-              <a className="archive-row" key={it.id} href={"archive.html?id=" + it.id} style={{ color: "inherit", textDecoration: "none" }}>
-                <span className="id">{it.id}</span>
-                <span className="title">{it.title}</span>
-                <span className="meta">{it.origin}</span>
-                <span className="meta">{it.year}</span>
-                <span className={`type-pill type-${it.typeKey}`}>{ARCHIVE_TYPES[it.type]}</span>
-                <span className="arrow">→</span>
+          {filters.length > 2 && (
+            <div className="ab-filters">
+              {filters.map(f => <button key={f} type="button" className={filter === f ? "active" : ""} onClick={() => setFilter(f)}>{ARCHIVE_TYPES[f]}</button>)}
+            </div>
+          )}
+          <div className="ab-cards">
+            {visible.map((it, i) => (
+              <a className="ab-card" key={it.id} href={"archive.html?id=" + it.id} style={{ "--r": (i % 2 ? 1.1 : -1.3) + "deg" }}>
+                <span className="ab-photo" onContextMenu={e => e.preventDefault()}><img src={it.img} alt="" loading="lazy" {...noSave} /><i className="ab-tape" aria-hidden="true"></i></span>
+                <span className="ab-row"><span className="ab-id">{it.id}</span><span className="ab-type">{ARCHIVE_TYPES[it.type]}</span></span>
+                <span className="ab-title">{it.title}</span>
+                <span className="ab-meta"><span>{it.author}</span><span>{it.origin} · {it.year}</span></span>
+                <span className="ab-go" aria-hidden="true">{T("Abrir ficha", "Open record", "Eintrag öffnen")} →</span>
               </a>
             ))}
+            <a className="ab-card ab-blank" href="mailto:oscaraquite.x@gmail.com?subject=Carnavarium%20%E2%80%94%20Material%20para%20el%20archivo">
+              <span className="ab-plus" aria-hidden="true">+</span>
+              <span className="ab-title">{T("Esta ficha puede ser suya", "This record could be yours", "Dieser Eintrag könnte Ihrer sein")}</span>
+              <span className="ab-desc">{T("¿Tiene fotos, grabaciones, carteles o documentos de carnaval? Compártalos con el archivo.", "Do you have carnival photos, recordings, posters or documents? Share them with the archive.", "Haben Sie Fotos, Aufnahmen, Plakate oder Dokumente vom Karneval? Teilen Sie sie mit dem Archiv.")}</span>
+              <span className="ab-go">{T("Enviar material", "Send material", "Material senden")} →</span>
+            </a>
           </div>
         </div>
       </div>
