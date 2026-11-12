@@ -1090,10 +1090,10 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 .ct-mq.rev .ct-mq-in{animation-direction:reverse;animation-duration:56s}
 .ct:hover .ct-mq-in{animation-play-state:paused}
 .ct-mq-set{display:flex;gap:0}
-.ct-mq a{display:inline-flex;align-items:center;gap:22px;padding-right:22px;font-family:var(--serif);font-size:clamp(28px,3.6vw,52px);font-weight:500;font-style:italic;letter-spacing:-.01em;color:var(--canvas);white-space:nowrap;transition:color .2s}
-.ct-mq.rev a{font-style:normal;font-weight:600;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--canvas) 70%,transparent)}
-.ct-mq a:hover{color:var(--c);-webkit-text-stroke:0}
-.ct-mq a i{font-style:normal;font-size:.45em;color:var(--c);-webkit-text-stroke:0}
+.ct-mq .w{cursor:default;user-select:none;display:inline-flex;align-items:center;gap:22px;padding-right:22px;font-family:var(--serif);font-size:clamp(28px,3.6vw,52px);font-weight:500;font-style:italic;letter-spacing:-.01em;color:var(--canvas);white-space:nowrap;transition:color .2s}
+.ct-mq.rev .w{font-style:normal;font-weight:600;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--canvas) 70%,transparent)}
+
+.ct-mq .w i{font-style:normal;font-size:.45em;color:var(--c);-webkit-text-stroke:0}
 @keyframes ctMq{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ct-mq-in{animation:none}}
 @media(max-width:900px){.ct-top{grid-template-columns:1fr}}

@@ -89,6 +89,16 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .cv-el-chip{display:inline-block;padding:5px 12px;border:1px solid color-mix(in srgb,var(--ec) 45%,var(--rule));border-radius:999px;background:color-mix(in srgb,var(--ec) 10%,var(--canvas-soft));font-family:var(--serif);font-size:.95rem;line-height:1.2;transition:background .2s,border-color .2s}
 .cv-el-chip:hover{background:color-mix(in srgb,var(--ec) 24%,var(--canvas-soft));border-color:var(--ec);color:var(--ink)}
 @media(max-width:620px){.cv-el-row{grid-template-columns:1fr}.cv-el-ty{padding-top:0}}
+.cv-el-row:not(.open) .cv-el-chip.x{display:none}
+#elementos.searching .cv-el-chip.x.hit{display:inline-block!important}
+#elementos.searching .cv-el-more{display:none}
+.cv-el-more{padding:5px 12px;border:1px dashed var(--ec);border-radius:999px;background:none;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer}
+.cv-el-more:hover{background:color-mix(in srgb,var(--ec) 14%,transparent);color:var(--ink)}
+.cv-el-more .l,.cv-el-row.open .cv-el-more .m{display:none}.cv-el-row.open .cv-el-more .l{display:inline}
+.cv-el-search{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin:-8px 0 18px}
+.cv-el-search input{flex:1 1 280px;max-width:420px;font-family:var(--serif);font-size:1.05rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--rule);padding:8px 0;outline:none}
+.cv-el-search input:focus{border-color:var(--ink)}
+.cv-el-none{font-family:var(--serif);color:var(--ink-soft)}
 </style>
 </head>
 <body>
@@ -156,15 +166,21 @@ h+=c.related.length?'<div class="cv-rel">'+c.related.map(function(r){return '<a 
 h+='</section>';
 var EL=window.elementosDe?window.elementosDe(c.slug):[],ET=window.ELEMENTO_TIPOS||{};
 if(EL.length){var etipos=Object.keys(ET).filter(function(k){return EL.some(function(e){return e.tipo===k})});
-h+='<section class="shell cv-sec" id="elementos"><h2>'+t({es:"Elementos",en:"Elements",de:"Elemente"})+' <span class="cv-el-count">'+EL.length+'</span></h2><div class="cv-el-rows">'+etipos.map(function(k){var ty=ET[k],xs=EL.filter(function(e){return e.tipo===k});return '<div class="cv-el-row" style="--ec:'+ty.color+'"><div class="cv-el-ty"><i></i><span class="lb">'+t(ty)+' <b>'+xs.length+'</b></span></div><div class="cv-el-chips">'+xs.map(function(e){return '<a class="cv-el-chip" href="elemento.html?e='+e.id+'" title="'+esc(e.resumen.es).replace(/"/g,"&quot;")+'">'+t(e.nombre)+'</a>'}).join("")+'</div></div>'}).join("")+'</div></section>'}
+var MAXV=8,norm=function(x){return String(x).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")};
+h+='<section class="shell cv-sec" id="elementos"><h2>'+t({es:"Elementos",en:"Elements",de:"Elemente"})+' <span class="cv-el-count">'+EL.length+'</span></h2>'+(EL.length>30?'<div class="cv-el-search"><input type="search" id="cv-el-q" autocomplete="off" placeholder="'+esc({es:"Buscar un elemento…",en:"Search an element…",de:"Element suchen…"}[document.documentElement.getAttribute("data-lang")||"en"])+'" aria-label="Buscar / Search / Suchen" /><span class="cv-el-none" hidden>'+t({es:"Ningún elemento coincide.",en:"No element matches.",de:"Kein Element gefunden."})+'</span></div>':'')+'<div class="cv-el-rows">'+etipos.map(function(k){var ty=ET[k],xs=EL.filter(function(e){return e.tipo===k}),extra=xs.length-MAXV;return '<div class="cv-el-row" style="--ec:'+ty.color+'"><div class="cv-el-ty"><i></i><span class="lb">'+t(ty)+' <b>'+xs.length+'</b></span></div><div class="cv-el-chips">'+xs.map(function(e,i){return '<a class="cv-el-chip'+(i>=MAXV?' x':'')+'" data-n="'+esc(norm(e.nombre.es+" "+e.nombre.en+" "+e.nombre.de))+'" href="elemento.html?e='+e.id+'" title="'+esc(e.resumen.es).replace(/"/g,"&quot;")+'">'+t(e.nombre)+'</a>'}).join("")+(extra>0?'<button type="button" class="cv-el-more" data-more="'+extra+'"><span class="m">+'+extra+' '+t({es:"más",en:"more",de:"weitere"})+'</span><span class="l">'+t({es:"ver menos",en:"show less",de:"weniger"})+'</span></button>':'')+'</div></div>'}).join("")+'</div></section>'}
 var GL=(window.CARNAVAL_GLOSARIO||{})[c.slug]||[],GC=window.CARNAVAL_GLOSARIO_CATS||{};
 if(GL.length){var gcats=Object.keys(GC).filter(function(k){return GL.some(function(g){return g.cat===k})});
 h+='<section class="shell cv-sec" id="glosario"><h2>'+t({es:"Glosario",en:"Glossary",de:"Glossar"})+'</h2><div class="cv-gl-f"><button type="button" class="active" data-gc="">'+t({es:"Todo",en:"All",de:"Alle"})+' <span class="n">'+GL.length+'</span></button>'+gcats.map(function(k){return '<button type="button" data-gc="'+k+'">'+t(GC[k])+' <span class="n">'+GL.filter(function(g){return g.cat===k}).length+'</span></button>'}).join("")+'</div><dl class="cv-gl" style="--gc:'+c.color+'">'+GL.map(function(g){return '<div data-cat="'+g.cat+'"><dt><b>'+esc(g.term)+'</b><span class="gc"><i></i>'+t(GC[g.cat])+'</span></dt><dd>'+t(g.def)+'</dd></div>'}).join("")+'</dl></section>'}
 h+='<section class="shell cv-sec"><h2>'+t(lbl.others)+'</h2><div class="cv-others">'+C.filter(function(x){return x!==c}).map(function(x){return '<a href="carnaval.html?c='+x.slug+'"><span class="cv-dot" style="background:'+x.color+'"></span>'+t(x.place)+'</a>'}).join("")+'</div></section>';
 h=h.replace(/(Llegó Macta|Macta arrived|Macta ist da|Macta llega)/g,"<em>$1</em>");document.getElementById("cv").innerHTML=h;
 [].forEach.call(document.querySelectorAll("[data-gc]"),function(b){b.addEventListener("click",function(){var k=b.dataset.gc;[].forEach.call(document.querySelectorAll("[data-gc]"),function(x){x.classList.toggle("active",x===b)});[].forEach.call(document.querySelectorAll(".cv-gl>div"),function(d){d.style.display=!k||d.dataset.cat===k?"":"none"})})});
+[].forEach.call(document.querySelectorAll(".cv-el-more"),function(b){b.addEventListener("click",function(){b.closest(".cv-el-row").classList.toggle("open")})});
+(function(){var q=document.getElementById("cv-el-q");if(!q)return;var sec=document.getElementById("elementos"),none=sec.querySelector(".cv-el-none");
+q.addEventListener("input",function(){var v=q.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim(),any=false;sec.classList.toggle("searching",!!v);
+[].forEach.call(sec.querySelectorAll(".cv-el-row"),function(r){var n=0;[].forEach.call(r.querySelectorAll(".cv-el-chip"),function(c){var ok=!v||c.dataset.n.indexOf(v)>-1;c.classList.toggle("hit",!!v&&ok);c.style.display=v&&!ok?"none":"";if(ok)n++});r.style.display=v&&!n?"none":"";if(n)any=true});
+none.hidden=!v||any})})();
 var TT={};["es","en","de"].forEach(function(l){TT[l]=(c.alias?c.alias[l]+" · ":"")+c.place[l]+" — Carnavarium"});
-function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=TT[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}
+function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=TT[l];var qi=document.getElementById("cv-el-q");if(qi)qi.placeholder={es:"Buscar un elemento…",en:"Search an element…",de:"Element suchen…"}[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}
 [].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});
 set(document.documentElement.getAttribute("data-lang")||"en",false);
 })()</script>

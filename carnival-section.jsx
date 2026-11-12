@@ -1,4 +1,5 @@
-/* § 02 El Carnaval — calendario móvil y conceptos. Depende de T() y useState (sections.jsx). */
+/* La cinta de palabras (CT_WORDS) es solo decorativa: no enlaza a ninguna página.
+   § 02 El Carnaval — calendario móvil y conceptos. Depende de T() y useState (sections.jsx). */
 
 function easterDate(y) {
   const a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4,
@@ -173,7 +174,7 @@ function CarnivalTeaser() {
   const v = useCountUp(days, ref);
   const row = (k, rev) => (
     <div className={"ct-mq" + (rev ? " rev" : "")} aria-hidden="true"><div className="ct-mq-in">
-      {[0, 1].map(j => <span key={j} className="ct-mq-set">{(rev ? CT_WORDS.slice().reverse() : CT_WORDS).map((w, i) => <a key={k + j + i} href={"el-carnaval.html" + w[0]} tabIndex={-1} style={{ "--c": w[1] }}>{w[2]}<i>✦</i></a>)}</span>)}
+      {[0, 1].map(j => <span key={j} className="ct-mq-set">{(rev ? CT_WORDS.slice().reverse() : CT_WORDS).map((w, i) => <span key={k + j + i} className="w" style={{ "--c": w[1] }}>{w[2]}<i>✦</i></span>)}</span>)}
     </div></div>
   );
   return (
