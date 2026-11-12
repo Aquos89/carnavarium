@@ -174,7 +174,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </footer>
 
 <script src="carnavales.js?v=75"></script>
-<script src="elementos.js?v=5"></script>
+<script src="elementos.js?v=7"></script>
 <script src="vendor/d3.min.js"></script>
 <script>(function(){
 var LS=["es","en","de"],C=window.CARNAVALES||[],E=window.ELEMENTOS||[],ET=window.ELEMENTO_TIPOS||{},ER=window.ELEMENTO_RELACIONES||{};
@@ -247,6 +247,15 @@ function build(){
   .force("x",d3.forceX(W/2).strength(.045)).force("y",d3.forceY(H/2).strength(.06))
   .on("tick",function(){lsel.attr("x1",function(l){return l.source.x}).attr("y1",function(l){return l.source.y}).attr("x2",function(l){return l.target.x}).attr("y2",function(l){return l.target.y});nsel.attr("transform",function(d){return "translate("+d.x+","+d.y+")"})});
  focus();
+ /* encuadre automático: cuando el grafo se asienta, se ajusta para que se vea completo */
+ clearTimeout(fitT);fitT=setTimeout(function(){if(!selId)fit(N,W,H)},2600);
+}
+var fitT;
+function fit(N,W,H){
+ if(!N.length)return;
+ var x0=d3.min(N,function(d){return d.x}),x1=d3.max(N,function(d){return d.x}),y0=d3.min(N,function(d){return d.y}),y1=d3.max(N,function(d){return d.y});
+ var k=Math.max(.3,Math.min(1.4,.92*Math.min(W/Math.max(1,x1-x0+60),H/Math.max(1,y1-y0+60))));
+ svg.transition().duration(800).call(zoom.transform,d3.zoomIdentity.translate(W/2-k*(x0+x1)/2,H/2-k*(y0+y1)/2).scale(k));
 }
 function focus(){
  var f=hovId||selId;

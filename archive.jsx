@@ -18,37 +18,37 @@ const PD = tr("Dominio público", "Public domain", "Gemeinfrei");
 const NO_SAVE = { draggable: false, onContextMenu: e => e.preventDefault() };
 
 const ARCHIVE_ITEMS = [
-  { id: "AR-1301", type: "Illustrations", year: 2017, country: "CO", rights: PERM, author: "Javier Jara", img: "images/musica-carnaval.jpg",
+  { id: "AR-1301", tags: { carnavales: ["barranquilla"], elementos: ["marimonda", "sombrero-vueltiao"] }, type: "Illustrations", year: 2017, country: "CO", rights: PERM, author: "Javier Jara", img: "images/musica-carnaval.jpg",
     title: tr("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"),
     desc: tr("Ilustración de músicos durante los desfiles del Carnaval de Barranquilla. Imagen de portada del artículo «La música del Carnaval de Barranquilla: patrimonio vivo».", "Illustration of musicians during the Barranquilla Carnival parades. Cover image of the article “The Music of the Barranquilla Carnival: A Living Heritage”.", "Illustration von Musikern während der Umzüge des Karnevals von Barranquilla. Titelbild des Artikels „Die Musik des Karnevals von Barranquilla: lebendiges Erbe“."),
     place: tr("Bogotá", "Bogotá", "Bogotá"), format: tr("Ilustración digital · 1 imagen", "Digital illustration · 1 image", "Digitale Illustration · 1 Bild"),
     collection: tr("Música del carnaval", "Carnival music", "Karnevalsmusik"),
     usedIn: { href: "ensayo-musica-carnaval.html", title: tr("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe") } },
-  { id: "AR-1303", type: "Illustrations", year: 2021, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-otra-ola-que-nos-lleva.jpg",
+  { id: "AR-1303", tags: { carnavales: ["barranquilla"], elementos: ["marimonda", "coyongos"] }, type: "Illustrations", year: 2021, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-otra-ola-que-nos-lleva.jpg",
     rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
     title: tr("Otra ola que nos lleva", "Otra ola que nos lleva (Another wave that carries us)", "Otra ola que nos lleva (Noch eine Welle, die uns trägt)"),
-    desc: tr("Obra digital realizada en Procreate para iPad. En un guiño a La gran ola de Kanagawa, una ola gigante arrastra una canoa repleta de personajes del carnaval —marimondas y otros disfraces— frente al horizonte de rascacielos de una ciudad; algunos caen al agua mientras otras embarcaciones navegan detrás.",
-      "Digital work made in Procreate for iPad. In a nod to The Great Wave off Kanagawa, a giant wave sweeps a canoe packed with carnival characters —marimondas and other costumes— past a city skyline of high-rises; some fall into the water while other boats sail behind.",
-      "Digitales Werk, geschaffen mit Procreate auf dem iPad. In Anspielung auf Die große Welle vor Kanagawa reißt eine riesige Welle ein Kanu voller Karnevalsfiguren – Marimondas und andere Kostüme – an einer Hochhaus-Skyline vorbei; einige fallen ins Wasser, während dahinter weitere Boote fahren."),
+    desc: tr("Obra digital realizada en Procreate para iPad. Una ola gigante arrastra una canoa repleta de personajes del carnaval —marimondas y coyongos— frente al horizonte de rascacielos de Barranquilla; algunos caen al agua mientras otras embarcaciones navegan detrás.",
+      "Digital work made in Procreate for iPad. A giant wave sweeps a canoe packed with carnival characters —marimondas and coyongos— past the high-rise skyline of Barranquilla; some fall into the water while other boats sail behind.",
+      "Digitales Werk, geschaffen mit Procreate auf dem iPad. Eine riesige Welle reißt ein Kanu voller Karnevalsfiguren – Marimondas und Coyongos – an der Hochhaus-Skyline von Barranquilla vorbei; einige fallen ins Wasser, während dahinter weitere Boote fahren."),
     bio: tr("José Palacio (Barranquilla), conocido como JIPS, es un reconocido artista visual y animador colombiano, especializado en técnicas tradicionales y digitales que abarcan la animación, la pintura y la ilustración. Su trabajo expande los límites de la creación artística mediante la integración de tecnologías generativas, programación creativa y matemáticas fractales, explorando las intersecciones entre el arte, la ciencia y la tecnología para invitar a la reflexión, despertar emociones e inspirar un cambio positivo.",
       "José Palacio (Barranquilla), known as JIPS, is a renowned Colombian visual artist and animator, specialising in traditional and digital techniques spanning animation, painting and illustration. His work pushes the boundaries of artistic creation by integrating generative technologies, creative coding and fractal mathematics, exploring the intersections of art, science and technology to invite reflection, stir emotions and inspire positive change.",
       "José Palacio (Barranquilla), bekannt als JIPS, ist ein renommierter kolumbianischer bildender Künstler und Animator, spezialisiert auf traditionelle und digitale Techniken in Animation, Malerei und Illustration. Sein Werk erweitert die Grenzen des künstlerischen Schaffens durch generative Technologien, kreatives Programmieren und fraktale Mathematik und erkundet die Schnittstellen von Kunst, Wissenschaft und Technologie, um zum Nachdenken anzuregen, Emotionen zu wecken und positiven Wandel anzustoßen."),
     contact: { href: "https://www.jipslab.com/", label: "jipslab.com" },
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en Procreate para iPad · 1 imagen", "Digital work in Procreate for iPad · 1 image", "Digitales Werk in Procreate auf dem iPad · 1 Bild"),
     collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
-  { id: "AR-1304", type: "Illustrations", year: 2020, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-reconstruccion-de-la-memoria.jpg",
+  { id: "AR-1304", tags: { carnavales: ["barranquilla"], elementos: ["marimonda"] }, type: "Illustrations", year: 2020, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-reconstruccion-de-la-memoria.jpg",
     rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
     title: tr("Reconstrucción de la memoria", "Reconstrucción de la memoria (Rebuilding memory)", "Reconstrucción de la memoria (Rekonstruktion der Erinnerung)"),
-    desc: tr("Obra digital realizada en tablet. De espaldas, una figura con túnica roja, máscara amarilla y un báculo de ramas luminosas alza los brazos ante un edificio de dos cúpulas que emerge de un mar azul; las aguas se abren a ambos lados bajo un cielo nocturno atravesado por raíces de luz.",
-      "Digital work made on a tablet. Seen from behind, a figure in a red robe, yellow mask and a staff of glowing branches raises its arms before a twin-domed building rising from a blue sea; the waters part on both sides beneath a night sky crossed by roots of light.",
-      "Digitales Werk, auf dem Tablet geschaffen. Von hinten gesehen hebt eine Gestalt in rotem Gewand, mit gelber Maske und einem Stab aus leuchtenden Zweigen die Arme vor einem Gebäude mit zwei Kuppeln, das aus einem blauen Meer aufsteigt; das Wasser teilt sich zu beiden Seiten unter einem Nachthimmel voller Lichtwurzeln."),
+    desc: tr("Obra digital realizada en tablet. De espaldas, una marimonda con túnica roja y un báculo de ramas luminosas alza los brazos ante el ahora demolido edificio Palma en Barranquilla que emerge de un mar azul; las aguas se abren a ambos lados bajo un cielo nocturno atravesado por raíces de luz.",
+      "Digital work made on a tablet. Seen from behind, a marimonda in a red robe with a staff of glowing branches raises its arms before Barranquilla’s now-demolished Palma building, rising from a blue sea; the waters part on both sides beneath a night sky crossed by roots of light.",
+      "Digitales Werk, auf dem Tablet geschaffen. Von hinten gesehen hebt eine Marimonda in rotem Gewand mit einem Stab aus leuchtenden Zweigen die Arme vor dem inzwischen abgerissenen Edificio Palma in Barranquilla, das aus einem blauen Meer aufsteigt; das Wasser teilt sich zu beiden Seiten unter einem Nachthimmel voller Lichtwurzeln."),
     bio: tr("José Palacio (Barranquilla), conocido como JIPS, es un reconocido artista visual y animador colombiano, especializado en técnicas tradicionales y digitales que abarcan la animación, la pintura y la ilustración. Su trabajo expande los límites de la creación artística mediante la integración de tecnologías generativas, programación creativa y matemáticas fractales, explorando las intersecciones entre el arte, la ciencia y la tecnología para invitar a la reflexión, despertar emociones e inspirar un cambio positivo.",
       "José Palacio (Barranquilla), known as JIPS, is a renowned Colombian visual artist and animator, specialising in traditional and digital techniques spanning animation, painting and illustration. His work pushes the boundaries of artistic creation by integrating generative technologies, creative coding and fractal mathematics, exploring the intersections of art, science and technology to invite reflection, stir emotions and inspire positive change.",
       "José Palacio (Barranquilla), bekannt als JIPS, ist ein renommierter kolumbianischer bildender Künstler und Animator, spezialisiert auf traditionelle und digitale Techniken in Animation, Malerei und Illustration. Sein Werk erweitert die Grenzen des künstlerischen Schaffens durch generative Technologien, kreatives Programmieren und fraktale Mathematik und erkundet die Schnittstellen von Kunst, Wissenschaft und Technologie, um zum Nachdenken anzuregen, Emotionen zu wecken und positiven Wandel anzustoßen."),
     contact: { href: "https://www.jipslab.com/", label: "jipslab.com" },
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en tablet · 1 imagen", "Digital work on tablet · 1 image", "Digitales Werk auf dem Tablet · 1 Bild"),
     collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
-  { id: "AR-1305", type: "Illustrations", year: 2020, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-bocadillo-de-carnaval.jpg",
+  { id: "AR-1305", tags: { carnavales: ["barranquilla"], elementos: ["marimonda"] }, type: "Illustrations", year: 2020, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-bocadillo-de-carnaval.jpg",
     rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
     title: tr("Bocadillo de carnaval", "Bocadillo de carnaval (Carnival snack)", "Bocadillo de carnaval (Karnevalshäppchen)"),
     desc: tr("Obra digital realizada en tablet. Un hombre con máscara de marimonda descansa sentado en una silla de madera frente a una casa amarilla, junto a un caimán multicolor de fauces abiertas; de la ventana brota una cascada de flores bajo el cielo azul.",
@@ -60,7 +60,7 @@ const ARCHIVE_ITEMS = [
     contact: { href: "https://www.jipslab.com/", label: "jipslab.com" },
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en tablet · 1 imagen", "Digital work on tablet · 1 image", "Digitales Werk auf dem Tablet · 1 Bild"),
     collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
-  { id: "AR-1306", type: "Illustrations", year: 2018, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-batalla-de-flores-2-0.jpg",
+  { id: "AR-1306", tags: { carnavales: ["barranquilla"], elementos: ["batalla-de-flores", "marimonda"] }, type: "Illustrations", year: 2018, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-batalla-de-flores-2-0.jpg",
     rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
     title: tr("Batalla de Flores 2.0", "Batalla de Flores 2.0", "Batalla de Flores 2.0"),
     desc: tr("Obra digital realizada en smartphone. La Batalla de Flores vista desde la calle: una carroza gigante con forma de máscara de marimonda y una reina en lo alto avanza entre palcos repletos, camarógrafos y público. Entre la multitud se cuela un Mickey Mouse y un globo de diálogo bromea: «Sigue creyendo que la marimonda es Mickey».",
@@ -72,7 +72,7 @@ const ARCHIVE_ITEMS = [
     contact: { href: "https://www.jipslab.com/", label: "jipslab.com" },
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en smartphone · 1 imagen", "Digital work on smartphone · 1 image", "Digitales Werk auf dem Smartphone · 1 Bild"),
     collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
-  { id: "AR-1307", type: "Illustrations", year: 2018, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-noche-de-verbena-en-la-popular.jpg",
+  { id: "AR-1307", tags: { carnavales: ["barranquilla"], elementos: ["verbena"] }, type: "Illustrations", year: 2018, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-noche-de-verbena-en-la-popular.jpg",
     rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
     title: tr("Noche de verbena en la Popular", "Noche de verbena en la Popular (Verbena night at La Popular)", "Noche de verbena en la Popular (Verbena-Nacht in La Popular)"),
     desc: tr("Obra digital realizada en smartphone. Una verbena nocturna frente a los letreros de «La Popular» y «Los Robles Express»: guirnaldas de flecos de colores cruzan el cielo, el público se sienta en sillas plásticas amarillas y las parejas bailan en la calle bajo una luna sonriente.",
@@ -84,7 +84,7 @@ const ARCHIVE_ITEMS = [
     contact: { href: "https://www.jipslab.com/", label: "jipslab.com" },
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en smartphone · 1 imagen", "Digital work on smartphone · 1 image", "Digitales Werk auf dem Smartphone · 1 Bild"),
     collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
-  { id: "AR-1302", type: "Illustrations", year: 2019, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-danza-de-las-marimondas.jpg",
+  { id: "AR-1302", tags: { carnavales: ["barranquilla"], elementos: ["marimonda"] }, type: "Illustrations", year: 2019, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-danza-de-las-marimondas.jpg",
     rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
     title: tr("Danza de las marimondas", "Danza de las marimondas", "Danza de las marimondas"),
     desc: tr("Obra digital realizada en smartphone. Cinco figuras con máscara de marimonda, el personaje del Carnaval de Barranquilla, bailan en ronda tomadas de las manos.", "Digital work made on a smartphone. Five figures wearing marimonda masks, the Barranquilla Carnival character, dance in a ring holding hands.", "Digitales, auf dem Smartphone geschaffenes Werk. Fünf Figuren mit Marimonda-Masken, der Figur des Karnevals von Barranquilla, tanzen Hand in Hand im Kreis."),
@@ -95,6 +95,12 @@ const ARCHIVE_ITEMS = [
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en smartphone · 1 imagen", "Digital work on smartphone · 1 image", "Digitales Werk auf dem Smartphone · 1 Bild"),
     collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
 ];
+
+/* Etiquetas: carnavales y elementos (de carnavales.js y elementos.js) presentes en cada objeto */
+const TAG_CARN = s => (window.CARNAVALES || []).find(c => c.slug === s);
+const TAG_EL = id => (window.elemento ? window.elemento(id) : null);
+const tagNames = it => !it.tags ? [] : (it.tags.carnavales || []).map(TAG_CARN).filter(Boolean).map(c => c.place)
+  .concat((it.tags.elementos || []).map(TAG_EL).filter(Boolean).map(e => e.nombre));
 
 const TYPE_KEY = { Texts: "text", Photographs: "photo", Illustrations: "illus", Videos: "video", Music: "audio" };
 const TYPE_L = {
@@ -108,7 +114,8 @@ const UI = {
     "A digital collection of carnival materials — texts, photographs, illustrations, videos and music. Each object keeps its provenance, its format and the conditions under which it can be consulted.",
     "Eine digitale Sammlung von Karnevalsmaterialien – Texte, Fotografien, Illustrationen, Videos und Musik. Jedes Objekt bewahrt seine Herkunft, sein Format und die Bedingungen, unter denen es eingesehen werden kann."),
   objects: tr("Objetos", "Objects", "Objekte"), countries: tr("Países", "Countries", "Länder"), collections: tr("Colecciones", "Collections", "Sammlungen"), oldest: tr("Más antiguo", "Oldest", "Ältestes"),
-  search: tr("Buscar por título, lugar, año o colección…", "Search by title, place, year or collection…", "Nach Titel, Ort, Jahr oder Sammlung suchen…"),
+  search: tr("Buscar por título, lugar, año, carnaval o elemento…", "Search by title, place, year, carnival or element…", "Nach Titel, Ort, Jahr, Karneval oder Element suchen…"),
+  tags: tr("Etiquetas", "Tags", "Schlagwörter"),
   searchL: tr("Buscar en el archivo", "Search the archive", "Archiv durchsuchen"), clear: tr("Limpiar búsqueda", "Clear search", "Suche löschen"),
   sort: tr("Orden", "Sort", "Sortierung"), recent: tr("Más reciente", "Newest", "Neueste"), old: tr("Más antiguo", "Oldest", "Älteste"), byTitle: tr("Título", "Title", "Titel"),
   nObj: tr("objetos", "objects", "Objekte"), of: tr("de", "of", "von"),
@@ -161,7 +168,7 @@ function ArchivePage() {
     let out = ARCHIVE_ITEMS.filter(it => {
       if (type !== "All" && it.type !== type) return false;
       if (!needle) return true;
-      return [it.title, it.desc, it.place, it.collection].flatMap(o => [o.es, o.en, o.de]).concat([it.id, String(it.year), it.author || ""])
+      return [it.title, it.desc, it.place, it.collection].concat(tagNames(it)).flatMap(o => [o.es, o.en, o.de]).concat([it.id, String(it.year), it.author || ""])
         .join(" ").toLowerCase().includes(needle);
     });
     out = [...out].sort((a, b) =>
@@ -252,6 +259,7 @@ function ArchivePage() {
                   </div>
                   <h3>{t(it.title)}</h3>
                   <p className="desc">{t(it.desc)}</p>
+                  {tagNames(it).length > 0 && <div className="arch-card-tags">{tagNames(it).map((n, k) => <span key={k}>{t(n)}</span>)}</div>}
                   <div className="arch-card-meta">
                     <span>{t(it.place)}, {it.country}</span>
                     <span>{it.year}</span>
@@ -283,6 +291,17 @@ function ArchivePage() {
                 <div><dt>{t(UI.coll)}</dt><dd>{t(record.collection)}</dd></div>
                 <div><dt>{t(UI.rights)}</dt><dd>{t(record.rights)}</dd></div>
               </dl>
+              {record.tags && <div className="sheet-tags">
+                <div className="sheet-tags-k">{t(UI.tags)}</div>
+                <div className="sheet-tags-row">
+                  {(record.tags.carnavales || []).map(TAG_CARN).filter(Boolean).map(c => (
+                    <a key={c.slug} className="tag tag-c" href={"carnaval.html?c=" + c.slug + "&lang=" + lang}><i style={{ background: c.color }}></i>{t(c.place)}</a>
+                  ))}
+                  {(record.tags.elementos || []).map(TAG_EL).filter(Boolean).map(e => (
+                    <a key={e.id} className="tag" href={"elemento.html?e=" + e.id + "&lang=" + lang}><i style={{ background: ((window.ELEMENTO_TIPOS || {})[e.tipo] || {}).color }}></i>{t(e.nombre)}</a>
+                  ))}
+                </div>
+              </div>}
               {record.usedIn && <p className="sheet-used">{t(UI.used)} <a href={record.usedIn.href + "?lang=" + lang}>{t(record.usedIn.title)} →</a></p>}
               {record.bio && <><div className="sheet-id" style={{ marginTop: 20 }}>{t(UI.aboutArtist)}</div><p className="sheet-desc">{t(record.bio)}</p></>}
               {record.contact ? (

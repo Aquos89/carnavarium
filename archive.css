@@ -104,3 +104,17 @@
 /* Ficha abierta: la obra se ve completa, sin recortes (vertical u horizontal) */
 .sheet-thumb.has-img{aspect-ratio:auto;display:flex;align-items:center;justify-content:center;background:#1c1a16}
 .sheet-thumb.has-img img{width:auto;height:auto;max-width:100%;max-height:min(72vh,720px);object-fit:contain}
+
+/* Etiquetas del archivo: carnaval y elementos presentes en cada objeto */
+.arch-card-tags{display:flex;flex-wrap:wrap;gap:5px}
+.arch-card-tags span{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--rule);border-radius:999px;padding:3px 8px}
+.sheet-tags{margin-top:22px}
+.sheet-tags-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+.sheet-tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.sheet-tags .tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--serif);font-size:.98rem;line-height:1.2;padding:6px 13px 6px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--canvas-soft);color:var(--ink);transition:border-color .2s}
+.sheet-tags .tag i{width:9px;height:9px;border-radius:50%;flex:none}
+.sheet-tags .tag-c{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.sheet-tags .tag:hover{border-color:var(--ink);color:var(--pink-text)}
+/* Cuadrícula: sin bloque oscuro cuando la última fila no está completa */
+.arch-grid{gap:0;background:none;border:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.arch-card{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
