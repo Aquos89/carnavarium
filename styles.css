@@ -1174,3 +1174,8 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 .project .card .blurb{grid-area:blurb;margin-top:16px;font-size:.86rem;line-height:1.5}
 .project .card .pf-more{grid-area:more;justify-self:start;margin-top:12px}
 }
+
+/* § 02 cuenta atrás: fondo morado berenjena (del morado del logo) en lugar del negro */
+.ct{--ct-bg:#3a2544;background:var(--ct-bg);background-image:radial-gradient(900px 420px at 0% 0%,rgba(232,88,152,.22),transparent 60%),radial-gradient(700px 380px at 100% 100%,rgba(255,200,64,.12),transparent 60%)}
+.ct .ct-tile .n,.ct .ct-mq .w i{filter:brightness(1.35) saturate(1.1)}
+.ct .ct-tile:hover .n{filter:none}
