@@ -77,6 +77,16 @@ const ARCHIVE_ITEMS = [
     place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Ilustración digital · 1 imagen", "Digital illustration · 1 image", "Digitale Illustration · 1 Bild"),
     collection: tr("Música del carnaval", "Carnival music", "Karnevalsmusik"),
     usedIn: { href: "ensayo-musica-carnaval.html", title: tr("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe") } },
+  { id: "AR-1302", type: "Illustrations", year: 2019, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-danza-de-las-marimondas.jpg",
+    rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
+    title: tr("Danza de las marimondas", "Danza de las marimondas", "Danza de las marimondas"),
+    desc: tr("Obra digital realizada en smartphone. Cinco figuras con máscara de marimonda, el personaje del Carnaval de Barranquilla, bailan en ronda tomadas de las manos.", "Digital work made on a smartphone. Five figures wearing marimonda masks, the Barranquilla Carnival character, dance in a ring holding hands.", "Digitales, auf dem Smartphone geschaffenes Werk. Fünf Figuren mit Marimonda-Masken, der Figur des Karnevals von Barranquilla, tanzen Hand in Hand im Kreis."),
+    bio: tr("José Palacio (Barranquilla), conocido como JIPS, es un reconocido artista visual y animador colombiano, especializado en técnicas tradicionales y digitales que abarcan la animación, la pintura y la ilustración. Su trabajo expande los límites de la creación artística mediante la integración de tecnologías generativas, programación creativa y matemáticas fractales, explorando las intersecciones entre el arte, la ciencia y la tecnología para invitar a la reflexión, despertar emociones e inspirar un cambio positivo.",
+      "José Palacio (Barranquilla), known as JIPS, is a renowned Colombian visual artist and animator, specialising in traditional and digital techniques spanning animation, painting and illustration. His work pushes the boundaries of artistic creation by integrating generative technologies, creative coding and fractal mathematics, exploring the intersections of art, science and technology to invite reflection, stir emotions and inspire positive change.",
+      "José Palacio (Barranquilla), bekannt als JIPS, ist ein renommierter kolumbianischer bildender Künstler und Animator, spezialisiert auf traditionelle und digitale Techniken in Animation, Malerei und Illustration. Sein Werk erweitert die Grenzen des künstlerischen Schaffens durch generative Technologien, kreatives Programmieren und fraktale Mathematik und erkundet die Schnittstellen von Kunst, Wissenschaft und Technologie, um zum Nachdenken anzuregen, Emotionen zu wecken und positiven Wandel anzustoßen."),
+    contact: { href: "https://www.jipslab.com/", label: "jipslab.com" },
+    place: tr("Barranquilla", "Barranquilla", "Barranquilla"), format: tr("Obra digital en smartphone · 1 imagen", "Digital work on smartphone · 1 image", "Digitales Werk auf dem Smartphone · 1 Bild"),
+    collection: tr("Artistas del carnaval", "Carnival artists", "Karnevalskünstler") },
   { id: "AR-1208", type: "Photographs", year: 2016, country: "CO", rights: tr("CC BY", "CC BY", "CC BY"),
     title: tr("Garabato — vestuario y utilería", "Garabato — costume and props", "Garabato — Kostüm und Requisiten"),
     desc: tr("Documentación fotográfica del traje completo: capa, sombrero y el garabato como objeto.", "Photographic documentation of the full costume: cape, hat and the garabato itself.", "Fotodokumentation des kompletten Kostüms: Umhang, Hut und der Garabato als Objekt."),
@@ -106,6 +116,9 @@ const UI = {
   type: tr("Tipo", "Type", "Typ"), author: tr("Autor", "Author", "Urheber"), year: tr("Año", "Year", "Jahr"), prov: tr("Procedencia", "Provenance", "Herkunft"),
   format: tr("Formato", "Format", "Format"), coll: tr("Colección", "Collection", "Sammlung"), rights: tr("Derechos", "Rights", "Rechte"),
   used: tr("Usado en", "Used in", "Verwendet in"),
+  aboutArtist: tr("Sobre el artista", "About the artist", "Über den Künstler"),
+  allRights: tr("Todos los derechos de esta obra pertenecen a", "All rights to this work belong to", "Alle Rechte an diesem Werk liegen bei"),
+  moreInfo: tr("Para más información (préstamo, compra, licencias de uso, etc.):", "For more information (loans, purchase, usage licences, etc.):", "Weitere Informationen (Leihgabe, Kauf, Nutzungslizenzen usw.):"),
   credIll: tr("Ilustración", "Illustration", "Illustration"), credPh: tr("Foto", "Photo", "Foto"),
   hires: tr("Para solicitar el archivo en alta resolución o permisos de uso, escribe a", "To request the high-resolution file or usage permissions, write to", "Für die hochaufgelöste Datei oder Nutzungsrechte schreiben Sie an"),
   notOnline: tr("El objeto digital aún no está disponible en línea. Para consultarlo, escribe a", "The digital object is not yet available online. To consult it, write to", "Das digitale Objekt ist noch nicht online verfügbar. Zur Einsicht schreiben Sie an"),
@@ -269,7 +282,12 @@ function ArchivePage() {
                 <div><dt>{t(UI.rights)}</dt><dd>{t(record.rights)}</dd></div>
               </dl>
               {record.usedIn && <p className="sheet-used">{t(UI.used)} <a href={record.usedIn.href + "?lang=" + lang}>{t(record.usedIn.title)} →</a></p>}
-              {record.img ? (
+              {record.bio && <><div className="sheet-id" style={{ marginTop: 20 }}>{t(UI.aboutArtist)}</div><p className="sheet-desc">{t(record.bio)}</p></>}
+              {record.contact ? (
+                <p className="sheet-note">
+                  {t(UI.allRights)} {record.author}. {t(UI.moreInfo)} <a href={record.contact.href} target="_blank" rel="noopener">{record.contact.label} ↗</a>
+                </p>
+              ) : record.img ? (
                 <p className="sheet-note">
                   {record.author ? t(record.type === "Illustrations" ? UI.credIll : UI.credPh) + ": " + record.author + ", " + record.year + ". " : ""}{t(UI.hires)} {mail}.
                 </p>
