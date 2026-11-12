@@ -787,7 +787,7 @@ function Research() {
               <pre className="lab-code">{"samba_enredo {\n  escola    · ano\n  categoria · posicao\n  nota      · bairro\n  letra     → interno\n}"}</pre>
               <div className="lab-meta">{T("Metadatos abiertos · PT-BR", "Open metadata · PT-BR", "Offene Metadaten · PT-BR")}<span>→</span></div>
             </a>
-            <a className="lab-card" href="carnaval.html?c=rio#elementos">
+            <a className="lab-card" href="grafo.html">
               <div className="lab-st on"><span className="lab-no">{String(allPubs.length + 2).padStart(2, "0")}</span><i></i>{T("En línea", "Live", "Online")}</div>
               <h4>{T("Grafo de elementos", "Element graph", "Elementgraph")}</h4>
               <div className="lab-nums"><span><b>{EL.length}</b>{T("elementos", "elements", "Elemente")}</span><span><b>{nRel}</b>{T("relaciones", "links", "Relationen")}</span><span><b>{nCarnEl}</b>{T("carnavales", "carnivals", "Karnevale")}</span></div>

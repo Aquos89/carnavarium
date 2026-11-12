@@ -60,6 +60,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .el-map-cap{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
 @media(max-width:900px){.el-body{grid-template-columns:1fr}.el-map{position:static}}
 
+.el-graph{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:2px}
 .el-sec{padding-block:0 clamp(48px,6vw,96px)}
 .el-sec h2{font-size:clamp(24px,2.6vw,34px);font-weight:500;padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:24px}
 .el-in{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:0;border-top:1px solid var(--rule)}
@@ -144,7 +145,7 @@ var h='<header class="el-head" style="--ec:'+ty.color+'"><div class="shell"><div
 h+='<div class="shell el-body"><div><p class="el-intro">'+t(e.resumen)+'</p>'+(e.img?'<figure class="el-img"><img src="'+e.img+'" alt="" />'+(e.imgCred?'<figcaption>'+t(lbl.imgsrc)+' '+esc(e.imgCred)+'</figcaption>':'')+'</figure>':'');
 h+='<div class="el-h">'+t(lbl.rel)+'</div>'+(groups.length?'<dl class="el-rels">'+groups.map(function(g){return '<div><dt>'+t(g.lab)+'</dt><dd>'+g.items.map(chip).join("")+'</dd></div>'}).join("")+'</dl>':'<p class="el-none">'+t(lbl.none)+'</p>');
 if(e.fuentes.length)h+='<div class="el-h">'+t(lbl.src)+'</div><ul class="el-src">'+e.fuentes.map(function(f){var ext=/^https?:/.test(f.url);return '<li>'+esc(f.t)+(f.url?' <a href="'+esc(f.url)+'"'+(ext?' target="_blank" rel="noopener"':'')+'>'+t(lbl.open)+(ext?' ↗':' →')+'</a>':'')+'</li>'}).join("")+'</ul>';
-h+='</div><aside class="el-map" aria-label="'+esc(lbl.map.es)+'"><div class="el-h" style="margin-top:0">'+t(lbl.map)+'</div><svg id="el-svg" viewBox="0 0 420 400" role="img"></svg><div class="el-map-cap">'+t(lbl.cap)+'</div></aside></div>';
+h+='</div><aside class="el-map" aria-label="'+esc(lbl.map.es)+'"><div class="el-h" style="margin-top:0">'+t(lbl.map)+'</div><svg id="el-svg" viewBox="0 0 420 400" role="img"></svg><div class="el-map-cap">'+t(lbl.cap)+'</div><a class="el-graph" href="grafo.html?e='+e.id+'">'+t({es:"Ver en el grafo completo →",en:"View in the full graph →",de:"Im vollständigen Graphen ansehen →"})+'</a></aside></div>';
 if(e.en.length)h+='<section class="shell el-sec"><h2>'+t(lbl.en)+'</h2><div class="el-in">'+e.en.map(function(x){return '<a href="'+x.href+'"><span class="k">'+t(x.k)+'</span><b>'+t(x.t)+' →</b></a>'}).join("")+'</div></section>';
 e.carnavales.forEach(function(s){var c=carn(s),o=window.elementosDe(s).filter(function(x){return x.id!==e.id});if(c&&o.length)h+='<section class="shell el-sec"><h2>'+t(lbl.more)+' '+t(c.place)+'</h2><div class="el-more">'+o.map(chip).join("")+'</div></section>'});
 document.getElementById("el").innerHTML=h;
