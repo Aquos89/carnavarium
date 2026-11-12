@@ -386,6 +386,25 @@ function WorldCarousel({ children }) {
   );
 }
 
+/* Coordenadas [lon, lat] de cada carnaval (las mismas del atlas) */
+const WORLD_XY = {barranquilla:[-74.80,10.96],venecia:[12.32,45.44],salvador:[-38.50,-12.97],basilea:[7.59,47.56],colonia:[6.96,50.94],"port-of-spain":[-61.51,10.66],oruro:[-67.11,-17.97],"nueva-orleans":[-90.07,29.95],rio:[-43.17,-22.91],pasto:[-77.28,1.21],cadiz:[-6.29,36.53],binche:[4.17,50.41],montevideo:[-56.16,-34.90],gualeguaychu:[-58.52,-33.01],"buenos-aires":[-58.38,-34.60],recife:[-34.88,-8.05],bijagos:[-15.83,11.28],calabar:[8.33,4.95],puno:[-70.02,-15.84],tilcara:[-65.40,-23.58],providencia:[-81.37,13.35],riosucio:[-75.70,5.42],cayena:[-52.33,4.94],kandy:[80.64,7.29],surakarta:[110.82,-7.57],ivrea:[7.88,45.47],mohacs:[18.68,45.99],viareggio:[10.25,43.87],dunkerque:[2.38,51.03],"jacmel":[-72.53,18.23],"bridgetown":[-59.61,13.1],"el-callao":[-61.82,7.35],"veracruz":[-96.13,19.17],"mazatlan":[-106.42,23.25],"cajamarca":[-78.51,-7.16],"encarnacion":[-55.87,-27.33],"olinda":[-34.85,-8.01],"sao-luis":[-44.3,-2.53],"niza":[7.26,43.7],"tenerife":[-16.25,28.46],"las-palmas":[-15.43,28.12],"rottweil":[8.63,48.17],"lucerna":[8.31,47.05],"aalst":[4.04,50.94],"patras":[21.73,38.25],"rijeka":[14.44,45.33],"ptuj":[15.87,46.42],"mindelo":[-24.98,16.89],"luanda":[13.23,-8.84],"victoria":[55.45,-4.62],"goa":[73.83,15.49],"sydney":[151.21,-33.87],"las-tablas":[-80.27,7.76],limon:[-83.03,9.99],mazatenango:[-91.50,14.53],"san-miguel":[-88.18,13.48],"notting-hill":[-0.205,51.515]};
+const fmtCoord = xy => {
+  if (!xy) return null;
+  const f = (v, p, n) => { const a = Math.abs(v), d = Math.floor(a), m = Math.round((a - d) * 60); return d + "°" + String(m === 60 ? 0 : m).padStart(2, "0") + "′" + (v >= 0 ? p : n); };
+  return f(xy[1], "N", "S") + " · " + f(xy[0], "E", "W");
+};
+const CompassRose = () => (
+  <svg className="wa-rose" viewBox="-50 -50 100 100" aria-hidden="true">
+    <circle r="34" fill="none" stroke="currentColor" strokeWidth=".8" />
+    <circle r="29" fill="none" stroke="currentColor" strokeWidth=".5" strokeDasharray="1.5 2.5" />
+    <path d="M0-40 6-6 40 0 6 6 0 40-6 6-40 0-6-6Z" fill="currentColor" opacity=".18" />
+    <path d="M0-40 6-6 0 0ZM40 0 6 6 0 0ZM0 40-6 6 0 0ZM-40 0-6-6 0 0Z" fill="currentColor" />
+    <path d="M0-40-6-6 0 0ZM40 0 6-6 0 0ZM0 40 6 6 0 0ZM-40 0-6 6 0 0Z" fill="none" stroke="currentColor" strokeWidth=".8" />
+    <path d="M0-24 3-3 24 0 3 3 0 24-3 3-24 0-3-3Z" transform="rotate(45)" fill="none" stroke="currentColor" strokeWidth=".6" />
+    <text y="-43" textAnchor="middle" fontSize="9" fontFamily="var(--mono)" fill="currentColor">N</text>
+  </svg>
+);
+
 function World() {
   const cells = [
     { slug: "barranquilla", place: "Barranquilla", country: T("Colombia", "Colombia", "Kolumbien"), date: T("6 — 9 feb 2027", "Feb 6 — 9, 2027", "6.–9. Feb. 2027"), color: "var(--coral)" },
@@ -405,8 +424,20 @@ function World() {
     { slug: "buenos-aires", alias: T("Carnaval porteño", "Carnaval porteño", "Carnaval porteño"), place: T("Buenos Aires", "Buenos Aires", "Buenos Aires"), country: T("Argentina", "Argentina", "Argentinien"), date: T("Feb 2027", "Feb 2027", "Feb. 2027"), color: "var(--blue)" },
     { slug: "recife", place: T("Recife", "Recife", "Recife"), country: T("Brasil", "Brazil", "Brasilien"), date: T("6 — 10 feb 2027", "Feb 6 — 10, 2027", "6.–10. Feb. 2027"), color: "var(--amber)" },
   ];
+  /* Todos los carnavales del atlas (carnavales.js): primero la selección de arriba, luego el resto */
+  const DATA = window.CARNAVALES || [];
+  const curated = {}; cells.forEach(c => { curated[c.slug] = c; });
+  const tr = o => (o ? T(o.es, o.en, o.de) : null);
+  const all = DATA.length ? [
+    ...cells.filter(c => DATA.some(d => d.slug === c.slug)).map(c => { const d = DATA.find(x => x.slug === c.slug); return { ...c, banner: d.banner, color: d.color, date: tr(d.dates) }; }),
+    ...DATA.filter(d => !curated[d.slug]).map(d => ({ slug: d.slug, place: tr(d.place), alias: tr(d.alias), country: tr(d.country), date: tr(d.dates), color: d.color, banner: d.banner }))
+  ] : cells.map(c => ({ ...c, banner: WORLD_BANNERS[c.slug] ? "images/banners/" + c.slug + ".png" : null }));
+  const regions = (window.CARNAVAL_REGIONES || []).filter(r => DATA.some(d => d.region && d.region.es === r.es));
+  const legendOrder = ["Gran Caribe", "Brasil", "Andes", "Río de la Plata", "Centroamérica", "Europa mediterránea", "Europa central", "África", "Asia", "Oceanía"];
+  const rank = r => { const k = legendOrder.indexOf(r.es); return k < 0 ? 99 : k; };
+  regions.sort((a, b) => rank(a) - rank(b));
   return (
-    <section id="world" className="section" style={{ background: "var(--canvas-soft)" }}>
+    <section id="world" className="section wa">
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 03</div>
@@ -414,7 +445,11 @@ function World() {
           <a href="atlas.html" className="rs-finder ec-btn">{T("Explorar el Atlas →", "Explore the Atlas →", "Atlas entdecken →")}</a>
         </div>
         <div className="world">
-          <div className="world-intro">
+          <div className="world-intro wa-cartouche">
+            <div className="wa-ct-head">
+              <span className="wa-ct-k">{T("Lámina III · Atlas de carnavales", "Plate III · Carnival Atlas", "Tafel III · Karnevalsatlas")}</span>
+              <CompassRose />
+            </div>
             <p>
               {T(
                 "El carnaval es un fenómeno cultural global. Cada tradición habla su propio dialecto de máscara, ritmo y exceso, pero todas comparten una gramática común de inversión y renovación.",
@@ -429,36 +464,41 @@ function World() {
                 "Stöbern Sie im Kalender; klicken Sie auf eine Stadt, um ihr Dossier mit Praktiken, Klängen, Bildern und Bibliografie zu öffnen."
               )}
             </p>
+            <div className="wa-scale" aria-hidden="true"><span className="bar"><i></i><i></i><i></i><i></i></span><span className="lab"><b>0</b><b>2500</b><b>5000 km</b></span></div>
           </div>
           <a className="atlas-teaser" href="atlas.html">
             <span className="at-img"><img src="images/atlas-preview.svg" alt="" /><span className="at-pill">{T("Explorar el Atlas", "Explore the Atlas", "Atlas erkunden")}<i aria-hidden="true">→</i></span></span>
             <span className="at-txt"><span className="at-k">{T("57 carnavales · 10 regiones culturales", "57 carnivals · 10 cultural regions", "57 Karnevale · 10 Kulturregionen")}</span></span>
           </a>
           <WorldCarousel>
-            {cells.map((c, i) => (
-              <a className={"world-cell" + (WORLD_BANNERS[c.slug] ? " has-img" : "")} key={i} href={"carnaval.html?c=" + c.slug} style={{ "--c": c.color, "--img": WORLD_BANNERS[c.slug] ? "url(images/banners/" + c.slug + ".png)" : "none" }}>
+            {all.map((c, i) => (
+              <a className={"world-cell" + (c.banner ? " has-img" : "")} key={c.slug} href={"carnaval.html?c=" + c.slug} style={{ "--c": c.color, "--img": c.banner ? "url(" + c.banner + ")" : "none" }}>
                 <span className="wc-bg" aria-hidden="true"></span>
                 <span className="swatch" style={{ background: c.color }}></span>
                 <div>
                   <div className="place">{c.place}</div>
                   {c.alias && <div className="wc-alias">{c.alias}</div>}
                   <div className="country">{c.country}</div>
+                  {fmtCoord(WORLD_XY[c.slug]) && <div className="wc-coord">{fmtCoord(WORLD_XY[c.slug])}</div>}
                 </div>
                 <div className="date"><span>{c.date}</span><span className="wc-num">{String(i + 1).padStart(2, "0")}<span className="wc-go">→</span></span></div>
               </a>
             ))}
           </WorldCarousel>
         </div>
+        <div className="wa-legend">
+        <div className="wa-legend-k">{T("Leyenda · regiones culturales", "Legend · cultural regions", "Legende · Kulturregionen")}</div>
         <ul className="world-legend">
-          {[
+          {(regions.length ? regions.map(r => [r.color, T(r.es, r.en, r.de)]) : [
             ["var(--coral)", T("Gran Caribe", "Greater Caribbean", "Großkaribik")],
             ["var(--amber)", T("Brasil", "Brazil", "Brasilien")],
             ["var(--purple)", T("Andes", "Andes", "Anden")],
             ["var(--blue)", T("Río de la Plata", "Río de la Plata", "Río de la Plata")],
             ["var(--teal)", T("Europa mediterránea", "Mediterranean Europe", "Mittelmeer-Europa")],
             ["var(--green)", T("Europa central", "Central Europe", "Mitteleuropa")],
-          ].map(([col, lab], i) => <li key={i}><span className="swatch" style={{ background: col }}></span>{lab}</li>)}
+          ]).map(([col, lab], i) => <li key={i}><span className="swatch" style={{ background: col }}></span>{lab}</li>)}
         </ul>
+        </div>
       </div>
     </section>
   );

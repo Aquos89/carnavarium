@@ -1188,3 +1188,37 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 
 /* Botón del título de sección: en celular pasa a su propia línea, bajo el título */
 @media(max-width:720px){.sec-head{grid-template-columns:auto 1fr;row-gap:14px}.sec-head .ec-btn{grid-column:2;justify-self:start;margin-left:0}}
+
+/* ===== § 03 como lámina de atlas: papel de carta, retícula, marco graduado ===== */
+.wa{--sea:color-mix(in srgb,var(--blue) 9%,var(--canvas-soft));--grat:color-mix(in srgb,var(--blue) 16%,transparent);position:relative;background:var(--sea);background-image:linear-gradient(var(--grat) 1px,transparent 1px),linear-gradient(90deg,var(--grat) 1px,transparent 1px);background-size:96px 96px;background-position:center -1px}
+.wa::before,.wa::after{content:"";position:absolute;left:var(--gutter);right:var(--gutter);height:7px;border:1px solid var(--ink);background:repeating-linear-gradient(90deg,var(--ink) 0 48px,var(--canvas) 48px 96px)}
+.wa::before{top:18px}.wa::after{bottom:18px}
+.wa .sec-head{position:relative}
+.wa-cartouche{position:relative;align-self:start;background:var(--canvas);border:1px solid var(--ink);outline:1px solid var(--ink);outline-offset:-6px;padding:26px 30px 22px;box-shadow:6px 6px 0 color-mix(in srgb,var(--ink) 10%,transparent)}
+.wa-ct-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--rule)}
+.wa-ct-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.wa-rose{width:58px;height:58px;flex:none;color:var(--ink);margin:-8px -4px -8px 0;transition:transform 1.2s cubic-bezier(.16,.84,.3,1)}
+.wa-cartouche:hover .wa-rose{transform:rotate(45deg)}
+.wa-cartouche p:last-of-type{margin-bottom:0}
+.wa-scale{display:flex;flex-direction:column;gap:4px;margin-top:20px;width:min(240px,70%)}
+.wa-scale .bar{display:grid;grid-template-columns:repeat(4,1fr);height:6px;border:1px solid var(--ink)}
+.wa-scale .bar i:nth-child(odd){background:var(--ink)}
+.wa-scale .lab{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--ink-faint)}
+.wa-scale .lab b{font-weight:400}
+/* la lámina del atlas con marco graduado en blanco y negro */
+.wa .atlas-teaser{padding:7px;background:repeating-linear-gradient(90deg,var(--ink) 0 24px,var(--canvas) 24px 48px) top/100% 7px no-repeat,repeating-linear-gradient(90deg,var(--ink) 0 24px,var(--canvas) 24px 48px) bottom/100% 7px no-repeat,repeating-linear-gradient(0deg,var(--ink) 0 24px,var(--canvas) 24px 48px) left/7px 100% no-repeat,repeating-linear-gradient(0deg,var(--ink) 0 24px,var(--canvas) 24px 48px) right/7px 100% no-repeat,var(--canvas)}
+.wa .atlas-teaser .at-img{border:1px solid var(--ink)}
+.wa .atlas-teaser .at-txt{border:1px solid var(--ink);border-top:0;background:var(--canvas)}
+/* tarjetas con coordenadas */
+.wa .world-grid{background:var(--canvas)}
+.wc-coord{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;color:var(--ink-faint);margin-top:6px;transition:color .3s}
+.world-cell.has-img:hover .wc-coord,.world-cell.has-img.peek .wc-coord{color:rgba(255,255,255,.7)}
+/* leyenda como recuadro de mapa */
+.wa-legend{display:inline-flex;flex-direction:column;gap:12px;margin-top:22px;padding:14px 18px 16px;background:var(--canvas);border:1px solid var(--ink);max-width:100%}
+.wa-legend-k{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.wa .world-legend{margin:0}
+@media(max-width:720px){.wa::before,.wa::after{left:0;right:0}.wa-cartouche{padding:20px 18px 18px}.wa-rose{width:46px;height:46px}}
+/* con muchos carnavales, las rayitas del carrusel se encogen para no empujar las flechas */
+.wc-dots{flex:1 1 auto;min-width:0}
+.wc-dots button{flex:0 1 22px;min-width:3px}
+.wc-dots button.on{flex:0 0 44px}
