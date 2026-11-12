@@ -928,7 +928,7 @@ html[data-lang="es"] [data-l="es"], html[data-lang="en"] [data-l="en"], html[dat
 
 /* compact highlights = slim rail; hero grows. Expanded = hero shrinks */
 @media(min-width:1181px){
-.hh{width:calc((var(--hh-c) + (100vw - min(1380px, 100vw - var(--gutter) * 2)) / 2) / 2)}
+.hh{width:calc(var(--hh-c) + (100vw - min(1380px, 100vw - var(--gutter) * 2)) / 2)}
 .hh:not(.wide) .hh-dots{display:none}
 .hh:not(.wide) .hh-bar{padding:8px;justify-content:center}
 .hh:not(.wide) .hh-toggle{margin:0;padding:5px 6px 5px 10px;font-size:.54rem;gap:6px}
