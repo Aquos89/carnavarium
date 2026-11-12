@@ -144,7 +144,7 @@ window.ELEMENTO_RELACIONES = {
       { rel: [["protagoniza", "entierro-de-joselito"]] }),
     E("rey-momo", "simbolico", BAQ, N("Rey Momo", "King Momo", "König Momo"),
       N("Rey del carnaval. Cada año el título reconoce a un hacedor de la fiesta, a menudo director de una danza o un grupo tradicional.", "King of the carnival. Each year the title honours one of the festival’s makers, often the director of a traditional dance or group.", "König des Karnevals. Jedes Jahr ehrt der Titel einen Macher des Fests, oft den Leiter eines traditionellen Tanzes oder einer Gruppe."),
-      {}),
+      { rel: [["deriva", "momo"], ["parecido", "rei-momo"]], fuentes: [F_MOMO] }),
 
     /* ---------- Barranquilla · ritos, eventos y lugares ---------- */
     E("lectura-del-bando", "rito", BAQ, N("Lectura del Bando", "Lectura del Bando", "Lectura del Bando"),
@@ -556,7 +556,12 @@ window.ELEMENTO_RELACIONES = {
       N("El rey del carnaval: recibe del alcalde la llave de la ciudad y abre oficialmente la fiesta. La tradición carioca data de 1933.",
         "The king of carnival: he receives the key to the city from the mayor and officially opens the festivities. The Rio tradition dates from 1933.",
         "Der König des Karnevals: Er erhält vom Bürgermeister den Stadtschlüssel und eröffnet offiziell das Fest. Die Tradition in Rio reicht bis 1933 zurück."),
-      { fuentes: [F_MOMO, F_MOMO_LLAVE] }),
+      { rel: [["deriva", "momo"]], fuentes: [F_MOMO, F_MOMO_LLAVE] }),
+    E("momo", "simbolico", ["barranquilla", "rio"], N("Momo", "Momus", "Momos"),
+      N("En la mitología griega, Momo es la personificación de la burla y la sátira, expulsado del Olimpo por criticar a los dioses. Su nombre pasó a los reyes del carnaval: en varias fiestas iberoamericanas, como las de Barranquilla y Río de Janeiro, un Rey Momo preside los días de desorden.",
+        "In Greek mythology, Momus is the personification of mockery and satire, cast out of Olympus for criticising the gods. His name passed on to carnival kings: in several Ibero-American festivals, such as those of Barranquilla and Rio de Janeiro, a King Momo presides over the days of disorder.",
+        "In der griechischen Mythologie ist Momos die Verkörperung von Spott und Satire, aus dem Olymp verbannt, weil er die Götter kritisierte. Sein Name ging auf die Karnevalskönige über: In mehreren iberoamerikanischen Festen, etwa in Barranquilla und Rio de Janeiro, regiert ein König Momo über die Tage der Unordnung."),
+      { fuentes: [F_MOMO] }),
     E("bloco-de-rua", "tipo-agrupacion", ["rio"], N("Bloco de rua", "Street bloco", "Straßen-Bloco"),
       N("Agrupación de carnaval callejero, abierta a cualquiera, que recorre la ciudad con su batucada, sus marchinhas y sus sambas propios.",
         "Street-carnival group, open to anyone, that moves through the city with its batucada, marchinhas and its own sambas.",
