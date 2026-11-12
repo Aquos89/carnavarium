@@ -1119,3 +1119,6 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 .nav-cta{display:none}
 .hero-headline{line-height:1.02}
 }
+
+/* highlights compacto: lo bastante ancho para leer «Destacados» / «Highlights» completo */
+@media(min-width:1181px){:root{--hh-c:190px}.hh-toggle{white-space:nowrap}.hh-toggle .hh-wl{white-space:nowrap}}

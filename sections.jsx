@@ -107,7 +107,8 @@ function HeroHighlights() {
         const tl = top.getBoundingClientRect().left, er = el.getBoundingClientRect().right;
         if (!wideRef.current) { el.dataset.wc = el.offsetWidth; el.dataset.hl = el.getBoundingClientRect().left; }
         const wc = +el.dataset.wc || el.offsetWidth;
-        const ww = 2 * wc - 72 + Math.min(580, window.innerWidth * .4);
+        const hc = parseFloat(getComputedStyle(el).getPropertyValue("--hh-c")) || 190;
+        const ww = wc - hc + Math.min(580, window.innerWidth * .4);
         const sx = Math.max(0, Math.min(C - G, ((+el.dataset.hl || (tl + C)) - tl - G) / 2));
         const sxw = Math.max(0, Math.min(sx, er - ww - 24 - G - tl));
         top.style.setProperty("--sx", Math.round(sx) + "px");

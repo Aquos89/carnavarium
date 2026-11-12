@@ -14,6 +14,8 @@ const tr = (es, en, de) => ({ es, en, de });
 const CONSULT = tr("Solo consulta", "Consultation only", "Nur Einsicht");
 const PERM = tr("Con permiso", "With permission", "Mit Genehmigung");
 const PD = tr("Dominio público", "Public domain", "Gemeinfrei");
+/* Las imágenes del archivo no se ofrecen para descargar: sin menú contextual ni arrastre. */
+const NO_SAVE = { draggable: false, onContextMenu: e => e.preventDefault() };
 
 const ARCHIVE_ITEMS = [
   { id: "AR-1301", type: "Illustrations", year: 2017, country: "CO", rights: PERM, author: "Javier Jara", img: "images/musica-carnaval.jpg",
@@ -180,8 +182,8 @@ function ArchivePage() {
           <div className="arch-grid">
             {items.map(it => (
               <article className="arch-card" key={it.id} onClick={() => setOpen(it.id)}>
-                <div className={"arch-thumb t-" + TYPE_KEY[it.type] + (it.img ? " has-img" : "")}>
-                  {it.img ? <img src={it.img} alt={t(it.title)} loading="lazy" /> : <span className="ph">{t(TYPE_L[it.type])}</span>}
+                <div className={"arch-thumb t-" + TYPE_KEY[it.type] + (it.img ? " has-img" : "")} onContextMenu={e => e.preventDefault()}>
+                  {it.img ? <img src={it.img} alt={t(it.title)} loading="lazy" {...NO_SAVE} /> : <span className="ph">{t(TYPE_L[it.type])}</span>}
                 </div>
                 <div className="arch-card-body">
                   <div className="arch-card-top">
@@ -205,8 +207,8 @@ function ArchivePage() {
         <div className="arch-overlay" onClick={() => setOpen(null)}>
           <div className="arch-sheet" onClick={e => e.stopPropagation()} role="dialog" aria-label={t(record.title)}>
             <button className="sheet-x" onClick={() => setOpen(null)} aria-label={t(UI.close)}>×</button>
-            <div className={"sheet-thumb t-" + TYPE_KEY[record.type] + (record.img ? " has-img" : "")}>
-              {record.img ? <img src={record.img} alt={t(record.title) + (record.author ? " — " + record.author : "")} /> : <span className="ph">{t(TYPE_L[record.type])}</span>}
+            <div className={"sheet-thumb t-" + TYPE_KEY[record.type] + (record.img ? " has-img" : "")} onContextMenu={e => e.preventDefault()}>
+              {record.img ? <img src={record.img} alt={t(record.title) + (record.author ? " — " + record.author : "")} {...NO_SAVE} /> : <span className="ph">{t(TYPE_L[record.type])}</span>}
             </div>
             <div className="sheet-body">
               <div className="sheet-id">{record.id}</div>
