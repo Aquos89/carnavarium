@@ -1179,3 +1179,9 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 .ct{--ct-bg:#3a2544;background:var(--ct-bg);background-image:radial-gradient(900px 420px at 0% 0%,rgba(232,88,152,.22),transparent 60%),radial-gradient(700px 380px at 100% 100%,rgba(255,200,64,.12),transparent 60%)}
 .ct .ct-tile .n,.ct .ct-mq .w i{filter:brightness(1.35) saturate(1.1)}
 .ct .ct-tile:hover .n{filter:none}
+
+/* Cuenta regresiva: el número llena su columna */
+.ct-top{align-items:stretch}
+.ct-count{container-type:inline-size;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.ct-num{font-size:clamp(110px,calc(96cqi / (var(--d,2) * .58)),540px);margin:6px 0 18px;white-space:nowrap}
+.ct-unit{max-width:none;font-size:clamp(22px,2.6vw,38px)}

@@ -181,7 +181,7 @@ function CarnivalTeaser() {
   return (
     <div className="ct" ref={ref}>
       <div className="ct-top">
-        <div className="ct-count">
+        <div className="ct-count" style={{ "--d": Math.max(2, String(days).length) }}>
           <div className="ct-k">{T("Faltan", "Only", "Noch")}</div>
           <div className="ct-num">{v}</div>
           <div className="ct-unit">{T(<>días para el <b>Martes de Carnaval</b> {y}</>, <>days to <b>Shrove Tuesday</b> {y}</>, <>Tage bis zum <b>Fastnachtsdienstag</b> {y}</>)}<span className="ct-date">{fmtD(tue)} · {T("después, la Ceniza", "then, Ash Wednesday", "danach Aschermittwoch")}</span></div>

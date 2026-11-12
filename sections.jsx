@@ -213,9 +213,9 @@ function Hero() {
             )}
           </p>
           <div className="stats">
-            <div className="stat"><span className="num">56</span><span className="lab">{T("Carnavales en el atlas", "Carnivals in the Atlas", "Karnevale im Atlas")}</span></div>
+            <div className="stat"><span className="num">57</span><span className="lab">{T("Carnavales en el atlas", "Carnivals in the Atlas", "Karnevale im Atlas")}</span></div>
             <div className="stat"><span className="num">10</span><span className="lab">{T("Regiones culturales", "Cultural Regions", "Kulturregionen")}</span></div>
-            <div className="stat"><span className="num">3</span><span className="lab">{T("Publicaciones", "Publications", "Publikationen")}</span></div>
+            <div className="stat"><span className="num">6</span><span className="lab">{T("Publicaciones", "Publications", "Publikationen")}</span></div>
             <div className="stat"><span className="num">1</span><span className="lab">{T("Dataset abierto", "Open Dataset", "Offener Datensatz")}</span></div>
           </div>
         </div>
@@ -280,7 +280,7 @@ function Pillars() {
     {
       n: "03", href: "#world", title: T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt"),
       blurb: T("Una perspectiva global y comparada de las tradiciones del carnaval: calendario anual y estudios regionales.", "A global, comparative perspective on carnival traditions — annual calendar, regional studies.", "Eine globale, vergleichende Perspektive auf Karnevalstraditionen – Jahreskalender, Regionalstudien."),
-      bullets: [T("Atlas de 56 carnavales", "Atlas of 56 carnivals", "Atlas mit 56 Karnevalen"), T("10 regiones culturales", "10 cultural regions", "10 Kulturregionen"), T("Calendario de próximas ediciones", "Calendar of upcoming editions", "Kalender der nächsten Ausgaben")],
+      bullets: [T("Atlas de 57 carnavales", "Atlas of 57 carnivals", "Atlas mit 57 Karnevalen"), T("10 regiones culturales", "10 cultural regions", "10 Kulturregionen"), T("Calendario de próximas ediciones", "Calendar of upcoming editions", "Kalender der nächsten Ausgaben")],
     },
     {
       n: "04", href: "#archive", title: T("Archivo", "Archive", "Archiv"),
@@ -431,7 +431,7 @@ function World() {
           </div>
           <a className="atlas-teaser" href="atlas.html">
             <span className="at-img"><img src="images/atlas-preview.svg" alt="" /><span className="at-pill">{T("Explorar el Atlas", "Explore the Atlas", "Atlas erkunden")}<i aria-hidden="true">→</i></span></span>
-            <span className="at-txt"><span className="at-k">{T("56 carnavales · 10 regiones culturales", "56 carnivals · 10 cultural regions", "56 Karnevale · 10 Kulturregionen")}</span></span>
+            <span className="at-txt"><span className="at-k">{T("57 carnavales · 10 regiones culturales", "57 carnivals · 10 cultural regions", "57 Karnevale · 10 Kulturregionen")}</span></span>
           </a>
           <WorldCarousel>
             {cells.map((c, i) => (
