@@ -773,7 +773,7 @@ function Research() {
             </div>
           </div>
 
-        <div className="lab" id="laboratorio">
+        <div className="rv-lab" id="laboratorio">
           <div className="lab-head">
             <span className="lab-k">{T("Suplemento · Laboratorio", "Supplement · Lab", "Beilage · Labor")}</span>
             <h3>{T("Lo que construimos con datos", "What we build with data", "Was wir mit Daten bauen")}</h3>
