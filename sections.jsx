@@ -101,15 +101,24 @@ function HeroHighlights() {
     const measure = () => {
       const el = hhRef.current; if (!el) return;
       const top = el.parentNode, lg = top && top.querySelector(".hero-logo-wrap"), hl = top && top.querySelector(".hero-headline"), mn = top && top.querySelector(".hero-main");
+      if (top && window.innerWidth <= 1180) { top.style.setProperty("--lgo", "0px"); top.style.setProperty("--hlo", "0px"); }
       if (lg && hl && mn && window.innerWidth > 1180) {
+        /* el logo no puede ser tan ancho que, centrado con la línea de abajo, choque con Destacados */
+        const tb = top.getBoundingClientRect(), railL = wideRef.current ? (+el.dataset.hl || 0) : el.getBoundingClientRect().left;
+        if (railL) top.style.setProperty("--gmax", Math.floor(Math.max(320, 2 * (railL - 24 - (tb.left + tb.width / 2)))) + "px");
         const r = document.createRange(); r.selectNodeContents(hl);
-        const G = Math.max(lg.offsetWidth, r.getBoundingClientRect().width), C = mn.clientWidth;
+        const Gl = lg.offsetWidth, Gh = r.getBoundingClientRect().width, G = Math.max(Gl, Gh), C = mn.clientWidth;
+        /* logo y titular centrados entre sí: el más estrecho se desplaza al centro del más ancho */
+        top.style.setProperty("--lgo", Math.round((G - Gl) / 2) + "px");
+        top.style.setProperty("--hlo", Math.round((G - Gh) / 2) + "px");
         const tl = top.getBoundingClientRect().left, er = el.getBoundingClientRect().right;
         if (!wideRef.current) { el.dataset.wc = el.offsetWidth; el.dataset.hl = el.getBoundingClientRect().left; }
         const wc = +el.dataset.wc || el.offsetWidth;
         const hc = parseFloat(getComputedStyle(el).getPropertyValue("--hh-c")) || 190;
         const ww = wc - hc + Math.min(580, window.innerWidth * .4);
-        const sx = Math.max(0, Math.min(C - G, ((+el.dataset.hl || (tl + C)) - tl - G) / 2));
+        /* logo y titular centrados respecto a todo el ancho de la página (la línea de abajo), sin chocar con Destacados */
+        const W = top.getBoundingClientRect().width, hlx = +el.dataset.hl || (tl + C);
+        const sx = Math.max(0, Math.min((W - G) / 2, hlx - tl - G - 24));
         const sxw = Math.max(0, Math.min(sx, er - ww - 24 - G - tl));
         top.style.setProperty("--sx", Math.round(sx) + "px");
         top.style.setProperty("--sxw", Math.round(sxw) + "px");

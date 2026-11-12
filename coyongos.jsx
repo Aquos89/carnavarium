@@ -3,7 +3,9 @@ const { useState, useRef, useEffect } = React;
 
 /* ============================================================
    Carnavarium logo assets.
-   media/logo-animation.mp4     the After Effects animation
+   media/logo-animation.webm    the animation with a transparent background (Chrome, Edge, Firefox)
+   media/logo-animation.mp4     the original After Effects export (light background; Safari fallback,
+                                blended with "multiply" so its background disappears on the page)
    images/logo-carnavarium.png  final lockup (also the fallback)
    images/logo-mark.png         the three coyongos alone, square
    ============================================================ */
@@ -13,6 +15,7 @@ const { useState, useRef, useEffect } = React;
 function LogoAnimation() {
   const videoRef = useRef(null);
   const [done, setDone] = useState(false);
+  const [mp4, setMp4] = useState(false);
 
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -39,16 +42,20 @@ function LogoAnimation() {
       {!done && (
         <video
           ref={videoRef}
-          src="media/logo-animation.mp4"
           muted
           autoPlay
           playsInline
           preload="auto"
+          onLoadedData={(e) => setMp4(/\.mp4($|\?)/.test(e.currentTarget.currentSrc))}
+          style={mp4 ? { mixBlendMode: "multiply" } : null}
           onEnded={finish}
           onPlaying={(e) => { const v = e.currentTarget; const d = isFinite(v.duration) ? Math.max(.6, v.duration - v.currentTime) : 4; window.__cvLogoStart = d; window.dispatchEvent(new CustomEvent("cv:logo-start", { detail: d })); }}
           onError={finish}
           aria-label="Carnavarium logo animation"
-        ></video>
+        >
+          <source src="media/logo-animation.webm" type='video/webm; codecs="vp9"' />
+          <source src="media/logo-animation.mp4" type="video/mp4" />
+        </video>
       )}
       <img src="images/logo-carnavarium.png" alt="Carnavarium" />
     </div>

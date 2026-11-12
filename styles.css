@@ -1153,3 +1153,9 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 .ab-plus{font-family:var(--serif);font-size:3rem;line-height:1;color:var(--coral)}
 .ab-desc{font-size:.92rem;line-height:1.5;color:color-mix(in srgb,var(--ink) 75%,transparent)}
 @media(prefers-reduced-motion:reduce){.ab-card{transform:none;transition:none}}
+
+/* Portada: logo y titular centrados respecto a la línea de abajo (los desplazamientos los calcula sections.jsx) */
+@media(min-width:1181px){.hero-top .hero-logo-wrap{translate:var(--lgo,0) 0}.hero-top .hero-headline{translate:var(--hlo,0) 0}}
+
+/* portada: el logo cabe centrado respecto a la línea inferior sin tocar Destacados (ver --gmax en sections.jsx) */
+@media(min-width:1181px){.hero-top .hero-logo-wrap{max-width:var(--gmax,none)}}
