@@ -453,23 +453,19 @@ const ARCHIVE_TYPES = {
   All: T("Todo", "All", "Alle"),
   Texts: T("Textos", "Texts", "Texte"),
   Photographs: T("Fotografías", "Photographs", "Fotografien"),
+  Illustrations: T("Ilustraciones", "Illustrations", "Illustrationen"),
   Videos: T("Videos", "Videos", "Videos"),
   Music: T("Música", "Music", "Musik"),
 };
 
 function Archive() {
   const [filter, setFilter] = useState("All");
-  const filters = Object.keys(ARCHIVE_TYPES);
+  /* Solo los objetos que de verdad están en el archivo (los mismos de archive.jsx). */
   const items = [
-    { id: "AR-0142", title: T("Letanía de los Coyongos — grabación de campo, 1987", "Letanía de los Coyongos — field recording, 1987", "Letanía de los Coyongos — Feldaufnahme, 1987"), year: "1987", origin: "Barranquilla, CO", type: "Music", typeKey: "audio" },
-    { id: "AR-0211", title: T("Sobre la inversión del mundo — ensayo de Bajtín (anotado)", "On the Inversion of the World — essay by Bakhtin (annot.)", "Über die Umkehrung der Welt — Essay von Bachtin (annotiert)"), year: "1965", origin: "Moscow, RU", type: "Texts", typeKey: "text" },
-    { id: "AR-0339", title: T("La Lectura del Bando — Plaza de la Paz (transferencia de 8 mm)", "La Lectura del Bando — Plaza de la Paz (8mm transfer)", "La Lectura del Bando — Plaza de la Paz (8-mm-Transfer)"), year: "1972", origin: "Barranquilla, CO", type: "Videos", typeKey: "video" },
-    { id: "AR-0407", title: T("Diablos de Yare — máscaras y documentación procesional", "Diablos de Yare — masks and processional documentation", "Diablos de Yare — Masken und Prozessionsdokumentation"), year: "2001", origin: "San Francisco de Yare, VE", type: "Photographs", typeKey: "photo" },
-    { id: "AR-0512", title: T("Notas sobre la Narrenkappe y la inversión temporal del orden", "Notes on the Narrenkappe and the temporary inversion of order", "Notizen zur Narrenkappe und zur zeitweiligen Umkehrung der Ordnung"), year: "1998", origin: "Köln, DE", type: "Texts", typeKey: "text" },
-    { id: "AR-0628", title: T("Escuela de samba — Mangueira, rollo de archivo", "Sambaschool footage — Mangueira, archival reel", "Sambaschule — Mangueira, Archivfilm"), year: "1984", origin: "Rio de Janeiro, BR", type: "Videos", typeKey: "video" },
-    { id: "AR-0701", title: T("Conjunto de steel pan — ensayo en el Renegades Panyard", "Steel pan ensemble — Renegades Panyard rehearsal", "Steelpan-Ensemble — Probe im Renegades Panyard"), year: "2019", origin: "Port of Spain, TT", type: "Music", typeKey: "audio" },
-    { id: "AR-0823", title: T("Diablada — notación coreográfica, Oruro", "Diablada — choreographic notation, Oruro", "Diablada — choreografische Notation, Oruro"), year: "2014", origin: "Oruro, BO", type: "Texts", typeKey: "text" },
+    { id: "AR-1302", title: T("Danza de las marimondas — JIPS", "Danza de las marimondas — JIPS", "Danza de las marimondas — JIPS"), year: "2019", origin: "Barranquilla, CO", type: "Illustrations", typeKey: "illus" },
+    { id: "AR-1301", title: T("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"), year: "2017", origin: "Barranquilla, CO", type: "Illustrations", typeKey: "illus" },
   ];
+  const filters = Object.keys(ARCHIVE_TYPES).filter(f => f === "All" || items.some(i => i.type === f));
   const visible = filter === "All" ? items : items.filter(i => i.type === filter);
   return (
     <section id="archive" className="section">
@@ -492,14 +488,14 @@ function Archive() {
           </div>
           <div className="archive-list">
             {visible.map(it => (
-              <div className="archive-row" key={it.id}>
+              <a className="archive-row" key={it.id} href={"archive.html?id=" + it.id} style={{ color: "inherit", textDecoration: "none" }}>
                 <span className="id">{it.id}</span>
                 <span className="title">{it.title}</span>
                 <span className="meta">{it.origin}</span>
                 <span className="meta">{it.year}</span>
                 <span className={`type-pill type-${it.typeKey}`}>{ARCHIVE_TYPES[it.type]}</span>
                 <span className="arrow">→</span>
-              </div>
+              </a>
             ))}
           </div>
         </div>
