@@ -1185,3 +1185,6 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 .ct-count{container-type:inline-size;display:flex;flex-direction:column;justify-content:center;min-width:0}
 .ct-num{font-size:clamp(110px,calc(96cqi / (var(--d,2) * .58)),540px);margin:6px 0 18px;white-space:nowrap}
 .ct-unit{max-width:none;font-size:clamp(22px,2.6vw,38px)}
+
+/* Botón del título de sección: en celular pasa a su propia línea, bajo el título */
+@media(max-width:720px){.sec-head{grid-template-columns:auto 1fr;row-gap:14px}.sec-head .ec-btn{grid-column:2;justify-self:start;margin-left:0}}

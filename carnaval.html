@@ -80,6 +80,16 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 .cv-gl dt>.gc{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:6px}
 .cv-gl dt>.gc i{width:7px;height:7px;border-radius:50%;background:var(--gc)}
 .cv-gl dd{margin:0;font-family:var(--sans);font-size:.92rem;line-height:1.5;color:var(--ink-soft);text-wrap:pretty}
+.cv-reg{border-top:1px solid var(--ink)}
+.cv-reg details{border-bottom:1px solid var(--rule)}
+.cv-reg summary{display:flex;align-items:center;gap:14px;padding:18px 4px;cursor:pointer;list-style:none;font-family:var(--serif);font-size:clamp(19px,1.8vw,24px)}
+.cv-reg summary::-webkit-details-marker{display:none}
+.cv-reg summary:hover .nm{color:var(--pink-text)}
+.cv-reg summary .cv-dot{width:14px;height:14px}
+.cv-reg summary .n{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--ink-faint)}
+.cv-reg summary .chev{margin-left:auto;width:10px;height:10px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s}
+.cv-reg details[open] summary .chev{transform:rotate(-135deg)}
+.cv-reg .cv-others{margin:0 0 22px}
 .cv-others{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:0;border:1px solid var(--rule)}
 .cv-others a{display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid var(--rule);margin:-1px 0 0 -1px;font-family:var(--serif);font-size:1.1rem}
 .cv-others a:hover{background:var(--canvas-soft);color:var(--ink)}
@@ -176,7 +186,8 @@ m+='<section class="cv-sec cv-in" id="elementos"><h2>'+t({es:"Elementos",en:"Ele
 var GL=(window.CARNAVAL_GLOSARIO||{})[c.slug]||[],GC=window.CARNAVAL_GLOSARIO_CATS||{};
 if(GL.length){var gcats=Object.keys(GC).filter(function(k){return GL.some(function(g){return g.cat===k})});
 h+='<section class="shell cv-sec" id="glosario"><h2>'+t({es:"Glosario",en:"Glossary",de:"Glossar"})+'</h2><div class="cv-gl-f"><button type="button" class="active" data-gc="">'+t({es:"Todo",en:"All",de:"Alle"})+' <span class="n">'+GL.length+'</span></button>'+gcats.map(function(k){return '<button type="button" data-gc="'+k+'">'+t(GC[k])+' <span class="n">'+GL.filter(function(g){return g.cat===k}).length+'</span></button>'}).join("")+'</div><dl class="cv-gl" style="--gc:'+c.color+'">'+GL.map(function(g){return '<div data-cat="'+g.cat+'"><dt><b>'+esc(g.term)+'</b><span class="gc"><i></i>'+t(GC[g.cat])+'</span></dt><dd>'+t(g.def)+'</dd></div>'}).join("")+'</dl></section>'}
-h+='<section class="shell cv-sec"><h2>'+t(lbl.others)+'</h2><div class="cv-others">'+C.filter(function(x){return x!==c}).map(function(x){return '<a href="carnaval.html?c='+x.slug+'"><span class="cv-dot" style="background:'+x.color+'"></span>'+t(x.place)+'</a>'}).join("")+'</div></section>';
+var RG=(window.CARNAVAL_REGIONES||[]).map(function(r){return {r:r,items:C.filter(function(x){return x!==c&&x.region.es===r.es})}}).filter(function(g){return g.items.length});
+h+='<section class="shell cv-sec"><h2>'+t(lbl.others)+'</h2><div class="cv-reg">'+RG.map(function(g){return '<details'+(g.r.es===c.region.es?' open':'')+'><summary><span class="cv-dot" style="background:'+g.r.color+'"></span><span class="nm">'+t(g.r)+'</span><span class="n">'+g.items.length+'</span><span class="chev" aria-hidden="true"></span></summary><div class="cv-others">'+g.items.map(function(x){return '<a href="carnaval.html?c='+x.slug+'"><span class="cv-dot" style="background:'+x.color+'"></span>'+t(x.place)+'</a>'}).join("")+'</div></details>'}).join("")+'</div></section>';
 h=h.replace("@@MAIN@@",m);h=h.replace(/(Llegó Macta|Macta arrived|Macta ist da|Macta llega)/g,"<em>$1</em>");document.getElementById("cv").innerHTML=h;
 [].forEach.call(document.querySelectorAll("[data-gc]"),function(b){b.addEventListener("click",function(){var k=b.dataset.gc;[].forEach.call(document.querySelectorAll("[data-gc]"),function(x){x.classList.toggle("active",x===b)});[].forEach.call(document.querySelectorAll(".cv-gl>div"),function(d){d.style.display=!k||d.dataset.cat===k?"":"none"})})});
 [].forEach.call(document.querySelectorAll(".cv-el-more"),function(b){b.addEventListener("click",function(){b.closest(".cv-el-row").classList.toggle("open")})});

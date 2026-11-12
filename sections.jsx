@@ -411,6 +411,7 @@ function World() {
         <div className="sec-head">
           <div className="num">§ 03</div>
           <h2 className="title">{T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt")}</h2>
+          <a href="atlas.html" className="rs-finder ec-btn">{T("Explorar el Atlas →", "Explore the Atlas →", "Atlas entdecken →")}</a>
         </div>
         <div className="world">
           <div className="world-intro">
@@ -488,7 +489,7 @@ function Archive() {
         <div className="sec-head">
           <div className="num">§ 04</div>
           <h2 className="title">{T("Archivo", "Archive", "Archiv")}</h2>
-          <a href="archive.html" className="more">{T("Ver todo el archivo →", "View full archive →", "Ganzes Archiv →")}</a>
+          <a href="archive.html" className="rs-finder ec-btn">{T("Ver todo el archivo →", "View full archive →", "Ganzes Archiv →")}</a>
         </div>
         <p className="sec-intro">{T(
           <><b>Lo que hay.</b> Las fuentes primarias: fotografías, videos, grabaciones, carteles y corpus de textos, descritos con metadatos abiertos para buscar, filtrar y consultar.</>,
