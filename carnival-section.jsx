@@ -137,25 +137,26 @@ function useCountUp(target, ref) {
   return v;
 }
 
+/* Cada entrada tiene su propio color (mismos colores en la cinta de palabras): rosa, verde, azul, ámbar, turquesa, amarillo, morado. */
 const TEASE = [
   { h: "#que-es", n: "01", c: "var(--pink)", k: T("Qué es", "What it is", "Was er ist"), d: T("Exceso, máscara y burla antes de la Cuaresma.", "Excess, masks and mockery before Lent.", "Überschwang, Maske und Spott vor der Fastenzeit.") },
-  { h: "#palabra", n: "02", c: "var(--coral)", k: T("La palabra", "The word", "Das Wort"), d: T("Carne levare, carrus navalis y otras hipótesis.", "Carne levare, carrus navalis and other theories.", "Carne levare, carrus navalis und andere Hypothesen.") },
+  { h: "#palabra", n: "02", c: "var(--green)", k: T("La palabra", "The word", "Das Wort"), d: T("Carne levare, carrus navalis y otras hipótesis.", "Carne levare, carrus navalis and other theories.", "Carne levare, carrus navalis und andere Hypothesen.") },
   { h: "#definiciones", n: "03", c: "var(--blue)", k: T("Criterios", "Criteria", "Kriterien"), d: T("Qué hace que una fiesta sea carnaval.", "What makes a festival a carnival.", "Was ein Fest zum Karneval macht.") },
   { h: "#calendario", n: "04", c: "var(--amber)", k: T("Calendario", "Calendar", "Kalender"), d: T("Por qué la fecha baila con la luna.", "Why the date dances with the moon.", "Warum das Datum mit dem Mond tanzt.") },
   { h: "#cronologia", n: "05", c: "var(--teal)", k: T("Cronología", "Timeline", "Chronik"), d: T("De Venecia, 1094, a hoy.", "From Venice, 1094, to today.", "Von Venedig 1094 bis heute.") },
-  { h: "#reconocimientos", n: "06", c: "var(--coral)", k: T("Reconocimiento", "Recognition", "Anerkennung"), d: T("De la fiesta local a la lista de la UNESCO.", "From local festival to the UNESCO list.", "Vom lokalen Fest zur UNESCO-Liste.") },
+  { h: "#reconocimientos", n: "06", c: "var(--yellow)", k: T("Reconocimiento", "Recognition", "Anerkennung"), d: T("De la fiesta local a la lista de la UNESCO.", "From local festival to the UNESCO list.", "Vom lokalen Fest zur UNESCO-Liste.") },
   { h: "#conceptos", n: "07", c: "var(--purple)", k: T("Conceptos", "Concepts", "Begriffe"), d: T("Bajtín, Turner, Burke, DaMatta.", "Bakhtin, Turner, Burke, DaMatta.", "Bachtin, Turner, Burke, DaMatta.") },
 ];
 
 const CT_WORDS = [
   ["#que-es", "var(--pink)", T("Carnestolendas", "Shrovetide", "Fastnacht")],
-  ["#palabra", "var(--coral)", "Carne levare"],
+  ["#palabra", "var(--green)", "Carne levare"],
   ["#definiciones", "var(--blue)", T("Mundo al revés", "World upside down", "Verkehrte Welt")],
   ["#calendario", "var(--amber)", T("Miércoles de Ceniza", "Ash Wednesday", "Aschermittwoch")],
   ["#conceptos", "var(--purple)", T("Liminalidad", "Liminality", "Liminalität")],
   ["#definiciones", "var(--blue)", T("Máscara", "Mask", "Maske")],
-  ["#palabra", "var(--coral)", "Carrus navalis"],
-  ["#reconocimientos", "var(--coral)", "UNESCO"],
+  ["#palabra", "var(--green)", "Carrus navalis"],
+  ["#reconocimientos", "var(--yellow)", "UNESCO"],
   ["#cronologia", "var(--teal)", T("Comparsa", "Comparsa", "Comparsa")],
   ["#calendario", "var(--amber)", T("Cuaresma", "Lent", "Fastenzeit")],
   ["#conceptos", "var(--purple)", "Communitas"],
