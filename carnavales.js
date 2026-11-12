@@ -28,7 +28,7 @@ window.CARNAVALES = [
     related: [
       { type: { es: "Especial", en: "Special", de: "Spezial" }, href: "especial-cumbia.html", img: "images/cumbia-card.png",
         title: { es: "Ruta de la cumbia", en: "The Cumbia Route", de: "Die Route der Cumbia" },
-        deck: { es: "Los imaginarios de la cumbia y la comparsa La Puntica No Má’, en ocho capítulos.", en: "The imaginaries of cumbia and the comparsa La Puntica No Má’, in eight chapters.", de: "Die Vorstellungen der Cumbia und die Comparsa La Puntica No Má’ in acht Kapiteln." } },
+        deck: { es: "Los imaginarios de la cumbia y la comparsa La Puntica No Má’, en cinco capítulos.", en: "The imaginaries of cumbia and the comparsa La Puntica No Má’, in five chapters.", de: "Die Vorstellungen der Cumbia und die Comparsa La Puntica No Má’ in fünf Kapiteln." } },
       { type: { es: "Artículo", en: "Article", de: "Artikel" }, href: "ensayo-musica-carnaval.html", img: "images/musica-carnaval.jpg",
         title: { es: "La música del Carnaval de Barranquilla: patrimonio vivo", en: "The Music of the Barranquilla Carnival: A Living Heritage", de: "Die Musik des Karnevals von Barranquilla: lebendiges Erbe" },
         deck: { es: "Cumbias, papayeras, Congos de Oro, verbenas y picós.", en: "Cumbias, papayeras, Congos de Oro, verbenas and picós.", de: "Cumbias, Papayeras, Congos de Oro, Verbenas und Picós." } },

@@ -14,7 +14,7 @@
 <script>(function(){var L=["es","en","de"],q=new URLSearchParams(location.search).get("lang"),s=null;try{s=localStorage.getItem("carnavarium-lang")}catch(e){}var l=L.indexOf(q)>-1?q:L.indexOf(s)>-1?s:"en";document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l})()</script>
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="styles.css?v=51">
-<link rel="stylesheet" href="chronology.css?v=1">
+<link rel="stylesheet" href="chronology.css?v=2">
 <style>
 a{color:inherit}a:hover{color:var(--pink-text)}
 .legal-nav{position:sticky;top:0;z-index:50;background:var(--canvas);border-bottom:1px solid var(--rule)}
@@ -484,8 +484,8 @@ const T = (es, en, de) => (<><span data-l="es">{es}</span><span data-l="en">{en}
 ReactDOM.createRoot(document.getElementById("ecCal")).render(<window.CarnivalCalendar />);
 ReactDOM.createRoot(document.getElementById("ecCon")).render(<window.CarnivalConcepts />);
 </script>
-<script src="carnavales.js?v=74"></script>
-<script src="chronology.js?v=4"></script>
+<script src="carnavales.js?v=75"></script>
+<script src="chronology.js?v=5"></script>
 <script>(function(){
 var sec=document.getElementById("palabra");if(!sec)return;
 function lang(){return document.documentElement.getAttribute("data-lang")||"es"}
