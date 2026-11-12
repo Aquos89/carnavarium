@@ -1160,14 +1160,17 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 /* portada: el logo cabe centrado respecto a la línea inferior sin tocar Destacados (ver --gmax en sections.jsx) */
 @media(min-width:1181px){.hero-top .hero-logo-wrap{max-width:var(--gmax,none)}}
 
-/* § 01 El proyecto y yo: tarjeta del autor más compacta, equilibrada con el texto y no más grande que las «Cuatro entradas» */
+/* § 01 El proyecto y yo: tres columnas iguales (texto · continuación · tarjeta del autor) */
 @media(min-width:981px){
-.project{align-items:center}
-.project .card{grid-column:8 / span 5;justify-self:end;width:100%;max-width:420px;padding:20px;display:grid;grid-template-columns:132px minmax(0,1fr);grid-template-areas:"pic name" "pic role" "pic ." "blurb blurb" "more more";column-gap:18px;align-items:start}
-.project .card .portrait{grid-area:pic;aspect-ratio:1/1;width:132px;margin:0}
+.project{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3.2vw,56px);align-items:start}
+.project .text{display:contents}
+.project .text p{grid-column:auto;max-width:none;margin:0}
+.project .text p+p{margin-top:0}
+.project .card{grid-column:auto;justify-self:stretch;width:auto;max-width:none;padding:20px;display:grid;grid-template-columns:clamp(96px,8vw,128px) minmax(0,1fr);grid-template-areas:"pic name" "pic role" "pic ." "blurb blurb" "more more";column-gap:16px;align-items:start}
+.project .card .portrait{grid-area:pic;aspect-ratio:1/1;width:100%;margin:0}
 .project .card .portrait img{object-position:50% 25%}
-.project .card .name{grid-area:name;font-size:1.2rem;align-self:end;margin-top:34px}
-.project .card .role{grid-area:role}
+.project .card .name{grid-area:name;font-size:1.15rem;align-self:end;margin-top:22px}
+.project .card .role{grid-area:role;line-height:1.5}
 .project .card .blurb{grid-area:blurb;margin-top:16px;font-size:.86rem;line-height:1.5}
 .project .card .pf-more{grid-area:more;justify-self:start;margin-top:12px}
 }
