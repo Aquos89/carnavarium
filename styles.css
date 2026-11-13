@@ -1420,3 +1420,44 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 @media(max-width:720px){.rv-line.closed .rv-line-n::before{display:none}}
 
 .rv-name i{margin-left:0}
+
+.rv-fig-hd{display:flex;flex-direction:column;gap:3px;margin-bottom:6px}
+.rv-fig-hd .k{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.rv-fig-hd b{font-family:var(--serif);font-weight:600;font-size:1.02rem;line-height:1.25;color:var(--ink);transition:color .15s}
+.rv-fig:hover .rv-fig-hd b{color:var(--pink-text)}
+.rv-line-fig{gap:clamp(22px,2.4vw,30px)}
+
+/* taller: hover expands an item */
+.rv-line-txt .th{transition:width .3s ease,height .3s ease}
+.rv-line-txt .dk{display:block;max-height:0;opacity:0;overflow:hidden;font-family:var(--serif);font-size:.88rem;line-height:1.45;color:var(--ink-soft);transition:max-height .35s ease,opacity .25s ease,margin .3s ease}
+.rv-line-txt a{transition:background .2s,padding .3s}
+/* expanded state: first item by default, any item on hover */
+.rv-line-txt li:first-child > a{background:color-mix(in srgb,#fffdf8 85%,transparent);padding:14px 12px;margin:0 -12px 6px;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 14%,transparent),3px 4px 0 color-mix(in srgb,var(--ink) 8%,transparent)}
+.rv-line-txt li:first-child .th{width:230px;height:150px}
+.rv-line-txt li:first-child b{font-size:1.28rem}
+.rv-line-txt li:first-child .dk{max-height:10em;opacity:1;margin-top:6px;font-size:.95rem}
+.rv-line-txt b{transition:color .2s,font-size .3s}
+@media(hover:hover) and (pointer:fine){
+.rv-line-txt li > a:hover{background:color-mix(in srgb,#fffdf8 85%,transparent);padding:14px 12px;margin:0 -12px;box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 14%,transparent),3px 4px 0 color-mix(in srgb,var(--ink) 8%,transparent)}
+.rv-line-txt li > a:hover .th{width:230px;height:150px}
+.rv-line-txt li > a:hover b{font-size:1.28rem}
+.rv-line-txt li > a:hover .dk{max-height:10em;opacity:1;margin-top:6px;font-size:.95rem}
+.rv-line-txt ol:hover li:first-child > a:not(:hover){background:none;box-shadow:none;padding:10px 0;margin:0}
+.rv-line-txt ol:hover li:first-child > a:not(:hover) .th{width:64px;height:48px}
+.rv-line-txt ol:hover li:first-child > a:not(:hover) b{font-size:1.02rem}
+.rv-line-txt ol:hover li:first-child > a:not(:hover) .dk{max-height:0;opacity:0;margin-top:0}
+}
+@media(max-width:720px){.rv-line-txt li:first-child .th{width:110px;height:80px}.rv-line-txt li:first-child b{font-size:1.1rem}}
+.rv-line-txt li > a:not(.rv-line-more){grid-template-columns:auto minmax(0,1fr) auto}
+
+.rv-line-txt a.rv-see{display:inline-flex;align-items:center;gap:14px;grid-template-columns:none;margin-top:18px;padding:6px 6px 6px 20px;background:var(--ink);color:var(--canvas);border:2px solid var(--ink);border-radius:999px;box-shadow:4px 4px 0 var(--pink);font-family:var(--mono);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;transition:transform .2s,box-shadow .2s}
+.rv-line-txt a.rv-see .ic{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pink);color:var(--ink);font-size:1.05rem;letter-spacing:0;transition:transform .3s}
+.rv-line-txt a.rv-see:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--pink)}
+.rv-line-txt a.rv-see:hover .ic{transform:rotate(-45deg) scale(1.08)}
+.rv-line-txt a.rv-see:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--pink)}
+
+/* section subtitles (Atlas · Archivo · Taller) */
+.sec-head .title .sec-sub{display:block;margin-top:10px;font-family:var(--mono);font-size:.7rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+/* taller mast without label */
+.rv-mast{grid-template-columns:1fr auto;align-items:center;padding-bottom:10px}
+.rv-vol{padding-bottom:0}
