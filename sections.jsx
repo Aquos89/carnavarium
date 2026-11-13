@@ -712,6 +712,51 @@ function Research() {
   const nReg = new Set(CD.map(c => c.region && c.region.es)).size;
   const elSorted = EL.slice().sort((x, y) => Object.keys(ETY).indexOf(x.tipo) - Object.keys(ETY).indexOf(y.tipo));
   const proj = xy => [((xy[0] + 180) / 360) * 300, ((90 - xy[1]) / 180) * 150];
+  /* Una sola publicación organizada por líneas de investigación: cada línea reúne sus textos y sus datos (figuras) */
+  const TX = {
+    cumbia: { href: "especial-cumbia.html", img: "images/cumbia-card.png", year: "2026", k: T("Especial", "Special", "Spezial"), title: T("Ruta de la cumbia", "The cumbia route", "Die Route der Cumbia") },
+    tesis: { href: "tesis-la-puntica.html", img: "images/banner-tesis.png", year: "2024", k: T("Tesis de maestría", "Master’s thesis", "Masterarbeit"), title: T(<><em>Between millo and picó</em>: la música como enmascaramiento en La Puntica No Ma’</>, <><em>Between millo and picó</em>: music as discursive masking in La Puntica No Ma’</>, <><em>Between millo and picó</em>: Musik als diskursive Maskierung in La Puntica No Ma’</>) },
+    macta: { href: FEATURES.macta.href, img: FEATURES.macta.img, year: "2022", k: T("Ensayo", "Essay", "Essay"), title: FEATURES.macta.title },
+    garabato: { href: FEATURES.garabato.href, img: FEATURES.garabato.img, year: "2022", k: T("Ensayo", "Essay", "Essay"), title: FEATURES.garabato.title },
+    barranquilla: { href: FEATURES.barranquilla.href, img: FEATURES.barranquilla.img, year: "2020", k: T("Artículo", "Article", "Artikel"), title: FEATURES.barranquilla.title },
+    calypso: { href: FEATURES.calypso.href, img: FEATURES.calypso.img, year: "2021", k: T("Especial", "Special", "Spezial"), title: T("La ruta del calipso", "The calypso route", "Die Route des Calypso") },
+  };
+  const elBaq = EL.filter(e => (e.carnavales || []).includes("barranquilla"));
+  const LINES = [
+    { key: "music", title: T("Música y sonido", "Music and sound", "Musik und Klang"),
+      desc: T("Qué suena en el carnaval, quién lo decide y qué dice esa música de quienes la celebran.", "What sounds at carnival, who decides it and what that music says about those who celebrate it.", "Was im Karneval erklingt, wer darüber entscheidet und was diese Musik über die Feiernden sagt."),
+      texts: ["cumbia", "tesis", "macta", "garabato", "calypso", "barranquilla"], figs: ["baq", "csec"] },
+    { key: "atlas", title: T("Carnaval comparado", "Comparative carnival", "Karneval im Vergleich"),
+      desc: T("Los carnavales del mundo puestos en relación: rutas, regiones y elementos compartidos.", "The world’s carnivals brought into relation: routes, regions and shared elements.", "Die Karnevale der Welt in Beziehung gesetzt: Routen, Regionen und gemeinsame Elemente."),
+      texts: ["calypso"], figs: ["atlas", "graph"] },
+    { key: "corpus", title: T("Corpus y datos abiertos", "Corpora and open data", "Korpora und offene Daten"),
+      desc: T("Las letras y los registros del carnaval convertidos en datos estructurados y reutilizables.", "Carnival lyrics and records turned into structured, reusable data.", "Liedtexte und Aufzeichnungen des Karnevals als strukturierte, nachnutzbare Daten."),
+      texts: [], body: FEATURES.samba.deck, figs: ["csec"] },
+  ];
+  const figNum = {}; let figN = 0;
+  const [openL, setOpenL] = useState({ music: true });
+  const toggleL = k => setOpenL(o => ({ ...o, [k]: !o[k] }));
+  const hovT = React.useRef(null);
+  const canHover = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const hoverOpen = k => { if (!canHover) return; clearTimeout(hovT.current); hovT.current = setTimeout(() => setOpenL(o => (o[k] ? o : { ...o, [k]: true })), 220); };
+  const hoverCancel = () => clearTimeout(hovT.current);
+  const FIG = {
+    baq: () => ({ href: "grafo.html?c=barranquilla", st: "on", t: T("Barranquilla en el grafo", "Barranquilla in the graph", "Barranquilla im Graphen"),
+      cap: T(elBaq.length + " elementos del carnaval, por tipo", elBaq.length + " carnival elements, by type", elBaq.length + " Karnevalselemente nach Typ"),
+      viz: <div className="rv-dots">{elBaq.slice().sort((x, y) => Object.keys(ETY).indexOf(x.tipo) - Object.keys(ETY).indexOf(y.tipo)).map(e => <i key={e.id} style={{ background: (ETY[e.tipo] || {}).color }}></i>)}</div> }),
+    atlas: () => ({ href: "atlas.html", st: "on", t: T("Atlas georreferenciado", "Georeferenced atlas", "Georeferenzierter Atlas"),
+      cap: T(CD.length + " carnavales · " + nReg + " regiones", CD.length + " carnivals · " + nReg + " regions", CD.length + " Karnevale · " + nReg + " Regionen"),
+      viz: <svg className="rv-map" viewBox="0 25 300 100" aria-hidden="true">{[60, 120, 180, 240].map(x => <line key={"v" + x} x1={x} y1="25" x2={x} y2="125" />)}{[50, 75, 100].map(y => <line key={"h" + y} x1="0" y1={y} x2="300" y2={y} />)}{CD.filter(c => WORLD_XY[c.slug]).map(c => { const p = proj(WORLD_XY[c.slug]); return <circle key={c.slug} cx={p[0].toFixed(1)} cy={p[1].toFixed(1)} r="2.6" style={{ fill: c.color }} />; })}</svg> }),
+    graph: () => ({ href: "grafo.html", st: "on", t: T("Grafo de elementos", "Element graph", "Elementgraph"),
+      cap: T(EL.length + " elementos · " + nRel + " relaciones · " + nCarnEl + " carnavales", EL.length + " elements · " + nRel + " links · " + nCarnEl + " carnivals", EL.length + " Elemente · " + nRel + " Relationen · " + nCarnEl + " Karnevale"),
+      viz: <div className="rv-dots sm">{elSorted.map(e => <i key={e.id} style={{ background: (ETY[e.tipo] || {}).color }}></i>)}</div> }),
+    csec: () => ({ href: "samba-enredo-corpus.html", st: "wip", t: T("Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)"),
+      cap: T("Esquema de metadatos · en construcción", "Metadata schema · in progress", "Metadatenschema · im Aufbau"),
+      viz: <pre className="rv-code">{"samba_enredo {\n  escola    · ano\n  categoria · posicao\n  nota      · bairro\n  letra     → interno\n}"}</pre> }),
+  };
+  const nTexts = Object.keys(TX).length;
+  const nFigs = new Set(LINES.flatMap(L => L.figs)).size;
+  const ST = { on: T("En línea", "Live", "Online"), wip: T("En construcción", "In progress", "Im Aufbau") };
   return (
     <section id="research" className="section rv">
       <div className="shell">
@@ -728,85 +773,64 @@ function Research() {
 
         <div className="rv-paper">
           <div className="rv-mast">
-            <span className="rv-vol">{T("Vol. I · Núm. " + allPubs.length, "Vol. I · No. " + allPubs.length, "Bd. I · Nr. " + allPubs.length)}</span>
-            <span className="rv-name">Carnavarium <i>{T("Revista", "Review", "Revue")}</i></span>
-            <span className="rv-date">{T(MES.es[mi] + " " + yr, MES.en[mi] + " " + yr, MES.de[mi] + " " + yr)}</span>
+            <span className="rv-vol">{T(
+              LINES.length + " líneas · " + nTexts + " textos · " + nFigs + " figuras",
+              LINES.length + " lines · " + nTexts + " texts · " + nFigs + " figures",
+              LINES.length + " Linien · " + nTexts + " Texte · " + nFigs + " Abbildungen")}</span>
+            <span className="rv-name"><i>{T("Taller", "Workshop", "Werkstatt")}</i></span>
+            <span className="rv-date" aria-hidden="true"></span>
           </div>
-          <div className="editorial rv-ed">
-            <a className="feature-article rv-cover" href={f.href} key={featKey}>
-              <div className="rv-cover-k">{T("En portada", "Cover story", "Titelgeschichte")}</div>
-              <div className="img"><img src={f.img} alt={f.alt} /></div>
-              <div className="kicker">{f.kicker}</div>
-              <h3>{f.title}</h3>
-              <p className="deck">{f.deck}</p>
-              <div className="byline au-row"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" /><span>{f.byline}</span></div>
-            </a>
-            <div className="rv-sum" onMouseLeave={() => setHover(null)}>
-              <div className="rv-sum-k">{T("Sumario", "Contents", "Inhalt")}</div>
-              <div className="rv-grp">{T("Textos", "Writing", "Texte")}</div>
-              <ol>
-                {pubs.map((a, i) => (
-                  <li key={a.href} className={a.feat === featKey ? "is-active" : ""} onMouseEnter={() => a.feat && setHover(a.feat)}>
-                    <a href={a.href} onFocus={() => a.feat && setHover(a.feat)}>
-                      <span className="no">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="tt"><span className="k">{a.kicker}</span><b>{a.title}</b></span>
-                      <span className="pg">{a.date.slice(0, 4)}</span>
+          <div className="rv-ruler" aria-hidden="true">{Array.from({ length: 31 }, (_, i) => <span key={i}>{i}</span>)}</div>
+          <div className="rv-cols" role="presentation">
+            <span>{T("Línea", "Line", "Linie")}</span>
+            <span>{T("Escritorio", "Desk", "Schreibtisch")}</span>
+            <span>{T("Laboratorio", "Lab", "Labor")}</span>
+          </div>
+          {LINES.map((L, li) => {
+            const figs = L.figs.map(k => ({ k, ...FIG[k](), n: figNum[k] || (figNum[k] = ++figN) }));
+            const isOpen = !!openL[L.key];
+            return (
+              <div className={"rv-line" + (isOpen ? " open" : " closed")} key={L.key} onMouseEnter={() => hoverOpen(L.key)} onMouseLeave={hoverCancel}>
+                <button type="button" className="rv-line-h" aria-expanded={isOpen} onClick={() => toggleL(L.key)}>
+                  <span className="rv-line-n">{String(li + 1).padStart(2, "0")}</span>
+                  <h3>{L.title}</h3>
+                  <p>{L.desc}</p>
+                  <span className="rv-line-c">{T(
+                    (L.texts.length ? L.texts.length + (L.texts.length === 1 ? " texto" : " textos") + " · " : "") + figs.length + (figs.length === 1 ? " figura" : " figuras"),
+                    (L.texts.length ? L.texts.length + (L.texts.length === 1 ? " text" : " texts") + " · " : "") + figs.length + (figs.length === 1 ? " figure" : " figures"),
+                    (L.texts.length ? L.texts.length + (L.texts.length === 1 ? " Text" : " Texte") + " · " : "") + figs.length + (figs.length === 1 ? " Abbildung" : " Abbildungen"))}</span>
+                  <span className="rv-line-peek" aria-hidden="true">{L.texts.slice(0, 6).map(k => <img key={k} src={TX[k].img} alt="" loading="lazy" />)}</span>
+                  <span className="rv-line-tg" aria-hidden="true"></span>
+                </button>
+                <div className="rv-line-txt">
+                  {L.texts.length ? <ol>{L.texts.map(k => { const x = TX[k]; return (
+                    <li key={k}><a href={x.href}>
+                      <span className="th"><img src={x.img} alt="" loading="lazy" /></span>
+                      <span className="tt"><span className="k">{x.k} · {x.year}</span><b>{x.title}</b></span>
+                      <span className="ar">→</span>
+                    </a></li>); })}</ol>
+                    : <><p className="rv-line-body">{L.body}</p><a className="rv-line-more" href="samba-enredo-corpus.html">{T("Conocer el corpus →", "Explore the corpus →", "Zum Korpus →")}</a></>}
+                </div>
+                <div className="rv-line-fig">
+                  {figs.map(fg => (
+                    <a className="rv-fig" key={fg.k} href={fg.href}>
+                      <div className="rv-fig-viz">{fg.viz}</div>
+                      <div className="rv-fig-cap"><b>{T("Fig. ", "Fig. ", "Abb. ")}{fg.n}</b> — {fg.t}. <span>{fg.cap}</span></div>
+                      <div className={"rv-fig-st " + fg.st}><i></i>{ST[fg.st]}<span className="go">→</span></div>
                     </a>
-                  </li>
-                ))}
-              </ol>
-              <div className="rv-grp">{T("Datos · en el suplemento", "Data · in the supplement", "Daten · in der Beilage")}</div>
-              <ol className="rv-data">
-                {[[T("Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)"), T("Dataset · en construcción", "Dataset · in progress", "Datensatz · im Aufbau")],
-                  [T("Grafo de elementos", "Element graph", "Elementgraph"), T("Datos enlazados · en línea", "Linked data · live", "Verknüpfte Daten · online")],
-                  [T("Atlas georreferenciado", "Georeferenced atlas", "Georeferenzierter Atlas"), T("Geodatos · en línea", "Geodata · live", "Geodaten · online")]].map(([t, k], i) => (
-                  <li key={i}><a href="#laboratorio">
-                    <span className="no">{String(allPubs.length + i + 1).padStart(2, "0")}</span>
-                    <span className="tt"><span className="k">{k}</span><b>{t}</b></span>
-                    <span className="pg">↓</span>
-                  </a></li>
-                ))}
-              </ol>
-              {pubLines.length > 1 && <div className="rv-lines"><span className="rv-lines-k">{T("Líneas", "Research lines", "Forschungslinien")}</span>{pubLines.map(k => (
-                <button key={k} className={"rl-tag" + (line === k ? " active" : "")} onClick={() => pickLine(k)}>{RESEARCH_LINES[k]}</button>
-              ))}</div>}
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+          <div className="rv-more">
+            <span className="rv-more-n">+</span>
+            <div className="rv-more-t">
+              <h3>{T("Más proyectos e iniciativas", "More projects & initiatives", "Weitere Projekte & Initiativen")}</h3>
+              <p>{T("Especiales, colaboraciones, talleres y trabajos en curso que no caben en estas líneas.", "Specials, collaborations, workshops and work in progress beyond these lines.", "Spezials, Kooperationen, Workshops und laufende Arbeiten jenseits dieser Linien.")}</p>
             </div>
+            <a className="rs-finder ec-btn" href="investigacion.html">{T("Ver todos los proyectos →", "See all projects →", "Alle Projekte →")}</a>
           </div>
-
-        <div className="rv-lab" id="laboratorio">
-          <div className="lab-head">
-            <span className="lab-k">{T("Suplemento · Laboratorio", "Supplement · Lab", "Beilage · Labor")}</span>
-            <h3>{T("Lo que construimos con datos", "What we build with data", "Was wir mit Daten bauen")}</h3>
-            <span className="lab-note">{T("Cifras en vivo desde los datos del sitio", "Live figures from the site’s data", "Live-Zahlen aus den Daten der Website")}</span>
-          </div>
-          <div className="lab-grid">
-            <a className="lab-card" href="samba-enredo-corpus.html">
-              <div className="lab-st wip"><span className="lab-no">{String(allPubs.length + 1).padStart(2, "0")}</span><i></i>{T("En construcción", "In progress", "Im Aufbau")}</div>
-              <h4>Samba-Enredo Corpus <span className="lab-ab">CSEC</span></h4>
-              <p>{T("Letras del Carnaval de Río como datos de investigación estructurados.", "Rio carnival lyrics as structured research data.", "Liedtexte des Karnevals von Rio als strukturierte Forschungsdaten.")}</p>
-              <pre className="lab-code">{"samba_enredo {\n  escola    · ano\n  categoria · posicao\n  nota      · bairro\n  letra     → interno\n}"}</pre>
-              <div className="lab-meta">{T("Metadatos abiertos · PT-BR", "Open metadata · PT-BR", "Offene Metadaten · PT-BR")}<span>→</span></div>
-            </a>
-            <a className="lab-card" href="grafo.html">
-              <div className="lab-st on"><span className="lab-no">{String(allPubs.length + 2).padStart(2, "0")}</span><i></i>{T("En línea", "Live", "Online")}</div>
-              <h4>{T("Grafo de elementos", "Element graph", "Elementgraph")}</h4>
-              <div className="lab-nums"><span><b>{EL.length}</b>{T("elementos", "elements", "Elemente")}</span><span><b>{nRel}</b>{T("relaciones", "links", "Relationen")}</span><span><b>{nCarnEl}</b>{T("carnavales", "carnivals", "Karnevale")}</span></div>
-              <div className="lab-dots" aria-hidden="true">{elSorted.map(e => <i key={e.id} style={{ background: (ETY[e.tipo] || {}).color }} title={e.nombre && e.nombre.es}></i>)}</div>
-              <div className="lab-meta">{T("Un punto por elemento, color por tipo", "One dot per element, coloured by type", "Ein Punkt pro Element, Farbe nach Typ")}<span>→</span></div>
-            </a>
-            <a className="lab-card" href="atlas.html">
-              <div className="lab-st on"><span className="lab-no">{String(allPubs.length + 3).padStart(2, "0")}</span><i></i>{T("En línea", "Live", "Online")}</div>
-              <h4>{T("Atlas georreferenciado", "Georeferenced atlas", "Georeferenzierter Atlas")}</h4>
-              <div className="lab-nums"><span><b>{CD.length}</b>{T("carnavales", "carnivals", "Karnevale")}</span><span><b>{nReg}</b>{T("regiones", "regions", "Regionen")}</span><span><b>{Object.keys(WORLD_XY).length}</b>{T("coordenadas", "coordinates", "Koordinaten")}</span></div>
-              <svg className="lab-map" viewBox="0 25 300 100" aria-hidden="true">
-                {[60, 120, 180, 240].map(x => <line key={"v" + x} x1={x} y1="25" x2={x} y2="125" />)}
-                {[50, 75, 100].map(y => <line key={"h" + y} x1="0" y1={y} x2="300" y2={y} />)}
-                {CD.filter(c => WORLD_XY[c.slug]).map(c => { const p = proj(WORLD_XY[c.slug]); return <circle key={c.slug} cx={p[0].toFixed(1)} cy={p[1].toFixed(1)} r="2.4" style={{ fill: c.color }} />; })}
-              </svg>
-              <div className="lab-meta">{T("Proyección equirectangular", "Equirectangular projection", "Plattkarte")}<span>→</span></div>
-            </a>
-          </div>
-        </div>
         </div>
       </div>
     </section>
