@@ -1,7 +1,7 @@
 /* global React */
 const { useState } = React;
 
-/* Trilingual helper — same mechanism as especial-calypso.html (html[data-lang] + [data-l]) */
+/* Trilingual helper — same mechanism as special-calypso.html (html[data-lang] + [data-l]) */
 const T = (es, en, de) => (<><span data-l="es">{es}</span><span data-l="en">{en}</span><span data-l="de">{de}</span></>);
 const LANGS = ["en", "de", "es"];
 const getLang = () => document.documentElement.getAttribute("data-lang") || "en";
@@ -62,14 +62,14 @@ function Nav() {
         <div className="nav-links" onClick={close}>
           <a href="#project">{T("Proyecto", "Project", "Projekt")}</a>
           <a href="#timeline">{T("El Carnaval", "The Carnival", "Der Karneval")}</a>
-          <a href="#world">{T("En el mundo", "In the World", "In der Welt")}</a>
+          <a href="#world">{T("Atlas", "Atlas", "Atlas")}</a>
           <a href="#archive">{T("Archivo", "Archive", "Archiv")}</a>
-          <a href="#research">{T("Investigación", "Research", "Forschung")}</a>
+          <a href="#research">{T("Taller", "Workshop", "Werkstatt")}</a>
           <a href="#news">{T("Noticias", "News", "News")}</a>
-          <a className="nav-links-cta" href="apoyar.html">{T("Apoya el proyecto", "Support the project", "Projekt unterstützen")} <span>→</span></a>
+          <a className="nav-links-cta" href="support.html">{T("Apoya el proyecto", "Support the project", "Projekt unterstützen")} <span>→</span></a>
         </div>
         <div className="nav-end">
-          <a className="nav-cta" href="apoyar.html">
+          <a className="nav-cta" href="support.html">
             {T("Apoya el proyecto", "Support the project", "Projekt unterstützen")} <span>→</span>
           </a>
           <button className="nav-toggle" type="button" aria-expanded={open} aria-label={T("Menú", "Menu", "Menü")} onClick={() => setOpen(!open)}>
@@ -253,7 +253,7 @@ function ProjectSection() {
             <div className="portrait">
               <img src="images/oscar-aquite.png" alt="Oscar Aquite Peña" />
             </div>
-            <div className="name"><a href="autor-oscar-aquite.html">Oscar Aquite</a></div>
+            <div className="name"><a href="author-oscar-aquite.html">Oscar Aquite</a></div>
             <div className="role">{T("Fundador · Humanista digital", "Founder · Digital Humanist", "Gründer · Digital Humanist")}</div>
             <p className="blurb">
               {T(
@@ -262,7 +262,7 @@ function ProjectSection() {
                 "Forscher zu Karnevalskulturen und ihren musikalischen und gesellschaftlichen Ausdrucksformen. Master of Arts, Digital Humanities — Universität Regensburg. Master of Arts, Musikethnologie — Universität Würzburg. Master of Arts, Interdisziplinäre Entwicklungsstudien — Universidad de los Andes (Bogotá, Kolumbien)."
               )}
             </p>
-            <a className="pf-more" href="autor-oscar-aquite.html">{T("Ver perfil →", "View profile →", "Profil ansehen →")}</a>
+            <a className="pf-more" href="author-oscar-aquite.html">{T("Ver perfil →", "View profile →", "Profil ansehen →")}</a>
           </div>
         </div>
       </div>
@@ -441,7 +441,7 @@ function World() {
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 03</div>
-          <h2 className="title">{T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt")}</h2>
+          <h2 className="title">Atlas<span className="sec-sub">{T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt")}</span></h2>
           <a href="atlas.html" className="rs-finder ec-btn">{T("Explorar el Atlas →", "Explore the Atlas →", "Atlas entdecken →")}</a>
         </div>
         <div className="world">
@@ -472,7 +472,7 @@ function World() {
           </a>
           <WorldCarousel>
             {all.map((c, i) => (
-              <a className={"world-cell" + (c.banner ? " has-img" : "")} key={c.slug} href={"carnaval.html?c=" + c.slug} style={{ "--c": c.color, "--img": c.banner ? "url(" + c.banner + ")" : "none" }}>
+              <a className={"world-cell" + (c.banner ? " has-img" : "")} key={c.slug} href={"carnival.html?c=" + c.slug} style={{ "--c": c.color, "--img": c.banner ? "url(" + c.banner + ")" : "none" }}>
                 <span className="wc-bg" aria-hidden="true"></span>
                 <span className="swatch" style={{ background: c.color }}></span>
                 <div>
@@ -536,7 +536,7 @@ function Archive() {
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 04</div>
-          <h2 className="title">{T("Archivo", "Archive", "Archiv")}</h2>
+          <h2 className="title">{T("Archivo", "Archive", "Archiv")}<span className="sec-sub">{T("Fuentes primarias", "Primary sources", "Primärquellen")}</span></h2>
           <a href="archive.html" className="rs-finder ec-btn">{T("Ver todo el archivo →", "View full archive →", "Ganzes Archiv →")}</a>
         </div>
         <p className="sec-intro">{T(
@@ -595,7 +595,7 @@ function Timeline() {
         <div className="sec-head">
           <div className="num">§ 02</div>
           <h2 className="title">{T("El Carnaval", "The Carnival", "Der Karneval")}</h2>
-          <a href="el-carnaval.html" className="rs-finder ec-btn">{T("Explorar El Carnaval →", "Explore The Carnival →", "Den Karneval entdecken →")}</a>
+          <a href="the-carnival.html" className="rs-finder ec-btn">{T("Explorar El Carnaval →", "Explore The Carnival →", "Den Karneval entdecken →")}</a>
         </div>
         <window.CarnivalTeaser />
       </div>
@@ -605,7 +605,7 @@ function Timeline() {
 
 const FEATURES = {
   barranquilla: {
-    href: "ensayo-musica-carnaval.html", img: "images/musica-carnaval.jpg", alt: "Música durante el Carnaval de Barranquilla",
+    href: "essay-carnival-music.html", img: "images/musica-carnaval.jpg", alt: "Música durante el Carnaval de Barranquilla",
     kicker: T("Destacado · Lectura larga · ES · EN · DE", "Feature · Long Read · ES · EN · DE", "Feature · Longread · ES · EN · DE"),
     title: T("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe"),
     deck: T(
@@ -616,14 +616,14 @@ const FEATURES = {
     byline: T("Por Oscar Aquite · 13 min de lectura", "By Oscar Aquite · 13 min read", "Von Oscar Aquite · 13 Min. Lesezeit"),
   },
   garabato: {
-    href: "ensayo-garabato.html", img: "images/banner-garabato.png", alt: "Carnaval de Barranquilla",
+    href: "essay-garabato.html", img: "images/banner-garabato.png", alt: "Carnaval de Barranquilla",
     kicker: T("Ensayo · Barranquilla · Texto en inglés", "Essay · Barranquilla · English", "Essay · Barranquilla · Englisch"),
     title: T("¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla", "Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla", "Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla"),
     deck: T("Cómo una danza de origen esclavo llegó a encabezar uno de los desfiles de la élite barranquillera. Estratos, gusto y violencia simbólica en el carnaval.", "How a dance of enslaved origin came to lead one of the parades of Barranquilla’s elite. Estratos, taste and symbolic violence in carnival.", "Wie ein Tanz versklavter Herkunft an die Spitze eines Umzugs der Elite Barranquillas gelangte. Estratos, Geschmack und symbolische Gewalt im Karneval."),
     byline: T("Por Oscar Aquite · 24 min de lectura", "By Oscar Aquite · 24 min read", "Von Oscar Aquite · 24 Min. Lesezeit"),
   },
   macta: {
-    href: "ensayo-macta-llega.html", img: "images/banner-macta.png", alt: "Carnaval de Barranquilla",
+    href: "essay-macta.html", img: "images/banner-macta.png", alt: "Carnaval de Barranquilla",
     kicker: T("Ensayo · Barranquilla · ES · EN · DE", "Essay · Barranquilla · ES · EN · DE", "Essay · Barranquilla · ES · EN · DE"),
     title: T(<><em>Llegó Macta</em>: música, comunidad y redes sociales en el Carnaval de Barranquilla</>, <><em>Macta arrived</em>: Music, community, and social media in Barranquilla’s Carnival</>, <><em>Macta ist da</em>: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla</>),
     deck: T(
@@ -645,7 +645,7 @@ const FEATURES = {
     byline: T("Por Oscar Aquite · Universität Regensburg", "By Oscar Aquite · Universität Regensburg", "Von Oscar Aquite · Universität Regensburg"),
   },
   calypso: {
-    href: "especial-calypso.html", img: "images/calypso-card.png", alt: "Especial Calipso — Trinidad y Tobago",
+    href: "special-calypso.html", img: "images/calypso-card.png", alt: "Especial Calipso — Trinidad y Tobago",
     kicker: T("Especial · Digital · ES · EN · DE", "Special · Digital · ES · EN · DE", "Spezial · Digital · ES · EN · DE"),
     title: T("Calipso: la voz del carnaval de Trinidad y Tobago", "Calypso: the voice of Trinidad and Tobago's carnival", "Calypso: die Stimme des Karnevals von Trinidad und Tobago"),
     deck: T(
@@ -679,11 +679,11 @@ function Research() {
   const [cat, setCat] = useState("All");
   const [hover, setHover] = useState(null);
   const list = [
-    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "samba-enredo-corpus.html", feat: "samba", lines: ["corpus", "music", "data"] },
-    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "especial-calypso.html", feat: "calypso", lines: ["music", "atlas"] },
-    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "ensayo-musica-carnaval.html", feat: "barranquilla", lines: ["music"] },
-    { date: "2022-03-22", cat: "Articles", kicker: T("Ensayo · ES · EN · DE", "Essay · ES · EN · DE", "Essay · ES · EN · DE"), title: FEATURES.macta.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "ensayo-macta-llega.html", feat: "macta", lines: ["music"] },
-    { date: "2022-02-24", cat: "Articles", kicker: T("Ensayo · Texto en inglés", "Essay · English", "Essay · Englisch"), title: FEATURES.garabato.title, byline: <><a className="au" href="autor-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "ensayo-garabato.html", feat: "garabato", lines: ["music"] },
+    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "samba-enredo-corpus.html", feat: "samba", lines: ["corpus", "music", "data"] },
+    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "special-calypso.html", feat: "calypso", lines: ["music", "atlas"] },
+    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-carnival-music.html", feat: "barranquilla", lines: ["music"] },
+    { date: "2022-03-22", cat: "Articles", kicker: T("Ensayo · ES · EN · DE", "Essay · ES · EN · DE", "Essay · ES · EN · DE"), title: FEATURES.macta.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-macta.html", feat: "macta", lines: ["music"] },
+    { date: "2022-02-24", cat: "Articles", kicker: T("Ensayo · Texto en inglés", "Essay · English", "Essay · Englisch"), title: FEATURES.garabato.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-garabato.html", feat: "garabato", lines: ["music"] },
   ];
   const cats = Object.keys(RESEARCH_CATS).filter(c => c === "All" || list.some(a => a.cat === c));
   // newest first; the newest item with a feature card is the default featured one
@@ -714,9 +714,9 @@ function Research() {
   const proj = xy => [((xy[0] + 180) / 360) * 300, ((90 - xy[1]) / 180) * 150];
   /* Una sola publicación organizada por líneas de investigación: cada línea reúne sus textos y sus datos (figuras) */
   const TX = {
-    cumbia: { href: "especial-cumbia.html", img: "images/cumbia-card.png", year: "2026", k: T("Especial", "Special", "Spezial"), title: T("Ruta de la cumbia", "The cumbia route", "Die Route der Cumbia"),
+    cumbia: { href: "special-cumbia.html", img: "images/cumbia-card.png", year: "2026", k: T("Especial", "Special", "Spezial"), title: T("Ruta de la cumbia", "The cumbia route", "Die Route der Cumbia"),
       deck: T("Los imaginarios de la cumbia y la comparsa La Puntica No Ma’, en cinco capítulos.", "The imaginaries of cumbia and the comparsa La Puntica No Ma’, in five chapters.", "Die Vorstellungen der Cumbia und die Comparsa La Puntica No Ma’ in fünf Kapiteln.") },
-    tesis: { href: "tesis-la-puntica.html", img: "images/banner-tesis.png", year: "2024", k: T("Tesis de maestría", "Master’s thesis", "Masterarbeit"), title: T(<><em>Between millo and picó</em>: la música como enmascaramiento en La Puntica No Ma’</>, <><em>Between millo and picó</em>: music as discursive masking in La Puntica No Ma’</>, <><em>Between millo and picó</em>: Musik als diskursive Maskierung in La Puntica No Ma’</>),
+    tesis: { href: "thesis-la-puntica.html", img: "images/banner-tesis.png", year: "2024", k: T("Tesis de maestría", "Master’s thesis", "Masterarbeit"), title: T(<><em>Between millo and picó</em>: la música como enmascaramiento en La Puntica No Ma’</>, <><em>Between millo and picó</em>: music as discursive masking in La Puntica No Ma’</>, <><em>Between millo and picó</em>: Musik als diskursive Maskierung in La Puntica No Ma’</>),
       deck: T("Cómo la comparsa La Puntica No Ma’ usa el millo y el picó para enmascarar y decir en el Carnaval de Barranquilla.", "How the comparsa La Puntica No Ma’ uses millo and picó to mask and to speak in the Barranquilla Carnival.", "Wie die Comparsa La Puntica No Ma’ Millo und Picó nutzt, um im Karneval von Barranquilla zu maskieren und zu sprechen.") },
     macta: { href: FEATURES.macta.href, img: FEATURES.macta.img, year: "2022", k: T("Ensayo", "Essay", "Essay"), title: FEATURES.macta.title, deck: FEATURES.macta.deck },
     garabato: { href: FEATURES.garabato.href, img: FEATURES.garabato.img, year: "2022", k: T("Ensayo", "Essay", "Essay"), title: FEATURES.garabato.title, deck: FEATURES.garabato.deck },
@@ -739,13 +739,13 @@ function Research() {
   const [openL, setOpenL] = useState({ music: true });
   const toggleL = k => setOpenL(o => (o[k] ? {} : { [k]: true }));
   const FIG = {
-    baq: () => ({ href: "grafo.html?c=barranquilla", st: "on", t: T("Barranquilla en el grafo", "Barranquilla in the graph", "Barranquilla im Graphen"),
+    baq: () => ({ href: "graph.html?c=barranquilla", st: "on", t: T("Barranquilla en el grafo", "Barranquilla in the graph", "Barranquilla im Graphen"),
       cap: T(elBaq.length + " elementos del carnaval, por tipo", elBaq.length + " carnival elements, by type", elBaq.length + " Karnevalselemente nach Typ"),
       viz: <div className="rv-dots">{elBaq.slice().sort((x, y) => Object.keys(ETY).indexOf(x.tipo) - Object.keys(ETY).indexOf(y.tipo)).map(e => <i key={e.id} style={{ background: (ETY[e.tipo] || {}).color }}></i>)}</div> }),
     atlas: () => ({ href: "atlas.html", st: "on", t: T("Atlas georreferenciado", "Georeferenced atlas", "Georeferenzierter Atlas"),
       cap: T(CD.length + " carnavales · " + nReg + " regiones", CD.length + " carnivals · " + nReg + " regions", CD.length + " Karnevale · " + nReg + " Regionen"),
       viz: <svg className="rv-map" viewBox="0 25 300 100" aria-hidden="true">{[60, 120, 180, 240].map(x => <line key={"v" + x} x1={x} y1="25" x2={x} y2="125" />)}{[50, 75, 100].map(y => <line key={"h" + y} x1="0" y1={y} x2="300" y2={y} />)}{CD.filter(c => WORLD_XY[c.slug]).map(c => { const p = proj(WORLD_XY[c.slug]); return <circle key={c.slug} cx={p[0].toFixed(1)} cy={p[1].toFixed(1)} r="2.6" style={{ fill: c.color }} />; })}</svg> }),
-    graph: () => ({ href: "grafo.html", st: "on", t: T("Grafo de elementos", "Element graph", "Elementgraph"),
+    graph: () => ({ href: "graph.html", st: "on", t: T("Grafo de elementos", "Element graph", "Elementgraph"),
       cap: T(EL.length + " elementos · " + nRel + " relaciones · " + nCarnEl + " carnavales", EL.length + " elements · " + nRel + " links · " + nCarnEl + " carnivals", EL.length + " Elemente · " + nRel + " Relationen · " + nCarnEl + " Karnevale"),
       viz: <div className="rv-dots sm">{elSorted.map(e => <i key={e.id} style={{ background: (ETY[e.tipo] || {}).color }}></i>)}</div> }),
     csec: () => ({ href: "samba-enredo-corpus.html", st: "wip", t: T("Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)"),
@@ -760,8 +760,8 @@ function Research() {
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 05</div>
-          <h2 className="title">{T("Investigación y creación", "Research & Creation", "Forschung & Kreation")}</h2>
-          <a className="rs-finder ec-btn" href="investigacion.html">{T("Buscador de proyectos →", "Project finder →", "Projektsuche →")}</a>
+          <h2 className="title">{T("Taller", "Workshop", "Werkstatt")}<span className="sec-sub">{T("Investigación y creación", "Research & Creation", "Forschung & Kreation")}</span></h2>
+          <a className="rs-finder ec-btn" href="workshop.html">{T("Buscador de proyectos →", "Project finder →", "Projektsuche →")}</a>
         </div>
         <p className="sec-intro">{T(
           <><b>Lo que significa.</b> Nuestras propias interpretaciones a partir de esas fuentes: artículos, ensayos, especiales digitales, historias de datos y visualizaciones.</>,
@@ -775,7 +775,7 @@ function Research() {
               LINES.length + " líneas · " + nTexts + " textos · " + nFigs + " proyectos",
               LINES.length + " lines · " + nTexts + " texts · " + nFigs + " projects",
               LINES.length + " Linien · " + nTexts + " Texte · " + nFigs + " Projekte")}</span>
-            <span className="rv-name"><i>{T("Taller", "Workshop", "Werkstatt")}</i></span>
+            
             <span className="rv-date" aria-hidden="true"></span>
           </div>
           <div className="rv-ruler" aria-hidden="true">{Array.from({ length: 31 }, (_, i) => <span key={i}>{i}</span>)}</div>
@@ -807,9 +807,9 @@ function Research() {
                       <span className="tt"><span className="k">{x.k} · {x.year}</span><b>{x.title}</b>{x.deck && <span className="dk">{x.deck}</span>}</span>
                       <span className="ar">→</span>
                     </a></li>); })}</ol>
-                    <a className="rv-see" href="investigacion.html"><span className="lb">{T("Ver más", "See more", "Mehr sehen")}</span><span className="ic" aria-hidden="true">→</span></a></>
+                    <a className="rv-see" href="workshop.html"><span className="lb">{T("Ver más", "See more", "Mehr sehen")}</span><span className="ic" aria-hidden="true">→</span></a></>
                     : <><p className="rv-line-body">{L.body}</p><a className="rv-line-more" href="samba-enredo-corpus.html">{T("Conocer el corpus →", "Explore the corpus →", "Zum Korpus →")}</a>
-                    <br /><a className="rv-see" href="investigacion.html"><span className="lb">{T("Ver más", "See more", "Mehr sehen")}</span><span className="ic" aria-hidden="true">→</span></a></>}
+                    <br /><a className="rv-see" href="workshop.html"><span className="lb">{T("Ver más", "See more", "Mehr sehen")}</span><span className="ic" aria-hidden="true">→</span></a></>}
                 </div>
                 <div className="rv-line-fig">
                   {figs.map(fg => (
@@ -830,7 +830,7 @@ function Research() {
               <h3>{T("Más proyectos e iniciativas", "More projects & initiatives", "Weitere Projekte & Initiativen")}</h3>
               <p>{T("Especiales, colaboraciones, talleres y trabajos en curso que no caben en estas líneas.", "Specials, collaborations, workshops and work in progress beyond these lines.", "Spezials, Kooperationen, Workshops und laufende Arbeiten jenseits dieser Linien.")}</p>
             </div>
-            <a className="rs-finder ec-btn" href="investigacion.html">{T("Ver todos los proyectos →", "See all projects →", "Alle Projekte →")}</a>
+            <a className="rs-finder ec-btn" href="workshop.html">{T("Ver todos los proyectos →", "See all projects →", "Alle Projekte →")}</a>
           </div>
         </div>
       </div>
@@ -907,7 +907,7 @@ function Footer() {
           <ul>
             <li><a href="#project">{T("El proyecto y yo", "Project & Me", "Projekt und ich")}</a></li>
             <li><a href="#timeline">{T("El Carnaval", "The Carnival", "Der Karneval")}</a></li>
-            <li><a href="#world">{T("En el mundo", "In the World", "In der Welt")}</a></li>
+            <li><a href="#world">{T("Atlas", "Atlas", "Atlas")}</a></li>
             <li><a href="archive.html">{T("Archivo", "Archive", "Archiv")}</a></li>
           </ul>
         </div>
@@ -917,7 +917,7 @@ function Footer() {
             <li><a href="#">{T("Metadatos abiertos", "Open Metadata", "Offene Metadaten")}</a></li>
             <li><a href="#">{T("API y datasets", "API & Datasets", "API & Datensätze")}</a></li>
             <li><a href="#">{T("Metodología", "Methodology", "Methodik")}</a></li>
-            <li><a href="apoyar.html">{T("Apoya el proyecto", "Support the project", "Projekt unterstützen")}</a></li>
+            <li><a href="support.html">{T("Apoya el proyecto", "Support the project", "Projekt unterstützen")}</a></li>
           </ul>
         </div>
         <div className="col">
