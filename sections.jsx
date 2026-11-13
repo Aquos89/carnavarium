@@ -773,9 +773,9 @@ function Research() {
         <div className="rv-paper">
           <div className="rv-mast">
             <span className="rv-vol">{T(
-              LINES.length + " líneas · " + nTexts + " textos · " + nFigs + " proyectos",
-              LINES.length + " lines · " + nTexts + " texts · " + nFigs + " projects",
-              LINES.length + " Linien · " + nTexts + " Texte · " + nFigs + " Projekte")}</span>
+              LINES.length + " líneas · " + (nTexts + nFigs) + " piezas (" + nTexts + " textos · " + nFigs + " proyectos)",
+              LINES.length + " lines · " + (nTexts + nFigs) + " pieces (" + nTexts + " texts · " + nFigs + " projects)",
+              LINES.length + " Linien · " + (nTexts + nFigs) + " Stücke (" + nTexts + " Texte · " + nFigs + " Projekte)")}</span>
             
             <span className="rv-date" aria-hidden="true"></span>
           </div>
@@ -826,12 +826,7 @@ function Research() {
             );
           })}
           <div className="rv-more">
-            <span className="rv-more-n">+</span>
-            <div className="rv-more-t">
-              <h3>{T("Más proyectos e iniciativas", "More projects & initiatives", "Weitere Projekte & Initiativen")}</h3>
-              <p>{T("Especiales, colaboraciones, talleres y trabajos en curso que no caben en estas líneas.", "Specials, collaborations, workshops and work in progress beyond these lines.", "Spezials, Kooperationen, Workshops und laufende Arbeiten jenseits dieser Linien.")}</p>
-            </div>
-            <a className="rs-finder ec-btn" href="workshop.html">{T("Ver todos los proyectos →", "See all projects →", "Alle Projekte →")}</a>
+            <a className="rs-finder ec-btn" href="workshop.html">{T("+ Líneas", "+ Lines", "+ Linien")}</a>
           </div>
         </div>
       </div>
