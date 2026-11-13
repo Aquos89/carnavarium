@@ -70,11 +70,11 @@ window.ELEMENTO_RELACIONES = {
 
   var ESP = { es: "Especial", en: "Special", de: "Spezial" }, ENS = { es: "Ensayo", en: "Essay", de: "Essay" },
       TES = { es: "Tesis", en: "Thesis", de: "Abschlussarbeit" }, ARC = { es: "Archivo", en: "Archive", de: "Archiv" };
-  var CUMBIA = { href: "especial-cumbia.html", k: ESP, t: N("Ruta de la cumbia", "The Cumbia Route", "Die Cumbia-Route") },
-      GARABATO = { href: "ensayo-garabato.html", k: ENS, t: N("¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla", "Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla", "Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla") },
-      MUSICA = { href: "ensayo-musica-carnaval.html", k: ENS, t: N("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe") },
-      MACTA = { href: "ensayo-macta-llega.html", k: ENS, t: N("Llegó Macta: música, comunidad y redes sociales en el Carnaval de Barranquilla", "Macta arrived: Music, community, and social media in Barranquilla’s Carnival", "Macta ist da: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla") },
-      TESIS = { href: "tesis-la-puntica.html", k: TES, t: N("Between millo and picó") },
+  var CUMBIA = { href: "special-cumbia.html", k: ESP, t: N("Ruta de la cumbia", "The Cumbia Route", "Die Cumbia-Route") },
+      GARABATO = { href: "essay-garabato.html", k: ENS, t: N("¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla", "Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla", "Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla") },
+      MUSICA = { href: "essay-carnival-music.html", k: ENS, t: N("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe") },
+      MACTA = { href: "essay-macta.html", k: ENS, t: N("Llegó Macta: música, comunidad y redes sociales en el Carnaval de Barranquilla", "Macta arrived: Music, community, and social media in Barranquilla’s Carnival", "Macta ist da: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla") },
+      TESIS = { href: "thesis-la-puntica.html", k: TES, t: N("Between millo and picó") },
       JIPS = { href: "archive.html?id=AR-1302", k: ARC, t: N("Danza de las marimondas — JIPS, 2019") },
       CSEC = { href: "samba-enredo-corpus.html", k: { es: "Dataset", en: "Dataset", de: "Datensatz" }, t: N("Samba-Enredo Corpus (CSEC)") };
   var BAQ = ["barranquilla"];
@@ -87,9 +87,9 @@ window.ELEMENTO_RELACIONES = {
       F_OCHOA = F("Ochoa Escobar, Juan Sebastián (2016). «La cumbia en Colombia: invención de una tradición». Revista Musical Chilena, 70 (226): 31–52."),
       F_WADE = F("Wade, Peter (2000). Music, Race and Nation: Música Tropical in Colombia. Chicago: University of Chicago Press."),
       F_ZAPATA = F("Zapata Olivella, Delia (1962). «La cumbia: síntesis musical de la nación colombiana. Reseña histórica y coreográfica». Revista Colombiana de Folclor, 3 (7)."),
-      F_TESIS = F("Aquite Pena, Oscar (2024). Between millo and picó. Tesis de maestría.", "tesis-la-puntica.html"),
+      F_TESIS = F("Aquite Pena, Oscar (2024). Between millo and picó. Tesis de maestría.", "thesis-la-puntica.html"),
       F_PUNTICA = F("La Puntica No Ma’ (2023). Sitio web de la comparsa (citado en Aquite Pena 2024)."),
-      F_E_GARABATO = F("Aquite Pena, Oscar. «¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla». Carnavarium.", "ensayo-garabato.html"),
+      F_E_GARABATO = F("Aquite Pena, Oscar. «¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla». Carnavarium.", "essay-garabato.html"),
       F_W_DEIXA = F("Wikipedia. «Deixa Falar».", "https://en.wikipedia.org/wiki/Deixa_Falar"),
       F_W_ESTACIO = F("Wikipedia. «Estácio de Sá (samba school)».", "https://en.wikipedia.org/wiki/Est%C3%A1cio_de_S%C3%A1_(samba_school)"),
       F_W_TUIUTI = F("Wikipedia. «Paraíso do Tuiuti».", "https://en.wikipedia.org/wiki/Para%C3%ADso_do_Tuiuti"),
@@ -116,7 +116,7 @@ window.ELEMENTO_RELACIONES = {
       F_VIA_W = F("Wikipedia. «Carnival of Viareggio».", "https://en.wikipedia.org/wiki/Carnival_of_Viareggio"),
       F_LP_W = F("Wikipedia. «Carnival of Las Palmas».", "https://en.wikipedia.org/wiki/Carnival_of_Las_Palmas"),
       F_MOMO_LLAVE = F("Super Rádio Tupi. «Paes entrega chaves ao Rei Momo; Carnaval começa oficialmente».", "https://www.tupi.fm/?p=1964753"),
-      F_E_MUSICA = F("Aquite Pena, Oscar. «La música del Carnaval de Barranquilla: patrimonio vivo». Carnavarium.", "ensayo-musica-carnaval.html");
+      F_E_MUSICA = F("Aquite Pena, Oscar. «La música del Carnaval de Barranquilla: patrimonio vivo». Carnavarium.", "essay-carnival-music.html");
 
   window.ELEMENTOS = [
     /* ---------- Barranquilla · la Danza del Garabato ---------- */
