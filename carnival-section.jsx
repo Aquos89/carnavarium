@@ -79,7 +79,7 @@ function CarnivalCalendar() {
             <i className="cc-ash" style={{ left: pct(ash) + "%" }}><span>{T("Ceniza", "Ash Wed.", "Aschermittwoch")}</span></i>
           </div>
           {rows.map(r => (
-            <a key={r.slug} className="cc-row" href={"carnaval.html?c=" + r.slug}>
+            <a key={r.slug} className="cc-row" href={"carnival.html?c=" + r.slug}>
               <span className="cc-name">{r.name}</span>
               <span className="cc-track">
                 <span className={"cc-bar" + (r.fixed ? " fixed" : "")} style={{ left: pct(r.a) + "%", width: `max(8px, ${pct(addD(r.b, 1)) - pct(r.a)}%)`, background: r.color }}></span>
@@ -188,7 +188,7 @@ function CarnivalTeaser() {
         </div>
         <div className="ct-tiles">
           {TEASE.map(t => (
-            <a key={t.n} className="ct-tile" href={"el-carnaval.html" + t.h} style={{ "--c": t.c }}>
+            <a key={t.n} className="ct-tile" href={"the-carnival.html" + t.h} style={{ "--c": t.c }}>
               <span className="n">{t.n}</span>
               <span className="b"><span className="k">{t.k}</span><span className="d">{t.d}</span></span>
               <span className="ar" aria-hidden="true">→</span>

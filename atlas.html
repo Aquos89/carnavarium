@@ -67,7 +67,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <nav class="legal-nav">
 <div class="shell row">
 <a class="wordmark" href="index.html"><img src="images/logo-mark.png" alt="" aria-hidden="true" class="logo-mark" /><span>carnavarium</span></a>
-<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="el-carnaval.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html" class="is-current" aria-current="page"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="investigacion.html"><span data-l="es">Investigación</span><span data-l="en">Research</span><span data-l="de">Forschung</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
+<div class="nav-links"><a href="index.html#project"><span data-l="es">Proyecto</span><span data-l="en">Project</span><span data-l="de">Projekt</span></a><a href="the-carnival.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a><a href="atlas.html" class="is-current" aria-current="page"><span data-l="es">Atlas</span><span data-l="en">Atlas</span><span data-l="de">Atlas</span></a><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a><a href="workshop.html"><span data-l="es">Taller</span><span data-l="en">Workshop</span><span data-l="de">Werkstatt</span></a><a href="index.html#news"><span data-l="es">Noticias</span><span data-l="en">News</span><span data-l="de">News</span></a></div>
 <div class="nav-right">
 <div class="lang-sw" role="group" aria-label="Idioma / Language / Sprache"><button type="button" data-set="es">ES</button><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
 </div>
@@ -98,8 +98,8 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 <h5><span data-l="es">Secciones</span><span data-l="en">Sections</span><span data-l="de">Rubriken</span></h5>
 <ul>
 <li><a href="index.html#project"><span data-l="es">El proyecto y yo</span><span data-l="en">Project &amp; Me</span><span data-l="de">Projekt und ich</span></a></li>
-<li><a href="el-carnaval.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
-<li><a href="index.html#world"><span data-l="es">En el mundo</span><span data-l="en">In the World</span><span data-l="de">In der Welt</span></a></li>
+<li><a href="the-carnival.html"><span data-l="es">El Carnaval</span><span data-l="en">The Carnival</span><span data-l="de">Der Karneval</span></a></li>
+<li><a href="index.html#world"><span data-l="es">Atlas</span><span data-l="en">Atlas</span><span data-l="de">Atlas</span></a></li>
 <li><a href="archive.html"><span data-l="es">Archivo</span><span data-l="en">Archive</span><span data-l="de">Archiv</span></a></li>
 </ul>
 </div>
@@ -124,7 +124,7 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 </div>
 </footer>
 
-<script src="carnavales.js?v=75"></script>
+<script src="carnavales.js?v=76"></script>
 <script src="vendor/d3.min.js"></script>
 <script src="vendor/topojson-client.min.js"></script>
 <script>(function(){
@@ -138,7 +138,7 @@ var groups=R.map(function(r){return {r:r,items:C.filter(function(c){return c.reg
 var sel=null;
 var f='<button type="button" data-r="" class="active">'+t(all)+' <span class="n">'+C.length+'</span></button>'+groups.map(function(g,i){return '<button type="button" data-r="'+i+'"><span class="at-dot" style="background:'+g.r.color+'"></span>'+t(g.r)+' <span class="n">'+g.items.length+'</span></button>'}).join("");
 document.getElementById("at-filters").innerHTML=f;
-document.getElementById("at-list").innerHTML=groups.map(function(g,i){return '<section class="at-region" data-r="'+i+'"><h2><span class="at-dot" style="background:'+g.r.color+'"></span>'+t(g.r)+'<span class="n">'+g.items.length+' '+t(cnt)+'</span></h2><div class="at-grid">'+g.items.map(function(c){return '<a class="at-card" data-s="'+c.slug+'" href="carnaval.html?c='+c.slug+'"><div class="img">'+(c.banner?'<img src="'+c.banner+'" alt="" loading="lazy" />':'<span class="ph" style="border-bottom:3px solid '+c.color+';padding-bottom:6px">'+esc(c.place.es)+'</span>')+'</div><div class="k"><span class="at-dot" style="background:'+c.color+'"></span>'+t(c.country)+'</div><h3>'+t(c.place)+'</h3>'+(c.alias?'<p class="alias">'+t(c.alias)+'</p>':'')+'<div class="d">'+t(c.dates)+'</div></a>'}).join("")+'</div></section>'}).join("");
+document.getElementById("at-list").innerHTML=groups.map(function(g,i){return '<section class="at-region" data-r="'+i+'"><h2><span class="at-dot" style="background:'+g.r.color+'"></span>'+t(g.r)+'<span class="n">'+g.items.length+' '+t(cnt)+'</span></h2><div class="at-grid">'+g.items.map(function(c){return '<a class="at-card" data-s="'+c.slug+'" href="carnival.html?c='+c.slug+'"><div class="img">'+(c.banner?'<img src="'+c.banner+'" alt="" loading="lazy" />':'<span class="ph" style="border-bottom:3px solid '+c.color+';padding-bottom:6px">'+esc(c.place.es)+'</span>')+'</div><div class="k"><span class="at-dot" style="background:'+c.color+'"></span>'+t(c.country)+'</div><h3>'+t(c.place)+'</h3>'+(c.alias?'<p class="alias">'+t(c.alias)+'</p>':'')+'<div class="d">'+t(c.dates)+'</div></a>'}).join("")+'</div></section>'}).join("");
 var map=document.getElementById("at-map"),tip=document.getElementById("at-tip"),land=null;
 function card(s){return document.querySelector('.at-card[data-s="'+s+'"]')}
 function draw(){
@@ -154,7 +154,7 @@ function draw(){
  zm=d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[w,h]]).filter(function(e){if(e.type==="wheel")return false;if(e.type==="touchstart")return e.touches.length>1;return !e.button}).on("zoom",function(e){zt=e.transform;tip.classList.remove("on");place()});
  svg.call(zm).on("dblclick.zoom",null);svg.style("touch-action","pan-y");zsvg=svg;svg.call(zm.transform,zt);place();
  g.append("circle").attr("class","c").attr("r",7).attr("fill",function(c){return c.color});
- g.on("mouseenter",function(e,c){var p=pos(c);tip.textContent=c.place[L()]+" · "+c.country[L()];tip.style.left=(p[0]/w*100)+"%";tip.style.top=(p[1]/h*100)+"%";tip.classList.add("on");var k=card(c.slug);k&&k.classList.add("hl")}).on("mouseleave",function(e,c){tip.classList.remove("on");var k=card(c.slug);k&&k.classList.remove("hl")}).on("click",function(e,c){location.href="carnaval.html?c="+c.slug});
+ g.on("mouseenter",function(e,c){var p=pos(c);tip.textContent=c.place[L()]+" · "+c.country[L()];tip.style.left=(p[0]/w*100)+"%";tip.style.top=(p[1]/h*100)+"%";tip.classList.add("on");var k=card(c.slug);k&&k.classList.add("hl")}).on("mouseleave",function(e,c){tip.classList.remove("on");var k=card(c.slug);k&&k.classList.remove("hl")}).on("click",function(e,c){location.href="carnival.html?c="+c.slug});
  apply();
 }
 var zt=d3.zoomIdentity,zm=null,zsvg=null;
@@ -174,6 +174,6 @@ function set(l,save){document.documentElement.setAttribute("data-lang",l);docume
 [].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});
 set(L(),false);
 })()</script>
-<script src="to-top.js" defer></script>
+<script src="to-top.js?v=2" defer></script>
 </body>
 </html>

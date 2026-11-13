@@ -23,7 +23,7 @@ const ARCHIVE_ITEMS = [
     desc: tr("Ilustración de músicos durante los desfiles del Carnaval de Barranquilla. Imagen de portada del artículo «La música del Carnaval de Barranquilla: patrimonio vivo».", "Illustration of musicians during the Barranquilla Carnival parades. Cover image of the article “The Music of the Barranquilla Carnival: A Living Heritage”.", "Illustration von Musikern während der Umzüge des Karnevals von Barranquilla. Titelbild des Artikels „Die Musik des Karnevals von Barranquilla: lebendiges Erbe“."),
     place: tr("Bogotá", "Bogotá", "Bogotá"), format: tr("Ilustración digital · 1 imagen", "Digital illustration · 1 image", "Digitale Illustration · 1 Bild"),
     collection: tr("Música del carnaval", "Carnival music", "Karnevalsmusik"),
-    usedIn: { href: "ensayo-musica-carnaval.html", title: tr("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe") } },
+    usedIn: { href: "essay-carnival-music.html", title: tr("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe") } },
   { id: "AR-1303", tags: { carnavales: ["barranquilla"], elementos: ["marimonda", "coyongos"] }, type: "Illustrations", year: 2021, country: "CO", author: "José Palacio (JIPS)", img: "images/archivo/jips-otra-ola-que-nos-lleva.jpg",
     rights: tr("© José Palacio (JIPS) · Todos los derechos reservados", "© José Palacio (JIPS) · All rights reserved", "© José Palacio (JIPS) · Alle Rechte vorbehalten"),
     title: tr("Otra ola que nos lleva", "Otra ola que nos lleva (Another wave that carries us)", "Otra ola que nos lleva (Noch eine Welle, die uns trägt)"),
@@ -131,7 +131,7 @@ const UI = {
   credIll: tr("Ilustración", "Illustration", "Illustration"), credPh: tr("Foto", "Photo", "Foto"),
   hires: tr("Para solicitar el archivo en alta resolución o permisos de uso, escribe a", "To request the high-resolution file or usage permissions, write to", "Für die hochaufgelöste Datei oder Nutzungsrechte schreiben Sie an"),
   notOnline: tr("El objeto digital aún no está disponible en línea. Para consultarlo, escribe a", "The digital object is not yet available online. To consult it, write to", "Das digitale Objekt ist noch nicht online verfügbar. Zur Einsicht schreiben Sie an"),
-  nav: [["project", tr("Proyecto", "Project", "Projekt")], ["timeline", tr("El Carnaval", "The Carnival", "Der Karneval")], ["world", tr("En el mundo", "In the World", "In der Welt")], ["archive", tr("Archivo", "Archive", "Archiv")], ["research", tr("Investigación", "Research", "Forschung")], ["news", tr("Noticias", "News", "News")]],
+  nav: [["project", tr("Proyecto", "Project", "Projekt")], ["timeline", tr("El Carnaval", "The Carnival", "Der Karneval")], ["world", tr("Atlas", "Atlas", "Atlas")], ["archive", tr("Archivo", "Archive", "Archiv")], ["research", tr("Taller", "Workshop", "Werkstatt")], ["news", tr("Noticias", "News", "News")]],
   sections: tr("Secciones", "Sections", "Rubriken"), contact: tr("Contacto", "Contact", "Kontakt"),
   dh: tr("Un proyecto de humanidades digitales", "A Digital Humanities Project", "Ein Digital-Humanities-Projekt"),
   me: tr("El proyecto y yo", "Project & Me", "Projekt und ich"),
@@ -192,7 +192,7 @@ function ArchivePage() {
           <div className="nav-links">
             {UI.nav.map(([id, l]) => id === "archive"
               ? <a key={id} href="archive.html" className="is-current" aria-current="page">{t(l)}</a>
-              : <a key={id} href={id === "research" ? "investigacion.html" : id === "world" ? "atlas.html" : "index.html#" + id}>{t(l)}</a>)}
+              : <a key={id} href={id === "research" ? "workshop.html" : id === "world" ? "atlas.html" : "index.html#" + id}>{t(l)}</a>)}
           </div>
           <div className="lang-sw" role="group" aria-label="Idioma / Language / Sprache">
             {LANGS.map(l => <button key={l} type="button" aria-pressed={lang === l} onClick={() => setLang(l)}>{l.toUpperCase()}</button>)}
@@ -295,10 +295,10 @@ function ArchivePage() {
                 <div className="sheet-tags-k">{t(UI.tags)}</div>
                 <div className="sheet-tags-row">
                   {(record.tags.carnavales || []).map(TAG_CARN).filter(Boolean).map(c => (
-                    <a key={c.slug} className="tag tag-c" href={"carnaval.html?c=" + c.slug + "&lang=" + lang}><i style={{ background: c.color }}></i>{t(c.place)}</a>
+                    <a key={c.slug} className="tag tag-c" href={"carnival.html?c=" + c.slug + "&lang=" + lang}><i style={{ background: c.color }}></i>{t(c.place)}</a>
                   ))}
                   {(record.tags.elementos || []).map(TAG_EL).filter(Boolean).map(e => (
-                    <a key={e.id} className="tag" href={"elemento.html?e=" + e.id + "&lang=" + lang}><i style={{ background: ((window.ELEMENTO_TIPOS || {})[e.tipo] || {}).color }}></i>{t(e.nombre)}</a>
+                    <a key={e.id} className="tag" href={"element.html?e=" + e.id + "&lang=" + lang}><i style={{ background: ((window.ELEMENTO_TIPOS || {})[e.tipo] || {}).color }}></i>{t(e.nombre)}</a>
                   ))}
                 </div>
               </div>}

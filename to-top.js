@@ -52,7 +52,7 @@ function init(nav){
  if(nav.dataset.mh)return;nav.dataset.mh="1";
  var row=nav.querySelector(".row")||nav.firstElementChild,links=nav.querySelector(".nav-links");if(!row||!links)return;
  var u=document.createElement("div");u.className="mh-util";u.setAttribute("aria-hidden","true");nav.parentNode.insertBefore(u,nav);
- var tri=!!nav.querySelector(".lang-sw"),cta=document.createElement("a");cta.className="mh-cta";cta.href="apoyar.html";
+ var tri=!!nav.querySelector(".lang-sw"),cta=document.createElement("a");cta.className="mh-cta";cta.href="support.html";
  cta.innerHTML=tri?'<span data-l="es">Apoya el proyecto</span><span data-l="en">Support the project</span><span data-l="de">Projekt unterstützen</span> <span>→</span>':'Projekt unterstützen <span>→</span>';
  if(!/apoyar\.html/.test(location.pathname))links.appendChild(cta);
  var b=document.createElement("button");b.type="button";b.className="mh-toggle";b.setAttribute("aria-expanded","false");b.setAttribute("aria-label","Menú / Menu / Menü");b.innerHTML="<span></span><span></span><span></span>";row.appendChild(b);
