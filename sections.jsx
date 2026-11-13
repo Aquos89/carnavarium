@@ -405,7 +405,7 @@ const CompassRose = () => (
   </svg>
 );
 
-const SUB = { display: "block", marginTop: 10, fontFamily: "var(--mono)", fontSize: ".7rem", fontWeight: 400, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--ink-soft)", lineHeight: 1.4 };
+const SUB = { display: "block", marginTop: 6, fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "clamp(18px, 1.9vw, 25px)", fontWeight: 400, letterSpacing: 0, textTransform: "none", color: "var(--pink-text)", lineHeight: 1.25 };
 function World() {
   const cells = [
     { slug: "barranquilla", place: "Barranquilla", country: T("Colombia", "Colombia", "Kolumbien"), date: T("6 — 9 feb 2027", "Feb 6 — 9, 2027", "6.–9. Feb. 2027"), color: "var(--coral)" },
@@ -442,7 +442,7 @@ function World() {
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 03</div>
-          <h2 className="title">Atlas<span className="sec-sub" style={SUB}>{T("El carnaval en el mundo", "Carnival in the World", "Karneval in der Welt")}</span></h2>
+          <h2 className="title">Atlas<span className="sec-sub" style={SUB}>{T("del carnaval en el mundo", "of carnival around the world", "des Karnevals weltweit")}</span></h2>
           <a href="atlas.html" className="rs-finder ec-btn">{T("Explorar el Atlas →", "Explore the Atlas →", "Atlas entdecken →")}</a>
         </div>
         <div className="world">
@@ -537,7 +537,7 @@ function Archive() {
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 04</div>
-          <h2 className="title">{T("Archivo", "Archive", "Archiv")}<span className="sec-sub" style={SUB}>{T("Fuentes primarias", "Primary sources", "Primärquellen")}</span></h2>
+          <h2 className="title">{T("Archivo", "Archive", "Archiv")}<span className="sec-sub" style={SUB}>{T("de fuentes primarias", "of primary sources", "der Primärquellen")}</span></h2>
           <a href="archive.html" className="rs-finder ec-btn">{T("Ver todo el archivo →", "View full archive →", "Ganzes Archiv →")}</a>
         </div>
         <p className="sec-intro">{T(
@@ -761,7 +761,7 @@ function Research() {
       <div className="shell">
         <div className="sec-head">
           <div className="num">§ 05</div>
-          <h2 className="title">{T("Taller", "Workshop", "Werkstatt")}<span className="sec-sub" style={SUB}>{T("Investigación y creación", "Research & Creation", "Forschung & Kreation")}</span></h2>
+          <h2 className="title">{T("Taller", "Workshop", "Werkstatt")}<span className="sec-sub" style={SUB}>{T("de investigación y creación", "for research & creation", "für Forschung & Kreation")}</span></h2>
           <a className="rs-finder ec-btn" href="workshop.html">{T("Buscador de proyectos →", "Project finder →", "Projektsuche →")}</a>
         </div>
         <p className="sec-intro">{T(

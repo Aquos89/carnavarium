@@ -109,7 +109,8 @@ const TYPE_L = {
 };
 const UI = {
   title: tr("Archivo", "Archive", "Archiv"),
-  eyebrow: tr("§ 04 · La colección", "§ 04 · The collection", "§ 04 · Die Sammlung"),
+  eyebrow: tr("§ 04", "§ 04", "§ 04"),
+  sub: tr("de fuentes primarias", "of primary sources", "der Primärquellen"),
   deck: tr("Una colección digital de materiales carnavalescos — textos, fotografías, ilustraciones, videos y música. Cada objeto conserva su procedencia, su formato y las condiciones bajo las que puede consultarse.",
     "A digital collection of carnival materials — texts, photographs, illustrations, videos and music. Each object keeps its provenance, its format and the conditions under which it can be consulted.",
     "Eine digitale Sammlung von Karnevalsmaterialien – Texte, Fotografien, Illustrationen, Videos und Musik. Jedes Objekt bewahrt seine Herkunft, sein Format und die Bedingungen, unter denen es eingesehen werden kann."),
@@ -147,7 +148,7 @@ function ArchivePage() {
   useEffect(() => {
     document.documentElement.lang = lang;
     document.documentElement.setAttribute("data-lang", lang);
-    document.title = t(UI.title) + " — Carnavarium";
+    document.title = t(UI.title) + " " + t(UI.sub) + " — Carnavarium";
     const u = new URL(location.href); u.searchParams.set("lang", lang); history.replaceState(null, "", u);
   }, [lang]);
 
@@ -202,7 +203,7 @@ function ArchivePage() {
 
       <header className="shell arch-head">
         <div className="eyebrow" style={{ marginBottom: 20 }}>{t(UI.eyebrow)}</div>
-        <h1>{t(UI.title)}</h1>
+        <h1>{t(UI.title)}<span style={{ display: "block", fontFamily: "var(--serif)", fontStyle: "italic", fontWeight: 400, fontSize: ".36em", letterSpacing: 0, lineHeight: 1.2, color: "var(--pink-text)", marginTop: ".3em" }}>{t(UI.sub)}</span></h1>
         <p className="arch-deck">{t(UI.deck)}</p>
         <div className="arch-stats">
           <div className="stat"><span className="num">{counts.All}</span><span className="lab">{t(UI.objects)}</span></div>

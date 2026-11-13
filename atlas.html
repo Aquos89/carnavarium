@@ -76,8 +76,8 @@ a{color:inherit}a:hover{color:var(--pink-text)}
 
 <main>
 <header class="shell at-head">
-<div class="at-tag"><span data-l="es">§ 03 · El carnaval en el mundo</span><span data-l="en">§ 03 · Carnival in the World</span><span data-l="de">§ 03 · Karneval in der Welt</span></div>
-<h1><span data-l="es">Atlas de carnavales</span><span data-l="en">Carnival Atlas</span><span data-l="de">Karnevalsatlas</span></h1>
+<div class="at-tag">§ 03</div>
+<h1>Atlas<span style="display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:.36em;letter-spacing:0;line-height:1.2;color:var(--pink-text);margin-top:.3em"><span data-l="es">del carnaval en el mundo</span><span data-l="en">of carnival around the world</span><span data-l="de">des Karnevals weltweit</span></span></h1>
 <p class="at-intro"><span data-l="es">Cincuenta y siete carnavales de África, América, Asia, Europa y Oceanía, agrupados por región cultural. Cada punto lleva a su ficha, con datos clave, reconocimientos y el contenido de Carnavarium relacionado.</span><span data-l="en">Fifty-seven carnivals across Africa, the Americas, Asia, Europe and Oceania, grouped by cultural region. Each point leads to its profile, with key facts, recognitions and related Carnavarium content.</span><span data-l="de">Siebenundfünfzig Karnevale in Afrika, Amerika, Asien, Europa und Ozeanien, nach Kulturregionen gruppiert. Jeder Punkt führt zum Steckbrief mit Eckdaten, Auszeichnungen und verwandten Inhalten auf Carnavarium.</span></p>
 </header>
 <div class="shell">
@@ -169,7 +169,7 @@ function apply(){
 [].forEach.call(document.querySelectorAll(".at-card"),function(a){a.addEventListener("mouseenter",function(){d3.select(map).selectAll(".pt").classed("hl",function(c){return c.slug===a.dataset.s})});a.addEventListener("mouseleave",function(){d3.select(map).selectAll(".pt").classed("hl",false)})});
 fetch("data/countries-110m.json").then(function(r){return r.json()}).then(function(topo){land=topojson.feature(topo,topo.objects.countries);draw()});
 var rt;window.addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(draw,120)});
-var TT={es:"Atlas de carnavales — Carnavarium",en:"Carnival Atlas — Carnavarium",de:"Karnevalsatlas — Carnavarium"};
+var TT={es:"Atlas del carnaval en el mundo — Carnavarium",en:"Atlas of carnival around the world — Carnavarium",de:"Atlas des Karnevals weltweit — Carnavarium"};
 function set(l,save){document.documentElement.setAttribute("data-lang",l);document.documentElement.lang=l;document.title=TT[l];[].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.setAttribute("aria-pressed",b.dataset.set===l?"true":"false")});if(save){try{localStorage.setItem("carnavarium-lang",l)}catch(e){}var u=new URL(location.href);u.searchParams.set("lang",l);history.replaceState(null,"",u)}}
 [].forEach.call(document.querySelectorAll(".lang-sw button"),function(b){b.addEventListener("click",function(){set(b.dataset.set,true)})});
 set(L(),false);

@@ -1461,3 +1461,7 @@ img.ae-ph{position:static!important;inset:auto!important;max-width:none!importan
 /* taller mast without label */
 .rv-mast{grid-template-columns:1fr auto;align-items:center;padding-bottom:10px}
 .rv-vol{padding-bottom:0}
+
+/* Taller: la base de corte cubre toda la sección, como el mar del Atlas o el kraft del Archivo */
+#research.rv{--mat:#f6f1e4;--g1:color-mix(in srgb,var(--ink) 6%,transparent);--g2:color-mix(in srgb,var(--ink) 3%,transparent);background-color:var(--mat);background-image:linear-gradient(var(--g1) 1px,transparent 1px),linear-gradient(90deg,var(--g1) 1px,transparent 1px),linear-gradient(var(--g2) 1px,transparent 1px),linear-gradient(90deg,var(--g2) 1px,transparent 1px);background-size:48px 48px,48px 48px,12px 12px,12px 12px;border-block:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+#research.rv .rv-paper{background:transparent}
