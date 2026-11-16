@@ -251,7 +251,7 @@ function ProjectSection() {
           </div>
           <div className="card">
             <div className="portrait">
-              <img src="images/oscar-aquite.png" alt="Oscar Aquite Peña" />
+              <img loading="lazy" decoding="async" src="images/thumbs/oscar-aquite.webp" alt="Oscar Aquite Peña" />
             </div>
             <div className="name"><a href="author-oscar-aquite.html">Oscar Aquite</a></div>
             <div className="role">{T("Fundador · Humanista digital", "Founder · Digital Humanist", "Gründer · Digital Humanist")}</div>
@@ -406,7 +406,18 @@ const CompassRose = () => (
 );
 
 const SUB = { display: "block", marginTop: 6, fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "clamp(18px, 1.9vw, 25px)", fontWeight: 400, letterSpacing: 0, textTransform: "none", color: "var(--pink-text)", lineHeight: 1.25 };
+/* Miniaturas livianas (WebP) para el inicio: las imágenes originales de 2–3 MB quedan para las páginas propias. */
+const THUMBS = new Set(["aalst", "banner-corpus-samba", "banner-garabato", "banner-macta", "banner-tesis", "barranquilla", "basilea", "bijagos", "binche", "bridgetown", "buenos-aires", "cadiz", "cajamarca", "calabar", "calypso-card", "cayena", "colonia", "cumbia-card", "dunkerque", "el-callao", "encarnacion", "goa", "gualeguaychu", "ivrea", "jacmel", "kandy", "las-palmas", "las-tablas", "limon", "luanda", "lucerna", "mazatenango", "mazatlan", "mindelo", "mohacs", "montevideo", "musica-carnaval", "niza", "notting-hill", "nueva-orleans", "olinda", "oruro", "oscar-aquite", "pasto", "patras", "port-of-spain", "providencia", "ptuj", "puno", "recife", "rijeka", "rio", "riosucio", "rottweil", "salvador", "san-miguel", "sao-luis", "surakarta", "sydney", "tenerife", "tilcara", "venecia", "veracruz", "viareggio", "victoria"]);
+const thumb = p => { const m = p && String(p).match(/^images\/(?:banners\/)?([a-z0-9-]+)\.(?:png|jpg)$/); return m && THUMBS.has(m[1]) ? "images/thumbs/" + m[1] + ".webp" : p; };
 function World() {
+  React.useEffect(() => {
+    const els = [].slice.call(document.querySelectorAll(".world-cell[data-img]"));
+    const show = el => el.style.setProperty("--img", "url(" + el.dataset.img + ")");
+    if (!("IntersectionObserver" in window)) { els.forEach(show); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }), { rootMargin: "300px 900px" });
+    els.forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, []);
   const cells = [
     { slug: "barranquilla", place: "Barranquilla", country: T("Colombia", "Colombia", "Kolumbien"), date: T("6 — 9 feb 2027", "Feb 6 — 9, 2027", "6.–9. Feb. 2027"), color: "var(--coral)" },
     { slug: "venecia", place: T("Venecia", "Venice", "Venedig"), country: T("Italia", "Italy", "Italien"), date: T("23 ene — 9 feb 2027", "Jan 23 — Feb 9, 2027", "23. Jan. – 9. Feb. 2027"), color: "var(--teal)" },
@@ -468,12 +479,12 @@ function World() {
             <div className="wa-scale" aria-hidden="true"><span className="bar"><i></i><i></i><i></i><i></i></span><span className="lab"><b>0</b><b>2500</b><b>5000 km</b></span></div>
           </div>
           <a className="atlas-teaser" href="atlas.html">
-            <span className="at-img"><img src="images/atlas-preview.svg" alt="" /><span className="at-pill">{T("Explorar el Atlas", "Explore the Atlas", "Atlas erkunden")}<i aria-hidden="true">→</i></span></span>
+            <span className="at-img"><img loading="lazy" decoding="async" src="images/atlas-preview.svg" alt="" /><span className="at-pill">{T("Explorar el Atlas", "Explore the Atlas", "Atlas erkunden")}<i aria-hidden="true">→</i></span></span>
             <span className="at-txt"><span className="at-k">{T("57 carnavales · 10 regiones culturales", "57 carnivals · 10 cultural regions", "57 Karnevale · 10 Kulturregionen")}</span></span>
           </a>
           <WorldCarousel>
             {all.map((c, i) => (
-              <a className={"world-cell" + (c.banner ? " has-img" : "")} key={c.slug} href={"carnival.html?c=" + c.slug} style={{ "--c": c.color, "--img": c.banner ? "url(" + c.banner + ")" : "none" }}>
+              <a className={"world-cell" + (c.banner ? " has-img" : "")} key={c.slug} href={"carnival.html?c=" + c.slug} data-img={c.banner ? thumb(c.banner) : undefined} style={{ "--c": c.color, "--img": "none" }}>
                 <span className="wc-bg" aria-hidden="true"></span>
                 <span className="swatch" style={{ background: c.color }}></span>
                 <div>
@@ -524,7 +535,7 @@ function Archive() {
     { id: "AR-1302", title: T("Danza de las marimondas", "Danza de las marimondas", "Danza de las marimondas"), author: "José Palacio (JIPS)", year: "2019", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-danza-de-las-marimondas.jpg" },
     { id: "AR-1306", title: T("Batalla de Flores 2.0", "Batalla de Flores 2.0", "Batalla de Flores 2.0"), author: "José Palacio (JIPS)", year: "2018", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-batalla-de-flores-2-0.jpg" },
     { id: "AR-1307", title: T("Noche de verbena en la Popular", "Noche de verbena en la Popular", "Noche de verbena en la Popular"), author: "José Palacio (JIPS)", year: "2018", origin: "Barranquilla, CO", type: "Illustrations", img: "images/archivo/jips-noche-de-verbena-en-la-popular.jpg" },
-    { id: "AR-1301", title: T("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"), author: "Javier Jara", year: "2017", origin: "Bogotá, CO", type: "Illustrations", img: "images/musica-carnaval.jpg" },
+    { id: "AR-1301", title: T("Música en la calle — Carnaval de Barranquilla", "Street music — Barranquilla Carnival", "Straßenmusik — Karneval von Barranquilla"), author: "Javier Jara", year: "2017", origin: "Bogotá, CO", type: "Illustrations", img: "images/thumbs/musica-carnaval.webp" },
   ];
   const filters = Object.keys(ARCHIVE_TYPES).filter(f => f === "All" || items.some(i => i.type === f));
   const visible = filter === "All" ? items : items.filter(i => i.type === filter);
@@ -606,7 +617,7 @@ function Timeline() {
 
 const FEATURES = {
   barranquilla: {
-    href: "essay-carnival-music.html", img: "images/musica-carnaval.jpg", alt: "Música durante el Carnaval de Barranquilla",
+    href: "essay-carnival-music.html", img: "images/thumbs/musica-carnaval.webp", alt: "Música durante el Carnaval de Barranquilla",
     kicker: T("Destacado · Lectura larga · ES · EN · DE", "Feature · Long Read · ES · EN · DE", "Feature · Longread · ES · EN · DE"),
     title: T("La música del Carnaval de Barranquilla: patrimonio vivo", "The Music of the Barranquilla Carnival: A Living Heritage", "Die Musik des Karnevals von Barranquilla: lebendiges Erbe"),
     deck: T(
@@ -617,14 +628,14 @@ const FEATURES = {
     byline: T("Por Oscar Aquite · 13 min de lectura", "By Oscar Aquite · 13 min read", "Von Oscar Aquite · 13 Min. Lesezeit"),
   },
   garabato: {
-    href: "essay-garabato.html", img: "images/banner-garabato.png", alt: "Carnaval de Barranquilla",
+    href: "essay-garabato.html", img: "images/thumbs/banner-garabato.webp", alt: "Carnaval de Barranquilla",
     kicker: T("Ensayo · Barranquilla · Texto en inglés", "Essay · Barranquilla · English", "Essay · Barranquilla · Englisch"),
     title: T("¿Realeza venida a menos? Música, dinámicas de clase y moral en el Carnaval de Barranquilla", "Royalty downgrade? Music, class dynamics, and morality in the Carnival of Barranquilla", "Königlicher Abstieg? Musik, Klassendynamik und Moral im Karneval von Barranquilla"),
     deck: T("Cómo una danza de origen esclavo llegó a encabezar uno de los desfiles de la élite barranquillera. Estratos, gusto y violencia simbólica en el carnaval.", "How a dance of enslaved origin came to lead one of the parades of Barranquilla’s elite. Estratos, taste and symbolic violence in carnival.", "Wie ein Tanz versklavter Herkunft an die Spitze eines Umzugs der Elite Barranquillas gelangte. Estratos, Geschmack und symbolische Gewalt im Karneval."),
     byline: T("Por Oscar Aquite · 24 min de lectura", "By Oscar Aquite · 24 min read", "Von Oscar Aquite · 24 Min. Lesezeit"),
   },
   macta: {
-    href: "essay-macta.html", img: "images/banner-macta.png", alt: "Carnaval de Barranquilla",
+    href: "essay-macta.html", img: "images/thumbs/banner-macta.webp", alt: "Carnaval de Barranquilla",
     kicker: T("Ensayo · Barranquilla · ES · EN · DE", "Essay · Barranquilla · ES · EN · DE", "Essay · Barranquilla · ES · EN · DE"),
     title: T(<><em>Llegó Macta</em>: música, comunidad y redes sociales en el Carnaval de Barranquilla</>, <><em>Macta arrived</em>: Music, community, and social media in Barranquilla’s Carnival</>, <><em>Macta ist da</em>: Musik, Gemeinschaft und soziale Medien im Karneval von Barranquilla</>),
     deck: T(
@@ -635,7 +646,7 @@ const FEATURES = {
     byline: T("Por Oscar Aquite · 26 min de lectura", "By Oscar Aquite · 26 min read", "Von Oscar Aquite · 26 Min. Lesezeit"),
   },
   samba: {
-    href: "samba-enredo-corpus.html", img: "images/banner-corpus-samba.png", alt: "Carnaval de Río de Janeiro",
+    href: "samba-enredo-corpus.html", img: "images/thumbs/banner-corpus-samba.webp", alt: "Carnaval de Río de Janeiro",
     kicker: T("Dataset · Metadatos abiertos · ES · EN · DE", "Dataset · Open metadata · ES · EN · DE", "Datensatz · Offene Metadaten · ES · EN · DE"),
     title: T("Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)", "Samba-Enredo Corpus (CSEC)"),
     deck: T(
@@ -646,7 +657,7 @@ const FEATURES = {
     byline: T("Por Oscar Aquite · Universität Regensburg", "By Oscar Aquite · Universität Regensburg", "Von Oscar Aquite · Universität Regensburg"),
   },
   calypso: {
-    href: "special-calypso.html", img: "images/calypso-card.png", alt: "Especial Calipso — Trinidad y Tobago",
+    href: "special-calypso.html", img: "images/thumbs/calypso-card.webp", alt: "Especial Calipso — Trinidad y Tobago",
     kicker: T("Especial · Digital · ES · EN · DE", "Special · Digital · ES · EN · DE", "Spezial · Digital · ES · EN · DE"),
     title: T("Calipso: la voz del carnaval de Trinidad y Tobago", "Calypso: the voice of Trinidad and Tobago's carnival", "Calypso: die Stimme des Karnevals von Trinidad und Tobago"),
     deck: T(
@@ -680,11 +691,11 @@ function Research() {
   const [cat, setCat] = useState("All");
   const [hover, setHover] = useState(null);
   const list = [
-    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "samba-enredo-corpus.html", feat: "samba", lines: ["corpus", "music", "data"] },
-    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "special-calypso.html", feat: "calypso", lines: ["music", "atlas"] },
-    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-carnival-music.html", feat: "barranquilla", lines: ["music"] },
-    { date: "2022-03-22", cat: "Articles", kicker: T("Ensayo · ES · EN · DE", "Essay · ES · EN · DE", "Essay · ES · EN · DE"), title: FEATURES.macta.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-macta.html", feat: "macta", lines: ["music"] },
-    { date: "2022-02-24", cat: "Articles", kicker: T("Ensayo · Texto en inglés", "Essay · English", "Essay · Englisch"), title: FEATURES.garabato.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" src="images/oscar-aquite.png" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-garabato.html", feat: "garabato", lines: ["music"] },
+    { date: "2026-10-19", cat: "Datasets", kicker: T("Dataset · En construcción", "Dataset · In progress", "Datensatz · Im Aufbau"), title: FEATURES.samba.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" loading="lazy" src="images/thumbs/oscar-aquite.webp" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "samba-enredo-corpus.html", feat: "samba", lines: ["corpus", "music", "data"] },
+    { date: "2026-10-15", cat: "Specials", kicker: T("Especial · ES · EN · DE", "Special · ES · EN · DE", "Spezial · ES · EN · DE"), title: FEATURES.calypso.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" loading="lazy" src="images/thumbs/oscar-aquite.webp" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "special-calypso.html", feat: "calypso", lines: ["music", "atlas"] },
+    { date: "2026-06-01", cat: "Articles", kicker: T("Artículo · ES · EN · DE", "Article · ES · EN · DE", "Artikel · ES · EN · DE"), title: FEATURES.barranquilla.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" loading="lazy" src="images/thumbs/oscar-aquite.webp" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-carnival-music.html", feat: "barranquilla", lines: ["music"] },
+    { date: "2022-03-22", cat: "Articles", kicker: T("Ensayo · ES · EN · DE", "Essay · ES · EN · DE", "Essay · ES · EN · DE"), title: FEATURES.macta.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" loading="lazy" src="images/thumbs/oscar-aquite.webp" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-macta.html", feat: "macta", lines: ["music"] },
+    { date: "2022-02-24", cat: "Articles", kicker: T("Ensayo · Texto en inglés", "Essay · English", "Essay · Englisch"), title: FEATURES.garabato.title, byline: <><a className="au" href="author-oscar-aquite.html"><img className="av" loading="lazy" src="images/thumbs/oscar-aquite.webp" alt="" aria-hidden="true" />Oscar Aquite</a></>, href: "essay-garabato.html", feat: "garabato", lines: ["music"] },
   ];
   const cats = Object.keys(RESEARCH_CATS).filter(c => c === "All" || list.some(a => a.cat === c));
   // newest first; the newest item with a feature card is the default featured one
@@ -715,9 +726,9 @@ function Research() {
   const proj = xy => [((xy[0] + 180) / 360) * 300, ((90 - xy[1]) / 180) * 150];
   /* Una sola publicación organizada por líneas de investigación: cada línea reúne sus textos y sus datos (figuras) */
   const TX = {
-    cumbia: { href: "special-cumbia.html", img: "images/cumbia-card.png", year: "2026", k: T("Especial", "Special", "Spezial"), title: T("Ruta de la cumbia", "The cumbia route", "Die Route der Cumbia"),
+    cumbia: { href: "special-cumbia.html", img: "images/thumbs/cumbia-card.webp", year: "2026", k: T("Especial", "Special", "Spezial"), title: T("Ruta de la cumbia", "The cumbia route", "Die Route der Cumbia"),
       deck: T("Los imaginarios de la cumbia y la comparsa La Puntica No Ma’, en cinco capítulos.", "The imaginaries of cumbia and the comparsa La Puntica No Ma’, in five chapters.", "Die Vorstellungen der Cumbia und die Comparsa La Puntica No Ma’ in fünf Kapiteln.") },
-    tesis: { href: "thesis-la-puntica.html", img: "images/banner-tesis.png", year: "2024", k: T("Tesis de maestría", "Master’s thesis", "Masterarbeit"), title: T(<><em>Between millo and picó</em>: la música como enmascaramiento en La Puntica No Ma’</>, <><em>Between millo and picó</em>: music as discursive masking in La Puntica No Ma’</>, <><em>Between millo and picó</em>: Musik als diskursive Maskierung in La Puntica No Ma’</>),
+    tesis: { href: "thesis-la-puntica.html", img: "images/thumbs/banner-tesis.webp", year: "2024", k: T("Tesis de maestría", "Master’s thesis", "Masterarbeit"), title: T(<><em>Between millo and picó</em>: la música como enmascaramiento en La Puntica No Ma’</>, <><em>Between millo and picó</em>: music as discursive masking in La Puntica No Ma’</>, <><em>Between millo and picó</em>: Musik als diskursive Maskierung in La Puntica No Ma’</>),
       deck: T("Cómo la comparsa La Puntica No Ma’ usa el millo y el picó para enmascarar y decir en el Carnaval de Barranquilla.", "How the comparsa La Puntica No Ma’ uses millo and picó to mask and to speak in the Barranquilla Carnival.", "Wie die Comparsa La Puntica No Ma’ Millo und Picó nutzt, um im Karneval von Barranquilla zu maskieren und zu sprechen.") },
     macta: { href: FEATURES.macta.href, img: FEATURES.macta.img, year: "2022", k: T("Ensayo", "Essay", "Essay"), title: FEATURES.macta.title, deck: FEATURES.macta.deck },
     garabato: { href: FEATURES.garabato.href, img: FEATURES.garabato.img, year: "2022", k: T("Ensayo", "Essay", "Essay"), title: FEATURES.garabato.title, deck: FEATURES.garabato.deck },
